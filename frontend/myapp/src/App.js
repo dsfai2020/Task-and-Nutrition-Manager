@@ -13,7 +13,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",
-      url:"http://127.0.0.1:5000/profile",
+      url:"https://shopsite.herokuapp.com/",
     })
     .then((response) => {
       const res =response.data
