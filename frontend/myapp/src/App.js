@@ -13,7 +13,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",
-      url:"https://shopsite.herokuapp.com/",
+      url:"https://shopsite.herokuapp.com/profile",
     })
     .then((response) => {
       const res =response.data
