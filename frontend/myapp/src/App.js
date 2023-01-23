@@ -3,6 +3,9 @@ import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
 
+//"https://shopsite.herokuapp.com/profile" Production backend link to Python
+//"http://127.0.0.1:5000" Development backend link to Python
+
 function App() {
 
    // new line start
