@@ -7,6 +7,7 @@ app=Flask(__name__)
 CORS(app, resources={r"/profile": {"origins": "https://prod.d2ex35j7wbbaej.amplifyapp.com"}})
 
 
+
 @app.route('/')
 def index():
     return {"Hello": "Full Stack Developer!"}
