@@ -18,7 +18,6 @@ const MyHook = () => {
 
     return (
         <div>
-        <h1>TEST</h1>
         <p> You've been here for {count} Seconds!</p>
         </div>
         );

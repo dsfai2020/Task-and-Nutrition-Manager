@@ -36,14 +36,14 @@ const NewPage =() => {
             <div>
             <p>You clicked {count} times</p>
             <button onClick={()=>setCount(count+1)}>Click</button>
-            <p>This is the core --{test[0].core}</p>
+            {/*<p>This is the core --{test[0].core}</p>*/}
 
             {/*bug w dict n lists below. possible use class for multistate logic n hooks for iso state logic*/}
             {/*<button onClick={()=>setTest([0])(test[0].core+1)}>Click</button>*/}
             </div>)
     };
 
-    function ToDo(){
+    function DeveloperPlan(){
         return(
             <div>
             <ul><strong>FRONT END</strong>
@@ -71,7 +71,6 @@ const NewPage =() => {
     function ConditionalRenderExample(){
         return (
         <div style={null}>
-            <p>Example of Triggers and single variables</p>
             {/*This is the equivalent of an if statement.  (condition) followed by ? and :*/}
             {(count>=5)
                 ?<h1>You've Successfully counted at least 5 Times!</h1>
@@ -80,16 +79,50 @@ const NewPage =() => {
         </div>)
     };
 
+    function RecentlyReviewed(){
+        return (
+            <div>
+            <ul><strong>SCHEDULE</strong>
+                <li>Monday -- Backend</li>
+                <li>Tuesday -- Backend</li>
+                <li>Wednesday -- Frontend</li>
+                <li>Thursday -- Frontend</li>
+                <li>Friday -- Frontend</li>
+                <li>Saturday -- Deployment - Flask Cors - Heroku - AWS - Machine Learning</li>
+                <li>Sunday -- Reflect</li>
+            </ul>
+
+            <ul><strong>TALENT TREE</strong>
+            <li>TIMES DEPLOYED: {null}</li>
+            <li>BACKEND UPDATES: {null}</li>
+            <li>FRONTEND UPDATES: {null}</li>
+            </ul>
+            </div>
+            )
+    };
+
+    function WorkoutRoutine(){
+        return(
+            <div>
+            <ul>Workout Program</ul>
+                <ul>Chest, Back, Shoulders, Core, Legs, Hams, Calves, Forearms, Arms
+                </ul>
+            </div>)
+
+    };
+
 
     // The NewPages main render is this section below but we can plug in many renders from functions the same way that the index file works.  
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
     return (
         <div>
-        <p>THIS IS THE NEW PAGE</p>
+        <p>Welcome to the page!</p>
+        {WorkoutRoutine()}
         {/*Don't forget the ()*/}
         {SampleFunctionRender()}
-        {ToDo()}
+        {DeveloperPlan()}
         {ConditionalRenderExample()}
+        {RecentlyReviewed()}
         </div>
         )
 }
