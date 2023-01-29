@@ -2,6 +2,11 @@ import React, {useEffect, useState} from "react"
 import ReactDOM from "react-dom"
 import axios from "axios";
 
+// Make sure the proper import for css is here.
+import './Workouts.css';
+
+
+
 // State based OOP
 
 // this is how to make a basic arrow function with many mansions in it.  The arrow function will be the main function we export.
@@ -22,7 +27,6 @@ const NewPage =() => {
     
     // This is easy to handle because the state is just 1 variable linked to 1 value.  count - 0.  You use the setCount to edit it (though your not actually editing it itself but some stuff behind the scenes generates a clone of some sort)
     const [count, setCount]=useState(0)
-
 
     // doesn't work.  Do I need to use effects?? -- no.  you need to use the setter variable #2
     // const Updater=()=>{
@@ -104,9 +108,17 @@ const NewPage =() => {
     function WorkoutRoutine(){
         return(
             <div>
-            <ul>Workout Program</ul>
-                <ul>Chest, Back, Shoulders, Core, Legs, Hams, Calves, Forearms, Arms
-                </ul>
+            <div class="grid-container">
+            <div class="grid-item">Chest</div>
+            <div class="grid-item">Back</div>
+            <div class="grid-item">Quads</div>
+            <div class="grid-item">Hamstrings</div>
+            <div class="grid-item">Shoulders</div>
+            <div class="grid-item">Biceps</div>
+            <div class="grid-item">Triceps</div>
+            <div class="grid-item">Forearms</div>
+            <div class="grid-item">Calves</div>
+            </div>
             </div>)
 
     };
@@ -115,7 +127,7 @@ const NewPage =() => {
     // The NewPages main render is this section below but we can plug in many renders from functions the same way that the index file works.  
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
     return (
-        <div>
+        <div> 
         <p>Welcome to the page!</p>
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}

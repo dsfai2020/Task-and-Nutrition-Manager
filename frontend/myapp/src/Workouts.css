@@ -1,0 +1,12 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+}
+
+.grid-item{
+    text-align: center;
+    font-weight: bold;
+    color: #2980B9;
+    background-color: #D6EAF8;
+    margin: 2px;
+}
