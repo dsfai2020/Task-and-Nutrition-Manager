@@ -28,6 +28,8 @@ const NewPage =() => {
     // This is easy to handle because the state is just 1 variable linked to 1 value.  count - 0.  You use the setCount to edit it (though your not actually editing it itself but some stuff behind the scenes generates a clone of some sort)
     const [count, setCount]=useState(0)
 
+    const [carbs, setCarbs]=useState(0)
+
     // doesn't work.  Do I need to use effects?? -- no.  you need to use the setter variable #2
     // const Updater=()=>{
     //     test[0].studio+=1
@@ -45,6 +47,21 @@ const NewPage =() => {
             {/*bug w dict n lists below. possible use class for multistate logic n hooks for iso state logic*/}
             {/*<button onClick={()=>setTest([0])(test[0].core+1)}>Click</button>*/}
             </div>)
+    };
+
+
+    function MyTestButton(){
+        return(
+            <div>
+            <p>There are this many calories in your carbs -- {carbs*4}</p>
+            <p>You ate this many carbs -- {carbs}</p>
+            {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
+            <button onClick={()=>setCarbs(carbs+1)}>Click to Add 1 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+5)}>Click to Add 5 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+10)}>Click to Add 10 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+20)}>Click to Add 20 G of Carb</button>
+            </div>
+            )
     };
 
     function DeveloperPlan(){
@@ -132,6 +149,7 @@ const NewPage =() => {
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}
         {SampleFunctionRender()}
+        {MyTestButton()}
         {DeveloperPlan()}
         {ConditionalRenderExample()}
         {RecentlyReviewed()}
