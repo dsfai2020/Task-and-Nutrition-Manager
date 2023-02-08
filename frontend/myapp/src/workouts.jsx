@@ -30,10 +30,66 @@ const NewPage =() => {
 
     const [carbs, setCarbs]=useState(0)
 
+    const [calorieLimit, setCalorieLimit]=useState(3000)
+
+    
+
     // doesn't work.  Do I need to use effects?? -- no.  you need to use the setter variable #2
     // const Updater=()=>{
     //     test[0].studio+=1
     // };
+
+
+    // backticks and dollarsign for f string like variables.
+    function Example(){
+        // const [message, setMessage]=useState('');
+        const [weight, setWeight]=useState('');
+        const [leanBodyMass, setLeanBodyMass]=useState('');
+        const [bodyFat, setBodyFat]=useState('');
+
+        // GOLDEN.  The event variable is passsed into this function by default using the onChange tool command.
+        const handleChange = (event)=>{
+            // Get input from event
+            setWeight(event.target.value)
+    };  
+        const handleChangeBodyFat = (event)=>{
+            // Get input from event
+            setBodyFat(event.target.value)
+    };
+        return(
+            <div>
+            <p><strong>WEIGHT: </strong>{weight} lbs</p>
+            <p><strong>BODY FAT: </strong>{bodyFat+'%'} lbs</p>
+            <p><strong>LBM: </strong>{weight-bodyFat}</p>
+
+            {/*Prepend a string with +before it to make it an INT*/}
+            {/*.toFixed is a float and you put the places in the parenthesis*/}
+            <p><strong>RESTING METABOLIC RATE:</strong> {(+weight/2.205*30.4).toFixed(0)} Calories</p>
+            
+            {/*I want the value in the input to update the value of the state.*/}
+            <input
+            id='weight'
+            type="text"
+            name='weight' 
+            placeholder="Enter Weight"
+            onChange={handleChange}
+            />
+
+            <input
+            id='bodyFat'
+            type="text"
+            name='bodyFat' 
+            placeholder="Enter Body Fat %"
+            onChange={handleChangeBodyFat}
+            />
+
+            <p>Your Resting Metabolic Rate determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
+
+            </div>)
+
+    };   
+
+
 
     // GOOD EXAMPLE
     // You can reference this in the NewPage render using Sample() but make sure that the main render has a div.
@@ -53,6 +109,7 @@ const NewPage =() => {
     function MyTestButton(){
         return(
             <div>
+            <p>You have this many Calories Remaining: <strong>{calorieLimit-carbs*4}</strong></p>
             <p>There are this many calories in your carbs -- {carbs*4}</p>
             <p>You ate this many carbs -- {carbs}</p>
             {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
@@ -60,6 +117,8 @@ const NewPage =() => {
             <button onClick={()=>setCarbs(carbs+5)}>Click to Add 5 G of Carb</button>
             <button onClick={()=>setCarbs(carbs+10)}>Click to Add 10 G of Carb</button>
             <button onClick={()=>setCarbs(carbs+20)}>Click to Add 20 G of Carb</button>
+            <br></br>
+            <button onClick={()=>setCarbs(0)}>Click to Reset Carbs</button>
             </div>
             )
     };
@@ -146,6 +205,7 @@ const NewPage =() => {
     return (
         <div> 
         <p>Welcome to the page!</p>
+        {Example()}
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}
         {SampleFunctionRender()}
