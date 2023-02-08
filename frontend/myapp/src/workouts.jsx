@@ -55,11 +55,12 @@ const NewPage =() => {
         const handleChangeBodyFat = (event)=>{
             // Get input from event
             setBodyFat(event.target.value)
-    };
+    };  
         return(
             <div>
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
-            <p><strong>BODY FAT: </strong>{bodyFat+'%'} lbs</p>
+            <p><strong>BODY FAT: </strong>{bodyFat+'%'}</p>
+            <p><strong>BODY FAT in LBS: </strong>{(bodyFat/100).toFixed(2)*weight}</p>
             <p><strong>LBM: </strong>{weight-bodyFat}</p>
 
             {/*Prepend a string with +before it to make it an INT*/}
@@ -83,8 +84,8 @@ const NewPage =() => {
             onChange={handleChangeBodyFat}
             />
 
-            <p>Your Resting Metabolic Rate determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
-
+            <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
+            <p>The RMR is calculated using (your bodyweight divided by 2.205 then multiplied by 30.4) based on a Body Building Formula Referenced by Arnold Schwarzenegger.</p>
             </div>)
 
     };   
