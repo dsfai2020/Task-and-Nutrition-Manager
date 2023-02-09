@@ -2,6 +2,14 @@ import React, {useEffect, useState} from "react"
 import ReactDOM from "react-dom"
 import axios from "axios";
 
+// This imports only what we need and not the entire lib.
+import Button from 'react-bootstrap/Button';
+import Toast from 'react-bootstrap/Toast';
+
+
+// This path for bootstrap is in the npm destination with is node-modules depending on where you installed it.  I put it in the app of front end.
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Make sure the proper import for css is here.
 import './Workouts.css';
 
@@ -32,18 +40,27 @@ const NewPage =() => {
 
     const [calorieLimit, setCalorieLimit]=useState(3000)
 
-    
-
-    // doesn't work.  Do I need to use effects?? -- no.  you need to use the setter variable #2
-    // const Updater=()=>{
-    //     test[0].studio+=1
-    // };
-
+   
+    function BootStrapToast() {
+        return (
+            <div>
+            <Toast>
+              <Toast.Header>
+                <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                <strong className="me-auto">Site-Admin: David</strong>
+                <small>{count} mins ago</small>
+              </Toast.Header>
+              <Toast.Body>Today is a great day to train.  The page is still under construction but will improve over time!</Toast.Body>
+            </Toast>
+            </div>
+    )
+    };
 
     // backticks and dollarsign for f string like variables.
     function Example(){
         // const [message, setMessage]=useState('');
         const [weight, setWeight]=useState('');
+
         const [leanBodyMass, setLeanBodyMass]=useState('');
         const [bodyFat, setBodyFat]=useState('');
 
@@ -58,15 +75,33 @@ const NewPage =() => {
     };  
         return(
             <div>
+
+            <div>
+            <Toast>
+            <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            <strong className="me-auto">Site-Admin: David</strong>
+            <small>15 mins ago</small>
+            </Toast.Header>
+            <Toast.Body>Feel free to make use of the fitness calculator below.</Toast.Body>
+            </Toast>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
+
+
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
-            <p><strong>BODY FAT: </strong>{bodyFat+'%'}</p>
-            <p><strong>BODY FAT in LBS: </strong>{(bodyFat/100).toFixed(2)*weight}</p>
-            <p><strong>LBM: </strong>{weight-bodyFat}</p>
+            <p><strong>BODY FAT PERCENTAGE: </strong>{bodyFat+'%'}</p>
+            <p><strong>BODY FAT: </strong>{((bodyFat/100).toFixed(2)*weight).toFixed(2)} lbs</p>
+            <p><strong>LEAN BODY MASS: </strong>{(weight-(bodyFat/100).toFixed(2)*weight).toFixed(2)} lbs</p>
 
             {/*Prepend a string with +before it to make it an INT*/}
             {/*.toFixed is a float and you put the places in the parenthesis*/}
             <p><strong>RESTING METABOLIC RATE:</strong> {(+weight/2.205*30.4).toFixed(0)} Calories</p>
             
+            <Button>Weight/BodyFat</Button>
+
             {/*I want the value in the input to update the value of the state.*/}
             <input
             id='weight'
@@ -98,7 +133,7 @@ const NewPage =() => {
         return(
             <div>
             <p>You clicked {count} times</p>
-            <button onClick={()=>setCount(count+1)}>Click</button>
+            <Button onClick={()=>setCount(count+1)}>Click</Button>
             {/*<p>This is the core --{test[0].core}</p>*/}
 
             {/*bug w dict n lists below. possible use class for multistate logic n hooks for iso state logic*/}
@@ -114,12 +149,12 @@ const NewPage =() => {
             <p>There are this many calories in your carbs -- {carbs*4}</p>
             <p>You ate this many carbs -- {carbs}</p>
             {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
-            <button onClick={()=>setCarbs(carbs+1)}>Click to Add 1 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+5)}>Click to Add 5 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+10)}>Click to Add 10 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+20)}>Click to Add 20 G of Carb</button>
+            <Button onClick={()=>setCarbs(carbs+1)}>Add 1 G of Carb</Button>
+            <Button onClick={()=>setCarbs(carbs+5)}>Add 5 G of Carb</Button>
+            <Button onClick={()=>setCarbs(carbs+10)}>Add 10 G of Carb</Button>
+            <Button onClick={()=>setCarbs(carbs+20)}>Add 20 G of Carb</Button>
             <br></br>
-            <button onClick={()=>setCarbs(0)}>Click to Reset Carbs</button>
+            <Button onClick={()=>setCarbs(0)}>Click to Reset Carbs</Button>
             </div>
             )
     };
@@ -204,8 +239,10 @@ const NewPage =() => {
     // The NewPages main render is this section below but we can plug in many renders from functions the same way that the index file works.  
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
     return (
-        <div> 
-        <p>Welcome to the page!</p>
+        <div>
+        <h2>Welcome to the Page!</h2>
+        <br></br>
+        {BootStrapToast()}
         {Example()}
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}

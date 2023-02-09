@@ -3,6 +3,9 @@ import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
 
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //"https://shopsite.herokuapp.com/profile" Production backend link to Python
 //"http://127.0.0.1:5000" Development backend link to Python
 
@@ -54,20 +57,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
 
         {/* new line start*/}
-        <p>To get your profile details: </p><button onClick={getData}>Click me</button>
+        <p>Sign in (coming soon): </p><Button onClick={getData}>Sign In</Button>
         {profileData && <div>
               <p>Profile name: {profileData.profile_name}</p>
               <p>About me: {profileData.about_me}</p>
@@ -75,15 +67,15 @@ function App() {
         }
          {/* end of new line */}
 
-        <div class="third_party_app">
+      {/*  <div class="third_party_app">
         <p>Just testing the display</p>
-        <button onClick={getThirdPartyData}>Get Third Party Data</button>
+        <Button onClick={getThirdPartyData}>Get Third Party Data</Button>
         {thirdPartyData && <div>
               <p>Third Party Status: {thirdPartyData.third_party_status}</p>
               <p>Third Party Events: {thirdPartyData.third_party_events}</p>
               </div>
         }
-         </div>
+         </div>*/}
 
       </header>
     </div>
