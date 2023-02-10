@@ -16,6 +16,8 @@ function App() {
 
   const [thirdPartyData, setThirdPartyData] = useState(null)
 
+  const [workoutProfile, setWorkoutProfile] = useState(null)
+
   function getData() {
     axios({
       method: "GET",
@@ -51,7 +53,27 @@ function App() {
           console.log(error.response.status)
           console.log(error.response.headers)
         }
-      })}
+      })};
+
+
+    // This is how to do an Axios POST.  Notice the route first, then the dictionary body.  Also pay attention to the routes during testing.  You may have to swap it out for your local routes.
+    function signIn() {
+      axios.post('https://shopsite.herokuapp.com/dbPost', {
+        name: 'David'
+      })
+      .then((response) => {
+        const res =response.data
+        setWorkoutProfile(({
+          workout_profile_name: res.name,
+          workout_profile_exp: res.exp,
+          workout_profile_lvl: res.lvl}))
+      }).catch((error) => {
+        if (error.response) {
+          console.log(error.response)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+        }
+      })};
 
   return (
     <div className="App">
@@ -66,6 +88,14 @@ function App() {
             </div>
         }
          {/* end of new line */}
+
+        <p>Sign in Live: </p><Button onClick={signIn}>Sign in Live</Button>
+        {workoutProfile && <div>
+              <p>Name: {workoutProfile.workout_profile_name}</p>
+              <p>Exp: {workoutProfile.workout_profile_exp}</p>
+              <p>Lvl: {workoutProfile.workout_profile_lvl}</p>
+            </div>
+        }
 
       {/*  <div class="third_party_app">
         <p>Just testing the display</p>
