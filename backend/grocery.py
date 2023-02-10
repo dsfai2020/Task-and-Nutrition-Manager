@@ -7,8 +7,8 @@ from flask_cors import CORS
 from flask import request
 
 app=Flask(__name__)
-# Don't forget that the : after /profile is key.
-CORS(app, resources={r"/profile": {"origins": "http://localhost:3000"}})
+# Don't forget that the : after /profile is key.  route is the key followed by dictionary of origins and the source your wanting to allow access to.
+CORS(app, resources={r"/profile": {"origins": "http://localhost:3000"}, r"/dbPost": {"origins": "http://localhost:3000"}})
 
 
 @app.route('/')
@@ -48,16 +48,20 @@ def database_table_fitness():
     }
     return response_body
 
-
+# Perfect
 @app.route('/dbPost', methods=['POST'])
 def db_post():
     # json should be as is not callable.  Without the () is correct.
     posted_data_received=request.json
-    if posted_data_received['name']=="david":
+    if posted_data_received['name']=="David":
         print('Hello David!')
+        print(f'Posted data received: {posted_data_received}')
         response_body={
-        'status': 'successfully posted'
+        'name': 'David',
+        'exp': '1',
+        'lvl': '1',
         }
+        print(f'Response data going out: {response_body}')
         return response_body
     else:
         pass

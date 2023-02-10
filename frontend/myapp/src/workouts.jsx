@@ -102,6 +102,8 @@ const NewPage =() => {
             
             <Button>Weight/BodyFat</Button>
 
+            <br></br>
+
             {/*I want the value in the input to update the value of the state.*/}
             <input
             id='weight'
@@ -110,6 +112,8 @@ const NewPage =() => {
             placeholder="Enter Weight"
             onChange={handleChange}
             />
+            
+            <br></br>
 
             <input
             id='bodyFat'
@@ -230,6 +234,9 @@ const NewPage =() => {
             <div class="grid-item">Triceps</div>
             <div class="grid-item">Forearms</div>
             <div class="grid-item">Calves</div>
+            <div class="grid-item">Core</div>
+            <div class="grid-item">Cardio</div>
+            <div class="grid-item">Rest</div>
             </div>
             </div>)
 

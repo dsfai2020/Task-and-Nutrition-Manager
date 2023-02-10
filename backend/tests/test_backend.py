@@ -27,6 +27,6 @@ def test_fitness_table():
 #Example of sending parameters through body
 def test_db_post_data_send_to_server():
     url='http://127.0.0.1:5000/dbPost'
-    myobject={'name': 'david'}
+    myobject={'name': 'David'}
     x=requests.post(url, json=myobject)
-    assert x.json()['status']=='successfully posted', 'Make sure to double check if the json objects are properly formatted on both the client and server sides'
+    assert x.json()['name']=='David', 'Make sure to double check if the json objects are properly formatted on both the client and server sides'
