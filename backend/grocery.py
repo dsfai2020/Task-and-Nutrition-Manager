@@ -3,7 +3,11 @@
 from flask import Flask
 from flask_cors import CORS
 
+# for receiving payloads
+from flask import request
+
 app=Flask(__name__)
+# Don't forget that the : after /profile is key.
 CORS(app, resources={r"/profile": {"origins": "http://localhost:3000"}})
 
 
@@ -25,3 +29,35 @@ def sample():
     'Test': 'Success'}
 
     return response_body
+
+@app.route('/db')
+def database_portal():
+    response_body={
+    "result": 200
+    }
+    return response_body
+
+# creating modular wire of access to specific table so that you can talk to it w url requests. 
+@app.route('/db/fitness', methods=['POST'])
+def database_table_fitness():
+    # dictionary body received via post (post means SENDING data) other creds determine if you'll write.
+    payload=request.args
+    print(payload)
+    response_body={
+    "status": "success"
+    }
+    return response_body
+
+
+@app.route('/dbPost', methods=['POST'])
+def db_post():
+    # json should be as is not callable.  Without the () is correct.
+    posted_data_received=request.json
+    if posted_data_received['name']=="david":
+        print('Hello David!')
+        response_body={
+        'status': 'successfully posted'
+        }
+        return response_body
+    else:
+        pass
