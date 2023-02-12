@@ -61,17 +61,25 @@ const NewPage =() => {
         // const [message, setMessage]=useState('');
         const [weight, setWeight]=useState('');
 
-        const [leanBodyMass, setLeanBodyMass]=useState('');
-        const [bodyFat, setBodyFat]=useState('');
+        const [bodyFatPercent, setBodyFatPercent]=useState('');
+
 
         // GOLDEN.  The event variable is passsed into this function by default using the onChange tool command.
-        const handleChange = (event)=>{
+        const handleWeightChange = (event)=>{
             // Get input from event
             setWeight(event.target.value)
+            
     };  
-        const handleChangeBodyFat = (event)=>{
-            // Get input from event
-            setBodyFat(event.target.value)
+        // ABSTRACTION is difficult so I decided to use 1 variable in the function.
+        // I also noticed that doing things at the render layer helps keep loops clear.  Sometimes triggers are limited if everything is abstracted into the functions.  I press a button and 1 effect happens.  I press the other and nothing because it doesn't have all the effects in it.  So keeping the effects at the RENDER layer where the page is helps.  I just need to wire in more JAVASCRIPT now.
+        // Make sure to just keep the fields bound to the button.
+        const handleChangeBodyFatPercent = (event)=>{
+            // Get input from event.  THE FIELD has the ACTUAL value.  Not the formula.  To get the % of a number we divide the event from the input by 100. For example 10 Turns into .10  Be careful with rendering events or else you'll always be 1 snapshot behind on the renders.  USE event if connecting to variable changing within this function.  Otherwise you can reference it directly.  Weight works here but everything else would be off.
+            setBodyFatPercent((event.target.value/100).toFixed(2))
+            
+            // we reference the body fat entry value.  That is then divided by 100 to create a percent.  THEN we multiple that by the weight to get the conversion of BodyFatPercentage to Lbs.  We cant just point to bodyFatPercent because its self rendering in a loop right now.  We need the most up to date snapshot via event.target.value.  You can then play your formulas off of that!
+            // setBodyFatLbs(event.target.value/100*(weight))
+            // setLeanBodyMass(weight-(event.target.value/100*(weight)))
     };  
         return(
             <div>
@@ -92,13 +100,15 @@ const NewPage =() => {
 
 
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
-            <p><strong>BODY FAT PERCENTAGE: </strong>{bodyFat+'%'}</p>
-            <p><strong>BODY FAT: </strong>{((bodyFat/100).toFixed(2)*weight).toFixed(2)} lbs</p>
-            <p><strong>LEAN BODY MASS: </strong>{(weight-(bodyFat/100).toFixed(2)*weight).toFixed(2)} lbs</p>
+            {/*Lets multiply bodyFatPercent by 100 so that it displays as a whole number*/}
+            <p><strong>BODY FAT PERCENTAGE: </strong>{bodyFatPercent+'%'}</p>
+            <p><strong>BODY FAT CARRIED IN LBS: </strong>{(bodyFatPercent*weight).toFixed(2)} lbs</p>
+            <p><strong>LEAN BODY MASS: </strong>{(weight-(bodyFatPercent*weight)).toFixed(2)} lbs</p>
 
             {/*Prepend a string with +before it to make it an INT*/}
             {/*.toFixed is a float and you put the places in the parenthesis*/}
-            <p><strong>RESTING METABOLIC RATE:</strong> {(+weight/2.205*30.4).toFixed(0)} Calories</p>
+            {/*More lean body mass, lower body fat %, means more calories to burn*/}
+            <p><strong>RESTING METABOLIC RATE:</strong> {((weight-(bodyFatPercent*weight))/2.205*30.4).toFixed(0)} Calories</p>
             
             <Button>Weight/BodyFat</Button>
 
@@ -110,7 +120,7 @@ const NewPage =() => {
             type="text"
             name='weight' 
             placeholder="Enter Weight"
-            onChange={handleChange}
+            onChange={handleWeightChange}
             />
             
             <br></br>
@@ -120,11 +130,11 @@ const NewPage =() => {
             type="text"
             name='bodyFat' 
             placeholder="Enter Body Fat %"
-            onChange={handleChangeBodyFat}
+            onChange={handleChangeBodyFatPercent}
             />
 
             <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
-            <p>The RMR is calculated using (your bodyweight divided by 2.205 then multiplied by 30.4) based on a Body Building Formula Referenced by Arnold Schwarzenegger.</p>
+            <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4) based on a Body Building Formula Referenced by Arnold Schwarzenegger.</p>
             </div>)
 
     };   
