@@ -22,6 +22,7 @@ function App() {
 
   const [workoutProfile, setWorkoutProfile] = useState(null)
 
+
   function getData() {
     axios({
       method: "GET",
@@ -84,12 +85,66 @@ function App() {
     return <ProgressBar now={workoutProfile.workout_profile_exp} label={`${workoutProfile.workout_profile_exp}%`} />;
     };
 
+    const [UserName, setUserName]=useState(null)
+    const [UserPassword, setUserPassword]=useState(null)
+
+    const HandleUserNameChange=(event)=>{
+      setUserName(event.target.value)
+    };
+
+    const HandlePasswordChange=(event)=>{
+      setUserPassword(event.target.value)
+    };
+
+// backtick dollar sign to get valuestring
+    function SignInToDB() {
+      axios.post('http://127.0.0.1:5000/dbPost', {
+        name: `${UserName}`
+      })
+      .then((response) => {
+        const res =response.data
+        setWorkoutProfile(({
+          workout_profile_name: res.name,
+          workout_profile_exp: res.exp,
+          workout_profile_lvl: res.lvl}))
+      }).catch((error) => {
+        if (error.response) {
+          console.log(error.response)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+        }
+      })};
+
   return (
-    <div className="App">
-      <header className="App-header">
+      <div className="App">
+        <header className="App-header">
+      
+        <h1>Welcome</h1>
+        {UserName &&<div>
+        <h1>Welcome {UserName}!</h1>
+        </div>}
+
         <img src={logo} className="App-logo" alt="logo" />
 
         {/* new line start*/}
+        <input
+          id='username'
+          type="text"
+          name='username' 
+          placeholder="USERNAME"
+          onChange={HandleUserNameChange}
+        />
+
+        <input
+          id='password'
+          type="password"
+          name='password' 
+          placeholder="PASSWORD"
+          onChange={HandlePasswordChange}
+        />
+        
+        <Button onClick={SignInToDB}>Submit</Button>
+
         <p>Sign in (coming soon): </p><Button onClick={getData}>Sign In</Button>
         {profileData && <div>
               <p>Profile name: {profileData.profile_name}</p>
@@ -109,7 +164,7 @@ function App() {
             </div>
         }
 
-      {/*  <div class="third_party_app">
+        {/*  <div class="third_party_app">
         <p>Just testing the display</p>
         <Button onClick={getThirdPartyData}>Get Third Party Data</Button>
         {thirdPartyData && <div>
@@ -119,8 +174,8 @@ function App() {
         }
          </div>*/}
 
-      </header>
-    </div>
+        </header>
+      </div>
   );
 }
 
