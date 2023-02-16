@@ -1,8 +1,12 @@
+/*use classes to div out custom css components*/
+
+/*GTC changes the width of the columns*/
 .grid-container{
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
 }
 
+/*Margin changes the width of the grit items inside of the container divs*/
 .grid-item{
     text-align: center;
     font-weight: bold;
@@ -10,3 +14,8 @@
     background-color: #D6EAF8;
     margin: 2px;
 }
+
+.test{
+    font-family: fantasy;
+    text-align: center;
+    width: 75px}

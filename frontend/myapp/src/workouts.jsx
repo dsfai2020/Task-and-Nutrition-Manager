@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Make sure the proper import for css is here.
 import './Workouts.css';
 
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 // State based OOP
@@ -80,7 +81,40 @@ const NewPage =() => {
             // we reference the body fat entry value.  That is then divided by 100 to create a percent.  THEN we multiple that by the weight to get the conversion of BodyFatPercentage to Lbs.  We cant just point to bodyFatPercent because its self rendering in a loop right now.  We need the most up to date snapshot via event.target.value.  You can then play your formulas off of that!
             // setBodyFatLbs(event.target.value/100*(weight))
             // setLeanBodyMass(weight-(event.target.value/100*(weight)))
-    };  
+    };  function ContextualExample() {
+            // These are the caps that the bars will curve on.  That way they all don't look so filled.
+            const caps = {
+                "weightCap": 0,
+                "bodyFatCap": 0,
+                "bodyFatLbs": 0,
+                "LeanBodyMass": 0,
+            };
+            // These are abstracted forumluas that are based on States that change.  The formula doesn't.  The state does.
+            const formulaWeightTest = (weight/2);
+            const formulaBodyFatPercentTest= (bodyFatPercent*100); 
+            const formulaBodyFatLBSTest = (bodyFatPercent*weight).toFixed(2);
+            const formulaLBMTest = (weight-(bodyFatPercent*weight)).toFixed(2);
+            const myStyle={
+                test: {backgroundColor: "grey"}
+            };
+
+            // Formulas can be adjusted for display purposes in the now tab.
+            return (
+                <div>
+                  <div class="test">
+                  <h1 style={myStyle.test}>Calorie Metrics</h1>
+                  </div>
+
+                  <ProgressBar variant="success" now={formulaWeightTest} label={"Weight: " + weight + " lbs"} />
+                  
+                  {/*Nesting the Progress bars and giving them a key will make them stack into 1 bar*/}
+                  <ProgressBar>
+                    <ProgressBar striped variant="info" key={1} now={bodyFatPercent*100} label={"BF %: " + bodyFatPercent}/>
+                    <ProgressBar variant="warning" key={2} animated now={formulaBodyFatLBSTest} label={"Body Fat in pounds: " + (bodyFatPercent*weight).toFixed(2) + " lbs"}/>
+                    <ProgressBar variant="danger" key={3} animated now={formulaLBMTest} label={"Lean Body Mass in pounds: " + (weight-(bodyFatPercent*weight)).toFixed(2)}/>
+                  </ProgressBar>
+                </div>);
+}
         return(
             <div>
 
@@ -97,7 +131,7 @@ const NewPage =() => {
             <br></br>
             <br></br>
             <br></br>
-
+            {ContextualExample()}
 
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
             {/*Lets multiply bodyFatPercent by 100 so that it displays as a whole number*/}
@@ -231,27 +265,27 @@ const NewPage =() => {
             )
     };
 
+    // CSS imported in from Workouts.css
     function WorkoutRoutine(){
         return(
             <div>
             <div class="grid-container">
-            <div class="grid-item">Chest</div>
-            <div class="grid-item">Back</div>
-            <div class="grid-item">Quads</div>
-            <div class="grid-item">Hamstrings</div>
-            <div class="grid-item">Shoulders</div>
-            <div class="grid-item">Biceps</div>
-            <div class="grid-item">Triceps</div>
-            <div class="grid-item">Forearms</div>
-            <div class="grid-item">Calves</div>
-            <div class="grid-item">Core</div>
-            <div class="grid-item">Cardio</div>
-            <div class="grid-item">Rest</div>
+            <button class='grid-item'>Chest</button>
+            <button class="grid-item">Back</button>
+            <button class="grid-item">Quads</button>
+            <button class="grid-item">Hamstrings</button>
+            <button class="grid-item">Shoulders</button>
+            <button class="grid-item">Biceps</button>
+            <button class="grid-item">Triceps</button>
+            <button class="grid-item">Forearms</button>
+            <button class="grid-item">Calves</button>
+            <button class="grid-item">Core</button>
+            <button class="grid-item">Cardio</button>
+            <button class="grid-item">Rest</button>
             </div>
             </div>)
 
     };
-
 
     // The NewPages main render is this section below but we can plug in many renders from functions the same way that the index file works.  
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.

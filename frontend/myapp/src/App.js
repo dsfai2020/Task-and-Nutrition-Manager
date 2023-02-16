@@ -6,8 +6,12 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//"https://shopsite.herokuapp.com/profile" Production backend link to Python
-//"http://127.0.0.1:5000" Development backend link to Python
+//"https://shopsite.herokuapp.com/profile" Production backend link to Python flask server
+//"http://127.0.0.1:5000" Development backend link to Python flask server
+
+// Progress bar
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 function App() {
 
@@ -21,7 +25,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",
-      url:"https://shopsite.herokuapp.com/profile",
+      url: "http://127.0.0.1:5000/profile",
     })
     .then((response) => {
       const res =response.data
@@ -58,7 +62,7 @@ function App() {
 
     // This is how to do an Axios POST.  Notice the route first, then the dictionary body.  Also pay attention to the routes during testing.  You may have to swap it out for your local routes.
     function signIn() {
-      axios.post('https://shopsite.herokuapp.com/dbPost', {
+      axios.post('http://127.0.0.1:5000/dbPost', {
         name: 'David'
       })
       .then((response) => {
@@ -75,6 +79,11 @@ function App() {
         }
       })};
 
+    // BOOTSTRAP
+    function WithLabelExample() {
+    return <ProgressBar now={workoutProfile.workout_profile_exp} label={`${workoutProfile.workout_profile_exp}%`} />;
+    };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -89,11 +98,14 @@ function App() {
         }
          {/* end of new line */}
 
+        {/*CONDITIONAL RENDERING.   IF workoutProfile has a value then it'll render the div.  workoutProfile is set to NULL until it actually gets a value.*/}
         <p>Sign in Live: </p><Button onClick={signIn}>Sign in Live</Button>
         {workoutProfile && <div>
               <p>Name: {workoutProfile.workout_profile_name}</p>
               <p>Exp: {workoutProfile.workout_profile_exp}</p>
               <p>Lvl: {workoutProfile.workout_profile_lvl}</p>
+              {WithLabelExample()}
+              <br></br>
             </div>
         }
 
