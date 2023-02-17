@@ -9,7 +9,7 @@ con=sqlite3.connect('flask_backend.db')
 
 cur=con.cursor()
 
-cur.execute("CREATE TABLE fitness(name, pw, exp)")
+cur.execute("CREATE TABLE users(name, lvl, exp)")
 
 
 #datetime.utcnow

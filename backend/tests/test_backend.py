@@ -30,3 +30,6 @@ def test_db_post_data_send_to_server():
     myobject={'name': 'David'}
     x=requests.post(url, json=myobject)
     assert x.json()['name']=='David', 'Make sure to double check if the json objects are properly formatted on both the client and server sides'
+
+
+

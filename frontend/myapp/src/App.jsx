@@ -82,7 +82,7 @@ function App() {
 
     // BOOTSTRAP
     function WithLabelExample() {
-    return <ProgressBar now={workoutProfile.workout_profile_exp} label={`${workoutProfile.workout_profile_exp}%`} />;
+    return <ProgressBar now={workoutProfile.workout_profile_exp} label={`${workoutProfile.workout_profile_exp} Exp`} />;
     };
 
     const [UserName, setUserName]=useState(null)
@@ -98,7 +98,7 @@ function App() {
 
 // backtick dollar sign to get valuestring
     function SignInToDB() {
-      axios.post('http://127.0.0.1:5000/dbPost', {
+      axios.post('http://127.0.0.1:5000/signIn', {
         name: `${UserName}`
       })
       .then((response) => {
@@ -144,17 +144,6 @@ function App() {
         />
         
         <Button onClick={SignInToDB}>Submit</Button>
-
-        <p>Sign in (coming soon): </p><Button onClick={getData}>Sign In</Button>
-        {profileData && <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
-            </div>
-        }
-         {/* end of new line */}
-
-        {/*CONDITIONAL RENDERING.   IF workoutProfile has a value then it'll render the div.  workoutProfile is set to NULL until it actually gets a value.*/}
-        <p>Sign in Live: </p><Button onClick={signIn}>Sign in Live</Button>
         {workoutProfile && <div>
               <p>Name: {workoutProfile.workout_profile_name}</p>
               <p>Exp: {workoutProfile.workout_profile_exp}</p>
@@ -163,6 +152,18 @@ function App() {
               <br></br>
             </div>
         }
+
+      {/*  <p>Sign in (coming soon): </p><Button onClick={getData}>Sign In</Button>
+        {profileData && <div>
+              <p>Profile name: {profileData.profile_name}</p>
+              <p>About me: {profileData.about_me}</p>
+            </div>
+        }*/}
+         {/* end of new line */}
+
+        {/*CONDITIONAL RENDERING.   IF workoutProfile has a value then it'll render the div.  workoutProfile is set to NULL until it actually gets a value.*/}
+        {/*<p>Sign in Live: </p><Button onClick={signIn}>Sign in Live</Button>*/}
+       
 
         {/*  <div class="third_party_app">
         <p>Just testing the display</p>
