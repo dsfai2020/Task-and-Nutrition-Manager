@@ -26,7 +26,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",
-      url: "http://127.0.0.1:5000/profile",
+      url: "https://shopsite.herokuapp.com/profile",
     })
     .then((response) => {
       const res =response.data
@@ -63,7 +63,7 @@ function App() {
 
     // This is how to do an Axios POST.  Notice the route first, then the dictionary body.  Also pay attention to the routes during testing.  You may have to swap it out for your local routes.
     function signIn() {
-      axios.post('http://127.0.0.1:5000/dbPost', {
+      axios.post('https://shopsite.herokuapp.com/dbPost', {
         name: 'David'
       })
       .then((response) => {
@@ -98,7 +98,7 @@ function App() {
 
 // backtick dollar sign to get valuestring
     function SignInToDB() {
-      axios.post('http://127.0.0.1:5000/signIn', {
+      axios.post('https://shopsite.herokuapp.com/signIn', {
         name: `${UserName}`
       })
       .then((response) => {
