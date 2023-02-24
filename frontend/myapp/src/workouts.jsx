@@ -29,7 +29,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // At the very bottom of the NewPage render is where you'll see all the mini function renders wired into it.
 
-const NewPage =() => {
+const WorkOuts =() => {
     // Set up all your state variables here.  They need to be declared before any rendering happens that way they are ready to go.
     const [test, setTest]=useState([{core: 1, studio: 5}]);
     // updateTest(test[0].core='That updated!')
@@ -40,6 +40,16 @@ const NewPage =() => {
     const [carbs, setCarbs]=useState(0)
 
     const [calorieLimit, setCalorieLimit]=useState(3000)
+
+
+    function MotivationalQuotes() {
+        
+        return (
+            <div>
+            <h1>DO YOUR BEST</h1>
+            </div>
+            )
+    };
 
    
     function BootStrapToast() {
@@ -293,6 +303,9 @@ const NewPage =() => {
         <div>
         <h2>Welcome to the Page!</h2>
         <br></br>
+
+        {MotivationalQuotes()}
+
         {BootStrapToast()}
         {Example()}
         {WorkoutRoutine()}
@@ -306,7 +319,7 @@ const NewPage =() => {
         )
 }
 
-export default NewPage;
+export default WorkOuts;
 
 // React pages have hooks.  Simplified class objects.  Multiple functions wired into a render with thier own private rendering parts.  And tons of state based objects that need to be properly updated with the second variable.  Some of the functions actually work like a type of lambda code with no name involved.
 

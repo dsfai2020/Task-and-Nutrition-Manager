@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
-import NewPage from './workouts.jsx'
+import WorkOuts from './workouts.jsx'
 import MyHook from './myHook.js'
 
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <NewPage />
+    <WorkOuts />
     <MyHook />
   </React.StrictMode>
 );
