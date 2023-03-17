@@ -2,4 +2,5 @@
 __pycache__
 /instance
 
-/backend/environment/
+# /backend/environment/
+# Disabling the environment folder made it so that I couldn't run any flask apps since the pip packages weren't detected at terminal level.
