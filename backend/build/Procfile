@@ -1,1 +1,1 @@
-web: gunicorn grocery:app
+web: gunicorn prod_grocery:app
