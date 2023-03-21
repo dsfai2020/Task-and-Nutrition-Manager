@@ -1,0 +1,7 @@
+/build-env/
+
+# Aws will generate its own env based on the requirements.txt file.
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
