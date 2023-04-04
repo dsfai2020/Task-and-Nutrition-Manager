@@ -119,7 +119,12 @@ def final_function():
 
     posted_data_received=request.json
 
-    if posted_data_received['name']=='David':
+    # Make sure that something is always returned.
+    if posted_data_received['name']=='test':
+        print("HELLO TEST")
+        return {"name": "test"}
+
+    elif posted_data_received['name']=='David':
         load_dotenv()
         MONGOUSERNAME=os.getenv('MONGO_USERNAME')
         MONGOSECRET=os.getenv('MONGO_SECRET')
