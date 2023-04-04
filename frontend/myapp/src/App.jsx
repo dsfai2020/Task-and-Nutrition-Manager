@@ -98,7 +98,7 @@ function App() {
 
 // backtick dollar sign to get valuestring
     function SignInToDB() {
-      axios.post('http://127.0.0.1:5000/signIn', {
+      axios.post(`${process.env.REACT_APP_LOCAL_FLASK}`, {
         name: `${UserName}`
       })
       .then((response) => {
