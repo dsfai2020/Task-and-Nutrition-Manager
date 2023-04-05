@@ -98,7 +98,7 @@ function App() {
 
 // backtick dollar sign to get valuestring
     function SignInToDB() {
-      axios.post(`${process.env.REACT_APP_LOCAL_FLASK}`, {
+      axios.post("https://fathomless-bayou-14966.herokuapp.com/signIn", {
         name: `${UserName}`
       })
       .then((response) => {

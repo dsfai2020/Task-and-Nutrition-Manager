@@ -105,14 +105,14 @@ const WorkOuts =() => {
             const formulaBodyFatLBSTest = (bodyFatPercent*weight).toFixed(2);
             const formulaLBMTest = (weight-(bodyFatPercent*weight)).toFixed(2);
             const myStyle={
-                test: {backgroundColor: "grey"}
+                test: {backgroundColor: "lightblue", width: "250px"}
             };
 
             // Formulas can be adjusted for display purposes in the now tab.
             return (
                 <div>
                   <div class="test">
-                  <h1 style={myStyle.test}>Calorie Metrics</h1>
+                  <h1 style={myStyle.test}>Body Metrics</h1>
                   </div>
 
                   <ProgressBar variant="success" now={formulaWeightTest} label={"Weight: " + weight + " lbs"} />
