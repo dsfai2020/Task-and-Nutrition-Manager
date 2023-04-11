@@ -1,0 +1,12 @@
+.navbar{
+    display: flex;
+    grid-template-rows: 100px 100px;
+}
+
+.nav-item{
+    text-align: center;
+    font-weight: normal;
+    background-color: greenyellow;
+    flex-direction: row;
+    font-size: 25px;
+}
