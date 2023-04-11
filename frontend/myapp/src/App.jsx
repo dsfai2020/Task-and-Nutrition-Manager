@@ -119,7 +119,8 @@ function App() {
       <div className="App">
         <header className="App-header">
       
-        <h1>Welcome</h1>
+        <h1>Fitness Buff</h1>
+
         {UserName &&<div>
         <h1>Welcome {UserName}!</h1>
         </div>}

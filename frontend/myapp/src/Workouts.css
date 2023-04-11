@@ -1,4 +1,7 @@
 /*use classes to div out custom css components*/
+/* use # for divs, use . for classes and use normal text for built in elements like button */
+/*Use grid containers and grid items for structuring.*/
+
 
 /*GTC changes the width of the columns*/
 .grid-container{
@@ -19,3 +22,13 @@
     font-family: fantasy;
     text-align: center;
     width: 75px}
+
+button{
+    background-color: darkseagreen;
+    margin: 5px;
+
+}
+
+.motivationalQuotes{
+    font-size: 25px;
+}

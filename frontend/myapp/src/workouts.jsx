@@ -3,8 +3,10 @@ import ReactDOM from "react-dom"
 import axios from "axios";
 
 // This imports only what we need and not the entire lib.
-import Button from 'react-bootstrap/Button';
-import Toast from 'react-bootstrap/Toast';
+// import Button from 'react-bootstrap/Button';
+
+// This is a dialogue box made by bootstrap
+// import Toast from 'react-bootstrap/Toast';
 
 
 // This path for bootstrap is in the npm destination with is node-modules depending on where you installed it.  I put it in the app of front end.
@@ -45,27 +47,27 @@ const WorkOuts =() => {
     function MotivationalQuotes() {
         
         return (
-            <div>
-            <h1>DO YOUR BEST</h1>
+            <div class="motivationalQuotes">
+            <h1 class="motivationalQuotes">Weight Training is only <strong>Half </strong>the battle</h1>
             </div>
             )
     };
 
    
-    function BootStrapToast() {
-        return (
-            <div>
-            <Toast>
-              <Toast.Header>
-                <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                <strong className="me-auto">Site-Admin: David</strong>
-                <small>{count} mins ago</small>
-              </Toast.Header>
-              <Toast.Body>Today is a great day to train.  The page is still under construction but will improve over time!</Toast.Body>
-            </Toast>
-            </div>
-    )
-    };
+    // function BootStrapToast() {
+    //     return (
+    //         <div>
+    //         <Toast>
+    //           <Toast.Header>
+    //             <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+    //             <strong className="me-auto">Site-Admin: David</strong>
+    //             <small>{count} mins ago</small>
+    //           </Toast.Header>
+    //           <Toast.Body>Today is a great day to train.  The page is still under construction but will improve over time!</Toast.Body>
+    //         </Toast>
+    //         </div>
+    // )
+    // };
 
     // backticks and dollarsign for f string like variables.
     function Example(){
@@ -91,7 +93,8 @@ const WorkOuts =() => {
             // we reference the body fat entry value.  That is then divided by 100 to create a percent.  THEN we multiple that by the weight to get the conversion of BodyFatPercentage to Lbs.  We cant just point to bodyFatPercent because its self rendering in a loop right now.  We need the most up to date snapshot via event.target.value.  You can then play your formulas off of that!
             // setBodyFatLbs(event.target.value/100*(weight))
             // setLeanBodyMass(weight-(event.target.value/100*(weight)))
-    };  function ContextualExample() {
+
+    };  function ProgressBars() {
             // These are the caps that the bars will curve on.  That way they all don't look so filled.
             const caps = {
                 "weightCap": 0,
@@ -127,21 +130,10 @@ const WorkOuts =() => {
 }
         return(
             <div>
-
-            <div>
-            <Toast>
-            <Toast.Header>
-            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-            <strong className="me-auto">Site-Admin: David</strong>
-            <small>15 mins ago</small>
-            </Toast.Header>
-            <Toast.Body>Feel free to make use of the fitness calculator below.</Toast.Body>
-            </Toast>
-            </div>
             <br></br>
             <br></br>
             <br></br>
-            {ContextualExample()}
+            {ProgressBars()}
 
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
             {/*Lets multiply bodyFatPercent by 100 so that it displays as a whole number*/}
@@ -154,7 +146,7 @@ const WorkOuts =() => {
             {/*More lean body mass, lower body fat %, means more calories to burn*/}
             <p><strong>RESTING METABOLIC RATE:</strong> {((weight-(bodyFatPercent*weight))/2.205*30.4).toFixed(0)} Calories</p>
             
-            <Button>Weight/BodyFat</Button>
+            <button>Weight/BodyFat</button>
 
             <br></br>
 
@@ -191,7 +183,7 @@ const WorkOuts =() => {
         return(
             <div>
             <p>You clicked {count} times</p>
-            <Button onClick={()=>setCount(count+1)}>Click</Button>
+            <button onClick={()=>setCount(count+1)}>Click</button>
             {/*<p>This is the core --{test[0].core}</p>*/}
 
             {/*bug w dict n lists below. possible use class for multistate logic n hooks for iso state logic*/}
@@ -207,12 +199,12 @@ const WorkOuts =() => {
             <p>There are this many calories in your carbs -- {carbs*4}</p>
             <p>You ate this many carbs -- {carbs}</p>
             {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
-            <Button onClick={()=>setCarbs(carbs+1)}>Add 1 G of Carb</Button>
-            <Button onClick={()=>setCarbs(carbs+5)}>Add 5 G of Carb</Button>
-            <Button onClick={()=>setCarbs(carbs+10)}>Add 10 G of Carb</Button>
-            <Button onClick={()=>setCarbs(carbs+20)}>Add 20 G of Carb</Button>
+            <button onClick={()=>setCarbs(carbs+1)}>Add 1 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+5)}>Add 5 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+10)}>Add 10 G of Carb</button>
+            <button onClick={()=>setCarbs(carbs+20)}>Add 20 G of Carb</button>
             <br></br>
-            <Button onClick={()=>setCarbs(0)}>Click to Reset Carbs</Button>
+            <button onClick={()=>setCarbs(0)}>Click to Reset Carbs</button>
             </div>
             )
     };
@@ -301,12 +293,10 @@ const WorkOuts =() => {
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
     return (
         <div>
-        <h2>Welcome to the Page!</h2>
         <br></br>
-
         {MotivationalQuotes()}
 
-        {BootStrapToast()}
+        {/*{BootStrapToast()}*/}
         {Example()}
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}

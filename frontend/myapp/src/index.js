@@ -6,12 +6,15 @@ import WorkOuts from './workouts.jsx'
 import MyHook from './myHook.js'
 import Bars from './bars.jsx'
 
+import Navbar from './Navbar.jsx'
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <Navbar />
     <WorkOuts />
     <MyHook />
     <Bars />
