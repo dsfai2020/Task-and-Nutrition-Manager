@@ -23,6 +23,8 @@ from dotenv import load_dotenv
 # Extras testing
 from flask import Response
 
+import pandas
+
 # Create the app
 app=Flask(__name__)
 
