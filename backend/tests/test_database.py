@@ -23,3 +23,9 @@ def test_obtained_data_from_db():
     myobject={'name': 'Ace'}
     x=requests.post(url, json=myobject)
     assert x.json()['name']=='Ace', 'Make sure to double check if the json objects are properly formatted on both the client and server sides'
+
+def test_mongo():
+    url='http://127.0.0.1:5000/signIn'
+    myobject={'name': 'David'}
+    x=requests.post(url, json=myobject)
+    assert x.json()['This']=='test', 'The response body from the url should return a key and value'

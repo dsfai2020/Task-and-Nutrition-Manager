@@ -8,7 +8,7 @@ const Navbar=()=>{
             <div class="navbar">
             <div class="nav-item">HOME</div>
             <div class="nav-item">ABOUT</div>
-            <div class="nav-item">SITES</div>
+            <div class="nav-item">FITNESS</div>
             </div>
             )
     };

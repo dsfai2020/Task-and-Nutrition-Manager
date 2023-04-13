@@ -124,13 +124,17 @@ def final_function():
         print("HELLO TEST")
         return {"name": "test"}
 
+    elif posted_data_received['name']=='Ace':
+        print("Hello Ace")
+        return {"name": "Ace"}
+
     elif posted_data_received['name']=='David':
         load_dotenv()
-        MONGOUSERNAME=os.getenv('MONGO_USERNAME')
         MONGOSECRET=os.getenv('MONGO_SECRET')
+        MONGOCLUSTER=os.getenv('MONGO_CLUSTER')
 
-        MONGODB_URI = f"mongodb+srv://dave_the_developer:{MONGOUSERNAME}@cluster0.{MONGOSECRET}.mongodb.net/?retryWrites=true&w=majority"
-
+        MONGODB_URI = f"mongodb+srv://dave_the_developer:{MONGOSECRET}@cluster0.{MONGOCLUSTER}.mongodb.net/?retryWrites=true&w=majority"
+        
         # Connect to MongoDb Cluster with a MongoClient
         client = MongoClient(MONGODB_URI)
 
@@ -181,11 +185,13 @@ def final_function():
         'lvl': container_list[2],
         }"""
 
-        # response_body={}
+        response_body={
+            'This': 'test'
+        }
 
         
-        response_body=flask.Response({"This": "test"})
-        response_body.headers['Access-Control-Allow-Origin']='*'
+        # response_body=Flask.Response({"This": "test"})
+        # response_body.headers['Access-Control-Allow-Origin']='*'
 
         # print(f"heres the response body {response_body} NOT from the database but hardcoded...")
         return response_body      
