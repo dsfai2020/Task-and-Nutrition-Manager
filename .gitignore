@@ -3,6 +3,7 @@ __pycache__
 /instance
 /backend/dev-env/
 /backend/build-heroku/
+/backend/tests/__pycache__
 
 # /backend/environment/
 # Disabling the environment folder made it so that I couldn't run any flask apps since the pip packages weren't detected at terminal level.
