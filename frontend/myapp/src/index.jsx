@@ -7,12 +7,14 @@ import MyHook from './myHook.js'
 import Bars from './bars.jsx'
 
 import Navbar from './Navbar.jsx'
+import MachineLearningPage from './MachineLearning.jsx';
 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <MachineLearningPage />
     <App />
     <Navbar />
     <WorkOuts />
