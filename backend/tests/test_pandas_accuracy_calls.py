@@ -17,14 +17,13 @@ def test_pandas_dataframe_dictionary():
     assert df['task'][0]=='polish up on testing', 'Failed'
 
 def test_adding_to_a_dataframe():
-    df['task3']='brush up on adding to frames'
-    print(df)
     newdf=DataFrame(df)
-    newdf['task3']='blue'
-    assert newdf['task3']=='brush up on adding to frames', 'Failed'
+    newdf['task3'][0]='blue'
+    assert newdf['task3'][0]=='brush up on adding to frames', 'Failed'
 
 def test_adding_a_record():
     df.task[1]="new record"
+    print(f'Adding a record: {df.task[1]}')
     assert df.task[1]=='Green', 'Failed'
 
 # Review combining of columns for better queries.
