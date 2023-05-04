@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import './Navbar.css';
+import './MachineLearning.css'
 
 const MachineLearningPage=()=>{
 
     function mlDisplay(){
         return(
             <div>
-            <h1>TEST</h1>
-            <img src={process.env.PUBLIC_URL + './machineLearningImage.PNG'}/>
+            <h1>Welcome to Ai Objects!</h1>
+            <img class='MlHomepage' src={process.env.PUBLIC_URL + './machineLearningImage.PNG'}/>
             </div>
             )
     };

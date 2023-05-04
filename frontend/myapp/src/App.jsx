@@ -88,6 +88,8 @@ function App() {
     const [UserName, setUserName]=useState(null)
     const [UserPassword, setUserPassword]=useState(null)
 
+    const [setReducerInfo, setSetReducerInfo]=useState(null)
+
     const HandleUserNameChange=(event)=>{
       setUserName(event.target.value)
     };
@@ -96,6 +98,7 @@ function App() {
       setUserPassword(event.target.value)
     };
 
+    
 // backtick dollar sign to get valuestring
     function SignInToDB() {
       axios.post("https://fathomless-bayou-14966.herokuapp.com/signIn", {
@@ -114,6 +117,26 @@ function App() {
           console.log(error.response.headers)
         }
       })};
+
+// backtick dollar sign to get valuestring
+    function CallSetReducer() {
+      axios.post('http://127.0.0.1:5000/accessArgsWithMiddleWare', {
+        weight: 300
+      })
+      .then((response) => {
+        const res =response.data
+        setSetReducerInfo(({
+          SetReducerInfo_previous: res.previous,
+          SetReducerInfo_reduced_set: res['reduced set'],
+          setSetReducerInfo_reduction_amount: res['reduction amount']}))
+      }).catch((error) => {
+        if (error.response) {
+          console.log(error.response)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+        }
+      })};
+
 
   return (
       <div className="App">
@@ -152,6 +175,15 @@ function App() {
               {WithLabelExample()}
               <br></br>
             </div>
+        }
+
+        <Button onClick={CallSetReducer}>Test</Button>
+        {setReducerInfo && <div>
+              <p>Previous: {setReducerInfo.SetReducerInfo_previous}</p>
+              <p>Reduced Set: {setReducerInfo.SetReducerInfo_reduced_set}</p>
+              <p>Reduction Amount: {setReducerInfo.setSetReducerInfo_reduction_amount}</p>
+            </div>
+
         }
 
       {/*  <p>Sign in (coming soon): </p><Button onClick={getData}>Sign In</Button>

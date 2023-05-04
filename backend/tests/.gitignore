@@ -1,5 +1,5 @@
 .env
 README.md
-.ipynb
+*.ipynb
 .pytest_cache
 *.md
