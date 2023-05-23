@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import './Navbar.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// This is the page we are going to use for routing
+import MachineLearningPage from './MachineLearning.jsx';
+
+import { Outlet, Link } from "react-router-dom";
 
 const Navbar=()=>{
 
@@ -13,9 +19,20 @@ const Navbar=()=>{
             )
     };
 
+    function siteLinks(){
+        return(
+            <BrowserRouter>
+            <Routes>
+            <Route path='Machine' element={<MachineLearningPage />} TESTIT/>
+            </Routes>
+            </BrowserRouter>
+        )
+    };
+
     return (
         <div>
         {customNavbar()}
+        {siteLinks()}
         </div>)
 };
 

@@ -1,16 +1,17 @@
-.navbar{
+.layout{
     display: flex;
     grid-template-rows: 100px 100px;
     padding: 5px;
     justify-content: right;
-}
+    color: aquamarine;
+    background-color: #282c34;
+};
 
-.nav-item{
+.layout-item{
     text-align: center;
     font-weight: normal;
-    background-color: rgb(47, 92, 255);
+    background-color: rgb(21, 59, 198);
     flex-direction: row;
     font-size: 25px;
     padding: 7px;
-    border-radius: 5px;
 }

@@ -48,7 +48,7 @@ const WorkOuts =() => {
         
         return (
             <div class="motivationalQuotes">
-            <h1 class="motivationalQuotes">Weight Training is only <strong>Half </strong>the battle</h1>
+            <h1 class="motivationalQuotes">Lifting weights is the easy part.</h1>
             </div>
             )
     };
@@ -108,7 +108,7 @@ const WorkOuts =() => {
             const formulaBodyFatLBSTest = (bodyFatPercent*weight).toFixed(2);
             const formulaLBMTest = (weight-(bodyFatPercent*weight)).toFixed(2);
             const myStyle={
-                test: {backgroundColor: "lightblue", width: "250px"}
+                test: {backgroundColor: "blue", width: "250px"}
             };
 
             // Formulas can be adjusted for display purposes in the now tab.
@@ -118,21 +118,20 @@ const WorkOuts =() => {
                   <h1 style={myStyle.test}>Body Metrics</h1>
                   </div>
 
-                  <ProgressBar variant="success" now={formulaWeightTest} label={"Weight: " + weight + " lbs"} />
+                  <ProgressBar variant="success" now={formulaWeightTest} label={"Your Weight: " + weight + " lbs"} />
                   
                   {/*Nesting the Progress bars and giving them a key will make them stack into 1 bar*/}
-                  <ProgressBar>
-                    <ProgressBar striped variant="info" key={1} now={bodyFatPercent*100} label={"BF %: " + bodyFatPercent}/>
-                    <ProgressBar variant="warning" key={2} animated now={formulaBodyFatLBSTest} label={"Body Fat in pounds: " + (bodyFatPercent*weight).toFixed(2) + " lbs"}/>
-                    <ProgressBar variant="danger" key={3} animated now={formulaLBMTest} label={"Lean Body Mass in pounds: " + (weight-(bodyFatPercent*weight)).toFixed(2)}/>
-                  </ProgressBar>
+                  {/* <ProgressBar> */}
+                  <ProgressBar striped variant="info" key={1} now={bodyFatPercent*100} label={"Your Body Fat %: " + bodyFatPercent}/>
+                  <ProgressBar variant="warning" key={2} animated now={formulaBodyFatLBSTest} label={"Your Body Fat in pounds: " + (bodyFatPercent*weight).toFixed(2) + " lbs"}/>
+                  <ProgressBar variant="danger" key={3} animated now={formulaLBMTest} label={"Your Lean Body Mass in pounds: " + (weight-(bodyFatPercent*weight)).toFixed(2)}/>
+                  {/* </ProgressBar> */}
                 </div>);
 }
         return(
             <div>
-            <br></br>
-            <br></br>
-            <br></br>
+            {/* <br></br> */}
+            {/* <br></br> */}
             {ProgressBars()}
 
             <p><strong>WEIGHT: </strong>{weight} lbs</p>
@@ -293,8 +292,7 @@ const WorkOuts =() => {
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
     return (
         <div>
-        <br></br>
-        {MotivationalQuotes()}
+        {/* {MotivationalQuotes()} */}
 
         {/*{BootStrapToast()}*/}
         {Example()}
@@ -302,9 +300,9 @@ const WorkOuts =() => {
         {/*Don't forget the ()*/}
         {SampleFunctionRender()}
         {MyTestButton()}
-        {DeveloperPlan()}
-        {ConditionalRenderExample()}
-        {RecentlyReviewed()}
+        {/* {DeveloperPlan()} */}
+        {/* {ConditionalRenderExample()} */}
+        {/* {RecentlyReviewed()} */}
         </div>
         )
 }

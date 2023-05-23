@@ -11,15 +11,17 @@ import MachineLearningPage from './MachineLearning.jsx';
 
 import reportWebVitals from './reportWebVitals';
 
+import MyRoutes from './pages/routetest';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MachineLearningPage />
+    <MyRoutes />
     <App />
     <Navbar />
     <WorkOuts />
     <MyHook />
-    <Bars />
+    {/* <Bars /> */}
   </React.StrictMode>
 );
 

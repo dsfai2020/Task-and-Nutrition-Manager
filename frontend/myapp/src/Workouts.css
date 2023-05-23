@@ -14,7 +14,7 @@
     text-align: center;
     font-weight: bold;
     color: #2980B9;
-    background-color: #D6EAF8;
+    background-color: #065187;
     margin: 2px;
 }
 
@@ -24,8 +24,10 @@
     width: 75px}
 
 button{
-    background-color: darkseagreen;
+    background-color: #065187;
+    color: #2980B9;
     margin: 5px;
+    border-radius: 5px;
 
 }
 
