@@ -9,7 +9,6 @@ const AiObjects = () => {
       </div>
 
       <img class='MlHomepage' src={process.env.PUBLIC_URL + './machineLearningImage.PNG'}/>
-
     </div>);
   };
   

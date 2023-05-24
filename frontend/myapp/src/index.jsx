@@ -12,10 +12,13 @@ import MachineLearningPage from './MachineLearning.jsx';
 import reportWebVitals from './reportWebVitals';
 
 import MyRoutes from './pages/routetest';
+import DiscussionRoutes from './pages_discussion/DiscussionRoutes';
+import Discussion from './pages_discussion/Discussion';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <DiscussionRoutes />
     <MyRoutes />
     <App />
     <Navbar />
