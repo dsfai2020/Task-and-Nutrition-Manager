@@ -11,7 +11,8 @@ const Layout = () => {
         <Link to="/">Home</Link>
       </div>
       <div class="layout-item">
-        <Link to="/blogs">Blogs</Link>
+        <li><Link to="/blogs">Blogs</Link>
+        </li>
       </div>
          
           <li>
@@ -19,6 +20,9 @@ const Layout = () => {
           </li>
           <li>
             <Link to ="/schedule">Schedule</Link>
+          </li>
+          <li>
+            <Link to ="/aiobjects">AiObjects</Link>
           </li>
       </nav>
       </div>
