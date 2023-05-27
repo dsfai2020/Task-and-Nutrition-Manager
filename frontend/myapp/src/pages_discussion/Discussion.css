@@ -1,0 +1,66 @@
+/* Don't forget to import the css file into the jsx file. */
+
+.grid-container {
+    display: grid;
+    background-color: #282c34;
+    grid-gap: 2px;
+    grid-template-areas: 
+        "item-h item-h item-h item-h"
+        "item-g item-g item-g item-g"
+        "item-i item-i item-i item-i"
+        "item-a item-a item-a item-a"
+        "item-c item-c item-b item-b"
+        "item-d item-d item-f item-e";
+    }
+
+    /* use . inside of the quotes to make a blank*/
+    /*  grid-template-areas: ". item-a item-b" if you wanted a blank space */
+    /* Separate rows in the grid-template-area by using quoted groups*/
+
+.grid-item {
+    background-color: #1E96FF;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    margin: 2px;
+    }
+
+.item-a {
+    grid-area: item-a;
+    }
+
+.item-b {
+    grid-area: item-b;
+    }
+
+.item-c {
+    grid-area: item-c;
+    }
+
+.item-d {
+    grid-area: item-d;
+    }
+
+.item-e {
+    grid-area: item-e;
+    }   
+
+.item-f {
+    grid-area: item-f;
+    }
+
+.item-g {
+    grid-area: item-g;
+    width: 99%;
+    height: 100%;
+    max-height: 175px;
+}
+
+.item-h {
+    grid-area: item-h;
+}
+
+.item-i {
+    grid-area: item-i;
+}
+/* The names of the class item-c has nickname in grid-area that must match it's name for the grid-template-areas usage zones.*/
