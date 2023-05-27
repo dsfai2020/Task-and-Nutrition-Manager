@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import NoPage from "./NoPage";
 
 import Schedule from "./Schedule";
+import AiObjects from "./AiObjects";
 
 // This is actually the function that will be plugged into the index page.  It uses the Layout.jsx file to organize its structure.
 
@@ -20,6 +21,7 @@ export default function MyRoutes() {
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
             <Route path="schedule" element={<Schedule />} />
+            <Route path="aiobjects" element={<AiObjects />} />
           </Route>
         </Routes>
       </BrowserRouter>

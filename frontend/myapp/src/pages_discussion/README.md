@@ -1,0 +1,1 @@
+Wire in the index to a main rendering index page.
