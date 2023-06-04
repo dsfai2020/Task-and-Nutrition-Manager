@@ -1,9 +1,11 @@
 /* Don't forget to import the css file into the jsx file. */
 
+
 .grid-container {
     display: grid;
-    background-color: #282c34;
+    background-color: #5a3504;
     grid-gap: 2px;
+    justify-items: stretch;
     grid-template-areas: 
         "item-h item-h item-h item-h"
         "item-g item-g item-g item-g"
@@ -49,10 +51,11 @@
     grid-area: item-f;
     }
 
+    /* I set this to grid-image item-g */
 .item-g {
     grid-area: item-g;
     width: 99%;
-    height: 100%;
+    height: 99%;
     max-height: 175px;
 }
 
@@ -64,3 +67,55 @@
     grid-area: item-i;
 }
 /* The names of the class item-c has nickname in grid-area that must match it's name for the grid-template-areas usage zones.*/
+
+
+
+
+/* CUSTOM */
+
+.grid-container-2{
+    display: grid;
+    background-color: #e3db89;
+    grid-gap: 2px;
+    justify-items: stretch;
+    grid-template-areas: 
+        "custom custom-3 custom-3"
+        "custom-2 custom-2 custom-2"
+}
+
+.main{
+    grid-area: main;
+}
+
+.container{
+    display: grid;
+    gap: 5px;
+    background-color: lightseagreen;
+    grid-template-areas:
+        "main main custom"
+        "main main custom"
+}
+
+/* don'' forget to name the custom zones with a grid-item name first on the jsx file */
+
+.custom-item {
+    background-color: #1E96FF;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    margin: 2px;
+    }
+
+/* grid-areas aren't in quotes*/
+
+.custom{
+    grid-area: custom
+};
+
+.custom-2{
+    grid-area: custom-2
+}
+
+.custom-3{
+    grid-area: custom-3
+}
