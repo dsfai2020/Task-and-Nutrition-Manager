@@ -13,6 +13,11 @@ const DiscussionLayout = () => {
             <Link to="/discussion">Discussion</Link>
         </li>
       </div>
+      <div class="layout-item">
+        <li>
+            <Link to="/discussiontodo">DiscussionToDo</Link>
+        </li>
+      </div>
       </nav>
       </div>
 

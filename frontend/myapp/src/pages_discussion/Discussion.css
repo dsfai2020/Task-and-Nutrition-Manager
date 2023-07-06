@@ -7,7 +7,7 @@
     grid-gap: 2px;
     justify-items: stretch;
     grid-template-areas: 
-        "item-h item-h item-h item-h"
+        "item-h item-h item-j item-j"
         "item-g item-g item-g item-g"
         "item-i item-i item-i item-i"
         "item-a item-a item-a item-a"
@@ -20,7 +20,7 @@
     /* Separate rows in the grid-template-area by using quoted groups*/
 
 .grid-item {
-    background-color: #1E96FF;
+    background-color: blueviolet;
     color: #FFFFFF;
     text-align: center;
     padding: 10px;
@@ -65,6 +65,16 @@
 
 .item-i {
     grid-area: item-i;
+    background-color: blueviolet;
+}
+
+.item-j {
+    grid-area: item-j;
+}
+
+.item-k {
+    grid-area: item-k;
+    z-index: 0;
 }
 /* The names of the class item-c has nickname in grid-area that must match it's name for the grid-template-areas usage zones.*/
 
@@ -79,24 +89,29 @@
     grid-gap: 2px;
     justify-items: stretch;
     grid-template-areas: 
-        "custom custom-3 custom-3"
-        "custom-2 custom-2 custom-2"
+        "custom-1 custom-1 custom-1"
+        "custom-2 custom-3 custom-3"
+}
+
+.wrapper-2{
+    grid-area: wrapper-2
 }
 
 .main{
     grid-area: main;
 }
 
-.container{
+.primary{
     display: grid;
     gap: 5px;
     background-color: lightseagreen;
     grid-template-areas:
-        "main main custom"
-        "main main custom"
+        "wrapper-2 wrapper-2 wrapper-2"
+        "main main ."
+        "main main ."
 }
 
-/* don'' forget to name the custom zones with a grid-item name first on the jsx file */
+/* don't forget to name the custom zones with a grid-item name first on the jsx file */
 
 .custom-item {
     background-color: #1E96FF;
@@ -108,8 +123,8 @@
 
 /* grid-areas aren't in quotes*/
 
-.custom{
-    grid-area: custom
+.custom-1{
+    grid-area: custom-1
 };
 
 .custom-2{

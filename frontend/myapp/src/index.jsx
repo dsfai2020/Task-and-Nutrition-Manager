@@ -15,9 +15,12 @@ import MyRoutes from './pages/routetest';
 import DiscussionRoutes from './pages_discussion/DiscussionRoutes';
 import Discussion from './pages_discussion/Discussion';
 
+import MainHeader from './MainHeader'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <MainHeader />
     <DiscussionRoutes />
     <MyRoutes />
     <App />
