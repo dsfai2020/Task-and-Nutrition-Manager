@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import "./Board.css"
+import './Board.css';
 
 const initialColumns = {
   'column-1': {
@@ -34,6 +34,7 @@ const initialColumns = {
 
 const Board = () => {
   const [columns, setColumns] = useState(initialColumns);
+  const [editingItem, setEditingItem] = useState(null);
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
@@ -89,6 +90,35 @@ const Board = () => {
     }
   };
 
+  const handleAddCard = (columnId) => {
+    const newCardId = `item-${Date.now()}`;
+    const newCard = { id: newCardId, content: 'New Card' };
+
+    setColumns((prevColumns) => {
+      const newColumns = { ...prevColumns };
+      newColumns[columnId].items.push(newCard);
+      return newColumns;
+    });
+  };
+
+  const handleItemNameChange = (columnId, itemId, newName) => {
+    setColumns((prevColumns) => {
+      const newColumns = { ...prevColumns };
+      newColumns[columnId].items = newColumns[columnId].items.map((item) =>
+        item.id === itemId ? { ...item, content: newName } : item
+      );
+      return newColumns;
+    });
+  };
+
+  const handleItemClick = (columnId, itemId) => {
+    setEditingItem({ columnId, itemId });
+  };
+
+  const handleItemBlur = () => {
+    setEditingItem(null);
+  };
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className="board">
@@ -106,17 +136,36 @@ const Board = () => {
                     <Draggable key={item.id} draggableId={item.id} index={index}>
                       {(provided) => (
                         <div
-                          className="item"
+                          className={`item ${editingItem?.itemId === item.id ? 'editing' : ''}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
+                          onClick={() => handleItemClick(column.id, item.id)}
                         >
-                          {item.content}
+                          {editingItem?.itemId === item.id ? (
+                            <input
+                              type="text"
+                              value={item.content}
+                              onChange={(e) =>
+                                handleItemNameChange(column.id, item.id, e.target.value)
+                              }
+                              onBlur={handleItemBlur}
+                              autoFocus
+                            />
+                          ) : (
+                            item.content
+                          )}
                         </div>
                       )}
                     </Draggable>
                   ))}
                   {provided.placeholder}
+                  <button
+                    className="add-card-button"
+                    onClick={() => handleAddCard(column.id)}
+                  >
+                    + Add Card
+                  </button>
                 </div>
               )}
             </Droppable>
