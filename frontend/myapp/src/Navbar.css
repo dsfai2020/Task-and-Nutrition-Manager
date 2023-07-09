@@ -7,10 +7,10 @@
 
 .nav-item{
     text-align: center;
-    font-weight: normal;
-    background-color: rgb(47, 92, 255);
+    font-weight: 300;
+    background-color: #59ffa1;
     flex-direction: row;
     font-size: 25px;
     padding: 7px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
