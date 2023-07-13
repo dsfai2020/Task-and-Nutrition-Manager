@@ -1,9 +1,3 @@
-You left off trying to initialize a project for the site.
-
-Testing
-
-You got bad news about grandma while doing it.
-
 - You started a backend
     created an env
     made its own folder
