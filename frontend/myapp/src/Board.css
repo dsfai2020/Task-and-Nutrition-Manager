@@ -1,0 +1,44 @@
+.board {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .column-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .column-items {
+    min-height: 100px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .item:hover {
+    background-color: #f2f2f2;
+  }
+  

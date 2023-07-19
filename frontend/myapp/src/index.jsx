@@ -15,17 +15,28 @@ import MyRoutes from './pages/routetest';
 import DiscussionRoutes from './pages_discussion/DiscussionRoutes';
 import Discussion from './pages_discussion/Discussion';
 
+import MainHeader from './MainHeader'
+import Board from './Board'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <DiscussionRoutes />
-    <MyRoutes />
-    <App />
+    <div>
+  {/* <React.StrictMode> */}
+    <div class="item-header"></div>
+    <MainHeader />
     <Navbar />
+    <DiscussionRoutes />
+    <Board />
+    <MyRoutes />
+    <div class="item-main"></div>
+    <div class="item-sidebar"></div>
+    <App />
     <WorkOuts />
     <MyHook />
     {/* <Bars /> */}
-  </React.StrictMode>
+    <div class="item-footer"></div>
+  {/* </React.StrictMode> */}
+    </div>
 );
 
 // If you want to start measuring performance in your app, pass a function

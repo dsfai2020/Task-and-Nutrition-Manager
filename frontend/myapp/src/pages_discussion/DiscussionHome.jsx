@@ -1,7 +1,11 @@
 // For pages_discussion
 
 const DiscussionHome = () => {
-    return <h1>Discussion Home</h1>;
+    return ( 
+    <div>
+      <h1>Discussion Home</h1>
+    </div>)
+    ;
   };
   
   export default DiscussionHome;
