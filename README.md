@@ -1,3 +1,4 @@
+
 # About this App
     
     Want a Easy to Use planner that encourages discussions without alienating your fitness?  The goal of this app is to improve your production levels without ignoring your fitness.  It's easy to get lost in the computer screen while having the gym on your backlog for what seems like forever.  Whether its tracking a discussion by making sure that time efficiency is a priority, planning a simple to do list, planning an Agile Sprint or keeping track of the muscle groups that you've worked out in the week... This app aims to weave them all together into something easy to use right from the web.  All you need is a Browser and your good to go.  This project is meant to help people.
