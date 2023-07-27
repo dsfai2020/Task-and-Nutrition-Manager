@@ -95,6 +95,20 @@ There are two service definitions: web and database. The web service uses the ng
 
 Each service definition is isolated and represents a separate container in your application, allowing you to manage and orchestrate them together using Docker Compose.
 
+# Jenkins
+
+Jenkins is a great tool for CI/CD - Continuous Integration and Development - and it runs as a Daemon on your computer or docker container.  There are different ways to install it depending on your operating system or if you plan to use it within Docker (Which makes things a lot easier).  
+
+What it does?
+
+Jenkins works as a server whether locally or within a Container.  It has a great GUI to make things go really smooth.  A small amount of account management is required (locally stored) and once its up and running you can:
+  execute script chains that pull in an associated github branch repository
+  setup virtual environments and install the packages from a requirements.txt file
+  execute a pytest (assuming the venv had it installed)
+  add more steps to the build process
+
+  If any step doesn't work the build is considered a Fail and Jenkins keeps a log of the output and names of the trial runs.
+
 # Extra Notes
 
 - You started a backend
@@ -117,15 +131,15 @@ dont forget to link the two.
 
 
 LINUX
-# You need to get HOW TO CONFIG the front end 
-# You need to get HOW TO CONFIG the back end 
+## You need to get HOW TO CONFIG the front end 
+## You need to get HOW TO CONFIG the back end 
 
 DEVELOPMENT
-# You need to get HOW TO START the front end - REACT
-# You need to get HOW TO START the back end - FLASK
-# You need to get HOW TO START the testing - pytest
+## You need to get HOW TO START the front end - REACT
+## You need to get HOW TO START the back end - FLASK
+## You need to get HOW TO START the testing - pytest
 
 PRODUCTION
-# You need to get HOW TO START the production front end - HEROKU
-# You need to get HOW TO START the production back end - AWS
+## You need to get HOW TO START the production front end - HEROKU
+## You need to get HOW TO START the production back end - AWS
 
