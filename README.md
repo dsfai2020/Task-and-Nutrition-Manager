@@ -129,6 +129,10 @@ dont forget to link the two.
 - started a front end folder
      you did nothing but make a folder.
 
+Resources for MongoDb and Python with Pandas
+
+https://learn.mongodb.com/learn/course/mongodb-crud-operations-in-python/lesson-1-working-with-mongodb-documents-in-python/learn?client=customer
+
 
 LINUX
 ## You need to get HOW TO CONFIG the front end 
