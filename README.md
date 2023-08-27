@@ -99,7 +99,11 @@ Each service definition is isolated and represents a separate container in your 
 
 Jenkins is a great tool for CI/CD - Continuous Integration and Development - and it runs as a Daemon on your computer or docker container.  There are different ways to install it depending on your operating system or if you plan to use it within Docker (Which makes things a lot easier).  
 
-What it does?
+Installation documentation can be found below:
+
+>https://www.jenkins.io/doc/book/installing/linux/>
+
+# What it does?
 
 Jenkins works as a server whether locally or within a Container.  It has a great GUI to make things go really smooth.  A small amount of account management is required (locally stored) and once its up and running you can:
   execute script chains that pull in an associated github branch repository
@@ -108,6 +112,59 @@ Jenkins works as a server whether locally or within a Container.  It has a great
   add more steps to the build process
 
   If any step doesn't work the build is considered a Fail and Jenkins keeps a log of the output and names of the trial runs.
+
+# Before you install Jenkins (How to install Java Dependencies) Choose Long Term or Weekly
+
+# Long term support Java (Recommended Stable Version)
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf upgrade
+
+# Add required dependencies for the jenkins package
+sudo dnf install java-17-openjdk
+sudo dnf install jenkins
+sudo systemctl daemon-reload
+
+# Weekly Release Java
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+sudo dnf upgrade
+
+# Add required dependencies for the jenkins package
+sudo dnf install java-17-openjdk
+sudo dnf install jenkins
+
+# How to start Jenkins on Fedora
+
+Enable Jenkins:
+sudo systemctl enable jenkins
+
+Start Jenkins:
+sudo systemctl start jenkins
+
+Check Status of Jenkins:
+sudo systemctl status jenkins
+
+# Run Jenkins in the Browser
+
+Open up your browser and go to:
+
+localhost:8080
+
+This should take you to the **Login Screen** 
+
+By default the logins are unique to each individual computer --Meaning that you'll have to configure your username and password per computer -- unless you use an advanced setup in a cloud or network structure (This scope of this project does not use this at this time but that may change in the future).
+
+# What to do after Jenkins is installed
+
+Configure a build from a repository URL on Github
+
+Steps coming soon...
+
 
 # Extra Notes
 
