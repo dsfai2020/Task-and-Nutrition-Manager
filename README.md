@@ -197,7 +197,13 @@ LINUX
 
 DEVELOPMENT
 ## You need to get HOW TO START the front end - REACT
+
 ## You need to get HOW TO START the back end - FLASK
+
+If you want to run a backend to use for testing purposes.  Use the file named mock_server.py as an example.  Then activate it by entering the following:
+
+python -m flask --app mock_server run
+
 ## You need to get HOW TO START the testing - pytest
 
 PRODUCTION
