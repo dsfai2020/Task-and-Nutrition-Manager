@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function MainToDoList() {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    // Load todos from local storage on component mount
+    const storedTodos = localStorage.getItem('todos');
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save todos to local storage whenever it changes
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
