@@ -35,7 +35,7 @@ function MainToDoList() {
 
   return (
     <div>
-      <h2>Todo List</h2>
+      <h2>To Do List</h2>
       <input
         type="text"
         value={inputValue}

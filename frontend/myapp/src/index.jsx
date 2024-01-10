@@ -23,9 +23,9 @@ root.render(
     <div>
   {/* <React.StrictMode> */}
     <div class="item-header"></div>
-    <MainHeader />
     <Navbar />
     <DiscussionRoutes />
+    <MainHeader />
     <Board />
     <MyRoutes />
     <div class="item-main"></div>

@@ -6,7 +6,7 @@ import MainToDoList from './MainToDoList'
 const MainHeader = () => {
     return ( 
     <div>
-      <h1>Main Header</h1>
+      <h1>Productive Zone</h1>
       <MainToDoList />
     </div>)
     ;
