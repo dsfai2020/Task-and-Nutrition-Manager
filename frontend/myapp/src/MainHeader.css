@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container .miniCalCollection{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.container .miniCal{
+    border: solid black;
+    display: flex;
+    justify-content: flex-end;
+    }
+
+
+.container .miniCalCollection .miniCal .dayClicked{
+    border-radius: 65px;
+    height: 40px;
+    width: 40px;
+    background-color: green;
+}
+
+.container .day:hover{
+    background-color: teal;
+}
+
+/* latest */
+.container .day{
+    border-radius: 65px;
+    height: 40px;
+    width: 40px;
+    border: solid black;
+}
+
+.container .weekLayout{
+    display: flex;
+}
+
+

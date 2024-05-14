@@ -1,15 +1,143 @@
+import { useState, useEffect} from 'react';
+import './MainHeader.css'
 
-import MainToDoList from './MainToDoList'
 
-// You brought in the MainToDoList using this page as a main render for it.
+// define props as you see fit from MainHeader Components seen in this function
+export default function MainHeader () {
+  return (
+    <div class='container'>
+      <div class='miniCalTitle'>
+        <h1>6 Week Planner</h1>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='1'/>
+        {/* the MiniGenerator has a display within it called props.today and I am naming the today prop for each individually here */}
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='2'/>
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='3'/>
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='4'/>
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='5'/>
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+      <div class='weekLayout'>
+        <WeekCountComponent week='6'/>
+        <MiniCalGenerator today='M'/>
+        <MiniCalGenerator today='T'/>
+        <MiniCalGenerator today='W'/>
+        <MiniCalGenerator today='TH'/>
+        <MiniCalGenerator today='F'/>
+        <MiniCalGenerator today='S'/>
+        <MiniCalGenerator today='SUN'/>
+      </div>
+    </div>
+  );
+}
 
-const MainHeader = () => {
-    return ( 
-    <div>
-      <h1>Productive Zone</h1>
-      <MainToDoList />
-    </div>)
-    ;
-  };
+  // props are enabled to allow for the days to change at the parent component level.
+  function MiniCalGenerator (props) {
+
+    // props.today will give you access to the parameter
+
+    const [clickStatus, setClickStatus] = useState(1);
+
+    // test that passed
+    function handleClick(){
+      setClickStatus(clickStatus + 1)
+    };
+
+    return (
+      <div>
+        {/* {weeks.map((weeks, index) => (
+          <button class='day' key={index} onClick={handleClick}> {weeks} {clickStatus} </button>
+        ))} */}
+        <button class='day' onClick={handleClick}>{props.today}</button>
+      </div>
+      )
+    };
+
+    // lets bring in props from the parent component MainHeader
+    function WeekCountComponent (props) {
+      const [isClicked, setIsClicked]=useState(true);
+
+      // DO NOT forget to return
+      function ButtonIsClicked () {
+        return <button style={{backgroundColor: 'green'}} onClick={handleClick}>Week {props.week}</button>
+      };
+
+      function ButtonIsNotClicked() {
+        return <button onClick={handleNotClicked}>Week {props.week}</button>
+      };
+
+      // Wired into ButtonIsClicked
+      const handleClick = () => {
+        setIsClicked(false)
+      };
+      
+      const handleNotClicked = () => {
+        setIsClicked(true)
+      };
+
+      return (
+        <div>
+          {isClicked ? <ButtonIsClicked /> : <ButtonIsNotClicked />}
+        </div>
+      );
+    }
+
+
+
+      //  // DO NOT forget to return
+      //  function ButtonIsClicked () {
+      //   return <button onClick={handleClick}>I am Clicked</button>
+      // };
+
+      // function ButtonIsNotClicked() {
+      //   return <button onClick={handleNotClicked}>I am NOT clicked</button>
+      // };
+
+
+
   
-  export default MainHeader;
+
+

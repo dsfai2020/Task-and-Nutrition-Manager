@@ -17,6 +17,7 @@ import Discussion from './pages_discussion/Discussion';
 
 import MainHeader from './MainHeader'
 import Board from './Board'
+import MainToDoList from './MainToDoList.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
     <Navbar />
     <DiscussionRoutes />
     <MainHeader />
+    <MainToDoList />
     <Board />
     <MyRoutes />
     <div class="item-main"></div>
