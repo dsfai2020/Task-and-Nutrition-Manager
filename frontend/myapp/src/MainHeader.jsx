@@ -79,11 +79,23 @@ export default function MainHeader () {
 
     // props.today will give you access to the parameter
 
-    const [clickStatus, setClickStatus] = useState(1);
+    const [clickStatus, setClickStatus] = useState(false);
 
-    // test that passed
-    function handleClick(){
-      setClickStatus(clickStatus + 1)
+    function DayIsClicked () {
+      return <button style={{backgroundColor: '#59faa1'}} class='day' onClick={handleTheUnclick}>{props.today}</button>
+    };
+
+    function DayIsNotClicked () {
+      return <button style={{backgroundColor: 'white'}} class='day' onClick={handleTheClick}>{props.today}</button>
+    };
+
+    const handleTheClick = () => {
+      setClickStatus(true)
+
+    };
+
+    const handleTheUnclick = () => {
+      setClickStatus(false)
     };
 
     return (
@@ -91,53 +103,55 @@ export default function MainHeader () {
         {/* {weeks.map((weeks, index) => (
           <button class='day' key={index} onClick={handleClick}> {weeks} {clickStatus} </button>
         ))} */}
-        <button class='day' onClick={handleClick}>{props.today}</button>
+        {/* <button class='day' onClick={handleClick}>{props.today}</button> */}
+        {/* check if the status starts as false */}
+        {clickStatus ? <DayIsClicked /> : <DayIsNotClicked />}
       </div>
       )
     };
 
-    // lets bring in props from the parent component MainHeader
-    function WeekCountComponent (props) {
-      const [isClicked, setIsClicked]=useState(true);
+  // lets bring in props from the parent component MainHeader
+  function WeekCountComponent (props) {
+    const [isClicked, setIsClicked]=useState(true);
 
-      // DO NOT forget to return
-      function ButtonIsClicked () {
-        return <button style={{backgroundColor: 'green'}} onClick={handleClick}>Week {props.week}</button>
-      };
+    // DO NOT forget to return
+    function ButtonIsClicked () {
+      return <button style={{backgroundColor: '#59faa1'}} onClick={handleClick}>Week {props.week}</button>
+    };
 
-      function ButtonIsNotClicked() {
-        return <button onClick={handleNotClicked}>Week {props.week}</button>
-      };
+    function ButtonIsNotClicked() {
+      return <button onClick={handleNotClicked}>Week {props.week}</button>
+    };
 
-      // Wired into ButtonIsClicked
-      const handleClick = () => {
-        setIsClicked(false)
-      };
-      
-      const handleNotClicked = () => {
-        setIsClicked(true)
-      };
+    // Wired into ButtonIsClicked
+    const handleClick = () => {
+      setIsClicked(false)
+    };
+    
+    const handleNotClicked = () => {
+      setIsClicked(true)
+    };
 
-      return (
-        <div>
-          {isClicked ? <ButtonIsClicked /> : <ButtonIsNotClicked />}
-        </div>
-      );
-    }
-
-
-
-      //  // DO NOT forget to return
-      //  function ButtonIsClicked () {
-      //   return <button onClick={handleClick}>I am Clicked</button>
-      // };
-
-      // function ButtonIsNotClicked() {
-      //   return <button onClick={handleNotClicked}>I am NOT clicked</button>
-      // };
+    return (
+      <div>
+        {isClicked ? <ButtonIsClicked /> : <ButtonIsNotClicked />}
+      </div>
+    );
+  }
 
 
 
-  
+    //  // DO NOT forget to return
+    //  function ButtonIsClicked () {
+    //   return <button onClick={handleClick}>I am Clicked</button>
+    // };
+
+    // function ButtonIsNotClicked() {
+    //   return <button onClick={handleNotClicked}>I am NOT clicked</button>
+    // };
+
+
+
+
 
 
