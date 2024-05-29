@@ -4,18 +4,24 @@
 
 
 /*GTC changes the width of the columns*/
-.grid-container{
+.grid-workout-container{
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-columns: 80px 80px 80px 80px;
 }
 
 /*Margin changes the width of the grit items inside of the container divs*/
-.grid-item{
+.grid-workout-item{
     text-align: center;
     font-weight: bold;
     color: #2980B9;
     background-color: #065187;
     margin: 2px;
+    font-family: fantasy;
+    padding: 2px;
+    border-radius: 20px;
+}
+.grid-workout-item:hover{
+    background-color: lightblue;
 }
 
 .test{

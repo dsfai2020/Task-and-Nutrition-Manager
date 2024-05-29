@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     min-width: 250px;
-    background-color: #f7f7f7;
+    background-color: teal;
     border-radius: 4px;
     padding: 10px;
   }
@@ -19,7 +19,7 @@
   
   .column-items {
     min-height: 100px;
-    background-color: #fff;
+    background-color: whitesmoke;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
@@ -29,7 +29,7 @@
   .item {
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: turquoise;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
@@ -39,6 +39,6 @@
   }
   
   .item:hover {
-    background-color: #f2f2f2;
+    background-color: orange;
   }
   

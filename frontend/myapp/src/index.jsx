@@ -26,13 +26,14 @@ root.render(
     <div class="item-header"></div>
     <Navbar />
     <DiscussionRoutes />
+    <MyRoutes />
     <MainHeader />
     <MainToDoList />
-    <Board />
-    <MyRoutes />
+    {/* <Board /> */}
+
     <div class="item-main"></div>
     <div class="item-sidebar"></div>
-    <App />
+    {/* <App /> */}
     <WorkOuts />
     <MyHook />
     {/* <Bars /> */}

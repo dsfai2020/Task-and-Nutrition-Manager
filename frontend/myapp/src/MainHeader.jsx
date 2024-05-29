@@ -153,7 +153,7 @@ export default function MainHeader () {
 
     // DO NOT forget to return.  Returns a button with a custom style if this is used.
     function ButtonIsClicked () {
-      return <button style={{backgroundColor: '#59faa1'}} onClick={handleClick}>Week {props.week}</button>
+      return <button class='weekCountComponent' style={{backgroundColor: '#59faa1'}} onClick={handleClick}>Week {props.week}</button>
     };
 
     // returns a button

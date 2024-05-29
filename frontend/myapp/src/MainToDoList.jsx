@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 function MainToDoList() {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -29,18 +30,19 @@ function MainToDoList() {
   };
 
   const handleRemoveTodo = (index) => {
+    // the _ parameter means that it is unused.
     const updatedTodos = todos.filter((_, i) => i !== index);
     setTodos(updatedTodos);
   };
 
   return (
     <div>
-      <h2>To Do List</h2>
+      <h2>Accountability List</h2>
       <input
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Enter a new task"
+        placeholder="What do you need to do?"
       />
       <button onClick={handleAddTodo}>Add</button>
       <ul>
