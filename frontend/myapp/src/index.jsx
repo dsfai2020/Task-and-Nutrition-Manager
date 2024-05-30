@@ -18,6 +18,7 @@ import Discussion from './pages_discussion/Discussion';
 import MainHeader from './MainHeader'
 import Board from './Board'
 import MainToDoList from './MainToDoList.jsx';
+import StoryUi from './StoryUi.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,7 @@ root.render(
     <DiscussionRoutes />
     <MyRoutes />
     <MainHeader />
+    <StoryUi />
     <MainToDoList />
     {/* <Board /> */}
 

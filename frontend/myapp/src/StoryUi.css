@@ -1,0 +1,62 @@
+
+@media (max-width: 2000px){
+.storyUi-Container{
+    background-color: teal;
+    border: solid salmon;
+    /* top left right bot right left */
+    /* border-radius: 20px 20px 40px 40px; */
+    border-radius: 20px;
+    display: grid;
+    /* fr refers to free space */
+    grid-template-columns: 10fr 10fr;
+    grid-template-rows: 10fr 10fr 10fr;
+    grid-template-areas: 
+    "a metrics"
+    "b metrics"
+    "b metrics"
+    }
+}
+
+/* This applies to both text-a and text-b to make it easier to adjust across */
+.storyUi-Container .text-a, .text-b{
+    /* border: solid red; */
+    width: 100%;
+    border-radius: 20px;
+}
+
+.storyUi-Container .text-a{
+    grid-area: a;
+}
+
+.storyUi-Container .text-b{
+    grid-area: b;
+}
+
+/* I turned the metric flexbox into a pluggable grid-area named metrics. */
+.storyUi-Container .metric-Container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    grid-area: metrics;
+    justify-content: space-evenly;
+}
+
+/* easy edit of metrics */
+.storyUi-Container .metric-a, .metric-b, .metric-c{
+    border: solid salmon;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    width: 30%;
+}
+
+.storyUi-Container .metric-a{
+    grid-area: metrica;
+}
+
+.storyUi-Container .metric-b{
+    grid-area: metricb;
+}
+
+.storyUi-Container .metric-c{
+    grid-area: metricc;
+}
