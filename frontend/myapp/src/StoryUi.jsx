@@ -11,25 +11,43 @@ export default function StoryUi(props) {
     const [someState, setSomeState]=useState([1,2,3]);
     const [dynamicUi, setDynamicUi]=useState();
 
+    const [counter, setCounter]=useState(0);
+
+    const [someList, setSomeList]=useState([1]);
 
     function AddAnother (props) {
         return (
                 <button onClick={handlePress}>Add another. Name is {props.name}</button>
-
         )
     };
 
+    // handle the dynamicUi at press
     const handlePress = () => {
-        console.log('great test')
+        console.log('great test');
+        setCounter(counter+1);
+        console.log('This is the counter: '+ counter);
         setDynamicUi([<StoryUiComponent name='Dynamic Ui Test Passed'/>])
     };
     
     // Next you need a useEffect that allows that stages a variable array with multiples and sets it.
         // For that you can use a map iteration and assign keys for accessibility. 
 
+    // Trigger off of the change from a dynamic after press populates it.
     useEffect (() => {
-        console.log('You left off here')
+        console.log('You left off here');
+        const x=[0,1,2];
+        x.map((something)=>{console.log(something)})
          }, [dynamicUi]
+    );
+
+    useEffect (() => {
+        console.log('You left off here');
+        // const x=[4,5,6];
+        // x.push(counter);
+        someList.push(counter);
+        // someList.map((something)=>{console.log(something)})
+        //  }, [counter]
+        }, [counter]
     );
 
     return (
@@ -37,9 +55,10 @@ export default function StoryUi(props) {
 
         <div>
             
-            <StoryUiComponent someState={someState} name='testing props'/>
-            <StoryUiComponent someState={someState} name='testing props2'/>
-            {dynamicUi}
+            {/* <StoryUiComponent someState={someState} name='testing props'/>
+            <StoryUiComponent someState={someState} name='testing props2'/> */}
+            {/* {dynamicUi} */}
+            {someList.map((each)=>{return <StoryUiComponent name={counter +1} />})}
             <AddAnother name='dynamic'/>
         </div>
     )
