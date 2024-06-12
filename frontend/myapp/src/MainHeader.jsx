@@ -117,7 +117,7 @@ export default function MainHeader () {
 
 
     // IT WORKS using the 2 effects below.  
-    const primeKey = props.day;
+    const primeKey = 'day'+ props.day;
 
     useEffect(()=>{
 

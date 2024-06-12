@@ -111,9 +111,13 @@ function StoryUiComponent (props) {
     const [uiClient, setUiClient]=useState(props);
 
     // for delivery
-    const [propsClone, setPropsClone]=useState({...uiClient, [props.description]: inputValue, [props.size]: '44', [props.estimate]:'5 story points', [props.value]: 'high value'});
+    const [propsClone, setPropsClone]=useState({...uiClient, [props.description]: inputValue, [props.size]: '5', [props.estimate]:'5 story points', [props.value]: 'high value'});
     
-    const [uIBackEnd, setUiBackEnd]=useState('uiBackEnd');
+    // This actually will be used as state for the KEY it saves under in the localstorage'
+    // for example if it is a string - uiBackEnd than that'll be the key.
+    const [uIBackEnd, setUiBackEnd]=useState('uiBackEnd'+props.index);
+
+  
     
     // const [activeKey, setActiveKey] = useState(props.index);
 
@@ -130,7 +134,7 @@ function StoryUiComponent (props) {
         // stage client before clone
         const stage = {...uiClient, 
             [props.description]: inputValue, 
-            [props.size]: '44', 
+            [props.size]: '3', 
             [props.estimate]:'5 story points', 
             [props.value]: 'high value'}
 
