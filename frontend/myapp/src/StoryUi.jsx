@@ -21,9 +21,13 @@ export default function StoryUi(props) {
     });
 
     const [initCounter, setInitCounter]=useState(0);
-    const [uiFrontEnd, setUiFrontEnd]=useState();
+    
+    const [uiTest, setUiTest]=useState(true);
 
-   
+        // Needs to be a list for mapping
+    const [deliveryList, setDeliveryList]=useState([]);
+
+    const [lengthDelivery, setLengthDelivery]=useState([0,1,2]);
 
 
     function AddAnother (props) {
@@ -78,7 +82,7 @@ export default function StoryUi(props) {
         // get Keys
         const forDelivery = {};
         for (let each in localStorage) {
-            console.warn(each);
+            console.log(each);
             // FAIL - still getting the entire localStorage... i only want the ui components
             if (each.includes('uiBackEnd')) {
                 console.info('Breaking down the keys: '+each);
@@ -87,7 +91,16 @@ export default function StoryUi(props) {
        
             }; 
         // READY for delivery.  All it needs now is to have a component render a UI upon a trigger.  Hypothesis:  see github issue 64.
-        console.debug(forDelivery)
+        console.debug(forDelivery);
+        
+       
+        console.warn(deliveryList);
+        
+        // Critical dependency on initCounter.  I'm pushing to a delivery list to modify it's state indirectly.
+        // Its triggering TWICE not supposed to.
+        deliveryList.push(forDelivery);
+        
+        console.debug(deliveryList);
         
         if (preStage['mode']='testing') {
             console.log('The mode is testing with initCounter at ' + initCounter);
@@ -115,7 +128,7 @@ export default function StoryUi(props) {
         // localStoredData.map((x)=>{
         //     console.log("Passed iteration Test")
         //     });
-        }, []
+        }, [initCounter]
     );
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
@@ -149,6 +162,14 @@ export default function StoryUi(props) {
             {/* {dynamicUi} */}
             {/* setting prop args don't require commas or semicolons */}
             {/* The index record itself will be the index and it'll generate a pair on the storage side as well by default */}
+            {/* {uiTest ? <p>TRUE</p> : <p>FAILED</p>} */}
+            {/* {(delivery, initCounter==1) ? <p>TEST PASSED {initCounter} {Object.entries(delivery)}</p> : <p>FAILED</p> } */}
+            
+            {/* I need to pass in the props to the StoryComponent but I'm having trouble. testing with lenthDelivery being a state that is really just an array of 3 numbers.  SO far it sort of works but I need parameters */}
+            {(deliveryList, initCounter==1) ? lengthDelivery.map((item)=>{
+                return <StoryUiComponent name={deliveryList[0]['uiBackEnd1']}/>}) 
+                : <p>FAILED</p>}
+
             {someList.map((item)=>{return <StoryUiComponent name={counter +1} index={counter+1} estimate='estimate' value='value' size='size' description='description'/>})}
             <AddAnother name='dynamic'/>
         </div>
