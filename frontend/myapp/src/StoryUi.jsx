@@ -16,8 +16,11 @@ export default function StoryUi(props) {
 
     const [someList, setSomeList]=useState([1]);
 
-    const [localStoredData, setLocalStoredData]=useState();
+    const [preStage, setPreStage]=useState({
+        mode: 'testing',
+    });
 
+    const [initCounter, setInitCounter]=useState(0);
     const [uiFrontEnd, setUiFrontEnd]=useState();
 
    
@@ -60,6 +63,61 @@ export default function StoryUi(props) {
         }, [counter]
     );
 
+    useEffect (() => {
+        console.log('the page has loaded.  Ready to setup cards'); 
+        console.log(localStorage);
+        const storedData=localStorage.getItem('uiBackEnd3');
+        console.log('Parsing...' + storedData);
+
+        // setPreStage({test: JSON.parse(storedData)}); 
+        
+        // prestage was assigned dictionary defaults at its defined state.
+        console.log(preStage['mode']);
+        console.log(preStage);
+
+        // get Keys
+        const forDelivery = {};
+        for (let each in localStorage) {
+            console.warn(each);
+            // FAIL - still getting the entire localStorage... i only want the ui components
+            if (each.includes('uiBackEnd')) {
+                console.debug('Breaking down the keys: '+each);
+                forDelivery[each]=localStorage[each]};
+                // PASSED
+                console.debug(forDelivery);
+            
+                // WON'T DISPLAY
+            console.info('final: '+ forDelivery)
+        }; 
+        
+        if (preStage['mode']='testing') {
+            console.log('The mode is testing with initCounter at ' + initCounter);
+            // even though it updates it technically won't change until rerendering because the effect is constrained to initCounter.
+            setPreStage({mode: 'green'});
+            console.log(preStage);
+
+
+            // I limit the init counter trigger by creating a counter Dam.  Just once Is what I want.
+            // triggers code before the rest of the effect even happens once because the flow surrenders to initCounter change.
+            if (initCounter<1) {
+                setInitCounter(initCounter + 1);
+                for (let key in localStorage) {
+                    if (key.includes('uiBackEnd')) {
+                        setPreStage({almost: JSON.parse(storedData)});                        
+                    };
+                };
+            };
+            
+        };
+
+        console.log("Finding...Post Init preStage" + preStage);
+        console.log('concluding init below:');
+        console.log(preStage);
+        // localStoredData.map((x)=>{
+        //     console.log("Passed iteration Test")
+        //     });
+        }, [initCounter]
+    );
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
 
