@@ -17,20 +17,25 @@ import Discussion from './pages_discussion/Discussion';
 
 import MainHeader from './MainHeader'
 import Board from './Board'
+import MainToDoList from './MainToDoList.jsx';
+import StoryUi from './StoryUi.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
   {/* <React.StrictMode> */}
     <div class="item-header"></div>
-    <MainHeader />
     <Navbar />
     <DiscussionRoutes />
-    <Board />
     <MyRoutes />
+    <MainHeader />
+    <StoryUi />
+    <MainToDoList />
+    {/* <Board /> */}
+
     <div class="item-main"></div>
     <div class="item-sidebar"></div>
-    <App />
+    {/* <App /> */}
     <WorkOuts />
     <MyHook />
     {/* <Bars /> */}

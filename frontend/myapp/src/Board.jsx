@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import './Board.css';
+
+const BOARD_STORAGE_KEY = 'board-state';
 
 const initialColumns = {
   'column-1': {
@@ -35,6 +37,19 @@ const initialColumns = {
 const Board = () => {
   const [columns, setColumns] = useState(initialColumns);
   const [editingItem, setEditingItem] = useState(null);
+
+  // Load board state from local storage on component mount
+  useEffect(() => {
+    const savedState = localStorage.getItem(BOARD_STORAGE_KEY);
+    if (savedState) {
+      setColumns(JSON.parse(savedState));
+    }
+  }, []);
+
+  // Save board state to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(BOARD_STORAGE_KEY, JSON.stringify(columns));
+  }, [columns]);
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
@@ -124,34 +139,30 @@ const Board = () => {
       <div className="board">
         {Object.values(columns).map((column) => (
           <div className="column" key={column.id}>
+            
             <h3 className="column-title">{column.title}</h3>
-            <Droppable droppableId={column.id}>
-              {(provided) => (
-                <div
-                  className="column-items"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
+            
+            <Droppable droppableId={column.id}>{(provided) => (
+                <div className="column-items" ref={provided.innerRef}{...provided.droppableProps}>
                   {column.items.map((item, index) => (
+                    
                     <Draggable key={item.id} draggableId={item.id} index={index}>
                       {(provided) => (
-                        <div
-                          className={`item ${editingItem?.itemId === item.id ? 'editing' : ''}`}
+                        <div className={`item ${editingItem?.itemId === item.id ? 'editing' : ''}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          onClick={() => handleItemClick(column.id, item.id)}
-                        >
-                          {editingItem?.itemId === item.id ? (
-                            <input
-                              type="text"
-                              value={item.content}
-                              onChange={(e) =>
-                                handleItemNameChange(column.id, item.id, e.target.value)
-                              }
-                              onBlur={handleItemBlur}
-                              autoFocus
-                            />
+                          
+                          onClick={() => handleItemClick(column.id, item.id)}>
+                            {editingItem?.itemId === item.id ? (
+                              <input
+                                type="text"
+                                value={item.content}
+                                onChange={(e) =>
+                                  handleItemNameChange(column.id, item.id, e.target.value)
+                                }
+                                onBlur={handleItemBlur}
+                                autoFocus/>
                           ) : (
                             item.content
                           )}
@@ -160,12 +171,7 @@ const Board = () => {
                     </Draggable>
                   ))}
                   {provided.placeholder}
-                  <button
-                    className="add-card-button"
-                    onClick={() => handleAddCard(column.id)}
-                  >
-                    + Add Card
-                  </button>
+                  <button className="add-card-button" onClick={() => handleAddCard(column.id)}>+ Add Story</button>
                 </div>
               )}
             </Droppable>

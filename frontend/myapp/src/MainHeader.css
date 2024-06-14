@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.container .day:hover{
+    background-color: teal;
+}
+
+
+@media (max-width: 2000px) {
+.container .weekCountComponent {
+    border-radius: 50px;
+    height: 10vw;
+    width: 15vw;
+    }
+}
+
+/* When the display is 2000px wide or less do this */
+@media (max-width: 400px) {
+.container .day {
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    border: solid black;
+}}
+
+
+.container .weekLayout{
+    display: flex;
+    }
+
+
+
