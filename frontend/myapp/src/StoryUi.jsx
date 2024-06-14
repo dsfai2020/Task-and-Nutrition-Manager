@@ -81,14 +81,13 @@ export default function StoryUi(props) {
             console.warn(each);
             // FAIL - still getting the entire localStorage... i only want the ui components
             if (each.includes('uiBackEnd')) {
-                console.debug('Breaking down the keys: '+each);
+                console.info('Breaking down the keys: '+each);
+                // Need a counter to limit this.
                 forDelivery[each]=localStorage[each]};
-                // PASSED
-                console.debug(forDelivery);
-            
-                // WON'T DISPLAY
-            console.info('final: '+ forDelivery)
-        }; 
+       
+            }; 
+        // READY for delivery.  All it needs now is to have a component render a UI upon a trigger.  Hypothesis:  see github issue 64.
+        console.debug(forDelivery)
         
         if (preStage['mode']='testing') {
             console.log('The mode is testing with initCounter at ' + initCounter);
@@ -116,7 +115,7 @@ export default function StoryUi(props) {
         // localStoredData.map((x)=>{
         //     console.log("Passed iteration Test")
         //     });
-        }, [initCounter]
+        }, []
     );
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
