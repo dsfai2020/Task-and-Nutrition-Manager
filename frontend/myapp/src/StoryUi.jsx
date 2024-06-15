@@ -21,14 +21,11 @@ export default function StoryUi(props) {
     });
 
     const [initCounter, setInitCounter]=useState(0);
-    
-    const [uiTest, setUiTest]=useState(true);
 
         // Needs to be a list for mapping
     const [deliveryList, setDeliveryList]=useState([]);
 
-    const [lengthDelivery, setLengthDelivery]=useState([0,1,2]);
-
+    const [forDelivery, setForDelivery]=useState();
 
     function AddAnother (props) {
         return (
@@ -80,27 +77,37 @@ export default function StoryUi(props) {
         console.log(preStage);
 
         // get Keys
-        const forDelivery = {};
+
+        // for delivery being a dictionary causing issues with parse to object because conflict.
+        // const forDelivery = {};  Do not make the mistake of trying to pass the objects into a dictionary.  All you need to do is push them into a state list.  That way the array of the state object contains the objects being parsed.  This is because parse converts the stringify local storage content (which is a pre require to be in local storage) back into an object.  It isn't actually a dictionary (but can be handled exactly like one) - it is an Object as seen on parseData.test.js
         for (let each in localStorage) {
             console.log(each);
             // FAIL - still getting the entire localStorage... i only want the ui components
             if (each.includes('uiBackEnd')) {
                 console.info('Breaking down the keys: '+each);
-                // Need a counter to limit this.
-                forDelivery[each]=localStorage[each]};
+
+                // absolutely important step
+                const a = localStorage.getItem(each);
+                 
+                // IVE GOT THE ITEMS I NEED IN b (PASS)  I JUST DON'T KNOW HOW TO RETURN IT AS PROPS OR RENDER OR INTO A STATE
+                const b = JSON.parse(a);
+
+                // DISPLAYS CORRECTLY what I wanted.
+                console.warn(b);
+              
+                // COULD THIS BE THE FIX?  I SIMPLY NEEDED TO PUSH b TO THE LIST?!!?!?!?!?!?!?
+                deliveryList.push(b);
+
+                };
+                // I am parsing this because I READ the data from local storage which only saves strings.
+    
        
             }; 
-        // READY for delivery.  All it needs now is to have a component render a UI upon a trigger.  Hypothesis:  see github issue 64.
-        console.debug(forDelivery);
-        
-       
-        console.warn(deliveryList);
-        
-        // Critical dependency on initCounter.  I'm pushing to a delivery list to modify it's state indirectly.
-        // Its triggering TWICE not supposed to.
-        deliveryList.push(forDelivery);
+
         
         console.debug(deliveryList);
+        console.warn(deliveryList);
+    
         
         if (preStage['mode']='testing') {
             console.log('The mode is testing with initCounter at ' + initCounter);
@@ -108,18 +115,9 @@ export default function StoryUi(props) {
             setPreStage({mode: 'green'});
             console.log(preStage);
 
-
-            // I limit the init counter trigger by creating a counter Dam.  Just once Is what I want.
-            // triggers code before the rest of the effect even happens once because the flow surrenders to initCounter change.
             if (initCounter<1) {
                 setInitCounter(initCounter + 1);
-                for (let key in localStorage) {
-                    if (key.includes('uiBackEnd')) {
-                        setPreStage({almost: JSON.parse(storedData)});                        
-                    };
-                };
-            };
-            
+                };            
         };
 
         console.log("Finding...Post Init preStage" + preStage);
@@ -128,28 +126,10 @@ export default function StoryUi(props) {
         // localStoredData.map((x)=>{
         //     console.log("Passed iteration Test")
         //     });
-        }, [initCounter]
+        }, []
     );
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
-
-    // TEST - checks the local storage at init only.  Hence the [].  If it finds the correct key, sets data.
-    // useEffect (() => {
-    //     const storedData = localStorage.getItem('data');
-    //     if (storedData) {
-    //         setData(JSON.parse(storedData))
-    //         }
-    //     }, []
-    // );
-
-    // useEffect (()=> {
-    //     const storedData = localStorage.getItem('1')
-    //     if (storedData) {
-    //         setLocalStoredData(JSON.parse(storedData));
-    //         console.log('INIT :' + localStoredData);
-    //         }
-    //     }, []
-    // );
 
 
     return (
@@ -158,19 +138,22 @@ export default function StoryUi(props) {
         <div>
             
             {/* <StoryUiComponent someState={someState} name='testing props'/>
-            <StoryUiComponent someState={someState} name='testing props2'/> */}
-            {/* {dynamicUi} */}
             {/* setting prop args don't require commas or semicolons */}
             {/* The index record itself will be the index and it'll generate a pair on the storage side as well by default */}
-            {/* {uiTest ? <p>TRUE</p> : <p>FAILED</p>} */}
-            {/* {(delivery, initCounter==1) ? <p>TEST PASSED {initCounter} {Object.entries(delivery)}</p> : <p>FAILED</p> } */}
+
             
             {/* I need to pass in the props to the StoryComponent but I'm having trouble. testing with lenthDelivery being a state that is really just an array of 3 numbers.  SO far it sort of works but I need parameters */}
-            {(deliveryList, initCounter==1) ? lengthDelivery.map((item)=>{
-                return <StoryUiComponent name={deliveryList[0]['uiBackEnd1']}/>}) 
+            {(deliveryList && initCounter===1) ? deliveryList.map((item, index)=>{
+                // deliveryList a list containing objects that were pushed into it after parsing in an effect. Generating at startup based on how long the deliveryList is.
+                return <StoryUiComponent 
+                key={index}
+                name={item.name}
+                estimate={item.estimate}
+                description={item.description}
+                />}) 
                 : <p>FAILED</p>}
 
-            {someList.map((item)=>{return <StoryUiComponent name={counter +1} index={counter+1} estimate='estimate' value='value' size='size' description='description'/>})}
+            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='estimate' value='value' size='size' description='description'/>})}
             <AddAnother name='dynamic'/>
         </div>
     )
@@ -191,8 +174,8 @@ function StoryUiComponent (props) {
     // for delivery
     const [propsClone, setPropsClone]=useState({...uiClient, [props.description]: inputValue, [props.size]: '5', [props.estimate]:'5 story points', [props.value]: 'high value'});
     
-    // This actually will be used as state for the KEY it saves under in the localstorage'
-    // for example if it is a string - uiBackEnd than that'll be the key.
+    // KEY it saves under in the localstorage'
+    // for example if it is a string - uiBackEnd than that'll be the key but I concat the index to it as well uiBackEnd123 etc.
     const [uIBackEnd, setUiBackEnd]=useState('uiBackEnd'+props.index);
 
   
@@ -273,7 +256,7 @@ function StoryUiComponent (props) {
     return (
         <div class='storyUi-Container'>
             <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-            <textarea class='text-b' type='text' placeholder='Describe the story' value={inputValue} onChange={handleDescriptionChange}></textarea>
+            <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}></textarea>
 
             <div class='label-Container'>
                 <p>Estimate</p>
