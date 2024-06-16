@@ -38,6 +38,7 @@ export default function StoryUi(props) {
         console.log('handlePress activated');
         setCounter(counter+1);
         console.log('This is the counter: '+ counter);
+        someList.push(counter);
 
         // TEST
         // setDynamicUi([<StoryUiComponent name='Dynamic Ui Test Passed'/>])
@@ -54,15 +55,16 @@ export default function StoryUi(props) {
          }, [dynamicUi]
     );
 
-    useEffect (() => {
-        console.log('You left off here, someList is: ' + (counter));
+    // THIS IS WHAT IS TRIGGERING THE LIST TO CONTINUE GROWING
+    // useEffect (() => {
+    //     console.log('You left off here, someList is: ' + (counter));
 
-        // appends counter to someList
-        someList.push(counter);
+    //     // appends counter to someList
+    //     someList.push(counter);
        
-        // triggers when counter changes
-        }, [counter]
-    );
+    //     // triggers when counter changes
+    //     }, [counter]
+    // );
 
     useEffect (() => {
         console.log('the page has loaded.  Ready to setup cards'); 
@@ -150,10 +152,12 @@ export default function StoryUi(props) {
                 name={item.name}
                 estimate={item.estimate}
                 description={item.description}
+                value={item.value}
+                index={item.name}
                 />}) 
                 : <p>FAILED</p>}
-
-            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='estimate' value='value' size='size' description='description'/>})}
+            {/* consider counter saving where it left off in its own key to prevent duplicates */}
+            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='estimate' value='value' size='size' description=''/>})}
             <AddAnother name='dynamic'/>
         </div>
     )
@@ -171,8 +175,10 @@ function StoryUiComponent (props) {
     // on arrival carry props as (is ui state) remember each is its own client
     const [uiClient, setUiClient]=useState(props);
 
-    // for delivery
-    const [propsClone, setPropsClone]=useState({...uiClient, [props.description]: inputValue, [props.size]: '5', [props.estimate]:'5 story points', [props.value]: 'high value'});
+    // for delivery props. gives values so dont set that as a key
+    // const [propsClone, setPropsClone]=useState({...uiClient, description: inputValue, size: props.size, estimate: props.estimate, value: props.value});
+
+    const [propsClone, setPropsClone]=useState(props);
     
     // KEY it saves under in the localstorage'
     // for example if it is a string - uiBackEnd than that'll be the key but I concat the index to it as well uiBackEnd123 etc.
@@ -190,14 +196,12 @@ function StoryUiComponent (props) {
         setInputValue(e.target.value);
 
 
-        // hypothesis:  props.description is actually editing the value of description because of it was set in quotes.
+        // hypothesis:  props.description is actually editing the value of description because it was set in quotes.
         
-        // stage client before clone
+        // stage client before clone.  clients state is props
         const stage = {...uiClient, 
-            [props.description]: inputValue, 
-            [props.size]: '3', 
-            [props.estimate]:'5 story points', 
-            [props.value]: 'high value'}
+            description: inputValue,
+          }
 
         // display tests
         const x=localStorage.getItem(props.index)
@@ -256,7 +260,7 @@ function StoryUiComponent (props) {
     return (
         <div class='storyUi-Container'>
             <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-            <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}></textarea>
+            <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description + ' Index is: ' + props.index}</textarea>
 
             <div class='label-Container'>
                 <p>Estimate</p>
