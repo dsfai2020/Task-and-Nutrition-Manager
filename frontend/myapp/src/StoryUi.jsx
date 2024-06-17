@@ -177,7 +177,7 @@ export default function StoryUi(props) {
                 />}) 
                 : <p>FAILED</p>}
             {/* consider counter saving where it left off in its own key to prevent duplicates */}
-            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='estimate' value='value' size='size' description=''/>})}
+            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='3' value='value' size='size' description=''/>})}
             <AddAnother name='dynamic'/>
         </div>
     )
@@ -188,10 +188,6 @@ export default function StoryUi(props) {
 // Everytime StoryUiComponent is called it will run everything below in that components own 'world'.
 function StoryUiComponent (props) {
     
-    
-    // Remember that each state within the component is managed independently of clones.  Multi States Reusable.    
-    const [inputValue, setInputValue]= useState();
-
     // on arrival carry props as (is ui state) remember each is its own client
     const [uiClient, setUiClient]=useState(props);
 
@@ -203,42 +199,26 @@ function StoryUiComponent (props) {
     // KEY it saves under in the localstorage'
     // for example if it is a string - uiBackEnd than that'll be the key but I concat the index to it as well uiBackEnd123 etc.
     const [uIBackEnd, setUiBackEnd]=useState('uiBackEnd'+props.index);
-
-  
-    
-    // const [activeKey, setActiveKey] = useState(props.index);
-
-        // hypothesis: Add an onChange={handleInputChange} to capture text value of description.  PASSED.
-
+ 
+        
+    // Remember that each state within the component is managed independently of clones.  Multi States Reusable.    
+    const [inputValue, setInputValue]= useState();
     // UPDATE front end PREP stage.
     const handleDescriptionChange =(e)=>{
 
+        // CRITICAL NOTE: value is the actual key. value=(something you set on the UIcard) and e.target.value accesses its contents.
         setInputValue(e.target.value);
+        // absolutely important step.  Get the backend by the primary key
+        const a = localStorage.getItem(uIBackEnd);
+        // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
+        const b = JSON.parse(a);
+        b.description=inputValue;
 
-
-        // hypothesis:  props.description is actually editing the value of description because it was set in quotes.
-        
-        // stage client before clone.  clients state is props
-        const stage = {...uiClient, 
-            description: inputValue,
-          }
-
-        // display tests
-        const x=localStorage.getItem(props.index)
-        console.log('TESTING INDEX :'+ x)
-
-        // FAIL ITS 1 BEHIND
-        // Object.entries() Object.keys() and Object.values(the object you want to get values of)
-        console.log('you typed: ' + inputValue + ' '+ Object.entries(propsClone));
-
-        // hypothesis: stage will show me the correct changes in description and attributes for the ui.  PASSED.
-        console.log(stage);
-        // hypothesis: printing out stageTest will show me the same output as Stage  FAILED.  It just says object object.
-                 // console.log('stageTest: ' +stageTest)
-
-        // stage and clone
-        setPropsClone(stage) 
-        
+        console.warn(b);
+        console.log(b);
+   
+        // I need to set just a specific entry within the record.  
+        localStorage.setItem(uIBackEnd, JSON.stringify(b))
     };
 
         // hypothesis:  When the component first renders itll automatically run this effect since its blank. PASSED.
@@ -259,6 +239,7 @@ function StoryUiComponent (props) {
         console.log('last check: ' + Object.entries(propsClone))
 
 
+        
         // propsClone.index
         // hypothesis: I should be able to set the index as the key for the entry.  PASSED.
         localStorage.setItem(uIBackEnd, JSON.stringify(propsClone))
@@ -273,6 +254,28 @@ function StoryUiComponent (props) {
         },  
     [propsClone]);
 
+    const [estimateInputValue, setEstimateInputValue]=useState();
+     
+    const handleEstimateChange =(e)=>{
+        
+        setEstimateInputValue(e.target.value);
+
+        // absolutely important step.  Get the backend by the primary key
+        const a = localStorage.getItem(uIBackEnd);
+                 
+        // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
+        const b = JSON.parse(a);
+
+        // I thought Object.estimate would've worked but I needed the OBJECT to exist and without parse it didn't.  b worked.
+        // I can't actually edit b because its like props its read only? No...b.estimate='this is a test' worked in the output.
+        // b.estimate='This is a test';
+        b.estimate=estimateInputValue;
+        console.warn(b);
+        console.log(b);
+   
+        // I need to set just a specific entry within the record.  
+        localStorage.setItem(uIBackEnd, JSON.stringify(b))
+    };
 
     // hypothesis:  I think that saving the state of the UI at the child level might just make it so that the local data saves. FAIL
 
@@ -293,7 +296,7 @@ function StoryUiComponent (props) {
             {/* ESTIMATE SIZE AND VALUE */}
             <div class='metric-Container'>
                 {/* estimate */}
-                <input type='text' id='textInput' placeholder={props.estimate} class='metric-a'></input>
+                <input type='text' id='textInput' onChange={handleEstimateChange} value={estimateInputValue} placeholder={props.estimate} class='metric-a'></input>
                 {/* value */}
                 <input type='text' id='textInput-2' placeholder={props.value} class='metric-b'></input>
                 {/* size */}
