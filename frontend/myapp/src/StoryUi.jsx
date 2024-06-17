@@ -12,6 +12,7 @@ export default function StoryUi(props) {
     // TEST
     const [dynamicUi, setDynamicUi]=useState();
 
+    // THIS needs to be saved and loaded
     const [counter, setCounter]=useState(0);
 
     const [someList, setSomeList]=useState([1]);
@@ -44,6 +45,22 @@ export default function StoryUi(props) {
         // setDynamicUi([<StoryUiComponent name='Dynamic Ui Test Passed'/>])
     };
     
+    // Create/Overwrite a key in local storage everytime counter changes.
+    // This makes sure to trigger AFTER the init.
+    useEffect (() => {
+        if (initCounter===1) {
+        localStorage.setItem('UiCounter', JSON.stringify(counter))}
+         }, [counter]
+    );
+
+    // At startup set the counter
+    useEffect (()=> {
+        const storedCounter=localStorage.getItem('UiCounter')
+        const accessStoredCounter=JSON.parse(storedCounter)
+        setCounter(accessStoredCounter)
+        }, []
+    );
+
     // Next you need a useEffect that allows that stages a variable array with multiples and sets it.
         // For that you can use a map iteration and assign keys for accessibility. 
 
@@ -66,6 +83,7 @@ export default function StoryUi(props) {
     //     }, [counter]
     // );
 
+    // INIT
     useEffect (() => {
         console.log('the page has loaded.  Ready to setup cards'); 
         console.log(localStorage);
@@ -117,6 +135,7 @@ export default function StoryUi(props) {
             setPreStage({mode: 'green'});
             console.log(preStage);
 
+            // sets the INIT to a value of 1.  This lets you know that the INIT has happened.
             if (initCounter<1) {
                 setInitCounter(initCounter + 1);
                 };            
@@ -154,6 +173,7 @@ export default function StoryUi(props) {
                 description={item.description}
                 value={item.value}
                 index={item.name}
+                size={item.size}
                 />}) 
                 : <p>FAILED</p>}
             {/* consider counter saving where it left off in its own key to prevent duplicates */}
@@ -260,7 +280,9 @@ function StoryUiComponent (props) {
     return (
         <div class='storyUi-Container'>
             <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-            <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description + ' Index is: ' + props.index}</textarea>
+            <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
+            
+            {/* {props.description} + ' Index is: ' + props.index */}
 
             <div class='label-Container'>
                 <p>Estimate</p>
