@@ -257,7 +257,7 @@ function StoryUiComponent (props) {
     const [estimateInputValue, setEstimateInputValue]=useState();
      
     const handleEstimateChange =(e)=>{
-        
+        // value here means the value defined on the ui card itself.  This is simply pointing to the contents of that variable.
         setEstimateInputValue(e.target.value);
 
         // absolutely important step.  Get the backend by the primary key
@@ -274,6 +274,35 @@ function StoryUiComponent (props) {
         console.log(b);
    
         // I need to set just a specific entry within the record.  
+        localStorage.setItem(uIBackEnd, JSON.stringify(b))
+    };
+
+    const [storyValueInputValue, setStoryValueInputValue]= useState();
+
+    const handleStoryValueChange = (e) => {
+        setStoryValueInputValue(e.target.value);
+
+        const a = localStorage.getItem(uIBackEnd);
+
+        const b = JSON.parse(a);
+
+        b.value=storyValueInputValue;
+        
+        localStorage.setItem(uIBackEnd, JSON.stringify(b))
+
+    };
+
+    const [sizeInputValue, setSizeInputValue] = useState();
+
+    const handleSizeInputValueChange = (e) => {
+        setSizeInputValue(e.target.value);
+
+        const a = localStorage.getItem(uIBackEnd);
+
+        const b= JSON.parse(a);
+
+        b.size=sizeInputValue;
+
         localStorage.setItem(uIBackEnd, JSON.stringify(b))
     };
 
@@ -298,9 +327,9 @@ function StoryUiComponent (props) {
                 {/* estimate */}
                 <input type='text' id='textInput' onChange={handleEstimateChange} value={estimateInputValue} placeholder={props.estimate} class='metric-a'></input>
                 {/* value */}
-                <input type='text' id='textInput-2' placeholder={props.value} class='metric-b'></input>
+                <input type='text' id='textInput-2' onChange={handleStoryValueChange} value={storyValueInputValue} placeholder={props.value} class='metric-b'></input>
                 {/* size */}
-                <input type='text' id='textInput-3' placeholder={props.size} class='metric-c'></input>
+                <input type='text' id='textInput-3' onChange={handleSizeInputValueChange} value={sizeInputValue} placeholder={props.size} class='metric-c'></input>
             </div>
 
         </div>
