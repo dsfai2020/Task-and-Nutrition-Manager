@@ -15,7 +15,8 @@ export default function StoryUi(props) {
     // THIS needs to be saved and loaded
     const [counter, setCounter]=useState(0);
 
-    const [someList, setSomeList]=useState([1]);
+    // Making this start off empty prevents the render from automatically mapping this into a ui component using the length of 1 because there is nothing here.  So keep this empty and let it populate on press through handlePress.
+    const [someList, setSomeList]=useState([]);
 
     const [preStage, setPreStage]=useState({
         mode: 'testing',
@@ -50,7 +51,6 @@ export default function StoryUi(props) {
         setCounter(counter+1);
         console.log('This is the counter: '+ counter);
         someList.push(counter);
-
         // TEST
         // setDynamicUi([<StoryUiComponent name='Dynamic Ui Test Passed'/>])
     };
@@ -174,7 +174,15 @@ export default function StoryUi(props) {
     );
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
+    const handleDeliveryListRemove = (cardToRemove) => {
+        console.error('TEST')
+    };
 
+    function SomeButton (stuff) {
+        return (
+            <button onClick={handleDeliveryListRemove}>HELLO</button>
+        )
+    } 
 
     return (
         <div>
@@ -186,9 +194,10 @@ export default function StoryUi(props) {
             
             {/* INIT conditional will continuously map as long as the init is 1.*/}
             {(deliveryList && initCounter===1) 
-                ? deliveryList.map((item, index)=>{
+                ? deliveryList.map((item, index)=> (
                     // deliveryList a list containing objects that were pushed into it after parsing in an effect. Generating at startup based on how long the deliveryList is.
-                    return <StoryUiComponent 
+                    <div>
+                        <StoryUiComponent 
                     key={index}
                     name={item.name}
                     estimate={item.estimate}
@@ -196,7 +205,13 @@ export default function StoryUi(props) {
                     value={item.value}
                     index={item.name}
                     size={item.size}
-                    />}) 
+                    />
+                    {/* <SomeButton/> */}
+                    {/* <button onClick={handleDeliveryListRemove(item)}>this should remove {index} {item.name}</button> */}
+                    </div>
+                    )
+                    
+                ) 
                 : <p>FAILED</p>
             }
   
