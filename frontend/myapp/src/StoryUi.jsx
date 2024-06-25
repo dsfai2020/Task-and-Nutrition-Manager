@@ -26,7 +26,17 @@ export default function StoryUi(props) {
         // Needs to be a list for mapping
     const [deliveryList, setDeliveryList]=useState([]);
 
-    const [forDelivery, setForDelivery]=useState();
+    const [idk, setIdk]=useState()
+
+    // Use sparringly but every render this will trigger
+    useEffect(()=>{
+        console.info('check the pageStatus');
+        const x=localStorage.getItem('pageStatus');
+        const y=JSON.parse(x);
+        setIdk(y);
+        console.warn(y);
+    }, []);
+
 
     function AddAnother (props) {
         return (
@@ -34,7 +44,7 @@ export default function StoryUi(props) {
         )
     };
 
-    // handle the dynamicUi at press
+    // handle the add ui button.  This increases the counter.
     const handlePress = () => {
         console.log('handlePress activated');
         setCounter(counter+1);
@@ -55,6 +65,22 @@ export default function StoryUi(props) {
 
     // At startup set the counter
     useEffect (()=> {
+        if (preStage['mode']='testing') {
+            console.warn('The mode is testing with initCounter at: ' + initCounter);
+            console.warn("someList Contents BEFORE Init Completed: " + someList)
+            // even though it updates it technically won't change until rerendering because the effect is constrained to initCounter.
+            setPreStage({mode: 'green'});
+            console.log(preStage);
+
+            // sets the INIT to a value of 1.  This lets you know that the INIT has happened.
+            if (initCounter<1) {
+                setInitCounter(initCounter + 1);
+                console.warn("Init Completed.  initCounter at: " + initCounter);
+                console.warn("someList Contents after Init Completed: " + someList)
+
+                };            
+        };
+
         const storedCounter=localStorage.getItem('UiCounter')
         const accessStoredCounter=JSON.parse(storedCounter)
         setCounter(accessStoredCounter)
@@ -112,13 +138,22 @@ export default function StoryUi(props) {
                 // IVE GOT THE ITEMS I NEED IN b (PASS)  I JUST DON'T KNOW HOW TO RETURN IT AS PROPS OR RENDER OR INTO A STATE
                 const b = JSON.parse(a);
 
-                // DISPLAYS CORRECTLY what I wanted.
-                console.warn(b);
-              
-                // COULD THIS BE THE FIX?  I SIMPLY NEEDED TO PUSH b TO THE LIST?!!?!?!?!?!?!?
-                deliveryList.push(b);
+                // I'm checking if a status to delete is present.  If not I will agree to push the contents for deliver.
+                    if (b['status']!='delete') {
 
+                        // DISPLAYS CORRECTLY what I wanted.
+                        console.warn(b);
+                    
+                        // COULD THIS BE THE FIX?  I SIMPLY NEEDED TO PUSH b TO THE LIST?!!?!?!?!?!?!?
+                        deliveryList.push(b);
+                        };
+                    
+                    if (b['status']==='delete') {
+                        localStorage.removeItem(each)
+                    };
                 };
+
+                
                 // I am parsing this because I READ the data from local storage which only saves strings.
     
        
@@ -128,18 +163,6 @@ export default function StoryUi(props) {
         console.debug(deliveryList);
         console.warn(deliveryList);
     
-        
-        if (preStage['mode']='testing') {
-            console.log('The mode is testing with initCounter at ' + initCounter);
-            // even though it updates it technically won't change until rerendering because the effect is constrained to initCounter.
-            setPreStage({mode: 'green'});
-            console.log(preStage);
-
-            // sets the INIT to a value of 1.  This lets you know that the INIT has happened.
-            if (initCounter<1) {
-                setInitCounter(initCounter + 1);
-                };            
-        };
 
         console.log("Finding...Post Init preStage" + preStage);
         console.log('concluding init below:');
@@ -154,8 +177,6 @@ export default function StoryUi(props) {
 
 
     return (
-        
-
         <div>
             
             {/* <StoryUiComponent someState={someState} name='testing props'/>
@@ -163,21 +184,28 @@ export default function StoryUi(props) {
             {/* The index record itself will be the index and it'll generate a pair on the storage side as well by default */}
 
             
-            {/* I need to pass in the props to the StoryComponent but I'm having trouble. testing with lenthDelivery being a state that is really just an array of 3 numbers.  SO far it sort of works but I need parameters */}
-            {(deliveryList && initCounter===1) ? deliveryList.map((item, index)=>{
-                // deliveryList a list containing objects that were pushed into it after parsing in an effect. Generating at startup based on how long the deliveryList is.
-                return <StoryUiComponent 
-                key={index}
-                name={item.name}
-                estimate={item.estimate}
-                description={item.description}
-                value={item.value}
-                index={item.name}
-                size={item.size}
-                />}) 
-                : <p>FAILED</p>}
+            {/* INIT conditional will continuously map as long as the init is 1.*/}
+            {(deliveryList && initCounter===1) 
+                ? deliveryList.map((item, index)=>{
+                    // deliveryList a list containing objects that were pushed into it after parsing in an effect. Generating at startup based on how long the deliveryList is.
+                    return <StoryUiComponent 
+                    key={index}
+                    name={item.name}
+                    estimate={item.estimate}
+                    description={item.description}
+                    value={item.value}
+                    index={item.name}
+                    size={item.size}
+                    />}) 
+                : <p>FAILED</p>
+            }
+  
             {/* consider counter saving where it left off in its own key to prevent duplicates */}
-            {someList.map((item)=>{return <StoryUiComponent name={counter+1} index={counter+1} estimate='3' value='value' size='size' description=''/>})}
+            {/* This is triggering for each item in someList but its happening twice for some reason. */}
+            {/* STUCK HERE - I want this to continously trigger ONLY if.. the delivery list is not rendering anything.*/}
+
+            {/* THIS is for new cards made with button click */}
+            {someList.map((item)=>{return <StoryUiComponent name={counter} index={counter} estimate='4' value='value' size='size' description=''/>})}
             <AddAnother name='dynamic'/>
         </div>
     )
@@ -297,21 +325,37 @@ function StoryUiComponent (props) {
     const handleSizeInputValueChange = (e) => {
         setSizeInputValue(e.target.value);
 
-        const a = localStorage.getItem(uIBackEnd);
+        const a=localStorage.getItem(uIBackEnd);
 
-        const b= JSON.parse(a);
+        const b=JSON.parse(a);
 
         b.size=sizeInputValue;
 
         localStorage.setItem(uIBackEnd, JSON.stringify(b))
     };
 
+    const handleDelete = () => {
+        console.warn('deleting: ' + uIBackEnd);
+        // localStorage.removeItem(uIBackEnd)
+
+        const a=localStorage.getItem(uIBackEnd);
+
+        const b=JSON.parse(a);
+
+        b.status='delete';
+
+        // I am adding a status to delete for the front end.  This ensures that it will not render on the delivery list because I put an if statement into the render as well.  The if statement chooses to only render non deleted cards.
+        localStorage.setItem(uIBackEnd, JSON.stringify(b))
+        
+      
+        };
     // hypothesis:  I think that saving the state of the UI at the child level might just make it so that the local data saves. FAIL
 
     // THIS IS ONE UI COMPONENT
     return (
         <div class='storyUi-Container'>
             <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
+            <button onClick={handleDelete}>Delete</button>
             <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
             
             {/* {props.description} + ' Index is: ' + props.index */}
