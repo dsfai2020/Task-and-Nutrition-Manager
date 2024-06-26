@@ -9,9 +9,6 @@ export default function StoryUi(props) {
     // Very IMPORTANT.  Will use this to wire into an effect that will run a map iteration through this array.
     // Every iteration will then run 
 
-    // TEST
-    const [dynamicUi, setDynamicUi]=useState();
-
     // THIS needs to be saved and loaded
     const [counter, setCounter]=useState(0);
 
@@ -24,24 +21,13 @@ export default function StoryUi(props) {
 
     const [initCounter, setInitCounter]=useState(0);
 
-        // Needs to be a list for mapping
+        // Its just a holding list with objects in it that have been parsed so that they can be dictionary read.
     const [deliveryList, setDeliveryList]=useState([]);
 
-    const [idk, setIdk]=useState()
-
-    // Use sparringly but every render this will trigger
-    useEffect(()=>{
-        console.info('check the pageStatus');
-        const x=localStorage.getItem('pageStatus');
-        const y=JSON.parse(x);
-        setIdk(y);
-        console.warn(y);
-    }, []);
-
-
+    // functional component
     function AddAnother (props) {
         return (
-                <button onClick={handlePress}>Add another. Name is {props.name}</button>
+                <button onClick={handlePress}>Add another Card</button>
         )
     };
 
@@ -87,45 +73,7 @@ export default function StoryUi(props) {
         }, []
     );
 
-    // Next you need a useEffect that allows that stages a variable array with multiples and sets it.
-        // For that you can use a map iteration and assign keys for accessibility. 
-
-    // TEST Trigger off of the change from a dynamic after press populates it.
-    useEffect (() => {
-        console.log('You tested here');
-        const x=[0,1,2];
-        x.map((something)=>{console.log(something)})
-         }, [dynamicUi]
-    );
-
-    // THIS IS WHAT IS TRIGGERING THE LIST TO CONTINUE GROWING
-    // useEffect (() => {
-    //     console.log('You left off here, someList is: ' + (counter));
-
-    //     // appends counter to someList
-    //     someList.push(counter);
-       
-    //     // triggers when counter changes
-    //     }, [counter]
-    // );
-
-    // INIT
-    useEffect (() => {
-        console.log('the page has loaded.  Ready to setup cards'); 
-        console.log(localStorage);
-        const storedData=localStorage.getItem('uiBackEnd3');
-        console.log('Parsing...' + storedData);
-
-        // setPreStage({test: JSON.parse(storedData)}); 
-        
-        // prestage was assigned dictionary defaults at its defined state.
-        console.log(preStage['mode']);
-        console.log(preStage);
-
-        // get Keys
-
-        // for delivery being a dictionary causing issues with parse to object because conflict.
-        // const forDelivery = {};  Do not make the mistake of trying to pass the objects into a dictionary.  All you need to do is push them into a state list.  That way the array of the state object contains the objects being parsed.  This is because parse converts the stringify local storage content (which is a pre require to be in local storage) back into an object.  It isn't actually a dictionary (but can be handled exactly like one) - it is an Object as seen on parseData.test.js
+    const parseUiStorageToDeliverylist = () => {
         for (let each in localStorage) {
             console.log(each);
             // FAIL - still getting the entire localStorage... i only want the ui components
@@ -152,12 +100,29 @@ export default function StoryUi(props) {
                         localStorage.removeItem(each)
                     };
                 };
-
-                
                 // I am parsing this because I READ the data from local storage which only saves strings.
-    
-       
             }; 
+    };
+
+    // INIT
+    useEffect (() => {
+        console.log('the page has loaded.  Ready to setup cards'); 
+        console.log(localStorage);
+        const storedData=localStorage.getItem('uiBackEnd3');
+        console.log('Parsing...' + storedData);
+
+        // setPreStage({test: JSON.parse(storedData)}); 
+        
+        // prestage was assigned dictionary defaults at its defined state.
+        console.log(preStage['mode']);
+        console.log(preStage);
+
+        // get Keys
+
+        // for delivery being a dictionary causing issues with parse to object because conflict.
+        // const forDelivery = {};  Do not make the mistake of trying to pass the objects into a dictionary.  All you need to do is push them into a state list.  That way the array of the state object contains the objects being parsed.  This is because parse converts the stringify local storage content (which is a pre require to be in local storage) back into an object.  It isn't actually a dictionary (but can be handled exactly like one) - it is an Object as seen on parseData.test.js
+
+        parseUiStorageToDeliverylist();
 
         
         console.debug(deliveryList);
@@ -175,14 +140,34 @@ export default function StoryUi(props) {
     // Hypothesis:  I map the ui states.  Not sure if all states should be in 1 key or if they should have their own keys.
         // I'm thinking it would be better to hold all in a single key because thats what a user would have.
     const handleDeliveryListRemove = (cardToRemove) => {
-        console.error('TEST')
+        console.log('TEST')
     };
 
     function SomeButton (stuff) {
         return (
             <button onClick={handleDeliveryListRemove}>HELLO</button>
         )
-    } 
+    }; 
+
+
+    function MapStoryUiComponents (mapThisThing) {
+        console.log('mapping now');
+        return mapThisThing.map((item, index)=> (
+            <div>
+                <StoryUiComponent
+                    key={index} 
+                    name={item.name}
+                    estimate={item.estimate}
+                    description={item.description}
+                    value={item.value}
+                    index={item.name}
+                    size={item.size}
+                />
+                <button onClick={handleDeliveryListRemove}>testing</button>
+            </div>
+        ))
+    };
+    
 
     return (
         <div>
@@ -193,27 +178,7 @@ export default function StoryUi(props) {
 
             
             {/* INIT conditional will continuously map as long as the init is 1.*/}
-            {(deliveryList && initCounter===1) 
-                ? deliveryList.map((item, index)=> (
-                    // deliveryList a list containing objects that were pushed into it after parsing in an effect. Generating at startup based on how long the deliveryList is.
-                    <div>
-                        <StoryUiComponent 
-                    key={index}
-                    name={item.name}
-                    estimate={item.estimate}
-                    description={item.description}
-                    value={item.value}
-                    index={item.name}
-                    size={item.size}
-                    />
-                    {/* <SomeButton/> */}
-                    {/* <button onClick={handleDeliveryListRemove(item)}>this should remove {index} {item.name}</button> */}
-                    </div>
-                    )
-                    
-                ) 
-                : <p>FAILED</p>
-            }
+            {MapStoryUiComponents(deliveryList)}
   
             {/* consider counter saving where it left off in its own key to prevent duplicates */}
             {/* This is triggering for each item in someList but its happening twice for some reason. */}
@@ -250,7 +215,9 @@ function StoryUiComponent (props) {
     const handleDescriptionChange =(e)=>{
 
         // CRITICAL NOTE: value is the actual key. value=(something you set on the UIcard) and e.target.value accesses its contents.
-        setInputValue(e.target.value);
+
+        // setInputValue(e.target.value);
+        setInputValue(inputValue, ...e.target.value);
         // absolutely important step.  Get the backend by the primary key
         const a = localStorage.getItem(uIBackEnd);
         // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
