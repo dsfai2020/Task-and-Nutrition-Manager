@@ -216,8 +216,7 @@ function StoryUiComponent (props) {
 
         // CRITICAL NOTE: value is the actual key. value=(something you set on the UIcard) and e.target.value accesses its contents.
 
-        // setInputValue(e.target.value);
-        setInputValue(inputValue, ...e.target.value);
+        setInputValue(e.target.value);
         // absolutely important step.  Get the backend by the primary key
         const a = localStorage.getItem(uIBackEnd);
         // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
