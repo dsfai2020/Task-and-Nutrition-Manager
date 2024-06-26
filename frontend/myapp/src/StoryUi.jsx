@@ -165,6 +165,7 @@ export default function StoryUi(props) {
                 />
                 {/* <button onClick={handleDeliveryListRemove}>testing</button> */}
             </div>
+           
         ))
     };
     
@@ -185,7 +186,7 @@ export default function StoryUi(props) {
             {/* STUCK HERE - I want this to continously trigger ONLY if.. the delivery list is not rendering anything.*/}
 
             {/* THIS is for new cards made with button click */}
-            {someList.map((item)=>{return <StoryUiComponent name={counter} index={counter} estimate='4' value='value' size='size' description=''/>})}
+            {someList.map((item)=>{return <StoryUiComponent name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})}
             <AddAnother name='dynamic'/>
         </div>
     )
@@ -363,7 +364,7 @@ function StoryUiComponent (props) {
                 {/* size */}
                 <input type='text' id='textInput-3' onChange={handleSizeInputValueChange} value={sizeInputValue} placeholder={props.size} class='metric-c'></input>
             </div>
-
+            
         </div>
             )
 };
