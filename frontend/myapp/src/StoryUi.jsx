@@ -163,7 +163,7 @@ export default function StoryUi(props) {
                     index={item.name}
                     size={item.size}
                 />
-                <button onClick={handleDeliveryListRemove}>testing</button>
+                {/* <button onClick={handleDeliveryListRemove}>testing</button> */}
             </div>
         ))
     };
@@ -210,18 +210,20 @@ function StoryUiComponent (props) {
  
         
     // Remember that each state within the component is managed independently of clones.  Multi States Reusable.    
-    const [inputValue, setInputValue]= useState();
+    const [inputValue, setInputValue]= useState(props.description);
     // UPDATE front end PREP stage.
     const handleDescriptionChange =(e)=>{
 
         // CRITICAL NOTE: value is the actual key. value=(something you set on the UIcard) and e.target.value accesses its contents.
+        
+        const newValue=e.target.value;
 
-        setInputValue(e.target.value);
+        setInputValue(newValue);
         // absolutely important step.  Get the backend by the primary key
         const a = localStorage.getItem(uIBackEnd);
         // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
         const b = JSON.parse(a);
-        b.description=inputValue;
+        b.description=newValue
 
         console.warn(b);
         console.log(b);
@@ -263,11 +265,12 @@ function StoryUiComponent (props) {
         },  
     [propsClone]);
 
-    const [estimateInputValue, setEstimateInputValue]=useState();
+    const [estimateInputValue, setEstimateInputValue]=useState(props.estimate);
      
-    const handleEstimateChange =(e)=>{
-        // value here means the value defined on the ui card itself.  This is simply pointing to the contents of that variable.
-        setEstimateInputValue(e.target.value);
+    const handleEstimateChange =(e)=>{      
+        const newValue=e.target.value;
+
+        setEstimateInputValue(newValue);
 
         // absolutely important step.  Get the backend by the primary key
         const a = localStorage.getItem(uIBackEnd);
@@ -275,10 +278,10 @@ function StoryUiComponent (props) {
         // IVE GOT THE ITEMS I NEED IN b.  It is basically an instanced version of the storage record.
         const b = JSON.parse(a);
 
-        // I thought Object.estimate would've worked but I needed the OBJECT to exist and without parse it didn't.  b worked.
+        // I thought Object.estimate would've worked but I needed the OBJECT to exist and without parse it didn't.  b worked.       
         // I can't actually edit b because its like props its read only? No...b.estimate='this is a test' worked in the output.
         // b.estimate='This is a test';
-        b.estimate=estimateInputValue;
+        b.estimate=newValue;
         console.warn(b);
         console.log(b);
    
@@ -286,31 +289,35 @@ function StoryUiComponent (props) {
         localStorage.setItem(uIBackEnd, JSON.stringify(b))
     };
 
-    const [storyValueInputValue, setStoryValueInputValue]= useState();
+    const [storyValueInputValue, setStoryValueInputValue]= useState(props.value);
 
     const handleStoryValueChange = (e) => {
-        setStoryValueInputValue(e.target.value);
+        const newValue=e.target.value;
+
+        setStoryValueInputValue(newValue);
 
         const a = localStorage.getItem(uIBackEnd);
 
         const b = JSON.parse(a);
 
-        b.value=storyValueInputValue;
+        b.value=newValue;
         
         localStorage.setItem(uIBackEnd, JSON.stringify(b))
 
     };
 
-    const [sizeInputValue, setSizeInputValue] = useState();
+    const [sizeInputValue, setSizeInputValue] = useState(props.size);
 
     const handleSizeInputValueChange = (e) => {
-        setSizeInputValue(e.target.value);
+        const newValue=e.target.value;
+
+        setSizeInputValue(newValue);
 
         const a=localStorage.getItem(uIBackEnd);
 
         const b=JSON.parse(a);
 
-        b.size=sizeInputValue;
+        b.size=newValue;
 
         localStorage.setItem(uIBackEnd, JSON.stringify(b))
     };
