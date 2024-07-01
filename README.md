@@ -210,3 +210,24 @@ PRODUCTION
 ## You need to get HOW TO START the production front end - HEROKU
 ## You need to get HOW TO START the production back end - AWS
 
+npm install @testing-library/react @testing-library/jest-dom
+npm install @babel/preset-env @babel/preset-react @babel/core babel-jest --save-dev
+
+Both config files should be placed in the root of the React application folder.  Not in the src.
+
+jest.config.js
+module.exports = {
+    transform: {
+      '^.+\\.[t|j]sx?$': 'babel-jest',
+    },
+    testEnvironment: 'jsdom',
+  };
+  
+babel.config.js
+module.exports = {
+    presets: [
+      '@babel/preset-env',
+      '@babel/preset-react'
+    ],
+  };
+  
