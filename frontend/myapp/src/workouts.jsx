@@ -31,7 +31,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // At the very bottom of the NewPage render is where you'll see all the mini function renders wired into it.
 
-const WorkOuts =() => {
+const WorkOuts = () => {
     // Set up all your state variables here.  They need to be declared before any rendering happens that way they are ready to go.
     const [test, setTest]=useState([{core: 1, studio: 5}]);
     // updateTest(test[0].core='That updated!')

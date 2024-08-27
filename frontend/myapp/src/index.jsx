@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
-import WorkOuts from './workouts.jsx'
-import MyHook from './myHook.js'
+
+// import WorkOuts from '. /Workouts.jsx';
+
+import MyHook from './myHook.js';
 import Bars from './bars.jsx'
 
-import Navbar from './Navbar.jsx'
+import Navbar from './Navbar.jsx';
 import MachineLearningPage from './MachineLearning.jsx';
 
 import reportWebVitals from './reportWebVitals';
@@ -15,10 +17,12 @@ import MyRoutes from './pages/routetest';
 import DiscussionRoutes from './pages_discussion/DiscussionRoutes';
 import Discussion from './pages_discussion/Discussion';
 
-import MainHeader from './MainHeader'
+import MiniCalendar from './MiniCalendar.jsx'
 import Board from './Board'
 import MainToDoList from './MainToDoList.jsx';
 import StoryUi from './StoryUi.jsx';
+
+import Schedule from './Schedule.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,8 +31,10 @@ root.render(
     <div class="item-header"></div>
     <Navbar />
     <DiscussionRoutes />
+    
     <MyRoutes />
-    <MainHeader />
+    <MiniCalendar />
+    <Schedule />
     <StoryUi />
     <MainToDoList />
     {/* <Board /> */}
@@ -36,7 +42,7 @@ root.render(
     <div class="item-main"></div>
     <div class="item-sidebar"></div>
     {/* <App /> */}
-    <WorkOuts />
+    {/* <WorkOuts /> */}
     <MyHook />
     {/* <Bars /> */}
     <div class="item-footer"></div>

@@ -1,9 +1,9 @@
 import { useState, useEffect} from 'react';
-import './MainHeader.css'
+import './MiniCalendar.css';
 
 
 // define props as you see fit from MainHeader Components seen in this function
-export default function MainHeader () {
+export default function MiniCalendar () {
   return (
     <div class='container'>
       <div class='miniCalTitle'>
@@ -18,7 +18,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='4'/>
         <MiniCalGenerator today='F' day='5'/>
         <MiniCalGenerator today='S' day='6'/>
-        <MiniCalGenerator today='SUN' day='7'/>
+        <MiniCalGenerator today='SN' day='7'/>
       </div>
       <div class='weekLayout'>
         <WeekCountComponent week='2' />
@@ -28,7 +28,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='11'/>
         <MiniCalGenerator today='F' day='12'/>
         <MiniCalGenerator today='S' day='13'/>
-        <MiniCalGenerator today='SUN' day='14'/>
+        <MiniCalGenerator today='SN' day='14'/>
       </div>
       <div class='weekLayout'>
         <WeekCountComponent week='3' />
@@ -38,7 +38,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='18'/>
         <MiniCalGenerator today='F' day='19'/>
         <MiniCalGenerator today='S' day='20'/>
-        <MiniCalGenerator today='SUN' day='21'/>
+        <MiniCalGenerator today='SN' day='21'/>
       </div>
       <div class='weekLayout'>
         <WeekCountComponent week='4'/>
@@ -48,7 +48,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='25'/>
         <MiniCalGenerator today='F' day='26'/>
         <MiniCalGenerator today='S' day='27'/>
-        <MiniCalGenerator today='SUN' day='28'/>
+        <MiniCalGenerator today='SN' day='28'/>
       </div>
       <div class='weekLayout'>
         <WeekCountComponent week='5'/>
@@ -58,7 +58,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='32'/>
         <MiniCalGenerator today='F' day='33'/>
         <MiniCalGenerator today='S' day='34'/>
-        <MiniCalGenerator today='SUN' day='35'/>
+        <MiniCalGenerator today='SN' day='35'/>
       </div>
       <div class='weekLayout'>
         <WeekCountComponent week='6'/>
@@ -68,7 +68,7 @@ export default function MainHeader () {
         <MiniCalGenerator today='TH' day='39'/>
         <MiniCalGenerator today='F' day='40'/>
         <MiniCalGenerator today='S' day='41'/>
-        <MiniCalGenerator today='SUN' day='42'/>
+        <MiniCalGenerator today='SN' day='42'/>
       </div>
     </div>
   );
