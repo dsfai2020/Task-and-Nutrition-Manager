@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 
-// import WorkOuts from '. /Workouts.jsx';
+import WorkOuts from './Workouts.jsx';
 
 import MyHook from './myHook.js';
 import Bars from './bars.jsx'
@@ -42,7 +42,7 @@ root.render(
     <div class="item-main"></div>
     <div class="item-sidebar"></div>
     {/* <App /> */}
-    {/* <WorkOuts /> */}
+    <WorkOuts />
     <MyHook />
     {/* <Bars /> */}
     <div class="item-footer"></div>
