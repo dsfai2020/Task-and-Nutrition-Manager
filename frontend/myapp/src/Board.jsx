@@ -139,34 +139,30 @@ const Board = () => {
       <div className="board">
         {Object.values(columns).map((column) => (
           <div className="column" key={column.id}>
+            
             <h3 className="column-title">{column.title}</h3>
-            <Droppable droppableId={column.id}>
-              {(provided) => (
-                <div
-                  className="column-items"
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
+            
+            <Droppable droppableId={column.id}>{(provided) => (
+                <div className="column-items" ref={provided.innerRef}{...provided.droppableProps}>
                   {column.items.map((item, index) => (
+                    
                     <Draggable key={item.id} draggableId={item.id} index={index}>
                       {(provided) => (
-                        <div
-                          className={`item ${editingItem?.itemId === item.id ? 'editing' : ''}`}
+                        <div className={`item ${editingItem?.itemId === item.id ? 'editing' : ''}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          onClick={() => handleItemClick(column.id, item.id)}
-                        >
-                          {editingItem?.itemId === item.id ? (
-                            <input
-                              type="text"
-                              value={item.content}
-                              onChange={(e) =>
-                                handleItemNameChange(column.id, item.id, e.target.value)
-                              }
-                              onBlur={handleItemBlur}
-                              autoFocus
-                            />
+                          
+                          onClick={() => handleItemClick(column.id, item.id)}>
+                            {editingItem?.itemId === item.id ? (
+                              <input
+                                type="text"
+                                value={item.content}
+                                onChange={(e) =>
+                                  handleItemNameChange(column.id, item.id, e.target.value)
+                                }
+                                onBlur={handleItemBlur}
+                                autoFocus/>
                           ) : (
                             item.content
                           )}
@@ -175,12 +171,7 @@ const Board = () => {
                     </Draggable>
                   ))}
                   {provided.placeholder}
-                  <button
-                    className="add-card-button"
-                    onClick={() => handleAddCard(column.id)}
-                  >
-                    + Add Card
-                  </button>
+                  <button className="add-card-button" onClick={() => handleAddCard(column.id)}>+ Add Story</button>
                 </div>
               )}
             </Droppable>

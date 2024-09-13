@@ -31,7 +31,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 // At the very bottom of the NewPage render is where you'll see all the mini function renders wired into it.
 
-const WorkOuts =() => {
+const WorkOuts = () => {
     // Set up all your state variables here.  They need to be declared before any rendering happens that way they are ready to go.
     const [test, setTest]=useState([{core: 1, studio: 5}]);
     // updateTest(test[0].core='That updated!')
@@ -169,7 +169,7 @@ const WorkOuts =() => {
             />
 
             <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
-            <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4) based on a Body Building Formula Referenced by Arnold Schwarzenegger.</p>
+            <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4)</p>
             </div>)
 
     };   
@@ -270,19 +270,23 @@ const WorkOuts =() => {
     function WorkoutRoutine(){
         return(
             <div>
-            <div class="grid-container">
-            <button class='grid-item'>Chest</button>
-            <button class="grid-item">Back</button>
-            <button class="grid-item">Quads</button>
-            <button class="grid-item">Hamstrings</button>
-            <button class="grid-item">Shoulders</button>
-            <button class="grid-item">Biceps</button>
-            <button class="grid-item">Triceps</button>
-            <button class="grid-item">Forearms</button>
-            <button class="grid-item">Calves</button>
-            <button class="grid-item">Core</button>
-            <button class="grid-item">Cardio</button>
-            <button class="grid-item">Rest</button>
+            <div class="grid-workout-container">
+            <button class='grid-workout-item'>Chest</button>
+            <button class="grid-workout-item">Back</button>
+            <button class="grid-workout-item">Lower Back</button>
+            <button class="grid-workout-item">Middle Back</button>
+            <button class="grid-workout-item">Quads</button>
+            <button class="grid-workout-item">Hammy</button>
+            <button class="grid-workout-item">Shoulder</button>
+            <button class="grid-workout-item">Biceps</button>
+            <button class="grid-workout-item">Inner Bicep</button>
+            <button class="grid-workout-item">Outer Bicep</button>
+            <button class="grid-workout-item">Triceps</button>
+            <button class="grid-workout-item">Forearm</button>
+            <button class="grid-workout-item">Calves</button>
+            <button class="grid-workout-item">Core</button>
+            <button class="grid-workout-item">Upper Back</button>
+            <button class="grid-workout-item">Rest</button>
             </div>
             </div>)
 
@@ -298,7 +302,7 @@ const WorkOuts =() => {
         {Example()}
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}
-        {SampleFunctionRender()}
+        {/* {SampleFunctionRender()} */}
         {MyTestButton()}
         {/* {DeveloperPlan()} */}
         {/* {ConditionalRenderExample()} */}
