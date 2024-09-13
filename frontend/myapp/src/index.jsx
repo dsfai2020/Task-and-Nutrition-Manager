@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 
-import WorkOuts from './Workouts.jsx';
+import WorkOuts from './workouts.jsx';
 
 import MyHook from './myHook.js';
 import Bars from './bars.jsx'
