@@ -2,6 +2,8 @@
     import './StoryUi.css' 
 
 
+    // --------------------HIGH SIDE UI (PARENT)
+
     // handle, useEffects, states, redners, components parent and child.
 
     // Eventually I might need to create a state and place StoryUiComponents inside of them [] as a baked in raw render.
@@ -219,7 +221,8 @@
         )
     };
     
-        
+    // ------------------------LOW SIDE UI (CHILD) 
+
     // REUSABLE component.  Must be in caps like a Method. Wired into the Parent Ui.
     // Everytime StoryUiComponent is called it will run everything below in that components own 'world'.
     function StoryUiComponent (props) {
@@ -260,7 +263,7 @@
             localStorage.setItem(uIBackEnd, JSON.stringify(b))
         };
 
-            // hypothesis:  When the component first renders itll automatically run this effect since its blank. PASSED.
+            // hypothesis:  When the component first renders it'll automatically run this effect since its blank. PASSED.
         useEffect(()=>{
             // index declared as arg from parent
             console.log('a UI subcomponent was created with Index: '+ props.index);
@@ -294,7 +297,9 @@
         [propsClone]);
 
         const [estimateInputValue, setEstimateInputValue]=useState(props.estimate);
-        
+
+        // -------------------------CHANGES
+
         const handleEstimateChange =(e)=>{      
             const newValue=e.target.value;
 
