@@ -1,4 +1,12 @@
-.scheduleButton{
+.scheduleButtonOn{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    align-self: flex-start;
+   background-color: #59ffa1;
+}  
+
+.scheduleButtonOff{
     border-radius: 50%;
     height: 20px;
     width: 20px;
