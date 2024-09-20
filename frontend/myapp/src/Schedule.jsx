@@ -8,18 +8,26 @@ export default function Schedule(props) {
     return (
         <div>
             <p>SCHEDULE</p>
-            <ScheduleUI morning='7am to Noon'/>
-            <ScheduleUI morning='1pm to 5pm'/>
+            <ScheduleUI morning='7am'/>
+            <ScheduleUI morning='8am'/>
+            <ScheduleUI morning='9am'/>
+            <ScheduleUI morning='10am'/>
+            <ScheduleUI morning='11am'/>
+            <ScheduleUI morning='12pm'/>
+            <ScheduleUI morning='1pm'/>
             <ScheduleUI morning='6pm'/>
             <ScheduleUI morning='7pm'/>
             <ScheduleUI morning='8pm'/>
             <ScheduleUI morning='9pm'/>
             <ScheduleUI morning='10pm'/>
             <ScheduleUI morning='11pm'/>
-            <ScheduleUI morning='12am to 1am'/>
-            <ScheduleUI morning='1am to 2am'/>
-            <ScheduleUI morning='2am to 3am'/>
-            <ScheduleUI morning='3am to sleep'/>
+            <ScheduleUI morning='12am'/>
+            <ScheduleUI morning='1am'/>
+            <ScheduleUI morning='2am'/>
+            <ScheduleUI morning='3am'/>
+            <ScheduleUI morning='4am'/>
+            <ScheduleUI morning='5am'/>
+            <ScheduleUI morning='6am'/>
 
         </div>
     );
