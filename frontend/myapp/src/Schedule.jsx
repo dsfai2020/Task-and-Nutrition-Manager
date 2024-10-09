@@ -15,6 +15,10 @@ export default function Schedule(props) {
             <ScheduleUI morning='11am'/>
             <ScheduleUI morning='12pm'/>
             <ScheduleUI morning='1pm'/>
+            <ScheduleUI morning='2pm'/>
+            <ScheduleUI morning='3pm'/>
+            <ScheduleUI morning='4pm'/>
+            <ScheduleUI morning='5pm'/>
             <ScheduleUI morning='6pm'/>
             <ScheduleUI morning='7pm'/>
             <ScheduleUI morning='8pm'/>
@@ -94,7 +98,8 @@ export default function Schedule(props) {
                 {(buttonStatus==true)
                 ? <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
                 : <button class='scheduleButtonOff' onClick={handleButtonPress}></button>}
-                <p>Time {props.morning} </p>
+                {/* time */}
+                <p>{props.morning} </p>
                 <textarea type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
             </div>
         )

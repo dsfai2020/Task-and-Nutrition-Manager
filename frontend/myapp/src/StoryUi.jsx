@@ -382,8 +382,8 @@
                 {/* {props.description} + ' Index is: ' + props.index */}
 
                 <div class='label-Container'>
-                    <p>Estimate</p>
-                    <p>Value</p>
+                    <p>Hrs</p>
+                    <p>Impact</p>
                     <p>Size</p>
                 </div>  
 
