@@ -198,6 +198,19 @@
             ))
         };
         
+        function AnalyticsUi () {
+            return (
+                <div class='AnalyticsUiContainer'>
+                <h1>Sprint Cap in Hrs:</h1>
+                <button class='AnalyticsUi-button'>Change View to Weekly</button>
+                <button class='AnalyticsUi-button'>Change View to Daily</button>
+                <button class='AnalyticsUi-button'>Change View to Bugs</button>
+                
+                <h1>Completed Hrs/Pts:</h1>
+                <h1>Current View: </h1>
+                </div>
+            )
+        };
 
         return (
             <div>
@@ -205,7 +218,8 @@
                 {/* <StoryUiComponent someState={someState} name='testing props'/>
                 {/* setting prop args don't require commas or semicolons */}
                 {/* The index record itself will be the index and it'll generate a pair on the storage side as well by default */}
-                <h1>Accepted Into This Week</h1>
+                <AnalyticsUi />
+               
                 
                 {/* INIT conditional will continuously map as long as the init is 1.*/}
                 {MapListOfObjectsToUi()}
