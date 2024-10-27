@@ -191,6 +191,7 @@
                         value={item.value}
                         index={item.name}
                         size={item.size}
+                        StoryUiCss={'storyUi-Container'}
                     />
                     {/* <button onClick={handleDeliveryListRemove}>testing</button> */}
                 </div>
@@ -229,7 +230,9 @@
                 {/* STUCK HERE - I want this to continously trigger ONLY if.. the delivery list is not rendering anything.*/}
 
                 {/* THIS is for new cards made with button click */}
-                {someList.map((item)=>{return <StoryUiComponent name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})}
+                {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})}
+                <AddAnother name='dynamic'/>
+                {/* {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container-alternate'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})} */}
                 <AddAnother name='dynamic'/>
             </div>
         )
@@ -369,7 +372,7 @@
             localStorage.setItem(uIBackEnd, JSON.stringify(b))
         };
 
-        const handleDelete = () => {
+        const handleDeleteButton = () => {
             console.warn('deleting: ' + uIBackEnd);
             // localStorage.removeItem(uIBackEnd)
 
@@ -388,9 +391,9 @@
 
         // THIS IS ONE UI COMPONENT
         return (
-            <div class='storyUi-Container'>
+            <div class={props.StoryUiCss}>
                 <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-                <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleDeleteButton}>Delete</button>
                 <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
                 
                 {/* {props.description} + ' Index is: ' + props.index */}
