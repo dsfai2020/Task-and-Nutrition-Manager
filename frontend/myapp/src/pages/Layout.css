@@ -1,17 +1,26 @@
 .layout{
     display: flex;
-    grid-template-rows: 100px 100px;
+    justify-content: space-between;
+    /* grid-template-rows: 100px 100px; */
     padding: 5px;
-    justify-content: right;
+    justify-content: center;
     color: aquamarine;
     background-color: #282c34;
+    border: solid aquamarine;
+    margin: 2px;
 };
 
 .layout-item{
+    border: solid rgb(129, 217, 29);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
     text-align: center;
     font-weight: normal;
-    background-color: rgb(21, 59, 198);
+    background-color: rgb(21, 194, 213);
     flex-direction: row;
     font-size: 25px;
     padding: 7px;
+    justify-content: space-between;
 }
+

@@ -9,6 +9,10 @@ import NoPage from "./NoPage";
 import Schedule from "./Schedule";
 import AiObjects from "./AiObjects";
 
+import DiscussionToDoList from "./DiscussionToDo";
+import Discussion from "./Discussion";
+import DiscussionHome from "./DiscussionHome";
+
 // This is actually the function that will be plugged into the index page.  It uses the Layout.jsx file to organize its structure.
 
 export default function MyRoutes() {
@@ -22,6 +26,10 @@ export default function MyRoutes() {
             <Route path="*" element={<NoPage />} />
             <Route path="schedule" element={<Schedule />} />
             <Route path="aiobjects" element={<AiObjects />} />
+            <Route path='discussiontodo' element={<DiscussionToDoList />} />
+            <Route path='discussionhome' element={<DiscussionHome />} />
+            <Route path="discussion" element={<Discussion />} />
+            
           </Route>
         </Routes>
       </BrowserRouter>
