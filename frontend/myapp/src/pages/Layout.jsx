@@ -5,27 +5,60 @@ import './Layout.css'
 const Layout = () => {
   return (
     <>
+    <nav>
     <div class='layout'>
-      <nav>
-      <div class="layout-item">
-        <Link to="/">Home</Link>
-      </div>
-      <div class="layout-item">
-        <li><Link to="/blogs">Blogs</Link>
-        </li>
-      </div>
-         
+
+      <div class='container'>
+        <div class='layout-item'>
+          <Link to="/">Home</Link>
+        </div>
+
+        <div class='layout-item'>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+        </div>
+        
+        <div class='layout-item'>
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+        </div>
+        
+        <div class='layout-item'>
           <li>
             <Link to ="/schedule">Schedule</Link>
           </li>
+        </div>
+
+        <div class='layout-item'>
           <li>
             <Link to ="/aiobjects">AiObjects</Link>
           </li>
-      </nav>
+        </div>
+
+        <div class='layout-item'>
+          <li>
+            <Link to="/discussionhome">Discussion Home</Link>
+          </li>
+        </div>
+
+        <div class='layout-item'>
+          <li>
+            <Link to="/discussion">Discussion</Link>
+          </li>
+        </div>
+
+        <div class='layout-item'>
+          <li>
+            <Link to="/discussiontodo">DiscussionToDo</Link>
+          </li>
+        </div>
+
       </div>
+
+    </div>
+    </nav>
 
       <Outlet />
     </>
