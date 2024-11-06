@@ -152,7 +152,7 @@ export default function Schedule(props) {
 
         const [dataForUi, setDataForUi] = useState('schedule_'+props.morning);
 
-        const [buttonStatus, setButtonStatus] = useState(false);
+        const [buttonStatus, setButtonStatus] = useState('false');
 
         const [dataForScheduleButton, setDataForButton] = useState('button_'+props.morning)
 
@@ -207,25 +207,38 @@ export default function Schedule(props) {
 
         const saveButtonData = (trueOrFalse) => {
             const newValue=trueOrFalse
-            console.log('this is'+ {trueOrFalse})
             localStorage.setItem(dataForScheduleButton, JSON.stringify(newValue))
         };
 
         const handleButtonPress = () => {
-            console.log('test' + {buttonStatus})
-            if (buttonStatus==false) {setButtonStatus(true); saveButtonData(true)}
-            else if (buttonStatus==true) {setButtonStatus(false); saveButtonData(false)}
+            if (buttonStatus=='false') {setButtonStatus('yellow'); saveButtonData('yellow');}
+            else if (buttonStatus=='yellow') {setButtonStatus('true'); saveButtonData('true')}
+            else if (buttonStatus=='true') {setButtonStatus('false'); saveButtonData('false')}
         };
 
+        const ScheduleButton = () => {
+            if (buttonStatus=='true') {return (
+                <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
+                )
+            }
+            else if (buttonStatus=='false') {
+                return (
+                    <button class='scheduleButtonOff' onClick={handleButtonPress}></button>
+                )
+            }
+            else if (buttonStatus=='yellow') {
+                return (
+                    <button class='scheduleButtonYellow' onClick={handleButtonPress}></button>
+                )
+            }
+        };
 
         return (
-            <div class='ScheduleUi'>
-                {(buttonStatus==true)
-                ? <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
-                : <button class='scheduleButtonOff' onClick={handleButtonPress}></button>}
+            <div class='Container-ScheduleUi'>
+                <ScheduleButton />
                 {/* time */}
                 <p>{props.morning} </p>
-                <textarea type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
+                <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
             </div>
         )
     };

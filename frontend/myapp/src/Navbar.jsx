@@ -7,9 +7,9 @@ const Navbar=()=>{
     function customNavbar(){
         return(
             <div class="navbar">
-            <div class="nav-item">Home</div>
-            <div class="nav-item">About</div>
-            <div class="nav-item">Sign In</div>
+            <button class="nav-item">Home</button>
+            <button class="nav-item">About</button>
+            <button class='nav-item'>Sign In</button>
             </div>
             )
     };
