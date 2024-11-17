@@ -21,6 +21,7 @@ import StoryUi from './StoryUi.jsx';
 
 import Schedule from './Schedule.jsx';
 import CustomDND from './CustomDND.jsx';
+import AnalyticsUi from './AnalyticsUi.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,7 +31,8 @@ root.render(
     <MyRoutes />
 
     <MiniCalendar />
-    <CustomDND />
+    <AnalyticsUi />
+    {/* <CustomDND /> */}
     <Schedule />
     <StoryUi />
     <MainToDoList />

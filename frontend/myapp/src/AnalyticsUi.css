@@ -1,0 +1,42 @@
+.AnalyticsUiContainer{
+    display: flex;
+    border: solid;
+    flex-direction: column;
+}
+
+.AnalyticsUi-button-container{
+    border: solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.AnalyticsUiContainer .AnalyticsUi-button{
+    font-weight: bold;
+}
+
+.List-Container {
+    opacity: 75%;
+    background-color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    flex-direction: row;
+    border: solid grey;
+    justify-content: space-evenly;
+    grid-template-columns: 100px 100px;
+}
+
+.list-item {
+    color: white;
+    font-size: 20px;
+}
+
+.item-remove-button {
+    font-size: 10px;
+}
+
+.Event-container{
+    display: flex;
+    justify-content: center;
+}

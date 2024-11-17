@@ -31,5 +31,7 @@
 /* consider making this change dynamically to a dif background color */
 .item-ScheduleText{
     display: flex;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 

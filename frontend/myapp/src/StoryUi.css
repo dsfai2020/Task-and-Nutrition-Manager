@@ -141,12 +141,3 @@
     font-weight: bold;
 }
 
-.AnalyticsUiContainer{
-    display: flex;
-    border: solid;
-    flex-direction: column;
-}
-
-.AnalyticsUiContainer .AnalyticsUi-button{
-    font-weight: bold;
-}
