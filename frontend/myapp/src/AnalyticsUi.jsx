@@ -15,7 +15,7 @@ export default function AnalyticsUi (props) {
             <p>Some metrics might go here</p>
             <h1>Current View:</h1>
             <p>Buttons should display the lists or cards when pressed</p>
-            <p>Dynamic displays based on what buttno is pressed (make it a render function)</p>
+            <p>Dynamic displays based on what button is pressed (make it a render function)</p>
             </div>         
         )}
     return (
@@ -75,14 +75,16 @@ export default function AnalyticsUi (props) {
             </div>
 
             <div class='List-Container'>
-            <ul>
-                {currentList.map((currentList, index) => (
-                    <li class='list-item' key={index}>
-                        {currentList}
-                        <button class='item-remove-button' onClick={() =>handleRemoveList(index)}>Remove</button>
-                    </li>
-                ))}
-            </ul>
+                <ul>
+                    {currentList.map((currentList, index) => (
+                        <li class='list-item' key={index}>
+                            {/* <button class='arrow-Up'>&#x21E7;</button>
+                            <button class='arrow-Down'>&#x21E9;</button> */}
+                            {currentList}
+                            <button class='item-remove-button' onClick={() =>handleRemoveList(index)}>Remove</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             </div>

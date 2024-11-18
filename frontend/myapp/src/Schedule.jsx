@@ -234,11 +234,18 @@ export default function Schedule(props) {
         };
 
         return (
+            <div>
             <div class='Container-ScheduleUi'>
                 <ScheduleButton />
                 {/* time */}
                 <p>{props.morning} </p>
                 <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
+            </div>
+
+            <div class='Container-Actual'>
+                <textarea type='text' placeholder='Actual'></textarea>
+            </div>
+
             </div>
         )
     };

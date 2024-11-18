@@ -9,17 +9,27 @@
     background-color: teal;
 }
 
-
-@media (max-width: 2000px) {
-.container .weekCountComponent {
-    border-radius: 50px;
+/* This is what displays when the week button itself is clicked */
+@media (max-width: 428px) {
+.container .weekCountComponent-Is-Clicked {
+    border-radius: 65%;
     height: 10vw;
-    width: 15vw;
+    font-size: 12px;
+    color: Green;
     }
 }
 
-/* When the display is 2000px wide or less do this */
-@media (max-width: 400px) {
+@media (max-width: 428px) {
+    .container .weekCountComponent-Is-UnClicked {
+        border-radius: 65%;
+        height: 10vw;
+        font-size: 12px;
+        color: white;
+        }
+    }
+
+/* Iphone Pro Max Support - When the display width in pixels is 428px or less do this*/
+@media (max-width: 428px) {
 .container .day {
     border-radius: 50%;
     height: 10vw;

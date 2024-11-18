@@ -1,9 +1,11 @@
+@media (max-width: 428px) {
 .scheduleButtonOn{
     border-radius: 50%;
     height: 20px;
     width: 20px;
     align-self: flex-start;
    background-color: #00a62a;
+    }
 }
 
 .scheduleButtonYellow{
@@ -21,17 +23,28 @@
     align-self: flex-start;
 }   
 
+@media (max-width: 428px) {
 .Container-ScheduleUi{
     border: solid black;
     margin-bottom: 5px;
     display: flex;
     justify-content: space-evenly;
-}
+    width: 428px;
+}}
 
 /* consider making this change dynamically to a dif background color */
+@media (max-width: 428px) {
 .item-ScheduleText{
     display: flex;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 428px;
+    }
 }
 
+@media (max-width: 428px) {
+.Container-Actual{
+    display: flex;
+    width: 428px;
+    }
+}
