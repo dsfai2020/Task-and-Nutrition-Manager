@@ -154,7 +154,9 @@ export default function Schedule(props) {
 
         const [buttonStatus, setButtonStatus] = useState('false');
 
-        const [dataForScheduleButton, setDataForButton] = useState('button_'+props.morning)
+        const [dataForScheduleButton, setDataForButton] = useState('button_'+props.morning);
+
+        const [entryStatus, setEntryStatus] = useState(false);
 
         // The key is remembering that the useEffect will trigger for all of the LowSide Ui (child) rendering on the HighSide Ui (parent)
         useEffect(()=>{
@@ -176,6 +178,9 @@ export default function Schedule(props) {
             setScheduleEntry(newValue)
             // So if you want to save the contents of setScheduleEntry.  Dont use scheduleEntry.
             // Directly access newValue instead, because it is currently Up TO Date.
+
+            if (newValue!='' || newValue!=null) {setEntryStatus(true)}
+            else {setEntryStatus(false)}
 
             localStorage.setItem(dataForUi, JSON.stringify(newValue))
         };
@@ -233,6 +238,21 @@ export default function Schedule(props) {
             }
         };
 
+        // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
+        const ActualOptionalBox = () => {
+            if (entryStatus==true) {
+                return (
+                    <textarea placeholder='Actual'></textarea>
+                )
+            }
+            
+            else if (entryStatus==false) {
+                return (
+                    <p>sorry</p>
+                )
+            }
+    }
+
         return (
             <div>
             <div class='Container-ScheduleUi'>
@@ -243,7 +263,8 @@ export default function Schedule(props) {
             </div>
 
             <div class='Container-Actual'>
-                <textarea type='text' placeholder='Actual'></textarea>
+                {/* <textarea placeholder='Actual'></textarea> */}
+                <ActualOptionalBox />
             </div>
 
             </div>
