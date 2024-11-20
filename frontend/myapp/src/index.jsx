@@ -23,6 +23,8 @@ import Schedule from './Schedule.jsx';
 import CustomDND from './CustomDND.jsx';
 import AnalyticsUi from './AnalyticsUi.jsx';
 
+import Footer from './Footer.jsx';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
@@ -45,6 +47,7 @@ root.render(
     <MyHook />
     {/* <Bars /> */}
     <div class="item-footer"></div>
+    <Footer />
     </div>
 );
 

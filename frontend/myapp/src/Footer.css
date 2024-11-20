@@ -1,0 +1,16 @@
+.footer{
+    background: black;
+    opacity: 75%;
+    color: white;
+    border: solid;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-direction: column;
+    font-size: small;
+}
+
+.footer-button{
+    background-color: white;
+}
