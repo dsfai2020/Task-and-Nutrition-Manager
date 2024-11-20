@@ -245,12 +245,6 @@ export default function Schedule(props) {
                     <textarea placeholder='Actual'></textarea>
                 )
             }
-            
-            else if (entryStatus==false) {
-                return (
-                    <p>sorry</p>
-                )
-            }
     }
 
         return (
