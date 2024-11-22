@@ -12,7 +12,7 @@
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    align-self: flex-start;
+    align-self: flex-end;
     background-color: yellow;
 }
 
@@ -20,16 +20,18 @@
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    align-self: flex-start;
+    align-self: center;
 }   
 
 @media (max-width: 428px) {
 .Container-ScheduleUi{
     border: solid black;
     margin-bottom: 5px;
-    display: flex;
+    display: grid;
     justify-content: space-evenly;
-    width: 428px;
+    width: 100%;
+    grid-template-columns: 10% 15% 75%;
+    
 }}
 
 /* consider making this change dynamically to a dif background color */
@@ -38,13 +40,21 @@
     display: flex;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 428px;
+    width: 100%;
     }
 }
 
 @media (max-width: 428px) {
 .Container-Actual{
     display: flex;
-    width: 428px;
+    width: 100%;
     }
+}
+
+.item-daytime{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
 }

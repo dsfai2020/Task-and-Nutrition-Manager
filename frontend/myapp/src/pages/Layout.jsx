@@ -15,13 +15,13 @@ const Layout = () => {
 
         <div class='layout-item'>
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <Link to="/blogs">Blog</Link>
           </li>
         </div>
         
         <div class='layout-item'>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Contact Me</Link>
           </li>
         </div>
         

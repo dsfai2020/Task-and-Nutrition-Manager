@@ -252,7 +252,7 @@ export default function Schedule(props) {
             <div class='Container-ScheduleUi'>
                 <ScheduleButton />
                 {/* time */}
-                <p>{props.morning} </p>
+                <p class='item-daytime'>{props.morning} </p>
                 <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
             </div>
 

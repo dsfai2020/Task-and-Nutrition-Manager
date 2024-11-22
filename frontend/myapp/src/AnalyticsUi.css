@@ -4,15 +4,23 @@
     flex-direction: column;
 }
 
+.AnalyticsUi-Interval{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
 .AnalyticsUi-button-container{
     border: solid;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 
 .AnalyticsUiContainer .AnalyticsUi-button{
     font-weight: bold;
+    color: white;
+    background-color: black;
 }
 
 .List-Container {
@@ -40,3 +48,9 @@
     justify-content: center;
 }
 
+.AnalyticsUi-Completed{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #59faa1;
+}

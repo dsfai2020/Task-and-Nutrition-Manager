@@ -5,8 +5,8 @@ import './MiniCalendar.css';
 // define props as you see fit from MainHeader Components seen in this function
 export default function MiniCalendar () {
   return (
-    <div class='container'>
-      <div class='miniCalTitle'>
+    <div class='mini-cal-container'>
+      <div class='mini-cal-title'>
         <h1>6 Week Planner</h1>
       </div>
       <div class='weekLayout'>

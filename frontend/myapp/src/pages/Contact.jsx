@@ -1,5 +1,12 @@
+import './Contact.css'
+
 const Contact = () => {
-    return <h1>Contact Me</h1>;
+    return (
+      <div>
+        <h3>Email me at:</h3>
+        <p>Coming Soon</p>
+      </div>
+    );
   };
   
   export default Contact;

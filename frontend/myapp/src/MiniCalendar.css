@@ -1,17 +1,22 @@
-.container{
+.mini-cal-container{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.container .day:hover{
+.mini-cal-title{
+    justify-content: center;
+    font-style: italic;
+}
+
+.mini-cal-container .day:hover{
     background-color: teal;
 }
 
 /* This is what displays when the week button itself is clicked */
 @media (max-width: 428px) {
-.container .weekCountComponent-Is-Clicked {
+.mini-cal-container .weekCountComponent-Is-Clicked {
     border-radius: 65%;
     height: 10vw;
     font-size: 12px;
@@ -20,7 +25,7 @@
 }
 
 @media (max-width: 428px) {
-    .container .weekCountComponent-Is-UnClicked {
+    .mini-cal-container .weekCountComponent-Is-UnClicked {
         border-radius: 65%;
         height: 10vw;
         font-size: 12px;
@@ -30,16 +35,22 @@
 
 /* Iphone Pro Max Support - When the display width in pixels is 428px or less do this*/
 @media (max-width: 428px) {
-.container .day {
+.mini-cal-container .day {
     border-radius: 50%;
     height: 10vw;
     width: 10vw;
     border: solid black;
+    align-items: center;
+    justify-content: center;
 }}
 
 
-.container .weekLayout{
+.weekLayout{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%
     }
 
 

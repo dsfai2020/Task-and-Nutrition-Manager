@@ -5,17 +5,30 @@ export default function AnalyticsUi (props) {
     function TopLevelUi() {
         return (
             <div class='AnalyticsUiContainer'>
-            <h1>Sprint Cap in Hrs:</h1>
+
+            <div class='AnalyticsUi-Interval'> 
+            <h1>Stories in Sprint</h1>
+                <select class='AnalyticsUi-Interval-item'>
+                    <option>1</option>
+                </select>
+            </div>   
+
             <div class='AnalyticsUi-button-container'>
-                <button class='AnalyticsUi-button'>Events</button>
+                <h1>Current View:</h1>
+            
+                <select>
+                    <option class='AnalyticsUi-button'>Events</option>
+                    <option class='AnalyticsUi-button'>Social Obligations</option>
+                    <option class='AnalyticsUi-button'>Bugs</option>
+                </select>
+                {/* <button class='AnalyticsUi-button'>Events</button>
                 <button class='AnalyticsUi-button'>Social Obligations</button>
-                <button class='AnalyticsUi-button'>Bugs</button>
+                <button class='AnalyticsUi-button'>Bugs</button> */}
             </div>
-            <h1>Completed Hrs/Pts:</h1>
-            <p>Some metrics might go here</p>
-            <h1>Current View:</h1>
-            <p>Buttons should display the lists or cards when pressed</p>
-            <p>Dynamic displays based on what button is pressed (make it a render function)</p>
+                <div class='AnalyticsUi-Completed'>
+                <h1>Experience Points</h1>
+                <input placeholder='coming soon'></input>
+                </div>
             </div>         
         )}
     return (
