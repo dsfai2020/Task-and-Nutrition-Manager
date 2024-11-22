@@ -1,3 +1,8 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+}
+
 .Version-Control{
     font-style: italic;
     font-size: 12px;
