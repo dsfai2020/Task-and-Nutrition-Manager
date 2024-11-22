@@ -377,6 +377,11 @@
 
         // THIS IS ONE UI COMPONENT
         return (
+            // 'storyUi-Container' is the props that each component inherits.
+            <div class='Container'>
+
+            <div class='blank-space-1'></div>
+
             <div class={props.StoryUiCss}>
                 <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
                 <button onClick={handleDeleteButton}>Delete</button>
@@ -400,6 +405,8 @@
                     <input type='text' id='textInput-3' onChange={handleSizeInputValueChange} value={sizeInputValue} placeholder={props.size} class='metric-c'></input>
                 </div>
                 
+            </div>
+            <div class='blank-space-2'></div>
             </div>
                 )
     };

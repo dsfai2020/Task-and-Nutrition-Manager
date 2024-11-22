@@ -1,21 +1,66 @@
+@media (max-width: 2000px){
+    .Container{
+        /* use Blank Divs if you need a block */
+        width: 100%;
+        display: grid;
+        /* grid-template-columns: repeat(3, 10fr); */
+        grid-template-columns: 2fr 5fr 2fr;
+    }
+}
+
+/* This adjusts the side of the entire Container to have just 1 column on small screens */
+@media (max-width: 400px){
+    .Container{
+        width: 100%;
+        grid-template-columns: 5fr;
+    }
+}
+
+/* This makes the blank spaces hide if the screen is beyond 400px.  But the column structure remains (3 columns for large screens) */
+@media (max-width: 400px){
+    .blank-space-1, .blank-space-2 {
+        background-color: black;
+        opacity: 60%;
+        display: none;
+    }
+}
 
 @media (max-width: 2000px){
 .storyUi-Container{
-    background-color: teal;
-    border: solid salmon;
+    background-color: #59faa1;
+    border: solid black;
     /* top left right bot right left */
     /* border-radius: 20px 20px 40px 40px; */
     border-radius: 20px;
     display: grid;
     /* fr refers to free space */
-    grid-template-columns: 10fr 20fr 10fr;
+    grid-template-columns: 10fr 20fr 10fr; 
     grid-template-rows: 10fr 10fr 10fr;
     grid-template-areas: 
     "a x metrics"
     "b x metrics"
-    "b x metrics"
+    "b x metrics";
+    width: 100%;
     }
 }
+
+@media (max-width: 400px){
+    .storyUi-Container{
+        background-color: #59faa1;
+        border: solid black;
+        /* top left right bot right left */
+        /* border-radius: 20px 20px 40px 40px; */
+        border-radius: 20px;
+        display: grid;
+        /* fr refers to free space */
+        grid-template-columns: 10fr 20fr 10fr; 
+        grid-template-rows: 10fr 10fr 10fr;
+        grid-template-areas: 
+        "a x metrics"
+        "b x metrics"
+        "b x metrics";   
+    }
+    }
 
 
 /* This applies to both text-a and text-b to make it easier to adjust across */
@@ -44,7 +89,7 @@
 
 /* easy edit of metrics */
 .storyUi-Container .metric-a, .metric-b, .metric-c{
-    border: solid salmon;
+    border: solid black;
     background-color: whitesmoke;
     height: 50px;
     width: 50px;
@@ -109,7 +154,7 @@
 
 /* easy edit of metrics */
 .storyUi-Container-alternate .metric-a, .metric-b, .metric-c{
-    border: solid salmon;
+    border: solid black;
     background-color: whitesmoke;
     height: 50px;
     width: 50px;
