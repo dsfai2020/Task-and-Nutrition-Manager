@@ -2,9 +2,15 @@ import {useState, setState, useEffect} from 'react';
 import './AnalyticsUi.css'
 
 export default function AnalyticsUi (props) {
+    
     function TopLevelUi() {
 
         const [view, setView] = useState('');
+
+        useEffect(() => {
+            console.log('view has changed... to You still need to wire it into the lower ui' + (view));
+            }, [view]
+        );
 
         const handleChange = (e) => {
             setView(e.target.value);
@@ -18,46 +24,54 @@ export default function AnalyticsUi (props) {
         return (
             <div class='AnalyticsUiContainer'>
 
-            <div class='AnalyticsUi-Interval'> 
-                <h1>Stories in Sprint</h1>
-                    <select class='AnalyticsUi-Interval-item'>
-                        <option>1</option>
-                    </select>
-            </div>   
+                <div class='AnalyticsUi-Interval'> 
+                    <h1>Stories in Sprint</h1>
+                        <select class='AnalyticsUi-Interval-item'>
+                            <option>1</option>
+                        </select>
+                </div>   
 
-            <div class='AnalyticsUi-button-container'>
-                <h1>Current View:</h1>
-            
-                <select value={view} onChange={handleChange}>
-                    <option class='Current-View-Events'>Events</option>
-                    <option class='Current-View-For-People'>For People</option>
-                    <option class='Current-View-Bugs'>Bugs</option>
-                </select>
-                {/* <button class='AnalyticsUi-button'>Events</button>
-                <button class='AnalyticsUi-button'>Social Obligations</button>
-                <button class='AnalyticsUi-button'>Bugs</button> */}
-            </div>
-            
-            <div class='AnalyticsUi-Completed'>
-                <h1>Experience Points</h1>
-                <input placeholder='coming soon'></input>
+                <div class='AnalyticsUi-button-container'>
+                    <h1>Current View:</h1>
+                
+                    <select value={view} onChange={handleChange}>
+                        <option class='Current-View-Events'>Events</option>
+                        <option class='Current-View-For-People'>For People</option>
+                        <option class='Current-View-Bugs'>Bugs</option>
+                    </select>
+                    {/* <button class='AnalyticsUi-button'>Events</button>
+                    <button class='AnalyticsUi-button'>Social Obligations</button>
+                    <button class='AnalyticsUi-button'>Bugs</button> */}
                 </div>
+            
+                <div class='AnalyticsUi-Completed'>
+                    <h1>Experience Points</h1>
+                    <input placeholder='coming soon'></input>
+                </div>
+
+                <EventLists tabView={view} />
             </div>         
-        )}
+    
+
+        )};
+
+    
     return (
         <div>
             <TopLevelUi />
-            <Placeholder tabView='events'/>
+            {/* <Placeholder tabView='events'/> */}
         </div>
     )
 
-    function Placeholder(props) {
+    function EventLists(props) {
         
         const [currentList, setCurrentList] = useState([]);
         const [inputState, setInputState] = useState();
+        
+        const [availableLists, setAvailableLists]= useState(['events', 'forPeople', 'bugs'])
 
         useEffect(() => {
-            // Load events from local storage on component mount
+            // Load events from local storage on component mount (At init it'll start with events)
             const storedEvents = localStorage.getItem('events');
             // if this key exists load it
             if (storedEvents) {
