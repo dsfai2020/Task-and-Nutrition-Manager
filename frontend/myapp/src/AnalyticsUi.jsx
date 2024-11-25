@@ -48,16 +48,29 @@ export default function AnalyticsUi (props) {
         useEffect(() => {
             // Load events from local storage on component mount (At init it'll start with events)
             const storedEvents = localStorage.getItem('Events');
+
+            // const storedLegacyEvents = localStorage.getItem('events');
+
+            // merge old key with new
+            // const mergedEvents = [...storedEvents, ...storedLegacyEvents];
+
             // if this key exists load it
             const storedForPeople = localStorage.getItem('For People')
 
             const storedBugs = localStorage.getItem('Bugs')
 
-            setCurrentList(JSON.parse(storedEvents))
-         
-            setForPeople(JSON.parse(storedForPeople))
+            if (storedEvents) {
+                setCurrentList(JSON.parse(storedEvents))};
             
-            setBugs(JSON.parse(storedBugs));
+            // hotfix
+            // if (mergedEvents) {
+            //     setCurrentList(JSON.parse(mergedEvents))};
+            
+            if (storedForPeople) {
+                setForPeople(JSON.parse(storedForPeople))};
+            
+            if (storedBugs) {
+                setBugs(JSON.parse(storedBugs))};
           }, []);
 
         useEffect(() => {
