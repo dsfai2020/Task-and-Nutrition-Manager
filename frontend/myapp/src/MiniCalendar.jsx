@@ -155,12 +155,12 @@ export default function MiniCalendar () {
 
     // DO NOT forget to return.  Returns a button with a custom style if this is used.
     function ButtonIsClicked () {
-      return <button class='weekCountComponent-Is-Clicked' style={{backgroundColor: '#59faa1'}} onClick={handleClick}>Week {props.week}</button>
+      return <button class='weekCountComponent-Is-Clicked' style={{backgroundColor: '#59faa1', border: 'solid', borderColor: 'black'}} onClick={handleClick}>Week {props.week}</button>
     };
 
     // returns a button
     function ButtonIsNotClicked() {
-      return <button class='weekCountComponent-Is-UnClicked' style={{backgroundColor: '#ff0000'}} onClick={handleNotClicked}>Week {props.week}</button>
+      return <button class='weekCountComponent-Is-UnClicked' style={{backgroundColor: '#ff0000', border: 'solid', borderColor: 'black', color: 'white'}} onClick={handleNotClicked}>Week {props.week}</button>
     };
 
     // Wired into ButtonIsClicked

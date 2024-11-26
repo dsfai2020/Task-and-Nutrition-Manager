@@ -10,13 +10,18 @@
     font-style: italic;
 }
 
-.mini-cal-container .day-not-clicked:hover{
+/* Laptop Support Only */
+@media (max-width: 1800px) {
+.day-not-clicked:hover{
     background-color: teal;
     color: white;
+    }
 }
 
-.day-is-clicked:hover{
+/* Laptop Support Only */
+@media (max-width: 1800px) {.day-is-clicked:hover{
     background-color: yellow;
+    }
 }
 
 /* Laptop Support*/
