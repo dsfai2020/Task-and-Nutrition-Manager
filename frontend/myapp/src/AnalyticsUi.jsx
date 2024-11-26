@@ -36,7 +36,7 @@ export default function AnalyticsUi (props) {
                 </div>
 
                 <div>
-                    <p>Rank 1</p>
+                    <p>Rank 1 Coming Soon</p>
                 </div>
                 
                 <ExpComponent />
