@@ -5,6 +5,21 @@ export default function AnalyticsUi (props) {
     
     function TopLevelUi() {
 
+        const [exp, setExp] = useState(45);
+
+        const handleExp = (e) => {
+            setExp(e.target.value)
+        };
+
+        function ExpComponent(){
+            return(
+                <div class='Exp-Bar-Container'>
+                    <h1 class='Exp-Fill' style={{width: `${exp}%`}}></h1>
+                    <h1></h1>
+                </div>
+            )
+        }
+
         return (
             <div class='AnalyticsUiContainer'>
 
@@ -15,11 +30,17 @@ export default function AnalyticsUi (props) {
                         </select>
                 </div>   
             
-                <div class='AnalyticsUi-Completed'>
+                <div class='AnalyticsUi-Exp'>
                     <h1>Experience Points</h1>
-                    <input placeholder='coming soon'></input>
+                    <textarea placeholder='coming soon' onChange={handleExp} value={exp}></textarea>
                 </div>
 
+                <div>
+                    <p>Rank 1</p>
+                </div>
+                
+                <ExpComponent />
+                
                 <EventLists tabView='' />
             </div>         
     

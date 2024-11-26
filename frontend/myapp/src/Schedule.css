@@ -34,6 +34,18 @@
     
 }}
 
+/* laptop 1500 works too */
+@media (max-width: 2000px) {
+    .Container-ScheduleUi{
+        border: solid black;
+        margin-bottom: 5px;
+        display: grid;
+        justify-content: space-evenly;
+        width: 100%;
+        grid-template-columns: 10% 15% 75%;
+        
+    }}
+
 /* consider making this change dynamically to a dif background color */
 @media (max-width: 428px) {
 .item-ScheduleText{
