@@ -11,36 +11,20 @@
 }
 
 /* Laptop Support Only */
-@media (max-width: 1800px) {
+/* @media (max-width: 1800px) {
 .day-not-clicked:hover{
     background-color: teal;
     color: white;
     }
-}
-
-/* Disable Hover on Iphone 12 Max Pro */
-@media (max-width: 428px) {
-    .day-not-clicked:hover{
-        /* background-color: teal;
-        color: white; */
-        pointer-events: none;
-        }
-    }
+} */
 
 /* Laptop Support Only */
-@media (max-width: 1800px) {
+/* @media (max-width: 1800px) {
 .day-is-clicked:hover{
     background-color: yellow;
     }
-}
+} */
 
-/* Disable Hover on Iphone 12 Max Pro */
-@media (max-width: 428px) {
-.day-is-clicked:hover{
-    /* background-color: yellow; */
-    pointer-events: none;
-    }
-}
 
 /* Laptop Support*/
 @media (max-width: 1800px){
