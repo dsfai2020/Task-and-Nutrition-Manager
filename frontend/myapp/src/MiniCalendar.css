@@ -10,18 +10,75 @@
     font-style: italic;
 }
 
-.mini-cal-container .day:hover{
+.mini-cal-container .day-not-clicked:hover{
     background-color: teal;
+    color: white;
+}
+
+.day-is-clicked:hover{
+    background-color: yellow;
+}
+
+/* Laptop Support*/
+@media (max-width: 1800px){
+.day-not-clicked{
+    background-color: white;
+    border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
+    border: solid black;
+    align-items: center;
+    justify-content: center;
+    }
+}
+
+/* Iphone 12 MAX PRO Support - When the display width in pixels is 428px or less do this */
+@media (max-width: 428px) {
+.day-not-clicked{
+    background-color: white;
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    border: solid black;
+    align-items: center;
+    justify-content: center;
+    }
+}
+
+/* Laptop Support */
+@media (max-width: 1800px){
+.day-is-clicked{
+    background-color: #59faa1;
+    border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
+    border: solid black;
+    align-items: center;
+    justify-content: center;
+    }   
+}
+
+/* Iphone 12 MAX PRO Support - When the display width in pixels is 428px or less do this*/
+@media (max-width: 428px){
+.day-is-clicked{
+    background-color: #59faa1;
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    border: solid black;
+    align-items: center;
+    justify-content: center;
+    }
 }
 
 /* This is what displays when the week button itself is clicked */
 @media (max-width: 428px) {
-.mini-cal-container .weekCountComponent-Is-Clicked {
-    border-radius: 65%;
-    height: 10vw;
-    font-size: 12px;
-    color: Green;
-    }
+    .mini-cal-container .weekCountComponent-Is-Clicked {
+        border-radius: 65%;
+        height: 10vw;
+        font-size: 12px;
+        color: Green;
+        }
 }
 
 @media (max-width: 428px) {
@@ -33,24 +90,15 @@
         }
     }
 
-/* Iphone Pro Max Support - When the display width in pixels is 428px or less do this*/
-@media (max-width: 428px) {
-.mini-cal-container .day {
-    border-radius: 50%;
-    height: 10vw;
-    width: 10vw;
-    border: solid black;
-    align-items: center;
-    justify-content: center;
-}}
 
-
-.weekLayout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%
+@media (max-width: 1800px) {
+    .weekLayout{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        }
     }
 
 

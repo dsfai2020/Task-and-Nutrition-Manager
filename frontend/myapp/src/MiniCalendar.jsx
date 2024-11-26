@@ -85,11 +85,13 @@ export default function MiniCalendar () {
 
       // I assign contents of props.day (in this case it is a number of the day) as a mock primary key on the storage side because it will be unique and what I use to identify the data.  
       //I also asign clickStatus to be the value
-      return <button style={{backgroundColor: '#59faa1'}} class='day' onClick={handleTheUnclick}>{props.today}</button>
+      // style={{backgroundColor: '#59faa1'}} 
+      return <button class='day-is-clicked' onClick={handleTheUnclick}>{props.today}</button>
     };
 
     function DayIsNotClicked () {
-      return <button style={{backgroundColor: 'white'}} class='day' onClick={handleTheClick}>{props.today}</button>
+      // style={{backgroundColor: 'white'}}
+      return <button class='day-not-clicked' onClick={handleTheClick}>{props.today}</button>
     };
 
     const handleTheClick = () => {
