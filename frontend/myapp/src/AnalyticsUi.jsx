@@ -14,7 +14,7 @@ export default function AnalyticsUi (props) {
         function ExpComponent(){
             return(
                 <div class='Exp-Bar-Container'>
-                    <h1 class='Exp-Fill' style={{width: `${exp}%`}}></h1>
+                    <h1 class='Exp-Fill' style={{width: `${exp}%`, backgroundColor: 'green'}}></h1>
                     <h1></h1>
                 </div>
             )
