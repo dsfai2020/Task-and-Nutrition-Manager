@@ -1,4 +1,4 @@
-@media (max-width: 428px) {
+
 .scheduleButtonOn{
     border-radius: 50%;
     height: 20px;
@@ -6,7 +6,7 @@
     align-self: flex-start;
    background-color: #00a62a;
     }
-}
+
 
 .scheduleButtonYellow{
     border-radius: 50%;

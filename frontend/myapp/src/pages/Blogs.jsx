@@ -1,7 +1,7 @@
 const Blogs = () => {
     return (
     <div>
-      <h1>Blog Articles</h1>
+      <h1>Blog coming soon! Short example below</h1>
       <h3>Staying Focused</h3>
       <h5>May 25, 2023</h5>
       <p>
