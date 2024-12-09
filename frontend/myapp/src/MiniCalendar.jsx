@@ -5,70 +5,73 @@ import './MiniCalendar.css';
 // define props as you see fit from MainHeader Components seen in this function
 export default function MiniCalendar () {
   return (
-    <div class='mini-cal-container'>
+    <div class='mini-cal'>
       <div class='mini-cal-title'>
-        <h1>6 Week Planner</h1>
+        <h1>6 Week Focus Area</h1>
       </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='1'/>
-        {/* the MiniGenerator has a display within it called props.today and I am naming the today prop for each individually here */}
-        <MiniCalGenerator today='M' day='1' />
-        <MiniCalGenerator today='T' day='2'/>
-        <MiniCalGenerator today='W' day='3'/>
-        <MiniCalGenerator today='TH' day='4'/>
-        <MiniCalGenerator today='F' day='5'/>
-        <MiniCalGenerator today='S' day='6'/>
-        <MiniCalGenerator today='SN' day='7'/>
-      </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='2' />
-        <MiniCalGenerator today='M' day='8'/>
-        <MiniCalGenerator today='T' day='9'/>
-        <MiniCalGenerator today='W' day='10'/>
-        <MiniCalGenerator today='TH' day='11'/>
-        <MiniCalGenerator today='F' day='12'/>
-        <MiniCalGenerator today='S' day='13'/>
-        <MiniCalGenerator today='SN' day='14'/>
-      </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='3' />
-        <MiniCalGenerator today='M' day='15'/>
-        <MiniCalGenerator today='T' day='16'/>
-        <MiniCalGenerator today='W' day='17'/>
-        <MiniCalGenerator today='TH' day='18'/>
-        <MiniCalGenerator today='F' day='19'/>
-        <MiniCalGenerator today='S' day='20'/>
-        <MiniCalGenerator today='SN' day='21'/>
-      </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='4'/>
-        <MiniCalGenerator today='M' day='22'/>
-        <MiniCalGenerator today='T' day='23'/>
-        <MiniCalGenerator today='W' day='24'/>
-        <MiniCalGenerator today='TH' day='25'/>
-        <MiniCalGenerator today='F' day='26'/>
-        <MiniCalGenerator today='S' day='27'/>
-        <MiniCalGenerator today='SN' day='28'/>
-      </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='5'/>
-        <MiniCalGenerator today='M' day='29'/>
-        <MiniCalGenerator today='T' day='30'/>
-        <MiniCalGenerator today='W' day='31'/>
-        <MiniCalGenerator today='TH' day='32'/>
-        <MiniCalGenerator today='F' day='33'/>
-        <MiniCalGenerator today='S' day='34'/>
-        <MiniCalGenerator today='SN' day='35'/>
-      </div>
-      <div class='weekLayout'>
-        <WeekCountComponent week='6'/>
-        <MiniCalGenerator today='M' day='36'/>
-        <MiniCalGenerator today='T' day='37'/>
-        <MiniCalGenerator today='W' day='38'/>
-        <MiniCalGenerator today='TH' day='39'/>
-        <MiniCalGenerator today='F' day='40'/>
-        <MiniCalGenerator today='S' day='41'/>
-        <MiniCalGenerator today='SN' day='42'/>
+
+      <div class='mini-cal-container'>
+        <div class='weekLayout'>
+          <WeekCountComponent week='1'/>
+          {/* the MiniGenerator has a display within it called props.today and I am naming the today prop for each individually here */}
+          <MiniCalGenerator today='M' day='1' />
+          <MiniCalGenerator today='T' day='2'/>
+          <MiniCalGenerator today='W' day='3'/>
+          <MiniCalGenerator today='TH' day='4'/>
+          <MiniCalGenerator today='F' day='5'/>
+          <MiniCalGenerator today='S' day='6'/>
+          <MiniCalGenerator today='SN' day='7'/>
+        </div>
+        <div class='weekLayout'>
+          <WeekCountComponent week='2' />
+          <MiniCalGenerator today='M' day='8'/>
+          <MiniCalGenerator today='T' day='9'/>
+          <MiniCalGenerator today='W' day='10'/>
+          <MiniCalGenerator today='TH' day='11'/>
+          <MiniCalGenerator today='F' day='12'/>
+          <MiniCalGenerator today='S' day='13'/>
+          <MiniCalGenerator today='SN' day='14'/>
+        </div>
+        <div class='weekLayout'>
+          <WeekCountComponent week='3' />
+          <MiniCalGenerator today='M' day='15'/>
+          <MiniCalGenerator today='T' day='16'/>
+          <MiniCalGenerator today='W' day='17'/>
+          <MiniCalGenerator today='TH' day='18'/>
+          <MiniCalGenerator today='F' day='19'/>
+          <MiniCalGenerator today='S' day='20'/>
+          <MiniCalGenerator today='SN' day='21'/>
+        </div>
+        <div class='weekLayout'>
+          <WeekCountComponent week='4'/>
+          <MiniCalGenerator today='M' day='22'/>
+          <MiniCalGenerator today='T' day='23'/>
+          <MiniCalGenerator today='W' day='24'/>
+          <MiniCalGenerator today='TH' day='25'/>
+          <MiniCalGenerator today='F' day='26'/>
+          <MiniCalGenerator today='S' day='27'/>
+          <MiniCalGenerator today='SN' day='28'/>
+        </div>
+        <div class='weekLayout'>
+          <WeekCountComponent week='5'/>
+          <MiniCalGenerator today='M' day='29'/>
+          <MiniCalGenerator today='T' day='30'/>
+          <MiniCalGenerator today='W' day='31'/>
+          <MiniCalGenerator today='TH' day='32'/>
+          <MiniCalGenerator today='F' day='33'/>
+          <MiniCalGenerator today='S' day='34'/>
+          <MiniCalGenerator today='SN' day='35'/>
+        </div>
+        <div class='weekLayout'>
+          <WeekCountComponent week='6'/>
+          <MiniCalGenerator today='M' day='36'/>
+          <MiniCalGenerator today='T' day='37'/>
+          <MiniCalGenerator today='W' day='38'/>
+          <MiniCalGenerator today='TH' day='39'/>
+          <MiniCalGenerator today='F' day='40'/>
+          <MiniCalGenerator today='S' day='41'/>
+          <MiniCalGenerator today='SN' day='42'/>
+        </div>
       </div>
     </div>
   );

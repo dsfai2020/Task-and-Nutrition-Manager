@@ -1,3 +1,7 @@
+.mini-cal {
+    background-image: linear-gradient(to right, black, #59faa1);
+}
+
 .mini-cal-container{
     display: flex;
     justify-content: space-between;
@@ -6,8 +10,11 @@
 }
 
 .mini-cal-title{
+    display: flex;
+    align-items: flex-start;
     justify-content: center;
     font-style: italic;
+    color: #59faa1;
 }
 
 /* Laptop Support Only */
