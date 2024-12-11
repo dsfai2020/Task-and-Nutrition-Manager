@@ -1,13 +1,9 @@
 .mini-cal {
     background-image: linear-gradient(to right, black, #59faa1);
+    width: 100%;
+    justify-content: space-around;;
 }
 
-.mini-cal-container{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: flex-end;
-}
 
 .mini-cal-title{
     display: flex;
@@ -16,6 +12,39 @@
     font-style: italic;
     color: #59faa1;
 }
+
+@media (max-width: 428px){
+.mini-cal-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    }   
+}
+
+
+/* Widescreen PC */
+@media (max-width: 2500px){
+.mini-cal-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    }
+}
+
+
+@media (max-width: 2500px) {
+    .weekLayout{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        }
+    }
+
+
 
 /* Laptop Support Only */
 /* @media (max-width: 1800px) {
@@ -34,7 +63,7 @@
 
 
 /* Laptop Support*/
-@media (max-width: 1800px){
+@media (max-width: 2500px){
 .day-not-clicked{
     background-color: white;
     border-radius: 50%;
@@ -60,7 +89,7 @@
 }
 
 /* Laptop Support */
-@media (max-width: 1800px){
+@media (max-width: 2500px){
 .day-is-clicked{
     background-color: #59faa1;
     border-radius: 50%;
@@ -105,15 +134,7 @@
     }
 
 
-@media (max-width: 1800px) {
-    .weekLayout{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        width: 100%;
-        }
-    }
+
 
 
 
