@@ -1,5 +1,5 @@
 .mini-cal {
-    background-image: linear-gradient(to right, black, #59faa1);
+    background-image: linear-gradient(to right, blue, #59faa1);
 }
 
 .mini-cal-container{
@@ -14,7 +14,7 @@
     align-items: flex-start;
     justify-content: center;
     font-style: italic;
-    color: #59faa1;
+    color: black;
 }
 
 /* Laptop Support Only */

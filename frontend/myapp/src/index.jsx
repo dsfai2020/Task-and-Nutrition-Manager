@@ -25,6 +25,8 @@ import AnalyticsUi from './AnalyticsUi.jsx';
 
 import Footer from './Footer.jsx';
 
+import MongoTest from './Mongo.jsx';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
@@ -43,6 +45,9 @@ root.render(
     <div class="item-main"></div>
     <div class="item-sidebar"></div>
     {/* <App /> */}
+
+    <MongoTest />
+
     <WorkOuts />
     <MyHook />
     {/* <Bars /> */}
