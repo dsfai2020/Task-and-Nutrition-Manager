@@ -14,7 +14,8 @@ export default function MongoTest () {
     function GetArticle() {
 
         // Making a GET request to fetch JSON data
-        axios.get('http://127.0.0.1:5000/axiostest')
+        // axios.get('http://127.0.0.1:5000/axiostest')
+        axios.get('http://127.0.0.1:5000/mongo_data_validation')
         .then(response => {
             setData(response.data)
             console.log('Received data:', response.data);
