@@ -153,12 +153,13 @@ export default function AnalyticsUi (props) {
                 const updatedTasks = tasks.filter((_, i) => i !== eventToRemove);
                 setTasks(updatedTasks);
             };
+
+            
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
 
         };
-
+        
         const handleAddList = () => {
-            
             if (view=='Events') {
             // ...Takes the previous state of the list.  You need to make sure that you include the new set in [].
                 setEvents([...events, inputState]);
@@ -224,7 +225,7 @@ export default function AnalyticsUi (props) {
             {/* THIS IS THE ORDER OF THE VIEW DISPLAY */}
             <div class='AnalyticsUi-button-container'>
                 <h1>Current View:</h1>
-                
+                {/* This creates the view options referencing the view state.*/}
                 <select value={view} onChange={handleSelection}>
                     <option class='Current-View-Tasks'>Tasks</option>
                     <option class='Current-View-Events'>Events</option>
@@ -236,7 +237,9 @@ export default function AnalyticsUi (props) {
 
             <div>You are now viewing: {view}</div>
             <div class='Event-container'>
-            <textarea placeholder='Enter an Event' onChange={handleChange} onKeyPress={handleKeyPress}></textarea>
+            {/* This is the textarea that adds items to each view*/}
+            <textarea placeholder='What do you need to be reminded of?' value={inputState} onChange={handleChange} onKeyDown={handleKeyPress}></textarea>
+            {/* Adds items to each list in the view */}
             <button onClick={handleAddList}>add</button>
             </div>
 

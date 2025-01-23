@@ -61,6 +61,8 @@
 
 .item-remove-button {
     font-size: 10px;
+    background-color: #59faa1;
+    color: rgba(20, 80, 164, 0.674);
 }
 
 .Event-container{
