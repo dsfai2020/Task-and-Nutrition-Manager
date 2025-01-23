@@ -49,6 +49,12 @@
     background-color: rgba(20, 80, 164, 0.674);
 }
 
+.Current-View-Leisure{
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+
 .List-Container {
     opacity: 75%;
     background-color: black;

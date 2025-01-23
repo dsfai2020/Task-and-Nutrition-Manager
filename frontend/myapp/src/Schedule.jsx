@@ -83,7 +83,9 @@ export default function Schedule(props) {
     // we have two different schedules behing conditional shown based on the button state.  The arguments adjust accordingly.  clear changes from 'true' to 'false' so that the ScheduleUI can react to it with useEffects at the child component level - by making changes to the storage based on the props passed to it (in this case the clear arg).
     return (
         <div>
-            <h1>Schedule</h1>
+            <div>
+                <h1>Schedule</h1>
+            </div>
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>
             ? <div>

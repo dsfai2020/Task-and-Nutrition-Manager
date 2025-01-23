@@ -56,10 +56,10 @@ export default function AnalyticsUi (props) {
     )
 
     function EventLists(props) {
-        
+        // State managers
+        // Key value states used for data storage, management and display on the ui.
         const [currentList, setCurrentList] = useState([]);
         const [events, setEvents] = useState([]);
-        const [inputState, setInputState] = useState();
         const [counter, setCounter] = useState(0);
         
 
@@ -69,6 +69,9 @@ export default function AnalyticsUi (props) {
         const [tasks, setTasks] = useState([]);
         const [inventory, setInventory] = useState([])
 
+        const [leisure, setLeisure] = useState([]);
+
+        // Init trigger that loads the data from local storage into the ui based on it's key values.
         useEffect(() => {
             // Load events from local storage on component mount (At init it'll start with events)
             const storedEvents = localStorage.getItem('Events');
@@ -87,12 +90,11 @@ export default function AnalyticsUi (props) {
 
             const storedInventory = localStorage.getItem('Inventory')
 
+            const storedLeisure = localStorage.getItem('Leisure')
+
+            // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
-            
-            // hotfix
-            // if (mergedEvents) {
-            //     setCurrentList(JSON.parse(mergedEvents))};
             
             if (storedForPeople) {
                 setForPeople(JSON.parse(storedForPeople))};
@@ -105,12 +107,16 @@ export default function AnalyticsUi (props) {
             
             if (storedInventory) {
                 setInventory(JSON.parse(storedInventory))};
+
+            if (storedLeisure) {
+                setLeisure(JSON.parse(storedLeisure))};
           
             }, []);
 
+        // Once the state managers are loaded with data from storage;
+        // It will Trigger a new local storage save whenever the state of the manager changes [events, bugs, tasks etc...]
+        // First we locate the key '', then we take the current state manager and stringify the data into it.
         useEffect(() => {
-            // save to local whenever the events change
-            // localStorage.setItem('events', JSON.stringify(currentList))
             localStorage.setItem('Events', JSON.stringify(events))
         }, [events]);
 
@@ -128,7 +134,12 @@ export default function AnalyticsUi (props) {
 
         useEffect(()=> {
             localStorage.setItem('Inventory', JSON.stringify(inventory))
-        });
+        }, [inventory]);
+
+        useEffect(()=>{
+            localStorage.setItem('Leisure', JSON.stringify(leisure))
+        }, [leisure]);
+
 
         const handleChange = (e) => {
             setInputState(e.target.value)
@@ -145,6 +156,9 @@ export default function AnalyticsUi (props) {
             // Clicking should toggle the list on or off and remove it from the visible portion of the screen.
         };
 
+// ------------- ADDING AND REMOVING ---------------
+
+        // This fires when the remove button on the ui is clicked.  It checks for the active view and then removes the argument passed into it (eventToRemove).  Afterwards it updates the state causing a cascade of other triggers to update in previous effects.
         const handleRemoveList = (eventToRemove) => {
             if (view=='Events') {
                 const updatedevents = events.filter((_, i) => i !== eventToRemove);
@@ -166,6 +180,10 @@ export default function AnalyticsUi (props) {
             if (view=='Inventory') {
                 const updatedInventory = inventory.filter((_, i) => i !== eventToRemove);
                 setInventory(updatedInventory);
+            };
+            if (view=='Leisure') {
+                const updatedLeisure = leisure.filter((_, i) => i !== eventToRemove);
+                setLeisure(updatedLeisure)
             }
 
             
@@ -173,6 +191,9 @@ export default function AnalyticsUi (props) {
 
         };
         
+        const [inputState, setInputState] = useState();
+
+        // This is bound to a textArea component that has it's value set as a created state manager named inputState.
         const handleAddList = () => {
             if (view=='Events') {
             // ...Takes the previous state of the list.  You need to make sure that you include the new set in [].
@@ -195,9 +216,16 @@ export default function AnalyticsUi (props) {
                 setInventory([...inventory, inputState]);
                 setInputState('');
             };
+            if (view=='Leisure') {
+                setLeisure([...leisure, inputState])
+                setInputState('');
+            };
+
+
             
         };
-        
+
+// -------------- VIEW -----------------
         // This is causing some issues where the view is getting tangled up with '' even though the loaded contents are displaying properly based on Keys in the Storage.  SO at init the proper data will display but since the view itself is still technically '' it sometimes causes issues with button interactivity.
         const [view, setView] = useState('');
 
@@ -208,6 +236,8 @@ export default function AnalyticsUi (props) {
             }, [view]
         );
 
+        // This is bound to the option selector.  It fires whenever a change to the state manager named view is changed.
+        // It will set the view state equal to whatever option was selected onChange.  It's value is bound to view and this function updates the view so that it equals to whatever option is selected.
         const handleSelection = (e) => {
             setView(e.target.value);
 
@@ -217,13 +247,18 @@ export default function AnalyticsUi (props) {
             // console.log('selected ' + (updatedView))
         };
 
+// --------------RENDER COMPONENTS-------------
 
         function RenderedList(ListToBeMapped){
+            
             if (view=='Events') {ListToBeMapped=events};
             if (view=='For People') {ListToBeMapped=forPeople};
             if (view=='Bugs') {ListToBeMapped=bugs}; 
+            // task will check for Tasks or an empty string to display as Default
             if (view=='Tasks'|| view=='') {ListToBeMapped=tasks};
             if (view=='Inventory') {ListToBeMapped=inventory};
+            if (view=='Leisure') {ListToBeMapped=leisure};
+
 
             return (
             <ul>
@@ -238,19 +273,20 @@ export default function AnalyticsUi (props) {
             </ul>
             )
         }; 
-
+// ----------DROP DOWN LIST OPTIONS FOR VIEW---------------
         return (
             <div>
             {/* THIS IS THE ORDER OF THE VIEW DISPLAY */}
             <div class='AnalyticsUi-button-container'>
                 <h1>Current View:</h1>
-                {/* This creates the view options referencing the view state.*/}
+                {/* This creates the view options referencing the view state.  the value is bound to the state manager named view that updates with handleSelection.*/}
                 <select value={view} onChange={handleSelection}>
                     <option class='Current-View-Tasks'>Tasks</option>
                     <option class='Current-View-Events'>Events</option>
                     <option class='Current-View-For-People'>For People</option>
                     <option class='Current-View-Bugs'>Bugs</option>
                     <option class='Current-View-Inventory'>Inventory</option>
+                    <option class='Current-View-Leisure'>Leisure</option>
                 </select>
             </div>
 
