@@ -31,6 +31,13 @@ export default function Schedule(props) {
         return (
             <div>
             <p>SCHEDULE</p>
+            <ScheduleUI morning='12am' />
+            <ScheduleUI morning='1am' />
+            <ScheduleUI morning='2am' />
+            <ScheduleUI morning='3am' />
+            <ScheduleUI morning='4am' />
+            <ScheduleUI morning='5am' />
+            <ScheduleUI morning='6am' />
             <ScheduleUI morning='7am' />
             <ScheduleUI morning='8am' />
             <ScheduleUI morning='9am' />
@@ -48,13 +55,6 @@ export default function Schedule(props) {
             <ScheduleUI morning='9pm' />
             <ScheduleUI morning='10pm' />
             <ScheduleUI morning='11pm' />
-            <ScheduleUI morning='12am' />
-            <ScheduleUI morning='1am' />
-            <ScheduleUI morning='2am' />
-            <ScheduleUI morning='3am' />
-            <ScheduleUI morning='4am' />
-            <ScheduleUI morning='5am' />
-            <ScheduleUI morning='6am' />
         </div>
         )
     };
@@ -87,6 +87,13 @@ export default function Schedule(props) {
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>
             ? <div>
+                <ScheduleUI morning='12am' clear='true'/>
+                <ScheduleUI morning='1am' clear='true'/>
+                <ScheduleUI morning='2am' clear='true'/>
+                <ScheduleUI morning='3am' clear='true'/>
+                <ScheduleUI morning='4am' clear='true'/>
+                <ScheduleUI morning='5am' clear='true'/>
+                <ScheduleUI morning='6am' clear='true'/>
                 <ScheduleUI morning='7am' clear='true'/>
                 <ScheduleUI morning='8am' clear='true'/>
                 <ScheduleUI morning='9am' clear='true'/>
@@ -104,15 +111,15 @@ export default function Schedule(props) {
                 <ScheduleUI morning='9pm' clear='true'/>
                 <ScheduleUI morning='10pm' clear='true'/>
                 <ScheduleUI morning='11pm' clear='true'/>
-                <ScheduleUI morning='12am' clear='true'/>
-                <ScheduleUI morning='1am' clear='true'/>
-                <ScheduleUI morning='2am' clear='true'/>
-                <ScheduleUI morning='3am' clear='true'/>
-                <ScheduleUI morning='4am' clear='true'/>
-                <ScheduleUI morning='5am' clear='true'/>
-                <ScheduleUI morning='6am' clear='true'/>
             </div>
             : <div>
+                <ScheduleUI morning='12am' clear='false'/>
+                <ScheduleUI morning='1am' clear='false'/>
+                <ScheduleUI morning='2am' clear='false'/>
+                <ScheduleUI morning='3am' clear='false'/>
+                <ScheduleUI morning='4am' clear='false'/>
+                <ScheduleUI morning='5am' clear='false'/>
+                <ScheduleUI morning='6am' clear='false'/>
                 <ScheduleUI morning='7am' clear='false'/>
                 <ScheduleUI morning='8am' clear='false'/>
                 <ScheduleUI morning='9am' clear='false'/>
@@ -129,13 +136,6 @@ export default function Schedule(props) {
                 <ScheduleUI morning='8pm' clear='false'/>
                 <ScheduleUI morning='9pm' clear='false'/>
                 <ScheduleUI morning='10pm' clear='false'/>
-                <ScheduleUI morning='11pm' clear='false'/>
-                <ScheduleUI morning='12am' clear='false'/>
-                <ScheduleUI morning='1am' clear='false'/>
-                <ScheduleUI morning='2am' clear='false'/>
-                <ScheduleUI morning='3am' clear='false'/>
-                <ScheduleUI morning='4am' clear='false'/>
-                <ScheduleUI morning='5am' clear='false'/>
                 <ScheduleUI morning='old schedule' clear='false'/>
             </div>
             }

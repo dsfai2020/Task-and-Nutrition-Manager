@@ -58,13 +58,15 @@ export default function AnalyticsUi (props) {
     function EventLists(props) {
         
         const [currentList, setCurrentList] = useState([]);
+        const [events, setEvents] = useState([]);
         const [inputState, setInputState] = useState();
         const [counter, setCounter] = useState(0);
         
 
         // if you can get the view to trigger a selected list like bugs or for people it will work.  
-        const [bugs, setBugs]= useState([]);
+        const [bugs, setBugs] = useState([]);
         const [forPeople, setForPeople] = useState([]);
+        const [tasks, setTasks] = useState([]);
 
         useEffect(() => {
             // Load events from local storage on component mount (At init it'll start with events)
@@ -80,8 +82,10 @@ export default function AnalyticsUi (props) {
 
             const storedBugs = localStorage.getItem('Bugs')
 
+            const storedTasks = localStorage.getItem('Tasks')
+
             if (storedEvents) {
-                setCurrentList(JSON.parse(storedEvents))};
+                setEvents(JSON.parse(storedEvents))};
             
             // hotfix
             // if (mergedEvents) {
@@ -92,13 +96,17 @@ export default function AnalyticsUi (props) {
             
             if (storedBugs) {
                 setBugs(JSON.parse(storedBugs))};
-          }, []);
+
+            if (storedTasks) {
+                setTasks(JSON.parse(storedTasks))};
+          
+            }, []);
 
         useEffect(() => {
             // save to local whenever the events change
             // localStorage.setItem('events', JSON.stringify(currentList))
-            localStorage.setItem('Events', JSON.stringify(currentList))
-        }, [currentList]);
+            localStorage.setItem('Events', JSON.stringify(events))
+        }, [events]);
 
         useEffect(() => {
             localStorage.setItem('Bugs', JSON.stringify(bugs))
@@ -108,18 +116,29 @@ export default function AnalyticsUi (props) {
             localStorage.setItem('For People', JSON.stringify(forPeople))
         }, [forPeople]);
 
+        useEffect(() => {
+            localStorage.setItem('Tasks', JSON.stringify(tasks))
+        }, [tasks]);
+
         const handleChange = (e) => {
             setInputState(e.target.value)
         };
 
+        const handleKeyPress = (e) => {
+            if (e.key === 'Enter') {
+            // Trigger the ENTER add button when Enter is pressed on keyboard
+              handleAddList();
+            }
+        };
+        
         const handleListToggle = () => {
             // Clicking should toggle the list on or off and remove it from the visible portion of the screen.
         };
 
         const handleRemoveList = (eventToRemove) => {
             if (view=='Events') {
-                const updatedevents = currentList.filter((_, i) => i !== eventToRemove);
-                setCurrentList(updatedevents);
+                const updatedevents = events.filter((_, i) => i !== eventToRemove);
+                setEvents(updatedevents);
             };
             if (view=='For People') {
                 const updatedForPeople = forPeople.filter((_, i) => i !== eventToRemove);
@@ -128,16 +147,21 @@ export default function AnalyticsUi (props) {
             if (view=='Bugs') {
                 const updatedBugs = bugs.filter((_, i) => i !== eventToRemove);
                 setBugs(updatedBugs);   
-            }
-
+            };
+            // The reason for the '' is because the view by default starts as empty.  You need to adjust this.
+            if (view=='Tasks' || view=='') {
+                const updatedTasks = tasks.filter((_, i) => i !== eventToRemove);
+                setTasks(updatedTasks);
+            };
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
 
         };
 
         const handleAddList = () => {
-            if (view=='Events'|| view=='') {
+            
+            if (view=='Events') {
             // ...Takes the previous state of the list.  You need to make sure that you include the new set in [].
-                setCurrentList([...currentList, inputState]);
+                setEvents([...events, inputState]);
                 setInputState('');
             };
             if (view=='For People') {
@@ -148,11 +172,14 @@ export default function AnalyticsUi (props) {
                 setBugs([...bugs, inputState]);
                 setInputState('');
             };
-
+            if (view=='Tasks' || view=='') {
+                setTasks([...tasks, inputState]);
+                setInputState('');
+            };
             
         };
         
-
+        // This is causing some issues where the view is getting tangled up with '' even though the loaded contents are displaying properly based on Keys in the Storage.  SO at init the proper data will display but since the view itself is still technically '' it sometimes causes issues with button interactivity.
         const [view, setView] = useState('');
 
         useEffect(() => {
@@ -171,10 +198,12 @@ export default function AnalyticsUi (props) {
             // console.log('selected ' + (updatedView))
         };
 
+
         function RenderedList(ListToBeMapped){
-            if (view=='Events' || view=='') {ListToBeMapped=currentList};
+            if (view=='Events') {ListToBeMapped=events};
             if (view=='For People') {ListToBeMapped=forPeople};
             if (view=='Bugs') {ListToBeMapped=bugs}; 
+            if (view=='Tasks'|| view=='') {ListToBeMapped=tasks};
 
             return (
             <ul>
@@ -182,8 +211,8 @@ export default function AnalyticsUi (props) {
                 <li class='list-item' key={index}>
                     {/* <button class='arrow-Up'>&#x21E7;</button>
                     <button class='arrow-Down'>&#x21E9;</button> */}
-                    {ListToBeMapped}
                     <button class='item-remove-button' onClick={() =>handleRemoveList(index)}>Remove</button>
+                    {ListToBeMapped}
                 </li>
             ))}
             </ul>
@@ -192,11 +221,12 @@ export default function AnalyticsUi (props) {
 
         return (
             <div>
-
+            {/* THIS IS THE ORDER OF THE VIEW DISPLAY */}
             <div class='AnalyticsUi-button-container'>
                 <h1>Current View:</h1>
                 
                 <select value={view} onChange={handleSelection}>
+                    <option class='Current-View-Tasks'>Tasks</option>
                     <option class='Current-View-Events'>Events</option>
                     <option class='Current-View-For-People'>For People</option>
                     <option class='Current-View-Bugs'>Bugs</option>
@@ -206,7 +236,7 @@ export default function AnalyticsUi (props) {
 
             <div>You are now viewing: {view}</div>
             <div class='Event-container'>
-            <textarea placeholder='Enter an Event' onChange={handleChange}></textarea>
+            <textarea placeholder='Enter an Event' onChange={handleChange} onKeyPress={handleKeyPress}></textarea>
             <button onClick={handleAddList}>add</button>
             </div>
 
