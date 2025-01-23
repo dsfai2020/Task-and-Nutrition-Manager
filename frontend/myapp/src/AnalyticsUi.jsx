@@ -67,6 +67,7 @@ export default function AnalyticsUi (props) {
         const [bugs, setBugs] = useState([]);
         const [forPeople, setForPeople] = useState([]);
         const [tasks, setTasks] = useState([]);
+        const [inventory, setInventory] = useState([])
 
         useEffect(() => {
             // Load events from local storage on component mount (At init it'll start with events)
@@ -84,6 +85,8 @@ export default function AnalyticsUi (props) {
 
             const storedTasks = localStorage.getItem('Tasks')
 
+            const storedInventory = localStorage.getItem('Inventory')
+
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
             
@@ -99,6 +102,9 @@ export default function AnalyticsUi (props) {
 
             if (storedTasks) {
                 setTasks(JSON.parse(storedTasks))};
+            
+            if (storedInventory) {
+                setInventory(JSON.parse(storedInventory))};
           
             }, []);
 
@@ -119,6 +125,10 @@ export default function AnalyticsUi (props) {
         useEffect(() => {
             localStorage.setItem('Tasks', JSON.stringify(tasks))
         }, [tasks]);
+
+        useEffect(()=> {
+            localStorage.setItem('Inventory', JSON.stringify(inventory))
+        });
 
         const handleChange = (e) => {
             setInputState(e.target.value)
@@ -153,6 +163,10 @@ export default function AnalyticsUi (props) {
                 const updatedTasks = tasks.filter((_, i) => i !== eventToRemove);
                 setTasks(updatedTasks);
             };
+            if (view=='Inventory') {
+                const updatedInventory = inventory.filter((_, i) => i !== eventToRemove);
+                setInventory(updatedInventory);
+            }
 
             
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
@@ -175,6 +189,10 @@ export default function AnalyticsUi (props) {
             };
             if (view=='Tasks' || view=='') {
                 setTasks([...tasks, inputState]);
+                setInputState('');
+            };
+            if (view=='Inventory') {
+                setInventory([...inventory, inputState]);
                 setInputState('');
             };
             
@@ -205,6 +223,7 @@ export default function AnalyticsUi (props) {
             if (view=='For People') {ListToBeMapped=forPeople};
             if (view=='Bugs') {ListToBeMapped=bugs}; 
             if (view=='Tasks'|| view=='') {ListToBeMapped=tasks};
+            if (view=='Inventory') {ListToBeMapped=inventory};
 
             return (
             <ul>
@@ -231,6 +250,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Events'>Events</option>
                     <option class='Current-View-For-People'>For People</option>
                     <option class='Current-View-Bugs'>Bugs</option>
+                    <option class='Current-View-Inventory'>Inventory</option>
                 </select>
             </div>
 
