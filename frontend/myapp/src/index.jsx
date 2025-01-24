@@ -46,7 +46,7 @@ root.render(
     <div class="item-sidebar"></div>
     {/* <App /> */}
 
-    <MongoTest />
+    {/* <MongoTest /> */}
 
     <WorkOuts />
     <MyHook />

@@ -71,6 +71,7 @@ export default function AnalyticsUi (props) {
 
         const [leisure, setLeisure] = useState([]);
         const [thisRelease, setThisRelease] = useState([]);
+        const [recipes, setRecipes] = useState([]);
 
         // Init trigger that loads the data from local storage into the ui based on it's key values.
         useEffect(() => {
@@ -95,6 +96,8 @@ export default function AnalyticsUi (props) {
 
             const storedThisRelease = localStorage.getItem('This Release')
 
+            const storedRecipes = localStorage.getItem('Recipes')
+
             // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
@@ -116,7 +119,13 @@ export default function AnalyticsUi (props) {
             
             if (storedThisRelease) {
                 setThisRelease(JSON.parse(storedThisRelease))};
+            
+            if (storedRecipes) {
+                setRecipes(JSON.parse(storedRecipes))};
+
             }, []);
+
+// --------STATE MANAGER TRIGGERS----------
 
         // Once the state managers are loaded with data from storage;
         // It will Trigger a new local storage save whenever the state of the manager changes [events, bugs, tasks etc...]
@@ -141,13 +150,19 @@ export default function AnalyticsUi (props) {
             localStorage.setItem('Inventory', JSON.stringify(inventory))
         }, [inventory]);
 
-        useEffect(()=>{
+        useEffect(()=> {
             localStorage.setItem('Leisure', JSON.stringify(leisure))
         }, [leisure]);
 
-        useEffect(()=>{
+        useEffect(()=> {
             localStorage.setItem('This Release', JSON.stringify(thisRelease))
         }, [thisRelease]);
+
+        useEffect(()=> {
+            localStorage.setItem('Recipes', JSON.stringify(recipes))
+        }, [recipes]);
+
+// -----------INPUT HANDLES -----------------
 
         const handleChange = (e) => {
             setInputState(e.target.value)
@@ -194,9 +209,13 @@ export default function AnalyticsUi (props) {
                 setLeisure(updatedLeisure)
             };
             if (view=='This Release') {
-                const updatedThisRelease = thisRelease.filter((_,i) => i !== eventToRemove);
+                const updatedThisRelease = thisRelease.filter((_, i) => i !== eventToRemove);
                 setThisRelease(updatedThisRelease);
-            }
+            };
+            if (view=='Recipes') {
+                const updatedRecipes = recipes.filter((_, i) => i !== eventToRemove);
+                setRecipes(updatedRecipes);
+            };
 
 
             
@@ -237,6 +256,10 @@ export default function AnalyticsUi (props) {
                 setThisRelease([...thisRelease, inputState])
                 setInputState('');
             };
+            if (view=='Recipes') {
+                setRecipes([...recipes, inputState])
+                setInputState('');
+            };
 
             
         };
@@ -275,6 +298,7 @@ export default function AnalyticsUi (props) {
             if (view=='Inventory') {ListToBeMapped=inventory};
             if (view=='Leisure') {ListToBeMapped=leisure};
             if (view=='This Release') {ListToBeMapped=thisRelease};
+            if (view=='Recipes') {ListToBeMapped=recipes};
 
             return (
             <ul>
@@ -304,6 +328,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Inventory'>Inventory</option>
                     <option class='Current-View-Leisure'>Leisure</option>
                     <option class='Current-View-This-Release'>This Release</option>
+                    <option class='Current-View-Recipes'>Recipes</option>
                 </select>
             </div>
 
