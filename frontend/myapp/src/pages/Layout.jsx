@@ -37,11 +37,11 @@ const Layout = () => {
           </li>
         </div>
 
-        <div class='layout-item'>
+        {/* <div class='layout-item'>
           <li>
             <Link to="/discussionhome">Discussion Home</Link>
           </li>
-        </div>
+        </div> */}
 
         <div class='layout-item'>
           <li>
@@ -49,11 +49,11 @@ const Layout = () => {
           </li>
         </div>
 
-        <div class='layout-item'>
+        {/* <div class='layout-item'>
           <li>
             <Link to="/discussiontodo">DiscussionToDo</Link>
           </li>
-        </div>
+        </div> */}
 
       </div>
 

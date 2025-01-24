@@ -55,6 +55,12 @@
     background-color: black;
 }
 
+.Current-View-This-Release{
+    font-weight: bold;
+    color: black;
+    background-color: turquoise;
+}
+
 .List-Container {
     opacity: 75%;
     background-color: black;

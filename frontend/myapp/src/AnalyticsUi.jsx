@@ -70,6 +70,7 @@ export default function AnalyticsUi (props) {
         const [inventory, setInventory] = useState([])
 
         const [leisure, setLeisure] = useState([]);
+        const [thisRelease, setThisRelease] = useState([]);
 
         // Init trigger that loads the data from local storage into the ui based on it's key values.
         useEffect(() => {
@@ -92,6 +93,8 @@ export default function AnalyticsUi (props) {
 
             const storedLeisure = localStorage.getItem('Leisure')
 
+            const storedThisRelease = localStorage.getItem('This Release')
+
             // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
@@ -110,7 +113,9 @@ export default function AnalyticsUi (props) {
 
             if (storedLeisure) {
                 setLeisure(JSON.parse(storedLeisure))};
-          
+            
+            if (storedThisRelease) {
+                setThisRelease(JSON.parse(storedThisRelease))};
             }, []);
 
         // Once the state managers are loaded with data from storage;
@@ -140,6 +145,9 @@ export default function AnalyticsUi (props) {
             localStorage.setItem('Leisure', JSON.stringify(leisure))
         }, [leisure]);
 
+        useEffect(()=>{
+            localStorage.setItem('This Release', JSON.stringify(thisRelease))
+        }, [thisRelease]);
 
         const handleChange = (e) => {
             setInputState(e.target.value)
@@ -184,7 +192,12 @@ export default function AnalyticsUi (props) {
             if (view=='Leisure') {
                 const updatedLeisure = leisure.filter((_, i) => i !== eventToRemove);
                 setLeisure(updatedLeisure)
+            };
+            if (view=='This Release') {
+                const updatedThisRelease = thisRelease.filter((_,i) => i !== eventToRemove);
+                setThisRelease(updatedThisRelease);
             }
+
 
             
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
@@ -220,7 +233,10 @@ export default function AnalyticsUi (props) {
                 setLeisure([...leisure, inputState])
                 setInputState('');
             };
-
+            if (view=='This Release') {
+                setThisRelease([...thisRelease, inputState])
+                setInputState('');
+            };
 
             
         };
@@ -258,7 +274,7 @@ export default function AnalyticsUi (props) {
             if (view=='Tasks'|| view=='') {ListToBeMapped=tasks};
             if (view=='Inventory') {ListToBeMapped=inventory};
             if (view=='Leisure') {ListToBeMapped=leisure};
-
+            if (view=='This Release') {ListToBeMapped=thisRelease};
 
             return (
             <ul>
@@ -287,6 +303,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Bugs'>Bugs</option>
                     <option class='Current-View-Inventory'>Inventory</option>
                     <option class='Current-View-Leisure'>Leisure</option>
+                    <option class='Current-View-This-Release'>This Release</option>
                 </select>
             </div>
 
