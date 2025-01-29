@@ -54,7 +54,7 @@ export default function AnalyticsUi (props) {
             {/* EventLists renders above */}
         </div>
     )
-
+// ----------------- STATE MANAGERS -----------------
     function EventLists(props) {
         // State managers
         // Key value states used for data storage, management and display on the ui.
@@ -72,7 +72,9 @@ export default function AnalyticsUi (props) {
         const [leisure, setLeisure] = useState([]);
         const [thisRelease, setThisRelease] = useState([]);
         const [recipes, setRecipes] = useState([]);
+        const [meals, setMeals] = useState([]);
 
+// ------------LOCAL STORAGE .getItem ---------------------
         // Init trigger that loads the data from local storage into the ui based on it's key values.
         useEffect(() => {
             // Load events from local storage on component mount (At init it'll start with events)
@@ -98,6 +100,8 @@ export default function AnalyticsUi (props) {
 
             const storedRecipes = localStorage.getItem('Recipes')
 
+            const storedMeals = localStorage.getItem('Meals')
+
             // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
@@ -122,6 +126,9 @@ export default function AnalyticsUi (props) {
             
             if (storedRecipes) {
                 setRecipes(JSON.parse(storedRecipes))};
+            
+            if (storedMeals) {
+                setMeals(JSON.parse(storedMeals))};
 
             }, []);
 
@@ -162,6 +169,10 @@ export default function AnalyticsUi (props) {
             localStorage.setItem('Recipes', JSON.stringify(recipes))
         }, [recipes]);
 
+        useEffect(()=> {
+            localStorage.setItem('Meals', JSON.stringify(meals))
+        }, [meals]);
+        
 // -----------INPUT HANDLES -----------------
 
         const handleChange = (e) => {
@@ -216,7 +227,10 @@ export default function AnalyticsUi (props) {
                 const updatedRecipes = recipes.filter((_, i) => i !== eventToRemove);
                 setRecipes(updatedRecipes);
             };
-
+            if (view=='Meals') {
+                const updatedMeals = meals.filter((_, i) => i !== eventToRemove);
+                setMeals(updatedMeals);
+            }
 
             
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
@@ -260,6 +274,10 @@ export default function AnalyticsUi (props) {
                 setRecipes([...recipes, inputState])
                 setInputState('');
             };
+            if (view=='Meals') {
+                setMeals([...meals, inputState])
+                setInputState('');
+            }
 
             
         };
@@ -299,6 +317,7 @@ export default function AnalyticsUi (props) {
             if (view=='Leisure') {ListToBeMapped=leisure};
             if (view=='This Release') {ListToBeMapped=thisRelease};
             if (view=='Recipes') {ListToBeMapped=recipes};
+            if (view=='Meals') {ListToBeMapped=meals};
 
             return (
             <ul>
@@ -329,6 +348,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Leisure'>Leisure</option>
                     <option class='Current-View-This-Release'>This Release</option>
                     <option class='Current-View-Recipes'>Recipes</option>
+                    <option class='Current-View-Meals'>Meals</option>
                 </select>
             </div>
 
