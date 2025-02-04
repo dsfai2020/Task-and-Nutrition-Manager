@@ -73,6 +73,7 @@ export default function AnalyticsUi (props) {
         const [thisRelease, setThisRelease] = useState([]);
         const [recipes, setRecipes] = useState([]);
         const [meals, setMeals] = useState([]);
+        const [milestones, setMilestones] = useState([]);
 
 // ------------LOCAL STORAGE .getItem ---------------------
         // Init trigger that loads the data from local storage into the ui based on it's key values.
@@ -102,6 +103,8 @@ export default function AnalyticsUi (props) {
 
             const storedMeals = localStorage.getItem('Meals')
 
+            const storedMilestones = localStorage.getItem('Milestones')
+
             // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
@@ -129,6 +132,9 @@ export default function AnalyticsUi (props) {
             
             if (storedMeals) {
                 setMeals(JSON.parse(storedMeals))};
+
+            if (storedMilestones) {
+                setMilestones(JSON.parse(storedMilestones))};
 
             }, []);
 
@@ -172,6 +178,10 @@ export default function AnalyticsUi (props) {
         useEffect(()=> {
             localStorage.setItem('Meals', JSON.stringify(meals))
         }, [meals]);
+
+        useEffect(()=>{
+            localStorage.setItem('Milestones', JSON.stringify(milestones))
+        }, [milestones]);
         
 // -----------INPUT HANDLES -----------------
 
@@ -231,7 +241,10 @@ export default function AnalyticsUi (props) {
                 const updatedMeals = meals.filter((_, i) => i !== eventToRemove);
                 setMeals(updatedMeals);
             }
-
+            if (view=='Milestones') {
+                const updatedMilestones = milestones.filter((_, i) => i !== eventToRemove);
+                setMilestones(updatedMilestones);
+            }
             
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
 
@@ -278,6 +291,10 @@ export default function AnalyticsUi (props) {
                 setMeals([...meals, inputState])
                 setInputState('');
             }
+            if (view=='Milestones') {
+                setMilestones([...milestones, inputState])
+                setInputState('');
+            }
 
             
         };
@@ -318,6 +335,7 @@ export default function AnalyticsUi (props) {
             if (view=='This Release') {ListToBeMapped=thisRelease};
             if (view=='Recipes') {ListToBeMapped=recipes};
             if (view=='Meals') {ListToBeMapped=meals};
+            if (view=='Milestones') {ListToBeMapped=milestones};
 
             return (
             <ul>
@@ -347,6 +365,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Inventory'>Inventory</option>
                     <option class='Current-View-Leisure'>Leisure</option>
                     <option class='Current-View-This-Release'>This Release</option>
+                    <option class='Current-View-Milestones'>Milestones</option>
                     <option class='Current-View-Recipes'>Recipes</option>
                     <option class='Current-View-Meals'>Meals</option>
                 </select>
