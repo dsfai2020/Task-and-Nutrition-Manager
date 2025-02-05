@@ -74,6 +74,7 @@ export default function AnalyticsUi (props) {
         const [recipes, setRecipes] = useState([]);
         const [meals, setMeals] = useState([]);
         const [milestones, setMilestones] = useState([]);
+        const [progressionBlockers, setProgressionBlockers] = useState([]);
 
 // ------------LOCAL STORAGE .getItem ---------------------
         // Init trigger that loads the data from local storage into the ui based on it's key values.
@@ -105,6 +106,8 @@ export default function AnalyticsUi (props) {
 
             const storedMilestones = localStorage.getItem('Milestones')
 
+            const storedProgressionBlockers = localStorage.getItem('Progression Blockers')
+
             // If the key is found (stored) from the local storage, parse and set it into state management.
             if (storedEvents) {
                 setEvents(JSON.parse(storedEvents))};
@@ -135,6 +138,9 @@ export default function AnalyticsUi (props) {
 
             if (storedMilestones) {
                 setMilestones(JSON.parse(storedMilestones))};
+
+            if (storedProgressionBlockers) {
+                setProgressionBlockers(JSON.parse(storedProgressionBlockers))};
 
             }, []);
 
@@ -182,6 +188,10 @@ export default function AnalyticsUi (props) {
         useEffect(()=>{
             localStorage.setItem('Milestones', JSON.stringify(milestones))
         }, [milestones]);
+
+        useEffect(()=> {
+            localStorage.setItem('Progression Blockers', JSON.stringify(progressionBlockers))
+        }, [progressionBlockers]);
         
 // -----------INPUT HANDLES -----------------
 
@@ -245,6 +255,10 @@ export default function AnalyticsUi (props) {
                 const updatedMilestones = milestones.filter((_, i) => i !== eventToRemove);
                 setMilestones(updatedMilestones);
             }
+            if (view=='Progression Blockers') {
+                const updatedProgressionBlockers = progressionBlockers.filter((_, i) => i !== eventToRemove);
+                setProgressionBlockers(updatedProgressionBlockers);
+            }
             
             // the _ parameter means that it is unused and the eventToRemove is the index from the mapping.
 
@@ -295,6 +309,10 @@ export default function AnalyticsUi (props) {
                 setMilestones([...milestones, inputState])
                 setInputState('');
             }
+            if (view=='Progression Blockers') {
+                setProgressionBlockers([...progressionBlockers, inputState])
+                setInputState('');
+            }
 
             
         };
@@ -336,6 +354,7 @@ export default function AnalyticsUi (props) {
             if (view=='Recipes') {ListToBeMapped=recipes};
             if (view=='Meals') {ListToBeMapped=meals};
             if (view=='Milestones') {ListToBeMapped=milestones};
+            if (view=='Progression Blockers') {ListToBeMapped=progressionBlockers};
 
             return (
             <ul>
@@ -362,6 +381,7 @@ export default function AnalyticsUi (props) {
                     <option class='Current-View-Events'>Events</option>
                     <option class='Current-View-For-People'>For People</option>
                     <option class='Current-View-Bugs'>Bugs</option>
+                    <option class='Current-View-Progression-Blockers'>Progression Blockers</option>
                     <option class='Current-View-Inventory'>Inventory</option>
                     <option class='Current-View-Leisure'>Leisure</option>
                     <option class='Current-View-This-Release'>This Release</option>

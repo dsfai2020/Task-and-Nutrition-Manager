@@ -79,6 +79,12 @@
     background-color: rgba(20, 80, 164, 0.674);
 }
 
+.Current-View-Progression-Blockers{
+    font-weight: bold;
+    color: black;
+    background-color: turquoise;
+}
+
 .List-Container {
     opacity: 75%;
     background-color: black;
