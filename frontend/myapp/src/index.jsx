@@ -26,12 +26,14 @@ import AnalyticsUi from './AnalyticsUi.jsx';
 import Footer from './Footer.jsx';
 
 import MongoTest from './Mongo.jsx';
+import GoogleCalendarButton from './GoogleAppointments.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
     <div class="item-header"></div>
     <Navbar />
+    <GoogleCalendarButton />
     <MyRoutes />
 
     <MiniCalendar />
