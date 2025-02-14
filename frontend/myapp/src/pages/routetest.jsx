@@ -6,7 +6,7 @@ import Blogs from "./Blogs";
 import Contact from "./Contact";
 import NoPage from "./NoPage";
 
-import Schedule from "./Schedule";
+import FitnessSchedule from "./FitnessSchedule";
 import AiObjects from "./AiObjects";
 
 import DiscussionToDoList from "./DiscussionToDo";
@@ -24,7 +24,7 @@ export default function MyRoutes() {
             <Route path="blogs" element={<Blogs />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
-            <Route path="schedule" element={<Schedule />} />
+            <Route path="fitnessSchedule" element={<FitnessSchedule />} />
             <Route path="aiobjects" element={<AiObjects />} />
             <Route path='discussiontodo' element={<DiscussionToDoList />} />
             <Route path='discussionhome' element={<DiscussionHome />} />

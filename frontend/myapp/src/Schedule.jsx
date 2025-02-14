@@ -240,14 +240,43 @@ export default function Schedule(props) {
             }
         };
 
-        // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
-        const ActualOptionalBox = () => {
-            if (entryStatus==true) {
-                return (
-                    <textarea placeholder='Actual'></textarea>
-                )
-            }
-    }
+// --------------COMPONENT---------------------
+
+
+    // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
+    function ActualBoxComponent () {
+        
+        const [actualBoxInput, setActualBoxInput] =  useState([]);
+
+        // See lines about schedule entry (around 176) for more about this.  It is important to mirror the e.target.value onto a newValue and then have the state set to that.  That way, when you assign the actual state to the value of the textarea it has something to load into that isn't already tied up doing two things at once (save and load).  
+        const handleActualBoxChange = (e) => {
+            const newValue = e.target.value;
+            setActualBoxInput(newValue)
+            localStorage.setItem('schedule_'+props.morning+'_actual', JSON.stringify(newValue))
+        };
+
+        // Load the ActualBox data at init
+        useEffect(()=>{
+            // props.morning is a prop used for the schedule name and so I use that very same key but add in the _actual.  This was intentionally done to simplify key access by making everything have a single isolated key (for now).
+            const a = localStorage.getItem('schedule_'+props.morning+'_actual');
+            const b = JSON.parse(a);
+            
+            setActualBoxInput(b);
+        }, []);
+
+
+        // by Default Value of the textareaa is assigned to its native input.
+        return (
+            <textarea placeholder='Actual' onChange={handleActualBoxChange} value={actualBoxInput}></textarea>
+        );
+
+        // if (entryStatus==true) {
+        //     return ActualBox
+        //     }
+
+        };
+
+// --------------MAIN COMPONENT RENDER-------------------
 
         return (
             <div>
@@ -260,7 +289,7 @@ export default function Schedule(props) {
 
             <div class='Container-Actual'>
                 {/* <textarea placeholder='Actual'></textarea> */}
-                <ActualOptionalBox />
+                <ActualBoxComponent />
             </div>
 
             </div>

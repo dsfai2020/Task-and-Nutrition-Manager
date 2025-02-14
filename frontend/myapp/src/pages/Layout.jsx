@@ -25,11 +25,11 @@ const Layout = () => {
           </li>
         </div>
         
-        <div class='layout-item'>
+        {/* <div class='layout-item'>
           <li>
-            <Link to ="/schedule">Schedule</Link>
+            <Link to ="/fitnessSchedule">Fitness Schedule</Link>
           </li>
-        </div>
+        </div> */}
 
         <div class='layout-item'>
           <li>

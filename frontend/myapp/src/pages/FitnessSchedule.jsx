@@ -1,7 +1,7 @@
-const Schedule = () => {
+const FitnessSchedule = () => {
     return (
     <div>
-    <h1>12 Week Schedule</h1>
+    <h1>12 Week Fitness Schedule</h1>
     
     <ul>
             <ul>Regular Reps: 6</ul>
@@ -40,6 +40,6 @@ const Schedule = () => {
     </div>);
   };
   
-  export default Schedule;
+  export default FitnessSchedule;
   
   
