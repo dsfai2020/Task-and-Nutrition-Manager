@@ -2,6 +2,8 @@ import { Outlet, Link } from "react-router-dom";
 
 import './Layout.css' 
 
+// see routetest for more details
+
 const Layout = () => {
   return (
     <>
@@ -11,6 +13,12 @@ const Layout = () => {
       <div class='container'>
         <div class='layout-item'>
           <Link to="/" class='home'>Home</Link>
+        </div>
+
+        <div class='layout-item'>
+          <li>
+            <Link to="/about" class='link'>About</Link>
+          </li>
         </div>
 
         <div class='layout-item'>

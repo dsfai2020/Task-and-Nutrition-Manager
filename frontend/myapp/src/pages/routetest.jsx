@@ -12,6 +12,7 @@ import AiObjects from "./AiObjects";
 import DiscussionToDoList from "./DiscussionToDo";
 import Discussion from "./Discussion";
 import DiscussionHome from "./DiscussionHome";
+import About from "./About";
 
 // This is actually the function that will be plugged into the index page.  It uses the Layout.jsx file to organize its structure.
 
@@ -21,6 +22,7 @@ export default function MyRoutes() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path='about' element={<About />} />
             <Route path="blogs" element={<Blogs />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
