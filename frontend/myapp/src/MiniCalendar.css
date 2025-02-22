@@ -1,5 +1,5 @@
 .mini-cal {
-    background-image: linear-gradient(to right, #f4f5f7, #59faa1);
+    background-image: linear-gradient(to bottom, #778bb2, #f4f5f7, #e2ede7, rgb(252, 243, 227));
     width: 100%;
     justify-content: space-around;;
 }
@@ -10,7 +10,8 @@
     align-items: flex-start;
     justify-content: center;
     font-style: italic;
-    color: black;
+    color: rgb(225, 216, 46);
+    font-family: Rubikdirt-Regular;
 }
 
 @media (max-width: 428px){

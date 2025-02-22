@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Workouts.css';
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import './fonts.css';
 
 
 // State based OOP
@@ -115,7 +116,7 @@ const WorkOuts = () => {
             return (
                 <div>
                   <div class="test">
-                  <h1>Body Metrics</h1>
+                  <h1 class='body-metrics-title'>Body Metrics</h1>
                   </div>
 
                   <ProgressBar variant="success" now={formulaWeightTest} label={"Your Weight: " + weight + " lbs"} />
@@ -270,6 +271,7 @@ const WorkOuts = () => {
     function WorkoutRoutine(){
         return(
             <div>
+            <h1 class='muscle-groups-title'>Muscle Groups</h1>
             <div class="grid-workout-container">
             <button class='grid-workout-item'>Chest</button>
             <button class="grid-workout-item">Back</button>

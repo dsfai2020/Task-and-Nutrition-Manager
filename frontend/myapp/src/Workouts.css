@@ -16,7 +16,6 @@
     color: #2980B9;
     background-color: #065187;
     margin: 2px;
-    font-family: fantasy;
     padding: 2px;
     border-radius: 20px;
 }
@@ -39,4 +38,12 @@ button{
 
 .motivationalQuotes{
     font-size: 25px;
+}
+
+.body-metrics-title{
+    font-family: RubikDirt-Regular;
+}
+
+.muscle-groups-title{
+    font-family: RubikDirt-Regular;
 }

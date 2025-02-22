@@ -1,5 +1,6 @@
 import {useState, setState, useEffect} from 'react';
 import './Schedule.css'
+import './fonts.css'
 
 
 // -----------HIGH SIDE UI (PARENT)
@@ -84,7 +85,8 @@ export default function Schedule(props) {
     return (
         <div>
             <div>
-                <h1>Schedule: "You vs You"</h1>
+                <h1 class='schedule-title'>Schedule:</h1>
+                <h1 class='schedule-quote'>"You vs You"</h1>
             </div>
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>

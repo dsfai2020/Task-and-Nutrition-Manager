@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react';
 import './MiniCalendar.css';
+import './fonts.css';
 
 
 // define props as you see fit from MainHeader Components seen in this function

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './fonts.css'
+import './MainToDoList.css'
 
 
 function MainToDoList() {
@@ -37,7 +39,7 @@ function MainToDoList() {
 
   return (
     <div>
-      <h2>Accountability List</h2>
+      <h2 class='accountability-list-title'>Accountability List</h2>
       <input
         type="text"
         value={inputValue}
