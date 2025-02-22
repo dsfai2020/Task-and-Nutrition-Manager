@@ -28,10 +28,14 @@ import Footer from './Footer.jsx';
 import MongoTest from './Mongo.jsx';
 // import GoogleCalendarButton from './GoogleAppointments.jsx';
 
+import Header from './Header.jsx';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-    <div class="item-header"></div>
+    <div class="item-header">
+        <Header />
+    </div>
     {/* <Navbar /> */}
     {/* <GoogleCalendarButton /> */}
     <MyRoutes />

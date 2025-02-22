@@ -1,0 +1,8 @@
+.header-title{
+    font-family: RubikDirt-Regular;
+    color: rgb(7, 7, 115);
+}
+
+.header-container{
+    display: flex;
+}
