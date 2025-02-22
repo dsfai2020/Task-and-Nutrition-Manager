@@ -24,7 +24,7 @@ export default function AnalyticsUi (props) {
             <div class='AnalyticsUiContainer'>
 
                 <div class='AnalyticsUi-Interval'> 
-                    <h1>Stories in Sprint</h1>
+                    <h1>Idea cap for this Week</h1>
                         <select class='AnalyticsUi-Interval-item'>
                             <option>1</option>
                         </select>

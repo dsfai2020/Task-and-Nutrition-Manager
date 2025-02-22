@@ -10,18 +10,18 @@ const Layout = () => {
 
       <div class='container'>
         <div class='layout-item'>
-          <Link to="/">Home</Link>
+          <Link to="/" class='home'>Home</Link>
         </div>
 
         <div class='layout-item'>
           <li>
-            <Link to="/blogs">Blog</Link>
+            <Link to="/blogs" class='link'>Blog</Link>
           </li>
         </div>
         
         <div class='layout-item'>
           <li>
-            <Link to="/contact">Contact Me</Link>
+            <Link to="/contact" class='link'>Contact Me</Link>
           </li>
         </div>
         
@@ -33,7 +33,7 @@ const Layout = () => {
 
         <div class='layout-item'>
           <li>
-            <Link to ="/aiobjects">AiObjects</Link>
+            <Link to ="/aiobjects" class='link'>AiObjects</Link>
           </li>
         </div>
 
@@ -45,7 +45,7 @@ const Layout = () => {
 
         <div class='layout-item'>
           <li>
-            <Link to="/discussion">Discussion</Link>
+            <Link to="/discussion" class='link'>Discussion</Link>
           </li>
         </div>
 

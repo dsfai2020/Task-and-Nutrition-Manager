@@ -84,7 +84,7 @@ export default function Schedule(props) {
     return (
         <div>
             <div>
-                <h1>Schedule</h1>
+                <h1>Schedule: "You vs You"</h1>
             </div>
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>

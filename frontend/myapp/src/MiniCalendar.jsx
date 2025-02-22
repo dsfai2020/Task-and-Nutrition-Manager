@@ -7,7 +7,7 @@ export default function MiniCalendar () {
   return (
     <div class='mini-cal'>
       <div class='mini-cal-title'>
-        <h1>6 Week Planner</h1>
+        <h1>6 Week Planner (42 Days)</h1>
       </div>
 
       <div class='mini-cal-container'>

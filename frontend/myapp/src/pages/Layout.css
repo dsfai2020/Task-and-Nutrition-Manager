@@ -5,14 +5,14 @@
     padding: 5px;
     justify-content: center;
     color: aquamarine;
-    background-color: #282c34;
+    background-color: #5e76a5;
     border: solid aquamarine;
     margin: 2px;
     border-radius: 5%;
     font-size: 15px
 };
 
-.layout-item{
+.layout-item {
     border: solid rgb(129, 217, 29);
     display: flex;
     justify-content: flex-start;
@@ -26,3 +26,15 @@
     justify-content: space-between;
 }
 
+.link{
+    color: orange;
+    font-weight: bold;
+}
+
+.home{
+    color: white;
+    font-weight: bold;
+    font-size: 20px
+}
+
+/* Kit -- #5e76a5 orange yellow white  */
