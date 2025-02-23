@@ -1,17 +1,18 @@
 .mini-cal {
-    background-image: linear-gradient(to bottom, #778bb2, #f4f5f7, #e2ede7, rgb(252, 243, 227));
+    background-image: linear-gradient(to bottom, #778bb2, #cad8f4, #f6f6f6, rgb(248, 243, 235));
     width: 100%;
     justify-content: space-around;;
 }
 
 
-.mini-cal-title{
+.mini-cal-title-container{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     font-style: italic;
-    color: rgb(225, 216, 46);
-    font-family: Rubikdirt-Regular;
+    color: rgb(255, 244, 34);
+    font-family: FrederickatheGreat-Regular;
+    flex-direction: column;
 }
 
 @media (max-width: 428px){
@@ -47,20 +48,20 @@
 
 
 
-/* Laptop Support Only */
-/* @media (max-width: 1800px) {
+/* Laptop Support Only - 1920 by 1080 with taskbar on the left side Windows 10 */
+@media (min-width: 1450px) {
 .day-not-clicked:hover{
     background-color: teal;
     color: white;
     }
-} */
+} 
 
-/* Laptop Support Only */
-/* @media (max-width: 1800px) {
+/* /* Laptop Support Only */
+@media (min-width: 1450px) {
 .day-is-clicked:hover{
-    background-color: yellow;
+    background-color: teal;
     }
-} */
+}
 
 
 /* Laptop Support*/

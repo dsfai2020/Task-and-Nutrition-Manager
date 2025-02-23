@@ -42,7 +42,7 @@ const WorkOuts = () => {
 
     const [carbs, setCarbs]=useState(0)
 
-    const [calorieLimit, setCalorieLimit]=useState(3000)
+    const [calorieLimit, setCalorieLimit]=useState(2000)
 
 
     function MotivationalQuotes() {
@@ -195,6 +195,8 @@ const WorkOuts = () => {
     function MyTestButton(){
         return(
             <div>
+            <h1 class='macro-calculator-title'>Macro Calculator </h1>
+            <p>(Calories, Protein and Fat Macros - Coming Soon)</p>
             <p>You have this many Calories Remaining: <strong>{calorieLimit-carbs*4}</strong></p>
             <p>There are this many calories in your carbs -- {carbs*4}</p>
             <p>You ate this many carbs -- {carbs}</p>

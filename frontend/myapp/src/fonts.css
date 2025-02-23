@@ -2,3 +2,8 @@
     font-family: 'RubikDirt-Regular';
     src: url('../fonts/forTitles/RubikDirt-Regular.ttf') format('truetype')
 }
+
+@font-face {
+    font-family: 'FrederickatheGreat-Regular';
+    src: url('../fonts/forTitles/FrederickatheGreat-Regular.ttf') format('truetype')
+}

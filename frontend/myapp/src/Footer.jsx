@@ -11,7 +11,7 @@ export default function Footer () {
 
     return (
         <div class='footer'>
-            <p>Agile Planner Nov 2024</p>
+            <p>Agile Planner Feb 2025</p>
             <p>This website is still in development.</p>
             <p>"Make each day count"</p>
             <button class='footer-button' onClick={ScrollToTop}>Return to the Top</button>

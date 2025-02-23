@@ -7,8 +7,9 @@ import './fonts.css';
 export default function MiniCalendar () {
   return (
     <div class='mini-cal'>
-      <div class='mini-cal-title'>
-        <h1>6 Week Planner (42 Days)</h1>
+      <div class='mini-cal-title-container'>
+        <h1>6 Week Planner</h1>
+        <h2>(42 Days)</h2>
       </div>
 
       <div class='mini-cal-container'>

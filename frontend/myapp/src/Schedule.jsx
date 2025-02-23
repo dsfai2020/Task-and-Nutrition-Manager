@@ -91,11 +91,6 @@ export default function Schedule(props) {
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>
             ? <div>
-                <ScheduleUI morning='12am' clear='true'/>
-                <ScheduleUI morning='1am' clear='true'/>
-                <ScheduleUI morning='2am' clear='true'/>
-                <ScheduleUI morning='3am' clear='true'/>
-                <ScheduleUI morning='4am' clear='true'/>
                 <ScheduleUI morning='5am' clear='true'/>
                 <ScheduleUI morning='6am' clear='true'/>
                 <ScheduleUI morning='7am' clear='true'/>
@@ -115,13 +110,13 @@ export default function Schedule(props) {
                 <ScheduleUI morning='9pm' clear='true'/>
                 <ScheduleUI morning='10pm' clear='true'/>
                 <ScheduleUI morning='11pm' clear='true'/>
+                <ScheduleUI morning='12am' clear='true'/>
+                <ScheduleUI morning='1am' clear='true'/>
+                <ScheduleUI morning='2am' clear='true'/>
+                <ScheduleUI morning='3am' clear='true'/>
+                <ScheduleUI morning='4am' clear='true'/>
             </div>
             : <div>
-                <ScheduleUI morning='12am' clear='false'/>
-                <ScheduleUI morning='1am' clear='false'/>
-                <ScheduleUI morning='2am' clear='false'/>
-                <ScheduleUI morning='3am' clear='false'/>
-                <ScheduleUI morning='4am' clear='false'/>
                 <ScheduleUI morning='5am' clear='false'/>
                 <ScheduleUI morning='6am' clear='false'/>
                 <ScheduleUI morning='7am' clear='false'/>
@@ -140,7 +135,12 @@ export default function Schedule(props) {
                 <ScheduleUI morning='8pm' clear='false'/>
                 <ScheduleUI morning='9pm' clear='false'/>
                 <ScheduleUI morning='10pm' clear='false'/>
-                <ScheduleUI morning='old schedule' clear='false'/>
+                <ScheduleUI morning='11pm' clear='false'/>
+                <ScheduleUI morning='12am' clear='false'/>
+                <ScheduleUI morning='1am' clear='false'/>
+                <ScheduleUI morning='2am' clear='false'/>
+                <ScheduleUI morning='3am' clear='false'/>
+                <ScheduleUI morning='4am' clear='false'/>
             </div>
             }
             {/* <ClearScheduleButton /> */}
