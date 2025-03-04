@@ -1,9 +1,11 @@
+/* Main */
 .AnalyticsUiContainer{
     display: flex;
-    border: solid;
+    /* border: solid; */
     flex-direction: column;
     position: relative;
     z-index: 5;
+    background-color: rgba(167, 197, 239, 0.892);
 }
 
 .AnalyticsUi-Interval{
@@ -86,14 +88,17 @@
 }
 
 .List-Container {
-    opacity: 75%;
-    background-color: black;
+    /* background-color: orange; */
+    background: rgba(249, 180, 140, 0.674);
+    padding: 10px;
+    margin: 10px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: row;
     border: solid grey;
     justify-content: space-evenly;
     grid-template-columns: 100px 100px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .list-item {
@@ -103,8 +108,8 @@
 
 .item-remove-button {
     font-size: 10px;
-    background-color: #59faa1;
-    color: rgba(20, 80, 164, 0.674);
+    background-color: rgba(188, 236, 14, 0.674);
+    color: rgba(4, 40, 90, 0.674);
 }
 
 .Event-container{
@@ -123,7 +128,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    background-color: rgba(203, 239, 212, 0.674);
     position: relative;
     z-index: 1;
     overflow: hidden;

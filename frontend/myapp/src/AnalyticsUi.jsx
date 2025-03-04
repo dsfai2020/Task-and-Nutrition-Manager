@@ -14,7 +14,7 @@ export default function AnalyticsUi (props) {
         function ExpComponent(){
             return(
                 <div class='Exp-Bar-Container'>
-                    <h1 class='Exp-Fill' style={{width: `${exp}%`, backgroundColor: 'green'}}></h1>
+                    <h1 class='Exp-Fill' style={{width: `${exp}%`, backgroundColor: 'teal'}}></h1>
                     <h1></h1>
                 </div>
             )
@@ -340,7 +340,7 @@ export default function AnalyticsUi (props) {
         };
 
 // --------------RENDER COMPONENTS-------------
-
+        // Accepts a list to be mapped as its arg.
         function RenderedList(ListToBeMapped){
             
             if (view=='Events') {ListToBeMapped=events};
@@ -362,7 +362,7 @@ export default function AnalyticsUi (props) {
                 <li class='list-item' key={index}>
                     {/* <button class='arrow-Up'>&#x21E7;</button>
                     <button class='arrow-Down'>&#x21E9;</button> */}
-                    <button class='item-remove-button' onClick={() =>handleRemoveList(index)}>Remove</button>
+                    <button class='item-remove-button' onClick={() =>handleRemoveList(index)}>Done?</button>
                     {ListToBeMapped}
                 </li>
             ))}
@@ -399,7 +399,7 @@ export default function AnalyticsUi (props) {
             {/* Adds items to each list in the view */}
             <button onClick={handleAddList}>add</button>
             </div>
-
+            
             <div class='List-Container'>
                 <RenderedList />
             </div>
