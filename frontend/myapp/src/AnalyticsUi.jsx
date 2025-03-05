@@ -23,10 +23,16 @@ export default function AnalyticsUi (props) {
         return (
             <div class='AnalyticsUiContainer'>
 
-                <div class='AnalyticsUi-Interval'> 
+                <div class='AnalyticsUi-idea-cap'> 
                     <h1>Idea cap for this Week</h1>
                         <select class='AnalyticsUi-Interval-item'>
                             <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>8</option>
+                            <option>13</option>
+                            <option>21</option>
                         </select>
                 </div>   
             
@@ -374,7 +380,7 @@ export default function AnalyticsUi (props) {
             <div>
             {/* THIS IS THE ORDER OF THE VIEW DISPLAY */}
             <div class='AnalyticsUi-button-container'>
-                <h1>Current View:</h1>
+                <h1>Current View: {view}</h1>
                 {/* This creates the view options referencing the view state.  the value is bound to the state manager named view that updates with handleSelection.*/}
                 <select value={view} onChange={handleSelection}>
                     <option class='Current-View-Tasks'>Tasks</option>
@@ -392,12 +398,12 @@ export default function AnalyticsUi (props) {
             </div>
 
 
-            <div>You are now viewing: {view}</div>
+
             <div class='Event-container'>
-            {/* This is the textarea that adds items to each view*/}
-            <textarea placeholder='What do you need to be reminded of?' value={inputState} onChange={handleChange} onKeyDown={handleKeyPress}></textarea>
-            {/* Adds items to each list in the view */}
-            <button onClick={handleAddList}>add</button>
+                {/* This is the textarea that adds items to each view*/}
+                <textarea class='Event-item' placeholder='What do you need to be reminded of?' value={inputState} onChange={handleChange} onKeyDown={handleKeyPress}></textarea>
+                {/* Adds items to each list in the view */}
+                <button class='Event-button' onClick={handleAddList}>Add</button>
             </div>
             
             <div class='List-Container'>

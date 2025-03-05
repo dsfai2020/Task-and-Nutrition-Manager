@@ -1,4 +1,12 @@
 /* Main */
+
+/*  This will be the general template 
+padding: 10px;
+background-color: rgba(249, 180, 140, 0.674);
+margin: 10px;
+border-radius: 20px 20px 20px 20px;
+border: solid grey; */
+
 .AnalyticsUiContainer{
     display: flex;
     /* border: solid; */
@@ -8,17 +16,26 @@
     background-color: rgba(167, 197, 239, 0.892);
 }
 
-.AnalyticsUi-Interval{
+.AnalyticsUi-idea-cap{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
+    padding: 10px;
+    background-color: rgba(161, 230, 195, 0.866);
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
 }
 
 .AnalyticsUi-button-container{
-    border: solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 10px;
+    background-color: rgba(249, 180, 140, 0.674);
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
 }
 
 .Current-View-Events{
@@ -112,26 +129,63 @@
     color: rgba(4, 40, 90, 0.674);
 }
 
-.Event-container{
+.Event-container, .Event-item{
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    /* border: solid grey; */
+    
+}
+
+.Event-item{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
+    
+}
+
+.Event-button{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;   
+    align-items: center;
 }
 
 .AnalyticsUi-Exp{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     background-color: #59faa1;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
 }
 
 .Exp-Bar-Container{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     background-color: rgba(203, 239, 212, 0.674);
     position: relative;
     z-index: 1;
     overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
+    
 }
 
 .Exp-Fill{
@@ -143,5 +197,9 @@
     color: red;
     height: 100%;
     overflow: hidden;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
 }
 
