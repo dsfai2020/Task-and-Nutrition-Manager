@@ -4,7 +4,7 @@
     height: 20px;
     width: 20px;
     align-self: flex-start;
-   background-color: #00a62a;
+    background-color: #00a62a;
     }
 
 
@@ -29,22 +29,27 @@
     margin-bottom: 5px;
     display: grid;
     justify-content: space-evenly;
-    width: 100%;
+    /* width: 100%; */
     grid-template-columns: 10% 15% 75%;
     
 }}
 
 /* laptop 1500 works too */
 @media (max-width: 2000px) {
-    .Container-ScheduleUi{
-        border: solid black;
-        margin-bottom: 5px;
-        display: grid;
-        justify-content: space-evenly;
-        width: 100%;
-        grid-template-columns: 10% 15% 75%;
-        
-    }}
+.Container-ScheduleUi{
+    border: solid black;
+    margin-bottom: 5px;
+    display: grid;
+    justify-content: space-evenly;
+    /* width: 100%; */
+    grid-template-columns: 10% 15% 75%;
+    padding: 10px;
+    background-color: rgba(249, 180, 140, 0.674);
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey; 
+    
+}}
 
 /* consider making this change dynamically to a dif background color */
 @media (max-width: 428px) {
@@ -52,23 +57,48 @@
     display: flex;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 100%;
+    /* width: 100%; */
+    background-color: hsl(215, 74%, 93%);
+    padding: 10px;
+    /* background-color: rgba(249, 180, 140, 0.674); */
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey; 
     }
 }
 
 @media (max-width: 428px) {
 .Container-Actual{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
+    background-color: hsl(215, 54%, 54%);
+    padding: 10px;
+    /* background-color: rgba(249, 180, 140, 0.674); */
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey; 
     }
 }
+
+textarea{
+    background-color: hsl(215, 64%, 84%);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey; 
+}
+
 
 .item-daytime{
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    font-size: 14px;
+    /* font-size: 14px; */
+    font-size: 20px;
+    font-family: RubikDirt-Regular;
+    color: hsl(351, 55%, 47%);
+    font-weight: bold;
 }
 
 .schedule-title{

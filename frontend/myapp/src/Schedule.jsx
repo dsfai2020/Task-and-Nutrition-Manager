@@ -88,6 +88,11 @@ export default function Schedule(props) {
                 <h1 class='schedule-title'>Schedule:</h1>
                 <h1 class='schedule-quote'>"You vs You"</h1>
             </div>
+{/* 
+            <div>
+                <button>New Clear Button</button>
+            </div> */}
+
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>
             ? <div>
@@ -286,6 +291,7 @@ export default function Schedule(props) {
                 <ScheduleButton />
                 {/* time */}
                 <p class='item-daytime'>{props.morning} </p>
+                {/* Schedule Entry */}
                 <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
             </div>
 
@@ -293,7 +299,6 @@ export default function Schedule(props) {
                 {/* <textarea placeholder='Actual'></textarea> */}
                 <ActualBoxComponent />
             </div>
-
             </div>
         )
     };
