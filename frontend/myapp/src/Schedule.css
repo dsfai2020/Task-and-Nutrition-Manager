@@ -44,7 +44,7 @@
     /* width: 100%; */
     grid-template-columns: 10% 15% 75%;
     padding: 10px;
-    background-color: rgba(249, 180, 140, 0.674);
+    background-color: rgba(242, 203, 180, 0.674);
     margin: 10px;
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
@@ -56,7 +56,7 @@
 .item-ScheduleText{
     display: flex;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: PlaywriteITModerna-VariableFont_wght;
     /* width: 100%; */
     background-color: hsl(215, 74%, 93%);
     padding: 10px;
@@ -71,7 +71,7 @@
 .Container-Actual{
     display: flex;
     /* width: 100%; */
-    background-color: hsl(215, 54%, 54%);
+    background-color: hsla(61, 92%, 67%, 0.227);
     padding: 10px;
     /* background-color: rgba(249, 180, 140, 0.674); */
     margin: 10px;
@@ -86,6 +86,7 @@ textarea{
     margin: 10px;
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
+    font-family: PlaywriteITModerna-VariableFont_wght;
 }
 
 
@@ -96,9 +97,8 @@ textarea{
     align-items: center;
     /* font-size: 14px; */
     font-size: 20px;
-    font-family: RubikDirt-Regular;
-    color: hsl(351, 55%, 47%);
-    font-weight: bold;
+    font-family: PlaywriteITModerna-VariableFont_wght;
+    color: hsl(144, 100%, 1%);
 }
 
 .schedule-title{
