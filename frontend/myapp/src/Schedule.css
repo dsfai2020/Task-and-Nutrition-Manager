@@ -101,6 +101,18 @@ textarea{
     color: hsl(144, 100%, 1%);
 }
 
+/* this should be 20px for laptop screens */
+.item-daytime{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    /* font-size: 20px; */
+    font-family: PlaywriteITModerna-VariableFont_wght;
+    color: hsl(144, 100%, 1%);
+}
+
 .schedule-title{
     font-family: RubikDirt-Regular;
 }
