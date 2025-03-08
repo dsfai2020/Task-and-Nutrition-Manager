@@ -43,8 +43,9 @@
     border: solid black;
     margin-bottom: 5px;
     display: grid;
-    justify-content: space-evenly;
+    justify-content: space-between;
     /* width: 100%; */
+    /* Changed from 10/15/75 */
     grid-template-columns: 12.5% 12.5% 75%;
     padding: 10px;
     background-color: rgba(242, 203, 180, 0.674);
