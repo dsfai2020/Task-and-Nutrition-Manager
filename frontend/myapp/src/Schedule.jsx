@@ -287,8 +287,8 @@ export default function Schedule(props) {
 
         return (
             <div>
-            <div class='Container-ScheduleUi'>
-                <ScheduleButton />
+            <div class='Container-ScheduleUi-main'>
+                <ScheduleButton class='item-button-main'/>
                 {/* time */}
                 <p class='item-daytime'>{props.morning} </p>
                 {/* Schedule Entry */}

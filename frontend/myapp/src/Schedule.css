@@ -27,7 +27,7 @@
 }   
 
 @media (max-width: 428px) {
-.Container-ScheduleUi{
+.Container-ScheduleUi-main{
     border: solid black;
     margin-bottom: 5px;
     display: grid;
@@ -39,13 +39,13 @@
 
 /* laptop 1500 works too */
 @media (max-width: 2000px) {
-.Container-ScheduleUi{
+.Container-ScheduleUi-main{
     border: solid black;
     margin-bottom: 5px;
     display: grid;
     justify-content: space-evenly;
     /* width: 100%; */
-    grid-template-columns: 10% 15% 75%;
+    grid-template-columns: 12.5% 12.5% 75%;
     padding: 10px;
     background-color: rgba(242, 203, 180, 0.674);
     margin: 10px;
