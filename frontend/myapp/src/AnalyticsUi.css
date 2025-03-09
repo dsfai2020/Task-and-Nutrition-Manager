@@ -109,7 +109,8 @@ border: solid grey; */
     background: rgba(249, 180, 140, 0.674);
     padding: 10px;
     margin: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: PlaywriteITModerna-VariableFont_wght;
     display: flex;
     flex-direction: row;
     border: solid grey;
