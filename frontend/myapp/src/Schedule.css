@@ -117,6 +117,13 @@ textarea{
     color: hsl(144, 100%, 1%);
 }
 
+.schedule-title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .schedule-title{
     font-family: RubikDirt-Regular;
 }
@@ -124,3 +131,4 @@ textarea{
 .schedule-quote{
     font-family: RubikDirt-Regular;
 }
+

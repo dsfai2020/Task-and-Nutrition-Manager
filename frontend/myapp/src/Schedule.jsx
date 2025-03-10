@@ -81,12 +81,15 @@ export default function Schedule(props) {
         localStorage.setItem('clearTrigger', JSON.stringify('false'))
     }, [])
 
+    const today = new Date();
+    const dayOfWeek = today.toLocaleDateString('en-us', {weekday: 'long'});
+
     // we have two different schedules behing conditional shown based on the button state.  The arguments adjust accordingly.  clear changes from 'true' to 'false' so that the ScheduleUI can react to it with useEffects at the child component level - by making changes to the storage based on the props passed to it (in this case the clear arg).
     return (
         <div>
-            <div>
-                <h1 class='schedule-title'>Schedule:</h1>
-                <h1 class='schedule-quote'>"You vs You"</h1>
+            <div class='schedule-title-container'>
+                <h1 class='schedule-title'>{dayOfWeek}</h1>
+                <h5 class='schedule-quote'>"You vs. You"</h5>
             </div>
 {/* 
             <div>
@@ -257,7 +260,7 @@ export default function Schedule(props) {
 
         // See lines about schedule entry (around 176) for more about this.  It is important to mirror the e.target.value onto a newValue and then have the state set to that.  That way, when you assign the actual state to the value of the textarea it has something to load into that isn't already tied up doing two things at once (save and load).  
         const handleActualBoxChange = (e) => {
-            const newValue = e.target.value;
+            const newValue = e.target.value
             setActualBoxInput(newValue)
             localStorage.setItem('schedule_'+props.morning+'_actual', JSON.stringify(newValue))
         };
@@ -270,7 +273,6 @@ export default function Schedule(props) {
             
             setActualBoxInput(b);
         }, []);
-
 
         // by Default Value of the textareaa is assigned to its native input.
         return (
