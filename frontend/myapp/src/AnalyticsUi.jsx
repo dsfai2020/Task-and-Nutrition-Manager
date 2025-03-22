@@ -24,7 +24,7 @@ export default function AnalyticsUi (props) {
             <div class='AnalyticsUiContainer'>
 
                 <div class='AnalyticsUi-idea-cap'> 
-                    <h1>Idea cap for this Week</h1>
+                    <h1>I can commit this many Hrs</h1>
                         <select class='AnalyticsUi-Interval-item'>
                             <option>1</option>
                             <option>2</option>

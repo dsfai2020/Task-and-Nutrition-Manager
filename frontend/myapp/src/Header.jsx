@@ -5,7 +5,7 @@ import './fonts.css'
 export default function Header () {
     return (
         <div class='header-container'>
-            <h1 class='header-title'>Agileplanner.tech</h1>
+            {/* <h1 class='header-title'>Agileplanner.tech</h1> */}
         </div>
     )
 }

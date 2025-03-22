@@ -52,7 +52,6 @@
     margin: 10px;
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
-    
 }}
 
 /* consider making this change dynamically to a dif background color */
@@ -75,12 +74,12 @@
 .Container-Actual{
     display: flex;
     /* width: 100%; */
-    background-color: hsla(61, 92%, 67%, 0.227);
-    padding: 10px;
+    /* background-color: hsla(61, 92%, 67%, 0.227); */
+    /* padding: 10px; */
     /* background-color: rgba(249, 180, 140, 0.674); */
-    margin: 10px;
-    border-radius: 20px 20px 20px 20px;
-    border: solid grey; 
+    /* margin: 10px; */
+    /* border-radius: 20px 20px 20px 20px; */
+    /* border: solid grey;  */
     }
 }
 
