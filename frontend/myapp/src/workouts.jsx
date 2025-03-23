@@ -154,8 +154,8 @@ const WorkOuts = () => {
                 onChange={handleChangeBodyFatPercent}
                 />
 
-                <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
-                <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4)</p>
+                <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order to <strong>stay</strong> at the same exact weight.</p>
+                <p>The RMR formula applied here is your lean mass divided by 2.205, then multiplied by 30.4</p>
             </div>
             )
     };   
