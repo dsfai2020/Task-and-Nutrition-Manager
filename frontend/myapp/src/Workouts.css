@@ -2,14 +2,62 @@
 /* use # for divs, use . for classes and use normal text for built in elements like button */
 /*Use grid containers and grid items for structuring.*/
 
-
-/*GTC changes the width of the columns*/
-.grid-workout-container{
+/* .workout-routine-container {
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px;
+    grid-area: 150px, auto auto auto;
+} */
+/* This is going to be the THEME for the fitness groups */
+.body-metrics-container, .muscle-groups-container, .macro-calc-container{
+    display: flex;
+    flex-direction: column;
+    font-family: fantasy;
+    text-align: center;
+    background-color: rgb(193, 164, 17);
+    border-radius: 0 0 20% 20%;
+    margin: 10px;
+    margin-top: 25px;
+    padding: 10px;
+    border: dotted;
+    border-color: whitesmoke;
+    align-items: center;
 }
 
-/*Margin changes the width of the grit items inside of the container divs*/
+/* Theme for Titles */
+.body-metrics-title, .muscle-groups-title, .macro-calc-title{
+    font-family: RubikDirt-Regular;
+    display: flex;
+    justify-content: center;
+    background-color: crimson;
+    flex-direction: column;
+    border: dotted;
+    border-radius: 10px;
+    width: stretch;
+}
+
+.body-metrics-progress-bars{
+    width: 200px;
+}
+
+button{
+    background-color: #065187;
+    color: #2980B9;
+    margin: 5px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 20px;
+    height: 50px;
+    border: dotted;
+}
+
+/*GTC changes the width of the columns*/
+.grid-muscle-group-container{
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    justify-content: center;
+}
+
+/*Margin changes the width of the grid items inside of the container divs*/
 .grid-workout-item{
     text-align: center;
     font-weight: bold;
@@ -18,36 +66,47 @@
     margin: 2px;
     padding: 2px;
     border-radius: 20px;
+    height: 50px;
 }
-.grid-workout-item:hover{
+
+/* Hover Theme */
+.grid-workout-item:hover, button:hover{
     background-color: lightblue;
 }
 
-.test{
-    font-family: fantasy;
-    text-align: center;
-    width: 75px}
 
-button{
-    background-color: #065187;
-    color: #2980B9;
-    margin: 5px;
-    border-radius: 5px;
+/* .progress{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+    background-color: blue;
+    height: 100px;
+} */
 
-}
 
 .motivationalQuotes{
     font-size: 25px;
-}
-
-.body-metrics-title{
-    font-family: RubikDirt-Regular;
+    display: flex;
+    justify-content: center;
 }
 
 .muscle-groups-title{
     font-family: RubikDirt-Regular;
+    display: flex;
+    justify-content: center;
 }
 
 .macro-calculator-title{
     font-family: RubikDirt-Regular;
+    display: flex;
+    justify-content: center;
+}
+
+.macro-calc-item{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }

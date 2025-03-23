@@ -1,3 +1,11 @@
 .accountability-list-title{
     font-family: RubikDirt-Regular;
+    display: flex;
+    justify-self: center;
+}
+
+.MainToDo-Container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

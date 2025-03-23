@@ -38,8 +38,8 @@ function MainToDoList() {
   };
 
   return (
-    <div>
-      <h2 class='accountability-list-title'>Accountability List</h2>
+    <div class='MainToDo-Container'>
+      <h2 class='accountability-list-title'>Quick To Do</h2>
       <input
         type="text"
         value={inputValue}

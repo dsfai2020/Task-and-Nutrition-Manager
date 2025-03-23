@@ -49,29 +49,14 @@ const WorkOuts = () => {
         
         return (
             <div class="motivationalQuotes">
-            <h1 class="motivationalQuotes">Lifting weights is the easy part.</h1>
+                <h1 class="motivationalQuotes">Lifting weights is the easy part.</h1>
             </div>
             )
     };
 
-   
-    // function BootStrapToast() {
-    //     return (
-    //         <div>
-    //         <Toast>
-    //           <Toast.Header>
-    //             <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-    //             <strong className="me-auto">Site-Admin: David</strong>
-    //             <small>{count} mins ago</small>
-    //           </Toast.Header>
-    //           <Toast.Body>Today is a great day to train.  The page is still under construction but will improve over time!</Toast.Body>
-    //         </Toast>
-    //         </div>
-    // )
-    // };
 
     // backticks and dollarsign for f string like variables.
-    function Example(){
+    function BarsAndMetrics(){
         // const [message, setMessage]=useState('');
         const [weight, setWeight]=useState('');
 
@@ -115,67 +100,65 @@ const WorkOuts = () => {
             // Formulas can be adjusted for display purposes in the now tab.
             return (
                 <div>
-                  <div class="test">
-                  <h1 class='body-metrics-title'>Body Metrics</h1>
-                  </div>
-
-                  <ProgressBar variant="success" now={formulaWeightTest} label={"Your Weight: " + weight + " lbs"} />
-                  
-                  {/*Nesting the Progress bars and giving them a key will make them stack into 1 bar*/}
-                  {/* <ProgressBar> */}
-                  <ProgressBar striped variant="info" key={1} now={bodyFatPercent*100} label={"Your Body Fat %: " + bodyFatPercent}/>
-                  <ProgressBar variant="warning" key={2} animated now={formulaBodyFatLBSTest} label={"Your Body Fat in pounds: " + (bodyFatPercent*weight).toFixed(2) + " lbs"}/>
-                  <ProgressBar variant="danger" key={3} animated now={formulaLBMTest} label={"Your Lean Body Mass in pounds: " + (weight-(bodyFatPercent*weight)).toFixed(2)}/>
-                  {/* </ProgressBar> */}
-                </div>);
+                    <div class='body-metrics-progress-bars'>
+                        <ProgressBar variant="success" now={formulaWeightTest} label={"Weight: " + weight + " lbs"} />
+                        
+                        {/*Nesting the Progress bars and giving them a key will make them stack into 1 bar*/}
+                        {/* <ProgressBar> */}
+                        <ProgressBar striped variant="info" key={1} now={bodyFatPercent*100} label={"Fat %: " + bodyFatPercent}/>
+                        <ProgressBar variant="warning" key={2} animated now={formulaBodyFatLBSTest} label={"Fat in Lbs: " + (bodyFatPercent*weight).toFixed(2) + " lbs"}/>
+                        <ProgressBar variant="danger" key={3} animated now={formulaLBMTest} label={"Muscle in Lbs: " + (weight-(bodyFatPercent*weight)).toFixed(2)}/>
+                        {/* </ProgressBar> */}
+                    </div>
+                </div>
+                );
 }
         return(
-            <div>
-            {/* <br></br> */}
-            {/* <br></br> */}
-            {ProgressBars()}
+            <div class="body-metrics-container">
+                <h1 class='body-metrics-title'>Body Metrics</h1>
+                {/* <br></br> */}
+                {/* <br></br> */}
+                {ProgressBars()}
 
-            <p><strong>WEIGHT: </strong>{weight} lbs</p>
-            {/*Lets multiply bodyFatPercent by 100 so that it displays as a whole number*/}
-            <p><strong>BODY FAT PERCENTAGE: </strong>{bodyFatPercent+'%'}</p>
-            <p><strong>BODY FAT CARRIED IN LBS: </strong>{(bodyFatPercent*weight).toFixed(2)} lbs</p>
-            <p><strong>LEAN BODY MASS: </strong>{(weight-(bodyFatPercent*weight)).toFixed(2)} lbs</p>
+                <p><strong>WEIGHT: </strong>{weight} lbs</p>
+                {/*Lets multiply bodyFatPercent by 100 so that it displays as a whole number*/}
+                <p><strong>BODY FAT PERCENTAGE: </strong>{bodyFatPercent+'%'}</p>
+                <p><strong>BODY FAT CARRIED IN LBS: </strong>{(bodyFatPercent*weight).toFixed(2)} lbs</p>
+                <p><strong>LEAN BODY MASS: </strong>{(weight-(bodyFatPercent*weight)).toFixed(2)} lbs</p>
 
-            {/*Prepend a string with +before it to make it an INT*/}
-            {/*.toFixed is a float and you put the places in the parenthesis*/}
-            {/*More lean body mass, lower body fat %, means more calories to burn*/}
-            <p><strong>RESTING METABOLIC RATE:</strong> {((weight-(bodyFatPercent*weight))/2.205*30.4).toFixed(0)} Calories</p>
-            
-            <button>Weight/BodyFat</button>
+                {/*Prepend a string with +before it to make it an INT*/}
+                {/*.toFixed is a float and you put the places in the parenthesis*/}
+                {/*More lean body mass, lower body fat %, means more calories to burn*/}
+                <p><strong>RESTING METABOLIC RATE:</strong> {((weight-(bodyFatPercent*weight))/2.205*30.4).toFixed(0)} Calories</p>
+                
+                <button>Weight/BodyFat</button>
 
-            <br></br>
+                <br></br>
 
-            {/*I want the value in the input to update the value of the state.*/}
-            <input
-            id='weight'
-            type="text"
-            name='weight' 
-            placeholder="Enter Weight"
-            onChange={handleWeightChange}
-            />
-            
-            <br></br>
+                {/*I want the value in the input to update the value of the state.*/}
+                <input
+                id='weight'
+                type="text"
+                name='weight' 
+                placeholder="Enter Weight"
+                onChange={handleWeightChange}
+                />
+                
+                <br></br>
 
-            <input
-            id='bodyFat'
-            type="text"
-            name='bodyFat' 
-            placeholder="Enter Body Fat %"
-            onChange={handleChangeBodyFatPercent}
-            />
+                <input
+                id='bodyFat'
+                type="text"
+                name='bodyFat' 
+                placeholder="Enter Body Fat %"
+                onChange={handleChangeBodyFatPercent}
+                />
 
-            <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
-            <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4)</p>
-            </div>)
-
+                <p>Your Resting Metabolic Rate(RMR) determines how many calories you need to consume in order <strong>stay</strong> at the same exact weight.</p>
+                <p>The RMR is calculated using (your lean mass divided by 2.205 then multiplied by 30.4)</p>
+            </div>
+            )
     };   
-
-
 
     // GOOD EXAMPLE
     // You can reference this in the NewPage render using Sample() but make sure that the main render has a div.
@@ -192,49 +175,24 @@ const WorkOuts = () => {
     };
 
 
-    function MyTestButton(){
+    function MacroCalc(){
         return(
-            <div>
-            <h1 class='macro-calculator-title'>Macro Calculator </h1>
-            <p>(Calories, Protein and Fat Macros - Coming Soon)</p>
-            <p>You have this many Calories Remaining: <strong>{calorieLimit-carbs*4}</strong></p>
-            <p>There are this many calories in your carbs -- {carbs*4}</p>
-            <p>You ate this many carbs -- {carbs}</p>
-            {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
-            <button onClick={()=>setCarbs(carbs+1)}>Add 1 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+5)}>Add 5 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+10)}>Add 10 G of Carb</button>
-            <button onClick={()=>setCarbs(carbs+20)}>Add 20 G of Carb</button>
-            <br></br>
-            <button onClick={()=>setCarbs(0)}>Click to Reset Carbs</button>
+            <div class='macro-calc-container'>
+            <h1 class='macro-calc-title'>Macro Calculator </h1>
+                <p>(Calories, Protein and Fat Macros - Coming Soon)</p>
+                <p>You have this many Calories Remaining: <strong>{calorieLimit-carbs*4}</strong></p>
+                <p>There are this many calories in your carbs -- {carbs*4}</p>
+                <p>You ate this many carbs -- {carbs}</p>
+                {/*Im stuck here trying to make multiple states render but I fixed it by wiring it in through a rendering formula like excel witout having to actually adjust the state.  Since all I wanted was a display change.*/}
+                <button class='macro-calc-item' onClick={()=>setCarbs(carbs+1)}>Add 1 G of Carb</button>
+                <button class='macro-calc-item' onClick={()=>setCarbs(carbs+5)}>Add 5 G of Carb</button>
+                <button class='macro-calc-item' onClick={()=>setCarbs(carbs+10)}>Add 10 G of Carb</button>
+                <button class='macro-calc-item' onClick={()=>setCarbs(carbs+20)}>Add 20 G of Carb</button>
+                <br></br>
+                <button onClick={()=>setCarbs(0)}>Click to Reset Carbs</button>
             </div>
             )
     };
-
-    function DeveloperPlan(){
-        return(
-            <div>
-            <ul><strong>FRONT END</strong>
-                <li>Maps</li>
-                <li>Classes integrated</li>
-                <li>Front/Backend development rotation</li>
-                <li>Axios Hook integration</li>
-                <li>Flexbox and Grid</li>
-            </ul>
-            <ul><strong>BACKEND</strong>
-                <li>Flask Cors</li>
-                <li>Flask Routes</li>
-                <li>Production</li>
-                <li>Axios Hook integration</li>
-                <li>Database Integration</li>
-                <li>Save Data</li>
-
-            </ul>  
-            </div>
-            )
-
-    };
-            
 
     function ConditionalRenderExample(){
         return (
@@ -247,70 +205,47 @@ const WorkOuts = () => {
         </div>)
     };
 
-    function RecentlyReviewed(){
-        return (
-            <div>
-            <ul><strong>SCHEDULE</strong>
-                <li>Monday -- Backend</li>
-                <li>Tuesday -- Backend</li>
-                <li>Wednesday -- Frontend</li>
-                <li>Thursday -- Frontend</li>
-                <li>Friday -- Frontend</li>
-                <li>Saturday -- Deployment - Flask Cors - Heroku - AWS - Machine Learning</li>
-                <li>Sunday -- Reflect</li>
-            </ul>
-
-            <ul><strong>TALENT TREE</strong>
-            <li>TIMES DEPLOYED: {null}</li>
-            <li>BACKEND UPDATES: {null}</li>
-            <li>FRONTEND UPDATES: {null}</li>
-            </ul>
-            </div>
-            )
-    };
 
     // CSS imported in from Workouts.css
     function WorkoutRoutine(){
         return(
-            <div>
-            <h1 class='muscle-groups-title'>Muscle Groups</h1>
-            <div class="grid-workout-container">
-            <button class='grid-workout-item'>Chest</button>
-            <button class="grid-workout-item">Back</button>
-            <button class="grid-workout-item">Lower Back</button>
-            <button class="grid-workout-item">Middle Back</button>
-            <button class="grid-workout-item">Quads</button>
-            <button class="grid-workout-item">Hammy</button>
-            <button class="grid-workout-item">Shoulder</button>
-            <button class="grid-workout-item">Biceps</button>
-            <button class="grid-workout-item">Inner Bicep</button>
-            <button class="grid-workout-item">Outer Bicep</button>
-            <button class="grid-workout-item">Triceps</button>
-            <button class="grid-workout-item">Forearm</button>
-            <button class="grid-workout-item">Calves</button>
-            <button class="grid-workout-item">Core</button>
-            <button class="grid-workout-item">Upper Back</button>
-            <button class="grid-workout-item">Rest</button>
-            </div>
+            <div class='muscle-groups-container'>
+                <h1 class='muscle-groups-title'>Muscle Groups</h1>
+                <div class="grid-muscle-group-container">
+                    <button class='grid-workout-item'>Chest</button>
+                    <button class="grid-workout-item">Back</button>
+                    <button class="grid-workout-item">Lower Back</button>
+                    <button class="grid-workout-item">Middle Back</button>
+                    <button class="grid-workout-item">Quads</button>
+                    <button class="grid-workout-item">Hammy</button>
+                    <button class="grid-workout-item">Shoulder</button>
+                    <button class="grid-workout-item">Biceps</button>
+                    <button class="grid-workout-item">Inner Bicep</button>
+                    <button class="grid-workout-item">Outer Bicep</button>
+                    <button class="grid-workout-item">Triceps</button>
+                    <button class="grid-workout-item">Forearm</button>
+                    <button class="grid-workout-item">Calves</button>
+                    <button class="grid-workout-item">Core</button>
+                    <button class="grid-workout-item">Upper Back</button>
+                <button class="grid-workout-item">Rest</button>
+                </div>
             </div>)
 
     };
 
     // The NewPages main render is this section below but we can plug in many renders from functions the same way that the index file works.  
     // If your wiring in functions make sure to use divs before adding them in.  One for the main render div (just the top and bottom) and they can also have their own divs inside their functions as well.
+    // ----------------MAIN WORKOUTS RENDER --------------------------
     return (
         <div>
         {/* {MotivationalQuotes()} */}
 
-        {/*{BootStrapToast()}*/}
-        {Example()}
+        {BarsAndMetrics()}
         {WorkoutRoutine()}
         {/*Don't forget the ()*/}
-        {/* {SampleFunctionRender()} */}
-        {MyTestButton()}
-        {/* {DeveloperPlan()} */}
+
+        {MacroCalc()}
         {/* {ConditionalRenderExample()} */}
-        {/* {RecentlyReviewed()} */}
         </div>
         )
 }
