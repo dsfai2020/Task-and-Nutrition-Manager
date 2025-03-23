@@ -72,8 +72,10 @@
     height: 3vw;
     width: 3vw;
     border: solid black;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
     }
 }
 
@@ -85,8 +87,10 @@
     height: 10vw;
     width: 10vw;
     border: solid black;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
     }
 }
 
@@ -98,8 +102,10 @@
     height: 3vw;
     width: 3vw;
     border: solid black;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
     }   
 }
 
@@ -111,8 +117,10 @@
     height: 10vw;
     width: 10vw;
     border: solid black;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
     }
 }
 
