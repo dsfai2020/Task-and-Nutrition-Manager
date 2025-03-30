@@ -327,12 +327,16 @@ export default function AnalyticsUi (props) {
         // This is causing some issues where the view is getting tangled up with '' even though the loaded contents are displaying properly based on Keys in the Storage.  SO at init the proper data will display but since the view itself is still technically '' it sometimes causes issues with button interactivity.
         const [view, setView] = useState('');
 
+        // At init load up view that you left off at.
         useEffect(() => {
-            console.log('view has changed... to You still need to wire it into the lower ui' + (view));
-            // setCounter(counter+1);
-            // console.log(counter)
-            }, [view]
-        );
+            const storedView = localStorage.getItem('view')
+            if (storedView) {setView(JSON.parse(storedView))}
+        }, [])
+
+        // When the view changes it should update the key saved in the local storage.  You'll use that to pick up where you left off at init with the code above this.
+        useEffect(() => {
+            localStorage.setItem('view', JSON.stringify(view))
+        }, [view]);
 
         // This is bound to the option selector.  It fires whenever a change to the state manager named view is changed.
         // It will set the view state equal to whatever option was selected onChange.  It's value is bound to view and this function updates the view so that it equals to whatever option is selected.
