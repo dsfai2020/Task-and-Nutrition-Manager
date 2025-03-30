@@ -18,14 +18,46 @@ export default function AnalyticsUi (props) {
                     <h1></h1>
                 </div>
             )
-        }
+        };
 
+
+//------------------------------------ HOUR COMMIT ------------------------------------
+        const [hrCommit, setHrCommit] = useState(['SAMPLE']);
+
+        // The function this is BOUND to will by default have an arg passed to it.   That arg can be accessed and contains the contents it's display.
+        // Everything Revolves around this formula Below:
+        // <select class='AnalyticsUi-Interval-item' value={hrCommit} onChange={HandleCommit}>
+        function HandleCommit(e){
+            
+            // workaround to get the actual current value which will be different than the actual state.  IF I were to bind the local storage commit to the state of the hrCommit it would still be a render behind and would only show the previous value it had.  So I bind a snapshot of it to a variable and save THAT as the save data.
+            const UpdatedhrCommit = (e.target.value)
+
+            // THIS actually updates what the UI will see since its bound to the HandleCommit(e) function.  That very same UI has a value assigned to it which is the hrCommit state.  This updates indepently and needs to be bound to the current UI display value manually here.
+            setHrCommit(e.target.value)
+
+            localStorage.setItem('hrCommit', JSON.stringify(UpdatedhrCommit))
+        };
+
+        // Init setup load from local storage.
+        useEffect(() => {
+            const storedHrCommit = localStorage.getItem('hrCommit')
+            if (storedHrCommit) {
+                setHrCommit(JSON.parse(storedHrCommit))
+            };
+            // if an hrCommit doesnt exist in the local storage - Make one with this.
+            if (storedHrCommit==null) {
+                localStorage.setItem('hrCommit', JSON.stringify(hrCommit))
+            }
+        }, []);
+
+// -------------------------UI-----------------------------------
         return (
             <div class='AnalyticsUiContainer'>
 
                 <div class='AnalyticsUi-idea-cap'> 
                     <h1>I can commit this many Hrs</h1>
-                        <select class='AnalyticsUi-Interval-item'>
+                        <select class='AnalyticsUi-Interval-item' value={hrCommit} onChange={HandleCommit}>
+                            {/* <option value='1'>1</option> */}
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

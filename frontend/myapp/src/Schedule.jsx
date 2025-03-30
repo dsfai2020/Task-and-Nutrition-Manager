@@ -89,7 +89,7 @@ export default function Schedule(props) {
         <div>
             <div class='schedule-title-container'>
                 <h1 class='schedule-title'>{dayOfWeek}</h1>
-                <h5 class='schedule-quote'>"You vs. You"</h5>
+                <h5 class='schedule-quote'>You vs. You</h5>
             </div>
 {/* 
             <div>
