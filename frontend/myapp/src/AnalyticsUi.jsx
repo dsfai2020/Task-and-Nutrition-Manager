@@ -1,6 +1,8 @@
 import {useState, setState, useEffect} from 'react';
 import './AnalyticsUi.css'
 
+import Countdown from './Countdown';
+
 export default function AnalyticsUi (props) {
     
     function TopLevelUi() {
@@ -67,6 +69,8 @@ export default function AnalyticsUi (props) {
                             <option>21</option>
                         </select>
                 </div>   
+
+                <Countdown />
             
                 <div class='AnalyticsUi-Exp'>
                     <h1>Experience Points</h1>
