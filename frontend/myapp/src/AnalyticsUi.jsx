@@ -70,7 +70,7 @@ export default function AnalyticsUi (props) {
                         </select>
                 </div>   
 
-                <Countdown />
+                <Countdown hrCommit={hrCommit}/>
             
                 <div class='AnalyticsUi-Exp'>
                     <h1>Experience Points</h1>

@@ -1,0 +1,24 @@
+.Countdown-container{
+    border: grey;
+    border: dotted;
+    display: flex;
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: hsl(215, 74%, 88%);
+}
+
+
+.Button-flavor-theme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgba(249, 180, 140, 0.674);
+    margin: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey;
+}
+
+.Timer-container{
+    font-size: 20px;
+}

@@ -1,4 +1,5 @@
 import {useState, setState, useEffect} from 'react';
+import './Countdown.css'
 
 // This is going to be wired into the AnalyticsUi.jsx page.
 
@@ -43,8 +44,11 @@ export default function Countdown (props) {
         }, [timerStatus]);
 
         return (
-            <div>
-                <p>Time in Progress: Hours: {hours} Minutes: {minutes} Seconds: {count}</p>
+            <div class='Timer-container'>
+                <p>Time in Progress: </p>
+                <p>Hours: {hours}</p>
+                <p>Minutes: {minutes}</p>
+                <p>Seconds: {count}</p>
             </div>
         )
 
@@ -62,14 +66,14 @@ export default function Countdown (props) {
             console.log('Starting timer pressed')
             }
 
-        function MyOtherCustomButton (props) {
-            return <button onClick={StartTimer}>{props.name}</button>
+        function StartButton (props) {
+            return <button class='Button-flavor-theme' onClick={StartTimer}>{props.name}</button>
         }
 
         return (
             <div>
                 {/* All you got to do now is make it so that These conditionally render {() ? :} */}
-                <MyOtherCustomButton name='START'/>
+                <StartButton name='START'/>
             </div>
         )
     };
@@ -82,13 +86,13 @@ export default function Countdown (props) {
             // to pause the timer do not set the count back to zero.  Instead do nothing to it.
         }
 
-        function MyCustomButton (props){
-            return <button onClick={ClearTimer}>{props.name}</button>
+        function StopButton (props){
+            return <button class='Button-flavor-theme' onClick={ClearTimer}>{props.name}</button>
         }
 
         return (
             <div>
-                <MyCustomButton name='STOP'/>
+                <StopButton name='STOP'/>
             </div>
         )
     }
@@ -101,9 +105,13 @@ export default function Countdown (props) {
             setHours(0)
         };
 
+        function ResetButton(props){
+            return <button class='Button-flavor-theme' onClick={HandleReset}>{props.name}</button>
+        }
+
         return (
             <div>
-                <button onClick={HandleReset}>RESET</button>
+                <ResetButton name='RESET'/>
             </div>
         )
     };
@@ -120,7 +128,11 @@ export default function Countdown (props) {
                 <ResetButton />
             </div>
             
-            <p>This is where the countdown UI will go</p>
+            <div>
+                <p>This is where the countdown UI will go</p>
+                {/* NOTE.  The entire COUNTDOWN render is wired into display on the AnalyticsUi.jsx page and I wired in the hrCommit as a prop with the same name bound to the hrCommit STATE so that it is usable here as well.  In other words, why reinvent the wheel when it is already mechanically working there...I just needed the data.  Props helped with that. */}
+                <p>Today's Hr Commit: {props.hrCommit} </p>
+            </div>
             <Timer />
         </div>
     )
