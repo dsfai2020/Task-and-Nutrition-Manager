@@ -67,14 +67,13 @@ export default function Countdown (props) {
 
     return (
         <div class='Countdown-container'>
-            {/* {timerStatus == 'off' 
-                ? <button onClick={HandleTimerWhenOff}>Start</button>
-                : <button onClick={HandleTimerWhenOff}>Stop</button>}  */}
-            
-            <HandleTimerWhenOff />
+            {timerStatus == 'off' 
+                // Starts the timer
+                ? <HandleTimerWhenOff />
+                // Stops the timer
+                : <HandleTimerWhenOn />
+                } 
 
-            {/* Start button */}
-            <HandleTimerWhenOn />
             <p>Time Remaining</p>
             
             <p>This is where the countdown UI will go</p>
