@@ -15,8 +15,9 @@ export default function Countdown (props) {
     const [timerStatus, setTimerStatus] = useState('off')
     const [count, setCount] = useState(1)
     const [minutes, setMinutes] = useState(0)
+    const [hours, setHours] = useState(0)
 
-    function MyHook () {
+    function Timer () {
         
         useEffect(()=>{
             if (timerStatus==='on'){
@@ -32,17 +33,24 @@ export default function Countdown (props) {
                 setMinutes(minutes+1)
             }
 
+            if (minutes>=60) {
+                setHours(hours+1)
+                setMinutes(0)}
+            
+            // This ensures that the interval is cleared as cleanup to prevent memory leaks.
             return () => {clearInterval(intervalId)}
 
         }, [timerStatus]);
 
         return (
             <div>
-                <p>Time in Progress: Minutes: {minutes} Seconds: {count}</p>
+                <p>Time in Progress: Hours: {hours} Minutes: {minutes} Seconds: {count}</p>
             </div>
         )
 
     }
+
+    
 
 
     function HandleTimerWhenOff(props) {
@@ -85,18 +93,37 @@ export default function Countdown (props) {
         )
     }
 
+    function ResetButton () {
+
+        function HandleReset(){
+            setCount(0)
+            setMinutes(0)
+            setHours(0)
+        };
+
+        return (
+            <div>
+                <button onClick={HandleReset}>RESET</button>
+            </div>
+        )
+    };
+
     return (
         <div class='Countdown-container'>
-            {timerStatus == 'off' 
+            <div>
+                {timerStatus == 'off' 
                 // Starts the timer
                 ? <HandleTimerWhenOff />
                 // Stops the timer
                 : <HandleTimerWhenOn />
                 } 
+                <ResetButton />
+            </div>
             
             <p>This is where the countdown UI will go</p>
-            <MyHook />
+            <Timer />
         </div>
     )
 
 };
+
