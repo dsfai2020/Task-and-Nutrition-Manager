@@ -14,6 +14,7 @@ export default function Countdown (props) {
 
     const [timerStatus, setTimerStatus] = useState('off')
     const [count, setCount] = useState(1)
+    const [minutes, setMinutes] = useState(0)
 
     function MyHook () {
         
@@ -26,13 +27,18 @@ export default function Countdown (props) {
                 }, 1000);
             };
 
+            if (count>=60){
+                setCount(1)
+                setMinutes(minutes+1)
+            }
+
             return () => {clearInterval(intervalId)}
 
         }, [timerStatus]);
 
         return (
             <div>
-                <p>Time in Progress: {count}</p>
+                <p>Time in Progress: Minutes: {minutes} Seconds: {count}</p>
             </div>
         )
 
