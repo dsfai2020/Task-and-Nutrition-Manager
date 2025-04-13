@@ -1,6 +1,8 @@
 import {useState, setState, useEffect} from 'react';
 import './Countdown.css'
 
+import StageUi from './StagesUi';
+
 // This is going to be wired into the AnalyticsUi.jsx page.
 
 export default function Countdown (props) {
@@ -24,7 +26,7 @@ export default function Countdown (props) {
             if (timerStatus==='on'){
                 intervalId = setInterval(()=>{
                 // each interval is 1000 miliseconds and runs all the code here.
-                console.log('Counted '+ count);  
+                // console.log('Counted '+ count);  
                 setCount(count+1)
                 }, 1000);
             };
@@ -126,14 +128,17 @@ export default function Countdown (props) {
                 : <HandleTimerWhenOn />
                 } 
                 <ResetButton />
+                
+                <div class='countdown-description'>
+                    <p>Today's Hr Commit: {props.hrCommit} </p>
+                </div>
             </div>
             
-            <div>
-                <p>This is where the countdown UI will go</p>
+            
                 {/* NOTE.  The entire COUNTDOWN render is wired into display on the AnalyticsUi.jsx page and I wired in the hrCommit as a prop with the same name bound to the hrCommit STATE so that it is usable here as well.  In other words, why reinvent the wheel when it is already mechanically working there...I just needed the data.  Props helped with that. */}
-                <p>Today's Hr Commit: {props.hrCommit} </p>
-            </div>
+
             <Timer />
+            <StageUi />
         </div>
     )
 

@@ -1,0 +1,45 @@
+
+@media (min-width: 1400px) {
+.StageUi-Container{
+    display: flex;
+    /* grid-template-columns: 10% 10% 10%; */
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    }
+}
+
+@media (max-width: 1000px) {
+    .StageUi-Container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        }
+    }
+    
+
+@media (min-width: 1400px) {
+.circles{
+    color: white;
+    border-radius: 60%;
+    padding: 40%;
+    background-color: rgba(0, 128, 128, 0.725);
+    font-size: 30px;
+    border: solid;
+    border-color: grey;
+    }
+}
+
+@media (max-width: 1000px){
+.circles{
+    color: white;
+    border-radius: 60%;
+    background-color: rgb(8, 145, 180);
+    font-size: 15px;
+    border: solid;
+    border-color: grey;
+    }
+}
+
+

@@ -45,7 +45,7 @@ button{
 /*GTC changes the width of the columns*/
 .grid-muscle-group-container{
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-columns: 24% 24% 24% 24%;
     justify-content: center;
 }
 

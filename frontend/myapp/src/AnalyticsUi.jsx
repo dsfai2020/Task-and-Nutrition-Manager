@@ -57,7 +57,7 @@ export default function AnalyticsUi (props) {
             <div class='AnalyticsUiContainer'>
 
                 <div class='AnalyticsUi-idea-cap'> 
-                    <h1>I can commit this many Hrs</h1>
+                    <h1>Available Hours For Today:</h1>
                         <select class='AnalyticsUi-Interval-item' value={hrCommit} onChange={HandleCommit}>
                             {/* <option value='1'>1</option> */}
                             <option>1</option>
