@@ -2,6 +2,7 @@ import {useState, setState, useEffect} from 'react';
 import './Countdown.css'
 
 import StageUi from './StagesUi';
+import { LineComponent } from './StagesUi';
 
 // This is going to be wired into the AnalyticsUi.jsx page.
 
@@ -138,7 +139,6 @@ export default function Countdown (props) {
                 {/* NOTE.  The entire COUNTDOWN render is wired into display on the AnalyticsUi.jsx page and I wired in the hrCommit as a prop with the same name bound to the hrCommit STATE so that it is usable here as well.  In other words, why reinvent the wheel when it is already mechanically working there...I just needed the data.  Props helped with that. */}
 
             <Timer />
-            <StageUi />
         </div>
     )
 

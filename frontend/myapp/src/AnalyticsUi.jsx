@@ -2,6 +2,8 @@ import {useState, setState, useEffect} from 'react';
 import './AnalyticsUi.css'
 
 import Countdown from './Countdown';
+import { PhaseInfo } from './StagesUi';
+import { StageWrapper } from './StagesUi';
 
 export default function AnalyticsUi (props) {
     
@@ -69,9 +71,10 @@ export default function AnalyticsUi (props) {
                             <option>21</option>
                         </select>
                 </div>   
-
+{/* ------------------------------------------------------------------------------ */}
                 <Countdown hrCommit={hrCommit}/>
-            
+                <StageWrapper hrCommit={hrCommit} />
+
                 <div class='AnalyticsUi-Exp'>
                     <h1>Experience Points</h1>
                     <textarea placeholder='coming soon' onChange={handleExp} value={exp}></textarea>

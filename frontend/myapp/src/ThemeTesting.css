@@ -1,0 +1,9 @@
+/* This is a top lvl css file that applies to ALL files.  It is imported into the index.jsx file and is to be used to highlight ui that is being tested and developed as WIP. */
+
+.Test {
+    background-color: yellow;
+    border: dotted;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}

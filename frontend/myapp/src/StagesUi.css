@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 1000px) {
-    .StageUi-Container{
+    .StageUi-Container {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -42,4 +42,40 @@
     }
 }
 
+.GridTemp{
+    display: grid;
+    border: solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border-color: grey;
+    background-color: rgba(249, 180, 140, 0.674);
+    grid-template-areas: 
+        "a a a" 
+        "c c d"
+        "b b d"
+}
 
+.item-a{
+    grid-area: a;
+    background-color: blue;
+}
+
+.item-b{
+    grid-area: b;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.item-c{
+    grid-area: c;
+    background-color: beige;
+    opacity: 75%;
+    border-radius: 10px;
+}
+
+.item-d{
+    grid-area: d;
+    background-color: skyblue;
+    border-radius: 10px;
+}
