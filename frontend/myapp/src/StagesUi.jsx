@@ -86,19 +86,27 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
             {/* When I click a button in the StageUi I want it to alter the display here within PhaseInfo - Using wrapper */}            
             <div class='item-c'>
                 {/* Global var */}
-                <p class='Test'>Focus on: </p>
+                <p class='Test'>Percentage of {hrCommit} hours committed</p>
+                <input />
             </div>
             <div class='item-a'>
                 <h3>{sharedData} Details</h3>
             </div>   
             <div class='item-b'>
-                <p class='Test'>HOURS COMMITTED -- {hrCommit}</p>
+                {/* <p class='Test'>HOURS COMMITTED -- {hrCommit}</p> */}
+                <p class='Test'>Timer Trigger Points</p>
+                <ul>
+                    <li>Phase 1</li>
+                    <li>Phase 2</li>
+                    <li>Phase 3</li>
+                </ul>
             </div>
             <div class='item-d'>
-                <p class='Test'>Deliverables</p>
-                <StageUi sharedData={sharedData} setSharedData={setSharedData}/>
+                <p class='Test'>Up Next</p>
             </div>
-            
+            <div class='item-e' >
+            <StageUi sharedData={sharedData} setSharedData={setSharedData}/>
+            </div>
         </div>
     )
 };

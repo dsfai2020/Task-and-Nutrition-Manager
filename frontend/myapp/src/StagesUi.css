@@ -46,6 +46,7 @@
 }
 
 /* Theme of the Phase Area */
+@media (min-width: 1400px) {
 .GridTemp{
     display: grid;
     border: solid;
@@ -56,13 +57,34 @@
     background-color: rgba(249, 180, 140, 0.674);
     grid-template-areas: 
         "a a a" 
-        "c c d"
-        "b b d"
+        "c e d "
+        "b b b"
+    }
 }
+
+@media (max-width: 1000px) {
+    .GridTemp{
+        display: grid;
+        border: solid;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        border-color: grey;
+        background-color: rgba(249, 180, 140, 0.674);
+        grid-template-areas: 
+            "a a " 
+            "c e "
+            "b b "
+            "d d"
+        }   
+    }
+
 
 .item-a{
     grid-area: a;
     background-color: blue;
+    display: flex;
+    justify-content: center;
 }
 
 .item-b{
@@ -81,5 +103,11 @@
 .item-d{
     grid-area: d;
     background-color: skyblue;
+    border-radius: 10px;
+}
+
+.item-e{
+    grid-area: e;
+    background-color: rgb(61, 185, 234);
     border-radius: 10px;
 }
