@@ -2,17 +2,51 @@
 /* Responsive Design.  The display will break the schedule down into 2 columns for laptop and desktop screens. */
 @media (min-width: 1400px) {
 .Full-ScheduleUi-Container{
-    display: grid;
-    flex-direction: column;    
-    grid-template-columns: 50% 50%;
-    /* width: 50vw; */
+    display: grid;   
+    /* grid-template-columns: 50% 50%; */
+    grid-template-areas:
+        'a a b b'
+        ;
     justify-content: center;
     padding: 19vw;
     padding-top: 1vh;
     padding-bottom: 10vh;
+    }
+}
 
-    
-}}
+@media(min-width: 1400px) {
+.grid-item-a{
+    display: flex;
+    flex-direction: column;
+    grid-area: a;
+    background-color: blue;
+    }
+}
+
+@media(min-width: 1400px) {
+.grid-item-b{
+    display: flex;
+    flex-direction: column;
+    grid-area: b;
+    background-color: red;
+    }
+}
+
+@media (min-width: 1400px) {
+.Main-Component-a{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    }
+}
+
+@media (min-width: 1400px) {
+.Main-Component-b{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+}
 
 .scheduleButtonOn{
     display: flex;
@@ -41,19 +75,8 @@
     align-self: center;
 }   
 
-@media (max-width: 428px) {
-.Container-ScheduleUi-main{
-    border: solid black;
-    margin-bottom: 5px;
-    display: grid;
-    justify-content: space-evenly;
-    /* width: 100%; */
-    grid-template-columns: 10% 15% 75%;
-    
-}}
-
 /* laptop 1500 works too */
-@media (max-width: 2000px) {
+@media (min-width: 1400px) {
 .Container-ScheduleUi-main{
     border: solid black;
     margin-bottom: 5px;
@@ -61,13 +84,29 @@
     justify-content: space-between;
     /* width: 100%; */
     /* Changed from 10/15/75 */
-    grid-template-columns: 12.5% 12.5% 75%;
-    padding: 10px;
+    grid-template-columns: 12.5% 15% 72.5%;
+    /* padding: 20px; */
     background-color: rgba(242, 203, 180, 0.674);
-    margin: 10px;
+    /* margin: 10px; */
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
 }}
+
+@media (max-width: 428px) {
+    .Container-ScheduleUi-main{
+        border: solid black;
+        margin-bottom: 5px;
+        display: grid;
+        justify-content: center;
+        /* width: 100%; */
+        /* Changed from 10/15/75 */
+        grid-template-columns: 12.5% 15% 72.5%;
+        padding: 15px;
+        background-color: rgba(242, 203, 180, 0.674);
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey; 
+    }}
 
 /* consider making this change dynamically to a dif background color */
 @media (max-width: 428px) {
@@ -85,6 +124,22 @@
     }
 }
 
+@media (min-width: 1400px) {
+    .item-ScheduleText{
+        display: flex;
+        /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+        font-family: PlaywriteITModerna-VariableFont_wght;
+        /* width: 100%; */
+        /* background-color: hsl(215, 74%, 93%); */
+        padding: 2px;
+        /* background-color: rgba(249, 180, 140, 0.674); */
+        /* margin: 2px; */
+        height: 80px;
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey; 
+        }
+    }
+
 @media (max-width: 428px) {
 .Container-Actual{
     display: flex;
@@ -98,6 +153,29 @@
     }
 }
 
+/* This makes the Actual text box expand */
+@media (min-width: 1400px) {
+.Container-Actual{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 1400px){
+textarea{
+    background-color: hsl(215, 64%, 84%);
+    border-radius: 20px 20px 20px 20px;
+    border: solid grey; 
+    font-family: PlaywriteITModerna-VariableFont_wght;
+    }
+}
+
+@media (max-width: 428px){
 textarea{
     background-color: hsl(215, 64%, 84%);
     padding: 10px;
@@ -105,6 +183,7 @@ textarea{
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
     font-family: PlaywriteITModerna-VariableFont_wght;
+    }
 }
 
 
@@ -120,6 +199,7 @@ textarea{
 }
 
 /* this should be 20px for laptop screens */
+@media (min-width: 1400px){
 .item-daytime{
     display: flex;
     justify-content: flex-start;
@@ -129,6 +209,7 @@ textarea{
     font-size: 20px;
     font-family: PlaywriteITModerna-VariableFont_wght;
     color: hsl(144, 100%, 1%);
+    }
 }
 
 .schedule-title-container{

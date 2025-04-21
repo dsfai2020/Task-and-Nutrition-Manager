@@ -99,63 +99,63 @@ export default function Schedule(props) {
             {(x=='true')
             // ? <button onClick = {handleEzClear} >Green</button>
             ? <div class='Full-ScheduleUi-Container'>
-                <div>
-                    <ScheduleUI morning='5am' clear='true'/>
-                    <ScheduleUI morning='6am' clear='true'/>
-                    <ScheduleUI morning='7am' clear='true'/>
-                    <ScheduleUI morning='8am' clear='true'/>
-                    <ScheduleUI morning='9am' clear='true'/>
-                    <ScheduleUI morning='10am' clear='true'/>
-                    <ScheduleUI morning='11am' clear='true'/>
-                    <ScheduleUI morning='12pm' clear='true'/>
-                    <ScheduleUI morning='1pm' clear='true'/>
-                    <ScheduleUI morning='2pm' clear='true'/>
-                    <ScheduleUI morning='3pm' clear='true'/>
-                    <ScheduleUI morning='4pm' clear='true'/>
+                <div class='grid-item-a'>
+                    <ScheduleUI morning='5am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='6am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='7am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='8am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='9am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='10am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='11am' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='12pm' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='1pm' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='2pm' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='3pm' clear='true' theme='group-a'/>
+                    <ScheduleUI morning='4pm' clear='true' theme='group-a'/>
                 </div>
-                <div>
-                    <ScheduleUI morning='5pm' clear='true'/>
-                    <ScheduleUI morning='6pm' clear='true'/>
-                    <ScheduleUI morning='7pm' clear='true'/>
-                    <ScheduleUI morning='8pm' clear='true'/>
-                    <ScheduleUI morning='9pm' clear='true'/>
-                    <ScheduleUI morning='10pm' clear='true'/>
-                    <ScheduleUI morning='11pm' clear='true'/>
-                    <ScheduleUI morning='12am' clear='true'/>
-                    <ScheduleUI morning='1am' clear='true'/>
-                    <ScheduleUI morning='2am' clear='true'/>
-                    <ScheduleUI morning='3am' clear='true'/>
-                    <ScheduleUI morning='4am' clear='true'/>
+                <div class='grid-item-b'>
+                    <ScheduleUI morning='5pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='6pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='7pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='8pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='9pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='10pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='11pm' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='12am' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='1am' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='2am' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='3am' clear='true' theme='group-b'/>
+                    <ScheduleUI morning='4am' clear='true' theme='group-b'/>
                 </div>
             </div>
             : <div class='Full-ScheduleUi-Container'>
                 <div>
-                    <ScheduleUI morning='5am' clear='false'/>
-                    <ScheduleUI morning='6am' clear='false'/>
-                    <ScheduleUI morning='7am' clear='false'/>
-                    <ScheduleUI morning='8am' clear='false'/>
-                    <ScheduleUI morning='9am' clear='false'/>
-                    <ScheduleUI morning='10am' clear='false'/>
-                    <ScheduleUI morning='11am' clear='false'/>
-                    <ScheduleUI morning='12pm' clear='false'/>
-                    <ScheduleUI morning='1pm' clear='false'/>
-                    <ScheduleUI morning='2pm' clear='false'/>
-                    <ScheduleUI morning='3pm' clear='false'/>
-                    <ScheduleUI morning='4pm' clear='false'/>
+                    <ScheduleUI morning='5am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='6am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='7am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='8am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='9am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='10am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='11am' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='12pm' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='1pm' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='2pm' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='3pm' clear='false' theme='group-a'/>
+                    <ScheduleUI morning='4pm' clear='false' theme='group-a'/>
                 </div>
                 <div>
-                    <ScheduleUI morning='5pm' clear='false'/>
-                    <ScheduleUI morning='6pm' clear='false'/>
-                    <ScheduleUI morning='7pm' clear='false'/>
-                    <ScheduleUI morning='8pm' clear='false'/>
-                    <ScheduleUI morning='9pm' clear='false'/>
-                    <ScheduleUI morning='10pm' clear='false'/>
-                    <ScheduleUI morning='11pm' clear='false'/>
-                    <ScheduleUI morning='12am' clear='false'/>
-                    <ScheduleUI morning='1am' clear='false'/>
-                    <ScheduleUI morning='2am' clear='false'/>
-                    <ScheduleUI morning='3am' clear='false'/>
-                    <ScheduleUI morning='4am' clear='false'/>
+                    <ScheduleUI morning='5pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='6pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='7pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='8pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='9pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='10pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='11pm' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='12am' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='1am' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='2am' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='3am' clear='false' theme='group-b'/>
+                    <ScheduleUI morning='4am' clear='false' theme='group-b'/>
                 </div>
             </div>
             }
@@ -297,19 +297,41 @@ export default function Schedule(props) {
 
         return (
             <div>
-                <div class='Container-ScheduleUi-main'>
-                    <ScheduleButton class='item-button-main'/>
-                    {/* time */}
-                    <p class='item-daytime'>{props.morning} </p>
-                    {/* Schedule Entry */}
-                    <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
+                {(props.theme=='group-a')
+                ?             
+                <div class='Main-Component-a'> 
+                    <div class='Container-ScheduleUi-main'>
+                        <ScheduleButton class='item-button-main'/>
+                        {/* time */}
+                        <p class='item-daytime'>{props.morning} </p>
+                        {/* Schedule Entry */}
+                        <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
+                    </div>
+
+                    <div class='Container-Actual'>
+                        {/* <textarea placeholder='Actual'></textarea> */}
+                        <ActualBoxComponent />
+                    </div>
                 </div>
 
-                <div class='Container-Actual'>
-                    {/* <textarea placeholder='Actual'></textarea> */}
-                    <ActualBoxComponent />
+                :
+                <div class='Main-Component-b'> 
+                    <div class='Container-ScheduleUi-main'>
+                        <ScheduleButton class='item-button-main'/>
+                        {/* time */}
+                        <p class='item-daytime'>{props.morning} </p>
+                        {/* Schedule Entry */}
+                        <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
+                    </div>
+
+                    <div class='Container-Actual'>
+                        {/* <textarea placeholder='Actual'></textarea> */}
+                        <ActualBoxComponent />
+                    </div>
                 </div>
+            }
             </div>
+            // </div>
         )
     };
 
