@@ -1,7 +1,11 @@
-.mini-cal {
+/* The titles of the week are stylized in line in the WeekCountComponent on the MiniCalendar.jsx
+If you want to make changes to it, look there first. */
+
+.mini-cal-main-container {
+    display: grid;
     background-image: linear-gradient(to bottom, #778bb2, #cad8f4, #f6f6f6, rgb(248, 243, 235));
     width: 100%;
-    justify-content: space-around;;
+    justify-content: space-around;
 }
 
 
@@ -25,18 +29,48 @@
 }
 
 
-/* Widescreen PC */
-@media (max-width: 2500px){
+/* Laptop - Makes it so that the columns are side by side (row) after being sorted vertically*/
+@media (min-width: 1400px){
 .mini-cal-container{
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
     }
 }
 
+/* This is what displays when the week button itself is clicked */
+@media (max-width: 428px) {
+    .mini-cal-container .weekCountComponent-Is-Clicked {
+        border-radius: 65%;
+        height: 10vw;
+        font-size: 12px;
+        color: Green;
+        }
+}
 
-@media (max-width: 2500px) {
+@media (max-width: 428px) {
+    .mini-cal-container .weekCountComponent-Is-UnClicked {
+        border-radius: 65%;
+        height: 10vw;
+        font-size: 12px;
+        color: white;
+        }
+    }
+
+/* Laptop - Makes it so that the weekdays are sorted vertical with the week button being at the top and M through S working its way downward.*/
+@media (min-width: 1400px) {
+    .weekLayout{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 1000px)  {
     .weekLayout{
         display: flex;
         justify-content: center;
@@ -122,29 +156,4 @@
     padding: 2px;
     margin: 2px;
     }
-}
-
-/* This is what displays when the week button itself is clicked */
-@media (max-width: 428px) {
-    .mini-cal-container .weekCountComponent-Is-Clicked {
-        border-radius: 65%;
-        height: 10vw;
-        font-size: 12px;
-        color: Green;
-        }
-}
-
-@media (max-width: 428px) {
-    .mini-cal-container .weekCountComponent-Is-UnClicked {
-        border-radius: 65%;
-        height: 10vw;
-        font-size: 12px;
-        color: white;
-        }
-    }
-
-
-
-
-
-
+};

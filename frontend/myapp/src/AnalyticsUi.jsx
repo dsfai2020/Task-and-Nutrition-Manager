@@ -78,14 +78,10 @@ export default function AnalyticsUi (props) {
                 <div class='AnalyticsUi-Exp'>
                     <h1>Experience Points</h1>
                     <textarea placeholder='coming soon' onChange={handleExp} value={exp}></textarea>
+                    <p>Level: Coming Soon</p>
+                    <ExpComponent />
                 </div>
 
-                <div>
-                    <p>Rank 1 Coming Soon</p>
-                </div>
-                
-                <ExpComponent />
-                
                 <EventLists tabView='' />
             </div>         
     
