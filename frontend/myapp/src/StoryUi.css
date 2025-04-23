@@ -1,10 +1,122 @@
-@media (max-width: 2000px){
+
+@media (min-width: 1400px) {
+    .anchor-image{
+        display: flex;
+        background-color: black;
+        width: 5vw;
+        justify-content: center;
+        align-items: center;
+        padding: 2px;
+        border-radius: 20px;
+        grid-area: anchor;
+        }
+    }
+
+@media (max-width: 428px) {
+.anchor-image{
+    display: flex;
+    background-color: black;
+    width: 15vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 20px;
+    grid-area: anchor;
+    }
+}
+
+@media (max-width: 428px){
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    grid-area: button-container
+    /* align-items: center; */
+    }
+}
+
+@media (min-width: 1400px){
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        grid-area: button-container;   
+    }
+}
+
+@media (max-width: 428px) {
+.story-delete-button{
+    display: flex;
+    border-radius: 20px;
+    background-color: black;
+    color: #59faa1;
+    width: 20vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    grid-area: delete-story;
+    }
+}
+
+@media (min-width: 1400px) {
+    .story-delete-button{
+        display: flex;
+        border-radius: 20px;
+        background-color: black;
+        color: #59faa1;
+        width: 5vw;
+        justify-content: center;
+        align-items: center;
+        grid-area: delete-story;
+        }
+    }
+    
+
+@media (min-width: 1400px) {
+.story-container-title{
+    display: flex;
+    justify-content: center;
+    font-family: RubikDirt-Regular;
+    background-color: #f0e00582;
+    color:black;
+    margin-left: 22vw;
+    margin-right: 22vw;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    }
+}
+
+@media (max-width: 428px){
+.story-container-title{
+    display: flex;
+    justify-content: center;
+    font-family: RubikDirt-Regular;
+    background-color: #031a0d82;
+    color:black;
+    border-radius: 10px;
+    margin-top: 75px;
+    }
+}
+
+.add-story-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1400px){
     .Container{
         /* use Blank Divs if you need a block */
-        width: 100%;
-        display: grid;
+        /* width: 100%; */
+        /* display: grid; */
         /* grid-template-columns: repeat(3, 10fr); */
-        grid-template-columns: 2fr 5fr 2fr;
+        /* grid-template-columns: 2fr 5fr 2fr; */
+        display: flex;
+        margin-left: 22vw;
+        margin-right: 22vw;
+
     }
 }
 
@@ -13,6 +125,7 @@
     .Container{
         width: 100%;
         grid-template-columns: 5fr;
+        display: grid
     }
 }
 
@@ -25,27 +138,32 @@
     }
 }
 
-@media (max-width: 2000px){
+@media (min-width: 1400px){
 .storyUi-Container{
+    display: flex;
+    flex-direction: column;
     background-color: #59faa1;
     border: solid black;
     /* top left right bot right left */
     /* border-radius: 20px 20px 40px 40px; */
     border-radius: 20px;
-    display: grid;
+    /* display: grid; */
     /* fr refers to free space */
-    grid-template-columns: 10fr 20fr 10fr; 
+    /* grid-template-columns: 10fr 20fr; 
     grid-template-rows: 10fr 10fr 10fr;
     grid-template-areas: 
-    "a x metrics"
-    "b x metrics"
-    "b x metrics";
-    width: 100%;
+    "s-title labels"
+    "b labels"
+    "button-container . "; */
+    /* width: 100%; */
     margin-bottom: 3px;
+    /* display: flex; */
+    margin-left: 30vw;
+    margin-right: 30vw;
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 428px){
     .storyUi-Container{
         background-color: #59faa1;
         border: solid black;
@@ -54,107 +172,86 @@
         border-radius: 20px;
         display: grid;
         /* fr refers to free space */
-        grid-template-columns: 10fr 20fr 10fr; 
-        grid-template-rows: 10fr 10fr 10fr;
+        grid-template-columns: 50vw 25vw 25vw; 
+        grid-template-rows: 10vh 15vh 15vh 15vh 15vh;
         grid-template-areas: 
-        "a x metrics"
-        "b x metrics"
-        "b x metrics";   
+        "s-title s-title s-title"
+        "b b b"
+        "b b b"
+        "button-container button-container button-container"
+        "labels labels metrics"; 
+        padding-bottom: 10px;  
+        /* width: 100vw; */
+
     }
     }
 
-
-/* This applies to both text-a and text-b to make it easier to adjust across */
-.storyUi-Container .text-a, .text-b{
-    /* border: solid red; */
-    width: 195px;
-    border-radius: 20px;
-}
-
-.storyUi-Container .text-a{
-    grid-area: a;
-}
-
-.storyUi-Container .text-b{
-    grid-area: b;
-}
-
-/* I turned the metric flexbox into a pluggable grid-area named metrics. */
-.storyUi-Container .metric-Container{
+@media (min-width: 1400px){
+.text-a{
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    grid-area: metrics;
-    justify-content: space-evenly;
+    grid-area: s-title;
+    height: 5vh;
+    border-radius: 10px;
+    border-top-left-radius: 18px; 
+    }
 }
 
-/* easy edit of metrics */
-.storyUi-Container .metric-a, .metric-b, .metric-c{
-    border: solid black;
-    background-color: whitesmoke;
-    height: 50px;
-    width: 50px;
-    border-radius: 60%;
-    text-align: center;
-    font-weight: bold;
-}
-
-.storyUi-Container .metric-Container .metric-a{
-    grid-area: metrica;
-}
-
-.storyUi-Container .metric-b{
-    grid-area: metricb;
-}
-
-.storyUi-Container .metric-c{
-    grid-area: metricc;
-}
-
-@media (max-width: 2000px){
-    .storyUi-Container-alternate{
-        background-color: blue;
-        border: solid salmon;
-        /* top left right bot right left */
-        /* border-radius: 20px 20px 40px 40px; */
-        border-radius: 20px;
-        display: grid;
-        /* fr refers to free space */
-        grid-template-columns: 10fr 20fr 10fr;
-        grid-template-rows: 10fr 10fr 10fr;
-        grid-template-areas: 
-        "a x metrics"
-        "b x metrics"
-        "b x metrics"
+@media (max-width: 428px){
+    .text-a{
+        display: flex;
+        grid-area: s-title;
+        height: 9vh;
+        border-radius: 10px;
+        border-top-left-radius: 18px; 
         }
-    };
+    }
 
-/* This applies to both text-a and text-b to make it easier to adjust across */
-.storyUi-Container-alternate .text-a, .text-b{
-    /* border: solid red; */
-    width: 195px;
-    border-radius: 20px;
-}
-
-.storyUi-Container-alternate .text-a{
-    grid-area: a;
-}
-
-.storyUi-Container-alternate .text-b{
+@media (min-width: 1400px){
+.text-b{
+    display: flex;
     grid-area: b;
+    height: 24vh;
+    border-radius: 10px;
+    }
 }
 
-/* I turned the metric flexbox into a pluggable grid-area named metrics. */
-.storyUi-Container-alternate .metric-Container{
+@media (max-width: 428px){
+    .text-b{
+        display: flex;
+        grid-area: b;
+        border-radius: 10px;
+        }
+    }
+
+/*This is where the Circles are */
+@media (min-width: 1400px){
+.metric-Container{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     grid-area: metrics;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    background-color: maroon;
+    border-radius: 20px;
+    }
 }
 
-/* easy edit of metrics */
-.storyUi-Container-alternate .metric-a, .metric-b, .metric-c{
+@media (max-width: 428px){
+    .metric-Container{
+        /* display: grid; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        background-color: maroon;
+        border-radius: 20px;
+        /* grid-template-areas:
+            'metrica metricb metricc' */
+        }
+    }
+
+@media (min-width: 1400px) {
+.metric-a, .metric-b, .metric-c{
     border: solid black;
     background-color: whitesmoke;
     height: 50px;
@@ -162,28 +259,85 @@
     border-radius: 60%;
     text-align: center;
     font-weight: bold;
+    }
 }
 
-.storyUi-Container-alternate .metric-Container .metric-a{
+@media (max-width: 428px) {
+    .metric-a, .metric-b, .metric-c{
+        border: solid black;
+        background-color: whitesmoke;
+        /* height: 50px; */
+        /* width: 50px; */
+        border-radius: 60%;
+        text-align: center;
+        font-weight: bold;
+        width: 10vw;
+        }
+    }
+
+
+.metric-a{
     grid-area: metrica;
 }
 
-.storyUi-Container-alternate .metric-b{
+.metric-b{
     grid-area: metricb;
 }
 
-.storyUi-Container-alternate .metric-c{
+.metric-c{
     grid-area: metricc;
 }
 
+@media(min-width: 1400px) {
 .label-Container{
-    grid-area: x;
+    grid-area: labels;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    /* display: grid; */
+    /* grid-template: 2fr 2fr 2fr/ 1fr ; */
+    align-items: center;
     /* border: solid red; */
     border-radius: 20px;
     justify-content: space-evenly;
     font-weight: bold;
+    background-color: white;
+    /* margin-top: 11px; */
+    /* margin-left: 11vw;
+    margin-right: 11vw; */
+    }
 }
 
+@media(max-width: 428px) {
+    .label-Container{
+        grid-area: labels;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* border: solid red; */
+        border-radius: 20px;
+        justify-content: space-evenly;
+        font-weight: bold;
+        background-color: white;
+        /* margin-top: 11px; */
+        }
+    }
+
+
+.story-value-scale{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.shirt-size{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.estimate{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

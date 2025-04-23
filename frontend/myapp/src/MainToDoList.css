@@ -1,7 +1,10 @@
-.accountability-list-title{
+.todo-title{
     font-family: RubikDirt-Regular;
     display: flex;
     justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 75px;
 }
 
 .MainToDo-Container{

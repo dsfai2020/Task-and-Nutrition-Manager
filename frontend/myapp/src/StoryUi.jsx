@@ -1,6 +1,7 @@
     import {useState, setState, useEffect} from 'react';
     import './StoryUi.css' 
-
+    import anchor from './anchor.png' 
+    import './fonts.css'
 
     // --------------------HIGH SIDE UI (PARENT)
 
@@ -206,7 +207,7 @@
                 {/* setting prop args don't require commas or semicolons */}
                 {/* The index record itself will be the index and it'll generate a pair on the storage side as well by default */}
 
-               
+               <h1 class='story-container-title'>STORIES AND IDEAS</h1>
                 
                 {/* INIT conditional will continuously map as long as the init is 1.*/}
                 {MapListOfObjectsToUi()}
@@ -217,9 +218,12 @@
 
                 {/* THIS is for new cards made with button click */}
                 {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})}
-                <AddAnother name='dynamic'/>
-                {/* {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container-alternate'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})} */}
-                <AddAnother name='dynamic'/>
+                
+                <div class='add-story-button-container'>
+                    <AddAnother name='dynamic'/>
+                    {/* {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container-alternate'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})} */}
+                    <AddAnother name='dynamic'/>
+                </div>
             </div>
         )
     };
@@ -378,36 +382,69 @@
         // THIS IS ONE UI COMPONENT
         return (
             // 'storyUi-Container' is the props that each component inherits.
-            <div class='Container'>
+            // <div class='Container'>
+/* -------------------------------------------------------------------------- */
+                /* This was a way to make components have custom css conditionally.  
+                It currently points to 'storyUi-Container'*/
+                <div class={props.StoryUiCss}>
+                    <div class='button-container'>
+                        <button class='anchor-image'><img src={anchor}/></button>
+                        <button class='story-delete-button' onClick={handleDeleteButton}>Delete</button>
+                    </div>
 
-            <div class='blank-space-1'></div>
+                    <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
+                    
+                    <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
+                    
+                    {/* {props.description} + ' Index is: ' + props.index */}
 
-            <div class={props.StoryUiCss}>
-                <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-                <button onClick={handleDeleteButton}>Delete</button>
-                <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
-                
-                {/* {props.description} + ' Index is: ' + props.index */}
+                    
+                    <div class='label-Container'>
+                        <div class='estimate'>
+                            <p>Estimate in Days</p>
+                            <input class='metric-a' type='text' id='textInput' onChange={handleEstimateChange} value={estimateInputValue} placeholder={props.estimate} ></input>
+                        </div>
 
-                <div class='label-Container'>
-                    <p>Hrs</p>
-                    <p>Impact</p>
-                    <p>Size</p>
-                </div>  
+                        <div class='story-value-scale' >
+                            <p>Value</p>
+                            <select value={null} onChange={null}>
+                                {/* <option value='1'>1</option> */}
+                                <option value='not now'>not now</option>
+                                <option value='could have'>could have</option>
+                                <option>should have</option>
+                                <option>must have</option>
+                            </select>
+                        </div>
+                        
+                        <div class='shirt-size'>
+                            <p>Size</p>
+                            <select value={null} onChange={null}>
+                                <option value='extra small'>extra small</option>
+                                <option>small</option>
+                                <option>medium</option>
+                                <option>large</option>
+                                <option>extra large</option>
+                            </select>
+                        </div>
+                    </div>  
 
-                {/* ESTIMATE SIZE AND VALUE */}
-                <div class='metric-Container'>
-                    {/* estimate */}
-                    <input type='text' id='textInput' onChange={handleEstimateChange} value={estimateInputValue} placeholder={props.estimate} class='metric-a'></input>
-                    {/* value */}
-                    <input type='text' id='textInput-2' onChange={handleStoryValueChange} value={storyValueInputValue} placeholder={props.value} class='metric-b'></input>
-                    {/* size */}
-                    <input type='text' id='textInput-3' onChange={handleSizeInputValueChange} value={sizeInputValue} placeholder={props.size} class='metric-c'></input>
+                    {/* ESTIMATE SIZE AND VALUE */}
+                    {/* <div class='metric-Container'> */}
+                        {/* estimate */}
+  
+                        
+                        {/* value */}
+                        {/* <input class='metric-b' type='text' id='textInput-2' onChange={handleStoryValueChange} value={storyValueInputValue} placeholder={props.value} ></input> */}
+
+                        {/* size */}
+                        {/* <input class='metric-c' type='text' id='textInput-3' onChange={handleSizeInputValueChange} value={sizeInputValue} placeholder={props.size} ></input> */}
+                    {/* </div> */}
+                    
+                    
                 </div>
-                
-            </div>
-            <div class='blank-space-2'></div>
-            </div>
+            // </div>
                 )
     };
 
+
+    
