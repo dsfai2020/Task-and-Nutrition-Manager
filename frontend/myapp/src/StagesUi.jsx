@@ -47,24 +47,20 @@ export default function StageUi ({ sharedData, setSharedData }) {
     return (
 
         <div class='StageUi-Container'>
+ 
                 <div>
+                    <CircleComponent name='🌰'/>
 
                 </div>
-                <div>
-                    <CircleComponent name='Phase 1'/>
-
-                </div>
 
                 <div>
-                    <CircleComponent name='Phase 2'/>
+                    <CircleComponent name='🌱'/>
                 </div>
 
                 <div>
-                    <CircleComponent name='Phase 3'/>
+                    <CircleComponent name='🌳'/>
                 </div>
-                <div>
-
-                </div>      
+ 
         </div>
     )
 }
@@ -82,31 +78,38 @@ function callTest (x) {
 export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
 
     return (
+        <div class='phase-container'>
         <div class='GridTemp'>
             {/* When I click a button in the StageUi I want it to alter the display here within PhaseInfo - Using wrapper */}            
             <div class='item-c'>
                 {/* Global var */}
-                <p class='Test'>Percentage of {hrCommit} hours committed</p>
-                <input />
+                <p class='Test'>Hours committed: {hrCommit}</p>
+                <textarea class='item-f'/>
             </div>
+
             <div class='item-a'>
-                <h3>{sharedData} Details</h3>
-            </div>   
+                <h3>Phase {sharedData} Details</h3>
+            </div>
+
             <div class='item-b'>
                 {/* <p class='Test'>HOURS COMMITTED -- {hrCommit}</p> */}
                 <p class='Test'>Timer Trigger Points</p>
                 <ul>
-                    <li>Phase 1</li>
-                    <li>Phase 2</li>
-                    <li>Phase 3</li>
+                    <li>🌰</li>
+                    <li>🌱</li>
+                    <li>🌳</li>
                 </ul>
             </div>
+
             <div class='item-d'>
                 <p class='Test'>Up Next</p>
             </div>
+
             <div class='item-e' >
-            <StageUi sharedData={sharedData} setSharedData={setSharedData}/>
+                <StageUi sharedData={sharedData} setSharedData={setSharedData}/>
             </div>
+
+        </div>
         </div>
     )
 };
@@ -117,12 +120,9 @@ export function StageWrapper ({hrCommit}) {
     // read and write is accessible from both the StageUi and PhaseInfo.  Binding the state of the wrapper to props within the components.
     // You may need to enable ({sharedData, setSharedData}) as args via destructure of the props if needed.
 
-    const [sharedData, setSharedData] = useState('Data is sharing')
+    const [sharedData, setSharedData] = useState()
 
     return (
-        <div>
-            {/* <StageUi sharedData = {sharedData} setSharedData = {setSharedData}/> */}
-            <PhaseInfo sharedData = {sharedData} setSharedData = {setSharedData} hrCommit={hrCommit}/>
-        </div>
+        <PhaseInfo sharedData = {sharedData} setSharedData = {setSharedData} hrCommit={hrCommit}/>
     )
 }

@@ -1,12 +1,31 @@
+/* This is a container OF containers */
+
+@media (min-width: 1400px) {
+.phase-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    /* transform: scale(.80); */
+    }
+}
+
+@media (max-width: 1000px) {
+.phase-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    transform: scale(.80)
+} 
+}
 
 @media (min-width: 1400px) {
 .StageUi-Container{
     display: flex;
     /* grid-template-columns: 10% 10% 10%; */
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly
     }
 }
 
@@ -24,8 +43,7 @@
 .circles{
     color: white;
     border-radius: 60%;
-    /* padding: 40%; */
-    padding: 5vh 1vw;
+    /* padding: 5vh 1vw; */
     background-color: rgba(0, 128, 128, 0.725);
     font-size: 30px;
     border: solid;
@@ -52,13 +70,17 @@
     border: solid;
     padding: 10px;
     margin: 10px;
+    /* width: 10vw; */
+    /* margin-left: 30vw;
+    margin-right: 30vw; */
     border-radius: 10px;
     border-color: grey;
     background-color: rgba(249, 180, 140, 0.674);
     grid-template-areas: 
         "a a a" 
-        "c e d "
-        "b b b"
+        "e c d"
+        "text-box text-box text-box"
+        "list-area list-area list-area";
     }
 }
 
@@ -74,26 +96,29 @@
         grid-template-areas: 
             "a a " 
             "c e "
-            "b b "
+            "list-area list-area"
             "d d"
         }   
     }
 
 
 .item-a{
+    display: flex;
     grid-area: a;
     background-color: blue;
-    display: flex;
     justify-content: center;
 }
 
 .item-b{
-    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    grid-area: list-area;
     background-color: lightblue;
     border-radius: 10px;
 }
 
 .item-c{
+    display: flex;
     grid-area: c;
     background-color: beige;
     opacity: 75%;
@@ -101,13 +126,22 @@
 }
 
 .item-d{
+    display: flex;
+    flex-direction: column;
     grid-area: d;
     background-color: skyblue;
     border-radius: 10px;
 }
 
 .item-e{
+    display: flex;
     grid-area: e;
     background-color: rgb(61, 185, 234);
     border-radius: 10px;
+}
+
+.item-f{
+    display: flex;
+    grid-area: text-box;
+    height: 200px;
 }

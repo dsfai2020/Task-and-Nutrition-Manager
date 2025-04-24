@@ -401,12 +401,12 @@
                     
                     <div class='label-Container'>
                         <div class='estimate'>
-                            <p>Estimate in Days</p>
+                            <p>Estimate in Days 🏗</p>
                             <input class='metric-a' type='text' id='textInput' onChange={handleEstimateChange} value={estimateInputValue} placeholder={props.estimate} ></input>
                         </div>
 
                         <div class='story-value-scale' >
-                            <p>Value</p>
+                            <p>Value ⚖</p>
                             <select value={null} onChange={null}>
                                 {/* <option value='1'>1</option> */}
                                 <option value='not now'>not now</option>
@@ -417,7 +417,7 @@
                         </div>
                         
                         <div class='shirt-size'>
-                            <p>Size</p>
+                            <p>Size 👕</p>
                             <select value={null} onChange={null}>
                                 <option value='extra small'>extra small</option>
                                 <option>small</option>

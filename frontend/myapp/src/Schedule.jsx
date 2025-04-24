@@ -303,7 +303,7 @@ export default function Schedule(props) {
                     <div class='Container-ScheduleUi-main'>
                         <ScheduleButton class='item-button-main'/>
                         {/* time */}
-                        <p class='item-daytime'>{props.morning} </p>
+                        <sup class='item-daytime'>{props.morning} </sup>
                         {/* Schedule Entry */}
                         <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
                     </div>
@@ -319,7 +319,7 @@ export default function Schedule(props) {
                     <div class='Container-ScheduleUi-main'>
                         <ScheduleButton class='item-button-main'/>
                         {/* time */}
-                        <p class='item-daytime'>{props.morning} </p>
+                        <p class='item-daytime'>{props.morning}</p>
                         {/* Schedule Entry */}
                         <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
                     </div>

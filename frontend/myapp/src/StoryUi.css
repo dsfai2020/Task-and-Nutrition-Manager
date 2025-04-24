@@ -142,7 +142,7 @@
 .storyUi-Container{
     display: flex;
     flex-direction: column;
-    background-color: #59faa1;
+    background-color: #59faa15c;
     border: solid black;
     /* top left right bot right left */
     /* border-radius: 20px 20px 40px 40px; */
@@ -340,4 +340,15 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.item-c{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-f{
+    display: flex;
+    margin: 10px;
+    border-radius: 10px;
 }

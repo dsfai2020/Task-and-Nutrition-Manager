@@ -48,7 +48,7 @@ export default function Countdown (props) {
 
         return (
             <div class='Timer-container'>
-                <p>Time in Progress: </p>
+                <p>Time in Progress ⏳: </p>
                 <p>Hours: {hours}</p>
                 <p>Minutes: {minutes}</p>
                 <p>Seconds: {count}</p>
@@ -76,7 +76,7 @@ export default function Countdown (props) {
         return (
             <div>
                 {/* All you got to do now is make it so that These conditionally render {() ? :} */}
-                <StartButton name='START'/>
+                <StartButton name='START 🏁'/>
             </div>
         )
     };
@@ -95,7 +95,7 @@ export default function Countdown (props) {
 
         return (
             <div>
-                <StopButton name='STOP'/>
+                <StopButton name='STOP 🛑'/>
             </div>
         )
     }
