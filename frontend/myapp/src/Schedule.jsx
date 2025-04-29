@@ -5,162 +5,115 @@ import './fonts.css'
 
 // -----------HIGH SIDE UI (PARENT)
 
-export default function Schedule(props) {
-    
-    function ClearScheduleButton (props) {
-        const [simpleStatus, setSimpleStatus] = useState('false')
-        const handleClearSchedule = () => {
-            if (simpleStatus == 'false') {
-                setSimpleStatus('true');
-                localStorage.setItem('clearTrigger', JSON.stringify(simpleStatus))
-            }
-            else if (simpleStatus == 'true') {
-                setSimpleStatus('false');
-                localStorage.setItem('clearTrigger', JSON.stringify(simpleStatus))
-            }
+export default function Schedule({ScheduleUI}) {
+
+    const scheduleA = [
+        {index: 1, morning: '5am'},
+        {index: 2, morning: '6am'},
+        {index: 3, morning: '7am'},
+        {index: 4, morning: '8am'},
+        {index: 5, morning: '9am'},
+        {index: 6, morning: '10am'},
+        {index: 7, morning: '11am'},
+        {index: 8, morning: '12pm'},
+        {index: 9, morning: '1pm'},
+        {index: 10, morning: '2pm'},
+        {index: 11, morning: '3pm'},
+        {index: 12, morning: '4pm'}
+        
+    ];
+
+    const scheduleB = [
+        {index: 13, morning: '5pm'},
+        {index: 14, morning: '6pm'},
+        {index: 15, morning: '7pm'},
+        {index: 16, morning: '8pm'},
+        {index: 17, morning: '9pm'},
+        {index: 18, morning: '10pm'},
+        {index: 19, morning: '11pm'},
+        {index: 20, morning: '12am'},
+        {index: 21, morning: '1am'},
+        {index: 22, morning: '2am'},
+        {index: 23, morning: '3am'},
+        {index: 24, morning: '4am'},
+    ];
+
+    const [nest1, setNest1] = useState('Main-Component-a')
+    const [nest2, setNest2] = useState('Main-Component-b')
+
+
+    function MapSchedule ({schedules, theme, arrangement}) {
+        // I forgot why i made this.  Maybe it was to refactor so that I can access lifted up states that trigger clears better than the original way I have it where everything is manually assigned.
+
+        // using props here
+        const Tester = (props) => {
+            return (
+                <div>
+                    <p>tester {props.name}</p>
+                </div>
+            )
+
         }
 
+        // wiring in schedules array holding dictionaries here
+        // creating binds for the dictionaries as well, that will be accessed via props.
         return (
-            <div>
-                <button onClick={handleClearSchedule}>CLEAR SCHEDULE</button>
+  
+            <div class={theme}>                
+            {schedules.map((schedules, index) => (
+                // <Tester index={schedules.index} name={schedules.name}/>
+                <ScheduleUI index={schedules.index} morning={schedules.morning} arrangement={arrangement}/>
+            ))}
             </div>
-        )
-            };
-    
-
-    function GenerateSchedule (props) {
-        return (
-            <div>
-            <p>SCHEDULE</p>
-            <ScheduleUI morning='12am' />
-            <ScheduleUI morning='1am' />
-            <ScheduleUI morning='2am' />
-            <ScheduleUI morning='3am' />
-            <ScheduleUI morning='4am' />
-            <ScheduleUI morning='5am' />
-            <ScheduleUI morning='6am' />
-            <ScheduleUI morning='7am' />
-            <ScheduleUI morning='8am' />
-            <ScheduleUI morning='9am' />
-            <ScheduleUI morning='10am' />
-            <ScheduleUI morning='11am' />
-            <ScheduleUI morning='12pm' />
-            <ScheduleUI morning='1pm' />
-            <ScheduleUI morning='2pm' />
-            <ScheduleUI morning='3pm' />
-            <ScheduleUI morning='4pm' />
-            <ScheduleUI morning='5pm' />
-            <ScheduleUI morning='6pm' />
-            <ScheduleUI morning='7pm' />
-            <ScheduleUI morning='8pm' />
-            <ScheduleUI morning='9pm' />
-            <ScheduleUI morning='10pm' />
-            <ScheduleUI morning='11pm' />
-        </div>
+        
         )
     };
 
 
-    // YOU LEFT OFF HERE 10/25/24 you need to make a double trigger from true to false to refresh it.
-    // Toggle that creates the conditional for what schedules return
-    const handleEzClear = () => {
-        if (x!='true')
+// -------------------------------HERE----------------------------- 4/28/25
+    const [clearStatus, setClearStatus] = useState('lift up test passed');
+
+
+        // YOU LEFT OFF HERE 10/25/24 you need to make a double trigger from true to false to refresh it.
+        // Toggle that creates the conditional for what schedules return
+        const HandleEzClear = () => {
+        if (x!=='true')
             {setX('true'); 
-            localStorage.setItem('clearTrigger', JSON.stringify('true'))
-            }
-        else if (x=='true') 
+            localStorage.setItem('clearTrigger', JSON.stringify('true'));
+            console.log(clearStatus);
+        }
+            
+        else if (x==='true') 
             {setX('false');  
             localStorage.setItem('clearTrigger', JSON.stringify('false'))
             }
-    }
-    // const a = localStorage.getItem('clearTrigger')
-    const [x, setX] = useState('false')
+        }
+        // const a = localStorage.getItem('clearTrigger')
+        const [x, setX] = useState('false')
 
-    // upon init this is going to setup a local storage item for clearTrigger and I'll make it set to default as false.
-    useEffect(()=> {
-        localStorage.setItem('clearTrigger', JSON.stringify('false'))
-    }, [])
+        // upon init this is going to setup a local storage item for clearTrigger and I'll make it set to default as false.
+        useEffect(()=> {
+            localStorage.setItem('clearTrigger', JSON.stringify('false'))
+        }, [])
 
-    const today = new Date();
-    const dayOfWeek = today.toLocaleDateString('en-us', {weekday: 'long'});
+        const today = new Date();
+        const dayOfWeek = today.toLocaleDateString('en-us', {weekday: 'long'});
 
-    // we have two different schedules behing conditional shown based on the button state.  The arguments adjust accordingly.  clear changes from 'true' to 'false' so that the ScheduleUI can react to it with useEffects at the child component level - by making changes to the storage based on the props passed to it (in this case the clear arg).
+    // we have two different schedules being conditionally shown based on the button state.  The arguments adjust accordingly.  clear changes from 'true' to 'false' so that the ScheduleUI can react to it with useEffects at the child component level - by making changes to the storage based on the props passed to it (in this case the clear arg).
     return (
         <div>
             <div class='schedule-title-container'>
                 <h1 class='schedule-title'>{dayOfWeek}</h1>
                 <h5 class='schedule-quote'>You vs. You</h5>
-            </div>
-{/* 
-            <div>
-                <button>New Clear Button</button>
-            </div> */}
+                <button class='resetButton' onClick={HandleEzClear}>Clear The Schedule</button>
 
-            {(x=='true')
-            // ? <button onClick = {handleEzClear} >Green</button>
-            ? <div class='Full-ScheduleUi-Container'>
-                <div class='grid-item-a'>
-                    <ScheduleUI morning='5am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='6am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='7am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='8am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='9am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='10am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='11am' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='12pm' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='1pm' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='2pm' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='3pm' clear='true' theme='group-a'/>
-                    <ScheduleUI morning='4pm' clear='true' theme='group-a'/>
-                </div>
-                <div class='grid-item-b'>
-                    <ScheduleUI morning='5pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='6pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='7pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='8pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='9pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='10pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='11pm' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='12am' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='1am' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='2am' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='3am' clear='true' theme='group-b'/>
-                    <ScheduleUI morning='4am' clear='true' theme='group-b'/>
-                </div>
             </div>
-            : <div class='Full-ScheduleUi-Container'>
-                <div>
-                    <ScheduleUI morning='5am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='6am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='7am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='8am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='9am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='10am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='11am' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='12pm' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='1pm' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='2pm' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='3pm' clear='false' theme='group-a'/>
-                    <ScheduleUI morning='4pm' clear='false' theme='group-a'/>
-                </div>
-                <div>
-                    <ScheduleUI morning='5pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='6pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='7pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='8pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='9pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='10pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='11pm' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='12am' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='1am' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='2am' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='3am' clear='false' theme='group-b'/>
-                    <ScheduleUI morning='4am' clear='false' theme='group-b'/>
-                </div>
+
+            <div class='Full-ScheduleUi-Container'>
+                <MapSchedule schedules={scheduleA} theme='grid-item-a' arrangement={nest1}/>
+                <MapSchedule schedules={scheduleB} theme='grid-item-b' arrangement={nest2}/>
             </div>
-            }
-            {/* <ClearScheduleButton /> */}
-            <button onClick={handleEzClear}>Clear The Schedule</button>
+
         </div>
     );
 
@@ -196,30 +149,28 @@ export default function Schedule(props) {
             const newValue=e.target.value;
 
             setScheduleEntry(newValue)
-            // So if you want to save the contents of setScheduleEntry.  Dont use scheduleEntry.
+            // So if you want to save the contents of setScheduleEntry.  Don't use scheduleEntry.
             // Directly access newValue instead, because it is currently Up TO Date.
 
-            if (newValue!='' || newValue!=null) {setEntryStatus(true)}
+            if (newValue!=='' || newValue!=null) {setEntryStatus(true)}
             else {setEntryStatus(false)}
 
             localStorage.setItem(dataForUi, JSON.stringify(newValue))
-        };
+            };
 
         // YOU LEFT OFF HERE! 10/26/24 - it needs to clear the backend.  Thats all.  
         useEffect(()=> {
-            if (props.clear!='false') 
+            if (props.clear!=='false') 
                 // the front UI is already addressed.  Use the effect to clear the DB.+
                 {const a = localStorage.getItem(dataForUi)
                 localStorage.setItem(dataForUi, JSON.stringify(''))
                 }
       
-        }, [props.clear])
+            }, [props.clear])
 
         // if the local storage changes then I want every ui to react to it and trigger the entry above to return a null entry and save it.
         // i NEED it to hook onto the local storage and make a binding to state with it.  so that when it changes i can run an effect but i just cant seem to do it.
-        // all i know is that you need to parse before you just start passing in data from local.
-
-
+        // You need to parse before you just start passing in data from local.
 
         // load button status at startup
         useEffect(()=>{
@@ -227,7 +178,7 @@ export default function Schedule(props) {
             {const a = localStorage.getItem(dataForScheduleButton);
             const b = JSON.parse(a);
             setButtonStatus(b)}
-        }, [])
+            }, [])
 
 
         const saveButtonData = (trueOrFalse) => {
@@ -236,106 +187,84 @@ export default function Schedule(props) {
         };
 
         const handleButtonPress = () => {
-            if (buttonStatus=='false') {setButtonStatus('yellow'); saveButtonData('yellow');}
-            else if (buttonStatus=='yellow') {setButtonStatus('true'); saveButtonData('true')}
-            else if (buttonStatus=='true') {setButtonStatus('false'); saveButtonData('false')}
+            if (buttonStatus==='false') {
+                setButtonStatus('yellow'); 
+                saveButtonData('yellow');}
+            else if (buttonStatus==='yellow') 
+                {setButtonStatus('true'); 
+                saveButtonData('true')}
+            else if (buttonStatus==='true') 
+                {setButtonStatus('false'); 
+                saveButtonData('false')}
         };
 
         const ScheduleButton = () => {
-            if (buttonStatus=='true') {return (
+            if (buttonStatus==='true') {return (
                 <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
                 )
             }
-            else if (buttonStatus=='false') {
+            else if (buttonStatus==='false') {
                 return (
                     <button class='scheduleButtonOff' onClick={handleButtonPress}></button>
                 )
             }
-            else if (buttonStatus=='yellow') {
+            else if (buttonStatus==='yellow') {
                 return (
                     <button class='scheduleButtonYellow' onClick={handleButtonPress}></button>
                 )
             }
         };
+        
+       
 
 // --------------COMPONENT---------------------
 
-
-    // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
-    function ActualBoxComponent () {
-        
-        const [actualBoxInput, setActualBoxInput] =  useState([]);
-
-        // See lines about schedule entry (around 176) for more about this.  It is important to mirror the e.target.value onto a newValue and then have the state set to that.  That way, when you assign the actual state to the value of the textarea it has something to load into that isn't already tied up doing two things at once (save and load).  
-        const handleActualBoxChange = (e) => {
-            const newValue = e.target.value
-            setActualBoxInput(newValue)
-            localStorage.setItem('schedule_'+props.morning+'_actual', JSON.stringify(newValue))
-        };
-
-        // Load the ActualBox data at init
-        useEffect(()=>{
-            // props.morning is a prop used for the schedule name and so I use that very same key but add in the _actual.  This was intentionally done to simplify key access by making everything have a single isolated key (for now).
-            const a = localStorage.getItem('schedule_'+props.morning+'_actual');
-            const b = JSON.parse(a);
+        // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
+        function ActualBoxComponent ({ clearStatus, setClearStatus }) {
             
-            setActualBoxInput(b);
-        }, []);
 
-        // by Default Value of the textareaa is assigned to its native input.
-        return (
-            <textarea placeholder='Actual' onChange={handleActualBoxChange} value={actualBoxInput}></textarea>
-        );
+            const [actualBoxInput, setActualBoxInput] =  useState([]);
 
-        // if (entryStatus==true) {
-        //     return ActualBox
-        //     }
+            // See lines about schedule entry (around 176) for more about this.  It is important to mirror the e.target.value onto a newValue and then have the state set to that.  That way, when you assign the actual state to the value of the textarea it has something to load into that isn't already tied up doing two things at once (save and load).  
+            const handleActualBoxChange = (e) => {
+                const newValue = e.target.value
+                setActualBoxInput(newValue)
+                localStorage.setItem('schedule_'+props.morning+'_actual', JSON.stringify(newValue))
+            };
 
-        };
+            // Load the ActualBox data at init
+            useEffect(()=>{
+                // props.morning is a prop used for the schedule name and so I use that very same key but add in the _actual.  This was intentionally done to simplify key access by making everything have a single isolated key (for now).
+                const a = localStorage.getItem('schedule_'+props.morning+'_actual');
+                const b = JSON.parse(a);
+                
+                setActualBoxInput(b);
+                }, []);
+
+            // by Default Value of the textareaa is assigned to its native input.
+            return (
+                <textarea placeholder='Actual' onChange={handleActualBoxChange} value={actualBoxInput}></textarea>
+                );
+            };
 
 // --------------MAIN COMPONENT RENDER-------------------
 
         return (
-            <div>
-                {(props.theme=='group-a')
-                ?             
-                <div class='Main-Component-a'> 
+            <div>      
+                <div class={props.arrangement}> 
                     <div class='Container-ScheduleUi-main'>
                         <ScheduleButton class='item-button-main'/>
-                        {/* time */}
                         <sup class='item-daytime'>{props.morning} </sup>
-                        {/* Schedule Entry */}
                         <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
                     </div>
 
                     <div class='Container-Actual'>
-                        {/* <textarea placeholder='Actual'></textarea> */}
-                        <ActualBoxComponent />
+                        <ActualBoxComponent clearStatus={clearStatus} setClearStatus={setClearStatus}/>
                     </div>
                 </div>
-
-                :
-                <div class='Main-Component-b'> 
-                    <div class='Container-ScheduleUi-main'>
-                        <ScheduleButton class='item-button-main'/>
-                        {/* time */}
-                        <p class='item-daytime'>{props.morning}</p>
-                        {/* Schedule Entry */}
-                        <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
-                    </div>
-
-                    <div class='Container-Actual'>
-                        {/* <textarea placeholder='Actual'></textarea> */}
-                        <ActualBoxComponent />
-                    </div>
-                </div>
-            }
             </div>
-            // </div>
         )
-    };
-
-    // WIRE IN SOME FUNCTIONALITY FOR THE BUTTON AND SEE IF YOU CAN ACCESS THE DATA WHILE RETAINING THE KEYS.  THEN DUMP ALL THE VALUES AND SAVE THAT TO THE DATABASE AGAIN.  MAYBE HAVE A REVERT BUTTON.  BUT NOT YET.  AFTER YOU MAKE CHICKEN COME BACK AND FINISH THIS.        
+    };       
 }
 
 
