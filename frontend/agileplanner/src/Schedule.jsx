@@ -38,14 +38,14 @@ export default function Schedule({ScheduleUI}) {
         {index: 24, morning: '4am'},
     ];
 
+    // See line 119 for usage.
     const [nest1, setNest1] = useState('Main-Component-a')
     const [nest2, setNest2] = useState('Main-Component-b')
 
-
+    // Lifted up args.
     function MapSchedule ({schedules, theme, arrangement}) {
-        // I forgot why i made this.  Maybe it was to refactor so that I can access lifted up states that trigger clears better than the original way I have it where everything is manually assigned.
 
-        // using props here
+  
         const Tester = (props) => {
             return (
                 <div>
@@ -74,9 +74,9 @@ export default function Schedule({ScheduleUI}) {
     const [clearStatus, setClearStatus] = useState('lift up test passed');
 
 
-        // YOU LEFT OFF HERE 10/25/24 you need to make a double trigger from true to false to refresh it.
-        // Toggle that creates the conditional for what schedules return
-        const HandleEzClear = () => {
+    // YOU LEFT OFF HERE 10/25/24 you need to make a double trigger from true to false to refresh it.
+    // Toggle that creates the conditional for what schedules return
+    const HandleEzClear = () => {
         if (x!=='true')
             {setX('true'); 
             localStorage.setItem('clearTrigger', JSON.stringify('true'));
@@ -88,16 +88,16 @@ export default function Schedule({ScheduleUI}) {
             localStorage.setItem('clearTrigger', JSON.stringify('false'))
             }
         }
-        // const a = localStorage.getItem('clearTrigger')
-        const [x, setX] = useState('false')
+    // const a = localStorage.getItem('clearTrigger')
+    const [x, setX] = useState('false')
 
-        // upon init this is going to setup a local storage item for clearTrigger and I'll make it set to default as false.
-        useEffect(()=> {
-            localStorage.setItem('clearTrigger', JSON.stringify('false'))
-        }, [])
+    // upon init this is going to setup a local storage item for clearTrigger and I'll make it set to default as false.
+    useEffect(()=> {
+        localStorage.setItem('clearTrigger', JSON.stringify('false'))
+    }, [])
 
-        const today = new Date();
-        const dayOfWeek = today.toLocaleDateString('en-us', {weekday: 'long'});
+    const today = new Date();
+    const dayOfWeek = today.toLocaleDateString('en-us', {weekday: 'long'});
 
     // we have two different schedules being conditionally shown based on the button state.  The arguments adjust accordingly.  clear changes from 'true' to 'false' so that the ScheduleUI can react to it with useEffects at the child component level - by making changes to the storage based on the props passed to it (in this case the clear arg).
     return (
@@ -182,32 +182,42 @@ export default function Schedule({ScheduleUI}) {
 
 
         const saveButtonData = (trueOrFalse) => {
-            const newValue=trueOrFalse
+            const newValue=trueOrFalse;
             localStorage.setItem(dataForScheduleButton, JSON.stringify(newValue))
         };
 
         const handleButtonPress = () => {
+
             if (buttonStatus==='false') {
                 setButtonStatus('yellow'); 
-                saveButtonData('yellow');}
+                saveButtonData('yellow');
+            }
+
             else if (buttonStatus==='yellow') 
                 {setButtonStatus('true'); 
-                saveButtonData('true')}
+                saveButtonData('true');
+            }
+
             else if (buttonStatus==='true') 
                 {setButtonStatus('false'); 
-                saveButtonData('false')}
+                saveButtonData('false');
+            }
         };
 
-        const ScheduleButton = () => {
-            if (buttonStatus==='true') {return (
-                <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
+        function ScheduleButton () {
+
+            if (buttonStatus==='true') {
+                return (
+                    <button class='scheduleButtonOn' onClick={handleButtonPress}></button>
                 )
             }
+
             else if (buttonStatus==='false') {
                 return (
                     <button class='scheduleButtonOff' onClick={handleButtonPress}></button>
                 )
             }
+
             else if (buttonStatus==='yellow') {
                 return (
                     <button class='scheduleButtonYellow' onClick={handleButtonPress}></button>
@@ -220,6 +230,7 @@ export default function Schedule({ScheduleUI}) {
 // --------------COMPONENT---------------------
 
         // In the handleEntryChange function there is a conditional that changes the state of entryStatus to a boolean operator.
+        // LIFT up clearStatus and setClearStatus
         function ActualBoxComponent ({ clearStatus, setClearStatus }) {
             
 
@@ -243,13 +254,14 @@ export default function Schedule({ScheduleUI}) {
 
             // by Default Value of the textareaa is assigned to its native input.
             return (
-                <textarea placeholder='Actual' onChange={handleActualBoxChange} value={actualBoxInput}></textarea>
+                    <textarea placeholder='Actual' onChange={handleActualBoxChange} value={actualBoxInput}></textarea>
                 );
             };
 
 // --------------MAIN COMPONENT RENDER-------------------
 
         return (
+
             <div>      
                 <div class={props.arrangement}> 
                     <div class='Container-ScheduleUi-main'>
