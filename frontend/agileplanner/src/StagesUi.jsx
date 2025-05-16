@@ -2,80 +2,148 @@ import {useState, setState, useEffect} from 'react';
 import './StagesUi.css'
 
 
-// Parent
-export default function StageUi ({ sharedData, setSharedData }) {
+export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
 
-    const [activePhase, setActivePhase] = useState('none')
-
-    function HandleClick (e) {
-        console.log(e.target.value)
-        const x = e.target.value
-        setActivePhase(x)
-
-        //SharedData is from the Wrapper
-        setSharedData(x)
-        // console.log(x)
-    };
+    const [activePhase, setActivePhase] = useState([{
+        name: 'phase 1',
+        icon: '🌰',
+        status: 'inactive',
+        description: '',
+    }])
 
     function CircleComponent (props) {
+
+        const HandleIconClick = (e) => {
+            console.log(e.target.value)
+            const selectedPhase = e.target.value
+
+            setActivePhase(props.data)
+
+            console.log(selectedPhase + ' is the active phase')
+            console.log(props.data[0]['name'] + props.icon)
+
+            // Original component data - at render
+            setSharedData(props.data[0]['icon'])
+
+        };
+
         return (
         <div>
             {/* Triggering off of the value */}
-            <button onClick={HandleClick} value={props.name} class='circles'>{props.name}</button>
+            <button onClick={HandleIconClick} data={props.data} value={props.name} class='circles'>{props.icon}</button>
         </div>
         )
     };
 
-    // This is rendered at the bottom of the StageUi
-    function StageDetails (props) {
-        return (
-            <div>
-                {
-                (activePhase==='Phase 1') 
-                    ? <p>{props.phase}</p>
-                    : null}
-                {(activePhase==='Phase 2')
-                    ? <p>{props.phase}</p>
-                    : null}
-                {(activePhase==='Phase 3')
-                    ? <p>{props.phase}</p>
-                    : null}    
-            </div>
-        )
-    };
 
-    return (
+//  Phase data structures
+    const [phaseOne, setPhaseOne] = useState([{
+        name: 'phase 1',
+        icon: '🌰',
+        status: 'inactive',
+        description: '',
+    }])
 
-        <div class='StageUi-Container'>
- 
-                <div>
-                    <CircleComponent name='🌰'/>
+    const [phaseTwo, setPhaseTwo] = useState([{
+        name: 'phase 2',
+        icon: '🌱',
+        status: 'inactive',
+        description: '',
 
-                </div>
+    }])
 
-                <div>
-                    <CircleComponent name='🌱'/>
-                </div>
+    const [phaseThree, setPhaseThree] = useState([{
+        name: 'phase 3',
+        icon: '🌳',
+        status: 'inactive',
+        description: '',
+    }])
 
-                <div>
-                    <CircleComponent name='🌳'/>
-                </div>
- 
-        </div>
-    )
-}
+    
+    // sets the value of the textarea to whatever the active phase description is.
+    useEffect(()=> {
+        const a = localStorage.getItem(activePhase[0]['name'])
+        const b = JSON.parse(a)
+
+        // Even though the initial active phase has no description, it'll still use that key to pull it out not from state - but from the local storage.
+        if (b!==null) {
+        setTextDisplay(b['description'])
+        }
+
+        if (b===null) {
+            setTextDisplay('')
+        }
+
+    }, [activePhase])
 
 
-function callTest (x) {
-    return (
-        <div>
-            <p>{x}</p>
-        </div>
-    )
-};
+    // 10:08 AM 5/15/25 you left off here! READY TO SAVE THIS DATA TO LOCAL
+    function handleTextAreaChange (e) {
 
-//Parent
-export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
+        const x = e.target.value; 
+
+        setTextDisplay(x)
+    }
+
+    function handleKeyPress (e) {
+        const x = e.target.value; 
+
+        if (e.key === 'Enter') {
+
+            if (activePhase[0]['name'] === 'phase 1') {
+
+                const stageItem = {
+                    name: 'phase 1',
+                    icon: '🌰',
+                    status: 'inactive',
+                    description: x,
+                }
+    
+                setPhaseOne([
+                    stageItem
+                ]);
+    
+                console.log(x)
+                localStorage.setItem(activePhase[0]['name'], JSON.stringify(stageItem))
+            };
+
+            if (activePhase[0]['name'] === 'phase 2') {
+
+                const stageItem2 = {            
+                    name: 'phase 2',
+                    icon: '🌱',
+                    status: 'inactive',
+                    description: x,}
+    
+                setPhaseTwo([
+                    stageItem2
+                ]);
+                console.log(x)
+                localStorage.setItem(activePhase[0]['name'], JSON.stringify(stageItem2))
+            };
+
+            if (activePhase[0]['name'] === 'phase 3') {
+                const stageItem3 = {
+                    name: 'phase 3',
+                    icon: '🌳',
+                    status: 'inactive',
+                    description: x,
+                }
+                setPhaseThree([
+                    stageItem3
+                ]);
+                console.log(x)
+                localStorage.setItem(activePhase[0]['name'], JSON.stringify(stageItem3))
+            };
+        
+
+
+        }
+            console.log('mechanic coming soon...')
+            
+    }
+
+    const [textDisplay, setTextDisplay] =  useState()
 
     return (
         <div class='phase-container'>
@@ -84,11 +152,11 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
             <div class='item-c'>
                 {/* Global var */}
                 <p class='Test'>Hours committed: {hrCommit}</p>
-                <textarea class='item-f'/>
+                <textarea onChange={handleTextAreaChange} onKeyDown={handleKeyPress} placeholder={'Press enter to save your phase description.'} value={textDisplay} class='item-f' />
             </div>
 
             <div class='item-a'>
-                <h3>Phase {sharedData} Details</h3>
+                <h3>Phase {activePhase[0]['icon']} Details</h3>
             </div>
 
             <div class='item-b'>
@@ -106,7 +174,19 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
             </div>
 
             <div class='item-e' >
-                <StageUi sharedData={sharedData} setSharedData={setSharedData}/>
+               <div class='StageUi-Container'>
+                    <div>
+                        <CircleComponent data={phaseOne} name='phase 1' icon='🌰'/>
+                    </div>
+
+                    <div>
+                        <CircleComponent data={phaseTwo} name='phase 2' icon='🌱'/>
+                    </div>
+
+                    <div>
+                        <CircleComponent data={phaseThree} name='phase 3' icon='🌳'/>
+                    </div>
+                </div>
             </div>
 
         </div>
