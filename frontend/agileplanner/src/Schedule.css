@@ -14,6 +14,7 @@
     }
 }
 
+
 @media(min-width: 1400px) {
 .grid-item-a{
     display: flex;
@@ -103,20 +104,21 @@
     border: solid grey; 
 }}
 
+/* You can edit the 'tab' for mobile using the height. */
 @media (max-width: 428px) {
     .Container-ScheduleUi-main{
-        border: solid black;
         margin-bottom: 5px;
         display: grid;
         justify-content: center;
         /* width: 100%; */
         /* Changed from 10/15/75 */
-        grid-template-columns: 12.5% 15% 72.5%;
-        padding: 15px;
-        background-color: rgba(242, 203, 180, 0.674);
+        height: 6vh;
+        grid-template-columns: 20% 30% 60%;
+        padding: 10px;
+        /* background-color: rgba(242, 203, 180, 0.674); */
         margin: 10px;
         border-radius: 20px 20px 20px 20px;
-        border: solid grey; 
+        /* border: solid grey;  */
     }}
 
 /* consider making this change dynamically to a dif background color */
@@ -154,13 +156,6 @@
 @media (max-width: 428px) {
 .Container-Actual{
     display: flex;
-    /* width: 100%; */
-    /* background-color: hsla(61, 92%, 67%, 0.227); */
-    /* padding: 10px; */
-    /* background-color: rgba(249, 180, 140, 0.674); */
-    /* margin: 10px; */
-    /* border-radius: 20px 20px 20px 20px; */
-    /* border: solid grey;  */
     }
 }
 
@@ -191,10 +186,12 @@ textarea{
 textarea{
     background-color: hsl(215, 64%, 84%);
     padding: 10px;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-left: 25px;
     border-radius: 20px 20px 20px 20px;
     border: solid grey; 
     font-family: PlaywriteITModerna-VariableFont_wght;
+    width: 90%;
     }
 }
 
