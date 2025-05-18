@@ -1,44 +1,15 @@
 /* This is a container OF containers */
 
-@media (min-width: 1400px) {
+/* Laptop */
+@media (min-width: 1000px) {
 .phase-container{
     display: flex;
     justify-content: center;
-    flex-direction: row;
-
-    /* transform: scale(.80); */
-    }
-}
-
-@media (max-width: 1000px) {
-.phase-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    transform: scale(.80)
-} 
-}
-
-@media (min-width: 1400px) {
-.StageUi-Container{
-    display: flex;
-    /* grid-template-columns: 10% 10% 10%; */
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly
     }
 }
 
-@media (max-width: 1000px) {
-    .StageUi-Container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        }
-    }
     
-
 @media (min-width: 1400px) {
 .circles{
     color: white;
@@ -59,7 +30,7 @@
     font-size: 15px;
     border: solid;
     border-color: grey;
-    padding: 3vh 1vw;
+    padding: 2vh 2vw;
     }
 }
 
@@ -70,9 +41,6 @@
     border: solid;
     padding: 10px;
     margin: 10px;
-    /* width: 10vw; */
-    /* margin-left: 30vw;
-    margin-right: 30vw; */
     border-radius: 10px;
     border-color: grey;
     background-color: rgba(249, 180, 140, 0.674);
@@ -93,6 +61,7 @@
         border-radius: 10px;
         border-color: grey;
         background-color: rgba(249, 180, 140, 0.674);
+        grid-template-columns: 80% 20%;
         grid-template-areas: 
             "a a " 
             "c e "
@@ -138,6 +107,7 @@
     grid-area: e;
     background-color: rgb(61, 185, 234);
     border-radius: 10px;
+    justify-content: center;
 }
 
 .item-f{
@@ -145,3 +115,23 @@
     grid-area: text-box;
     height: 200px;
 }
+
+/*  The StageUi-Container is tucked under the item-u container and is what actually houses the icons */
+@media (min-width: 1400px) {
+    .StageUi-Container{
+        display: flex;
+        /* grid-template-columns: 10% 10% 10%; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        }
+    }
+    
+@media (max-width: 1000px) {
+    .StageUi-Container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        }
+    }

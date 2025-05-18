@@ -29,7 +29,6 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
 
         return (
         <div>
-            {/* Triggering off of the value */}
             <button onClick={HandleIconClick} data={props.data} value={props.name} class='circles'>{props.icon}</button>
         </div>
         )
@@ -160,7 +159,6 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
             </div>
 
             <div class='item-b'>
-                {/* <p class='Test'>HOURS COMMITTED -- {hrCommit}</p> */}
                 <p class='Test'>Timer Trigger Points</p>
                 <ul>
                     <li>🌰</li>
