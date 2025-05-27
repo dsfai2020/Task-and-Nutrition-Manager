@@ -1,3 +1,91 @@
+/* The Section title for stories and ideas */
+@media (max-width: 428px){
+    .story-container-title{
+        display: flex;
+        justify-content: center;
+        font-family: RubikDirt-Regular;
+        background-color: #031a0d82;
+        color:black;
+        border-radius: 10px;
+        margin-top: 75px;
+        }
+    }
+
+    
+@media (min-width: 1400px) {
+    .story-container-title{
+        display: flex;
+        justify-content: center;
+        font-family: RubikDirt-Regular;
+        background-color: #f0e00582;
+        color:black;
+        margin-left: 22vw;
+        margin-right: 22vw;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        }
+    }
+
+/* NEXT SECTION ------------------------ */
+
+@media (min-width: 1400px){
+    .storyUi-Container{
+        display: flex;
+        flex-direction: column;
+        background-color: #59faa15c;
+        border: solid black;
+        border-radius: 20px;
+        margin-bottom: 3px;
+        margin-left: 30vw;
+        margin-right: 30vw;
+        }
+    }
+
+@media (max-width: 428px){
+    .storyUi-Container{
+        justify-content: center;
+        align-items: center;
+        background-color: #59faa1;
+        border: solid black;
+        border-radius: 20px;
+        margin: 10px;
+        display: grid;
+        /* fr refers to free space */
+        grid-template-columns: 100vw; 
+        /* grid-template-rows: 8vh 15vh 2vh 15vh; */
+        grid-template-areas: 
+        /* "button-container button-container" */
+        "button-container"
+        "s-title"
+        "s-description"
+        "labels";
+        }
+    }
+
+    
+@media (max-width: 428px){
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        grid-area: button-container;
+        padding: 2px;
+        /* align-items: center; */
+        }
+    }
+
+@media (min-width: 1400px){
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        grid-area: button-container;   
+    }
+}
+
+
 
 @media (min-width: 1400px) {
     .anchor-image{
@@ -52,63 +140,72 @@
         grid-area: delete-story;
         }
     }
-    
 
-@media (max-width: 428px){
-    .button-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        grid-area: button-container;
-        padding: 2px;
-        /* align-items: center; */
-        }
-    }
 
-@media (min-width: 1400px){
-    .button-container {
+@media (max-width: 428px) {
+    .title-description-container{
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        grid-area: button-container;   
+        flex-direction: column;
+        padding-right: 10px;
+        padding-top: 2px;
     }
 }
 
 
-
-@media (min-width: 1400px) {
-    .story-container-title{
+/* story title container */
+@media (min-width: 1400px){
+    .text-a{
         display: flex;
-        justify-content: center;
-        font-family: RubikDirt-Regular;
-        background-color: #f0e00582;
-        color:black;
-        margin-left: 22vw;
-        margin-right: 22vw;
-        align-items: center;
-        flex-direction: column;
+        grid-area: s-title;
+        height: 5vh;
         border-radius: 10px;
+        border-top-left-radius: 18px; 
         }
     }
 
-/* The Section title for stories and ideas */
+/* title */
 @media (max-width: 428px){
-    .story-container-title{
+    .text-a{
         display: flex;
-        justify-content: center;
-        font-family: RubikDirt-Regular;
-        background-color: #031a0d82;
-        color:black;
+        grid-area: s-title;
+        height: 5vh;
         border-radius: 10px;
-        margin-top: 75px;
+        border-top-left-radius: 18px; 
+        border-top-right-radius: 18px;
+        margin-bottom: 2px;
         }
     }
+
+/* story description container */
+@media (min-width: 1400px){
+    .text-b{
+        display: flex;
+        grid-area: b;
+        height: 24vh;
+        border-radius: 10px;
+        }
+    }
+
+@media (max-width: 428px){
+    .text-b{
+        display: flex;
+        grid-area: s-description;
+        border-radius: 10px;
+        height: 15vh;
+        }
+    }
+
+/*  LABEL CONTAINER ---------------------------------- */
+
 
 .add-story-button-container{
     display: flex;
     justify-content: center;
 }
+
+
+
 
 @media (min-width: 1400px){
     .Container{
@@ -142,103 +239,8 @@
     }
 }
 
-@media (min-width: 1400px){
-    .storyUi-Container{
-        display: flex;
-        flex-direction: column;
-        background-color: #59faa15c;
-        border: solid black;
-        /* top left right bot right left */
-        /* border-radius: 20px 20px 40px 40px; */
-        border-radius: 20px;
-        /* display: grid; */
-        /* fr refers to free space */
-        /* grid-template-columns: 10fr 20fr; 
-        grid-template-rows: 10fr 10fr 10fr;
-        grid-template-areas: 
-        "s-title labels"
-        "b labels"
-        "button-container . "; */
-        /* width: 100%; */
-        margin-bottom: 3px;
-        /* display: flex; */
-        margin-left: 30vw;
-        margin-right: 30vw;
-        }
-    }
 
-@media (max-width: 428px){
-    .storyUi-Container{
-        justify-content: center;
-        align-items: center;
-        background-color: #59faa1;
-        border: solid black;
-        border-radius: 20px;
-        margin: 10px;
-        display: grid;
-        /* fr refers to free space */
-        grid-template-columns: 100vw; 
-        grid-template-rows: 10vh 15vh 2vh 15vh;
-        grid-template-areas: 
-        /* "button-container button-container" */
-        "button-container"
-        "s-title"
-        "s-description"
-        "labels";
 
-    }
-    }
-
-/* story title container */
-@media (min-width: 1400px){
-    .text-a{
-        display: flex;
-        grid-area: s-title;
-        height: 5vh;
-        border-radius: 10px;
-        border-top-left-radius: 18px; 
-        }
-    }
-
-/* title */
-@media (max-width: 428px){
-    .text-a{
-        display: flex;
-        grid-area: s-title;
-        height: 5vh;
-        border-radius: 10px;
-        border-top-left-radius: 18px; 
-        border-top-right-radius: 18px;
-        margin: 5px 0 10px 0;
-        }
-    }
-
-@media (max-width: 428px) {
-    .title-description-container{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-}
-
-/* story description container */
-@media (min-width: 1400px){
-    .text-b{
-        display: flex;
-        grid-area: b;
-        height: 24vh;
-        border-radius: 10px;
-        }
-    }
-
-@media (max-width: 428px){
-    .text-b{
-        display: flex;
-        grid-area: s-description;
-        border-radius: 10px;
-        height: 15vh;
-        }
-    }
 
 /*This is where the Circles are */
 @media (min-width: 1400px){
@@ -376,3 +378,4 @@
     margin: 10px;
     border-radius: 10px;
 }
+

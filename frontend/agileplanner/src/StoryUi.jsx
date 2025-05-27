@@ -394,13 +394,11 @@
                     </div>
                     
                     <div class='title-description-container'>
-                        <div class='text-a'>
-                            <textarea type='text' placeholder='Title'>{props.name}</textarea>
-                        </div>
-
-                        <div class='text-b'>
-                            <textarea type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
-                        </div>
+                        
+                        <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
+        
+                        <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
+                        
                     </div>
                     {/* {props.description} + ' Index is: ' + props.index */}
 
