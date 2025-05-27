@@ -387,15 +387,21 @@
                 /* This was a way to make components have custom css conditionally.  
                 It currently points to 'storyUi-Container'*/
                 <div class={props.StoryUiCss}>
+
                     <div class='button-container'>
                         <button class='anchor-image'><img src={anchor}/></button>
                         <button class='story-delete-button' onClick={handleDeleteButton}>Delete</button>
                     </div>
+                    
+                    <div class='title-description-container'>
+                        <div class='text-a'>
+                            <textarea type='text' placeholder='Title'>{props.name}</textarea>
+                        </div>
 
-                    <textarea class='text-a' type='text' placeholder='Title'>{props.name}</textarea>
-                    
-                    <textarea class='text-b' type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
-                    
+                        <div class='text-b'>
+                            <textarea type='text' placeholder="Please Enter a Description" value={inputValue} onChange={handleDescriptionChange}>{props.description}</textarea>
+                        </div>
+                    </div>
                     {/* {props.description} + ' Index is: ' + props.index */}
 
                     

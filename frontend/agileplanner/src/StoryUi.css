@@ -13,52 +13,32 @@
     }
 
 @media (max-width: 428px) {
-.anchor-image{
-    display: flex;
-    background-color: black;
-    width: 15vw;
-    height: 6vh;
-    justify-content: center;
-    align-items: center;
-    padding: 2px;
-    border-radius: 20px;
-    grid-area: anchor;
-    }
-}
-
-@media (max-width: 428px){
-.button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    grid-area: button-container
-    /* align-items: center; */
-    }
-}
-
-@media (min-width: 1400px){
-    .button-container {
+    .anchor-image{
         display: flex;
-        flex-direction: row;
+        background-color: black;
+        width: 15vw;
+        height: 3vh;
         justify-content: center;
         align-items: center;
-        grid-area: button-container;   
+        padding: 2px;
+        border-radius: 20px;
+        grid-area: anchor;
+        }
     }
-}
 
 @media (max-width: 428px) {
-.story-delete-button{
-    display: flex;
-    border-radius: 20px;
-    background-color: black;
-    color: #59faa1;
-    width: 20vw;
-    height: 6vh;
-    justify-content: center;
-    align-items: center;
-    grid-area: delete-story;
+    .story-delete-button{
+        display: flex;
+        border-radius: 20px;
+        background-color: black;
+        color: #59faa1;
+        width: 20vw;
+        height: 3vh;
+        justify-content: center;
+        align-items: center;
+        grid-area: delete-story;
+        }
     }
-}
 
 @media (min-width: 1400px) {
     .story-delete-button{
@@ -74,32 +54,56 @@
     }
     
 
-@media (min-width: 1400px) {
-.story-container-title{
-    display: flex;
-    justify-content: center;
-    font-family: RubikDirt-Regular;
-    background-color: #f0e00582;
-    color:black;
-    margin-left: 22vw;
-    margin-right: 22vw;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 10px;
+@media (max-width: 428px){
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        grid-area: button-container;
+        padding: 2px;
+        /* align-items: center; */
+        }
+    }
+
+@media (min-width: 1400px){
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        grid-area: button-container;   
     }
 }
 
-@media (max-width: 428px){
-.story-container-title{
-    display: flex;
-    justify-content: center;
-    font-family: RubikDirt-Regular;
-    background-color: #031a0d82;
-    color:black;
-    border-radius: 10px;
-    margin-top: 75px;
+
+
+@media (min-width: 1400px) {
+    .story-container-title{
+        display: flex;
+        justify-content: center;
+        font-family: RubikDirt-Regular;
+        background-color: #f0e00582;
+        color:black;
+        margin-left: 22vw;
+        margin-right: 22vw;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        }
     }
-}
+
+/* The Section title for stories and ideas */
+@media (max-width: 428px){
+    .story-container-title{
+        display: flex;
+        justify-content: center;
+        font-family: RubikDirt-Regular;
+        background-color: #031a0d82;
+        color:black;
+        border-radius: 10px;
+        margin-top: 75px;
+        }
+    }
 
 .add-story-button-container{
     display: flex;
@@ -139,102 +143,115 @@
 }
 
 @media (min-width: 1400px){
-.storyUi-Container{
-    display: flex;
-    flex-direction: column;
-    background-color: #59faa15c;
-    border: solid black;
-    /* top left right bot right left */
-    /* border-radius: 20px 20px 40px 40px; */
-    border-radius: 20px;
-    /* display: grid; */
-    /* fr refers to free space */
-    /* grid-template-columns: 10fr 20fr; 
-    grid-template-rows: 10fr 10fr 10fr;
-    grid-template-areas: 
-    "s-title labels"
-    "b labels"
-    "button-container . "; */
-    /* width: 100%; */
-    margin-bottom: 3px;
-    /* display: flex; */
-    margin-left: 30vw;
-    margin-right: 30vw;
-    }
-}
-
-@media (max-width: 428px){
     .storyUi-Container{
-        background-color: #59faa1;
+        display: flex;
+        flex-direction: column;
+        background-color: #59faa15c;
         border: solid black;
         /* top left right bot right left */
         /* border-radius: 20px 20px 40px 40px; */
         border-radius: 20px;
-        display: grid;
+        /* display: grid; */
         /* fr refers to free space */
-        grid-template-columns: 50vw 25vw 25vw; 
-        grid-template-rows: 10vh 15vh 15vh 15vh 15vh;
+        /* grid-template-columns: 10fr 20fr; 
+        grid-template-rows: 10fr 10fr 10fr;
         grid-template-areas: 
-        "s-title s-title s-title"
-        "b b b"
-        "b b b"
-        "button-container button-container button-container"
-        "labels labels metrics"; 
-        padding-bottom: 10px;  
-        /* width: 100vw; */
-
+        "s-title labels"
+        "b labels"
+        "button-container . "; */
+        /* width: 100%; */
+        margin-bottom: 3px;
+        /* display: flex; */
+        margin-left: 30vw;
+        margin-right: 30vw;
+        }
     }
-    }
-
-@media (min-width: 1400px){
-.text-a{
-    display: flex;
-    grid-area: s-title;
-    height: 5vh;
-    border-radius: 10px;
-    border-top-left-radius: 18px; 
-    }
-}
 
 @media (max-width: 428px){
+    .storyUi-Container{
+        justify-content: center;
+        align-items: center;
+        background-color: #59faa1;
+        border: solid black;
+        border-radius: 20px;
+        margin: 10px;
+        display: grid;
+        /* fr refers to free space */
+        grid-template-columns: 100vw; 
+        grid-template-rows: 10vh 15vh 2vh 15vh;
+        grid-template-areas: 
+        /* "button-container button-container" */
+        "button-container"
+        "s-title"
+        "s-description"
+        "labels";
+
+    }
+    }
+
+/* story title container */
+@media (min-width: 1400px){
     .text-a{
         display: flex;
         grid-area: s-title;
-        height: 9vh;
+        height: 5vh;
         border-radius: 10px;
         border-top-left-radius: 18px; 
         }
     }
 
-@media (min-width: 1400px){
-.text-b{
-    display: flex;
-    grid-area: b;
-    height: 24vh;
-    border-radius: 10px;
+/* title */
+@media (max-width: 428px){
+    .text-a{
+        display: flex;
+        grid-area: s-title;
+        height: 5vh;
+        border-radius: 10px;
+        border-top-left-radius: 18px; 
+        border-top-right-radius: 18px;
+        margin: 5px 0 10px 0;
+        }
+    }
+
+@media (max-width: 428px) {
+    .title-description-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 }
+
+/* story description container */
+@media (min-width: 1400px){
+    .text-b{
+        display: flex;
+        grid-area: b;
+        height: 24vh;
+        border-radius: 10px;
+        }
+    }
 
 @media (max-width: 428px){
     .text-b{
         display: flex;
-        grid-area: b;
+        grid-area: s-description;
         border-radius: 10px;
+        height: 15vh;
         }
     }
 
 /*This is where the Circles are */
 @media (min-width: 1400px){
-.metric-Container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-area: metrics;
-    justify-content: space-around;
-    background-color: maroon;
-    border-radius: 20px;
+    .metric-Container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-area: metrics;
+        justify-content: space-around;
+        background-color: maroon;
+        border-radius: 20px;
+        }
     }
-}
 
 @media (max-width: 428px){
     .metric-Container{
@@ -251,17 +268,18 @@
     }
 
 @media (min-width: 1400px) {
-.metric-a, .metric-b, .metric-c{
-    border: solid black;
-    background-color: whitesmoke;
-    height: 50px;
-    width: 50px;
-    border-radius: 60%;
-    text-align: center;
-    font-weight: bold;
+    .metric-a, .metric-b, .metric-c{
+        border: solid black;
+        background-color: whitesmoke;
+        height: 50px;
+        width: 50px;
+        border-radius: 60%;
+        text-align: center;
+        font-weight: bold;
+        }
     }
-}
 
+/* circle inputs for story cards */
 @media (max-width: 428px) {
     .metric-a, .metric-b, .metric-c{
         border: solid black;
@@ -271,7 +289,7 @@
         border-radius: 60%;
         text-align: center;
         font-weight: bold;
-        width: 10vw;
+        width: 8vw;
         }
     }
 
@@ -289,29 +307,12 @@
 }
 
 @media(min-width: 1400px) {
-.label-Container{
-    grid-area: labels;
-    display: flex;
-    flex-direction: row;
-    /* display: grid; */
-    /* grid-template: 2fr 2fr 2fr/ 1fr ; */
-    align-items: center;
-    /* border: solid red; */
-    border-radius: 20px;
-    justify-content: space-evenly;
-    font-weight: bold;
-    background-color: white;
-    /* margin-top: 11px; */
-    /* margin-left: 11vw;
-    margin-right: 11vw; */
-    }
-}
-
-@media(max-width: 428px) {
     .label-Container{
         grid-area: labels;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        /* display: grid; */
+        /* grid-template: 2fr 2fr 2fr/ 1fr ; */
         align-items: center;
         /* border: solid red; */
         border-radius: 20px;
@@ -319,18 +320,41 @@
         font-weight: bold;
         background-color: white;
         /* margin-top: 11px; */
+        /* margin-left: 11vw;
+        margin-right: 11vw; */
+        }
+    }
+
+@media(max-width: 428px) {
+    .label-Container{
+        grid-area: labels;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        /* border: solid red; */
+        border-radius: 20px;
+        justify-content: center;
+        font-weight: bold;
+        background-color: white;
+        /* margin: 20px; */
+        /* margin-top: 11px; */
+        /* width: 100vw; */
+        padding: 10px;
+        margin: 20px;
         }
     }
 
 
 .story-value-scale{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
 }
 
 .shirt-size{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
 }
@@ -338,7 +362,7 @@
 .estimate{
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
