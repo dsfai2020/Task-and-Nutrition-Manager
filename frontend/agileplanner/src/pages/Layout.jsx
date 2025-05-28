@@ -5,8 +5,9 @@ import './Layout.css'
 // see routetest for more details
 
 const Layout = () => {
+  
   return (
-    <>
+    <div class='sticky-navbar'>
     <nav>
     <div class='layout'>
 
@@ -30,6 +31,18 @@ const Layout = () => {
         <div class='layout-item'>
           <li>
             <Link to="/contact" class='link'>Contact Me 📫</Link>
+          </li>
+        </div>
+
+        <div>
+          <li>
+            <button onClick={() => document.getElementById('phase-area').scrollIntoView({ behavior: 'smooth'})}>Phase Area</button>
+            <button onClick={() => document.getElementById('story-area').scrollIntoView({ behavior: 'smooth'})}>Story Area</button>
+            <button onClick={() => document.getElementById('task-area').scrollIntoView({ behavior: 'smooth'})}>Task Area</button>
+            <button onClick={() => document.getElementById('fitness-area').scrollIntoView({ behavior: 'smooth'})}>Fitness Area</button>
+            <button onClick={() => document.getElementById('timer-area').scrollIntoView({ behavior: 'smooth', scrollMarginTop: 90})}>Timer Area</button>
+            <button onClick={() => document.getElementById('12pm-area').scrollIntoView({ behavior: 'smooth'})}>12pm Area</button>
+            <button onClick={() => document.getElementById('5pm-area').scrollIntoView({ behavior: 'smooth'})}>5pm Area</button>
           </li>
         </div>
         
@@ -69,7 +82,7 @@ const Layout = () => {
     </nav>
 
       <Outlet />
-    </>
+    </div>
   )
 };
 

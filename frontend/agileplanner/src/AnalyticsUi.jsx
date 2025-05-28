@@ -416,7 +416,7 @@ export default function AnalyticsUi (props) {
         }; 
 // ----------DROP DOWN LIST OPTIONS FOR VIEW---------------
         return (
-            <div>
+            <div id='task-area'>
             {/* THIS IS THE ORDER OF THE VIEW DISPLAY */}
             <div class='AnalyticsUi-button-container'>
                 <h1>Current View: {view}</h1>

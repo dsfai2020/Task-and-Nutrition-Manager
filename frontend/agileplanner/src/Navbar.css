@@ -1,12 +1,15 @@
 .navbar{
     display: flex;
-    grid-template-rows: 100px 100px;
+    /* grid-template-rows: 100px 100px; */
     padding: 5px;
     justify-content: center;
     align-items: flex-end;
+    position: sticky;
+    top: 0;
 }
 
 .nav-item{
+    display: flex;
     text-align: center;
     font-weight: 300;
     background-color: #59ffa1;

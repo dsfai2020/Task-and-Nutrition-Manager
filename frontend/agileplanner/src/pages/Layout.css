@@ -1,3 +1,9 @@
+.sticky-navbar{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
 .layout{
     display: flex;
     justify-content: space-between;
@@ -7,10 +13,11 @@
     color: aquamarine;
     background-color: #5e76a5;
     border: solid aquamarine;
-    margin: 2px;
-    border-radius: 5%;
-    font-size: 15px
+    /* margin: 2px; */
+    border-radius: 10px;
+    font-size: 15px;
 };
+
 
 .layout-item {
     border: solid rgb(129, 217, 29);

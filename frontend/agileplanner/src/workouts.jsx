@@ -114,7 +114,7 @@ const WorkOuts = () => {
                 );
 }
         return(
-            <div class="body-metrics-container">
+            <div id='fitness-area' class="body-metrics-container">
                 <h1 class='body-metrics-title'>Body Metrics</h1>
                 {/* <br></br> */}
                 {/* <br></br> */}
