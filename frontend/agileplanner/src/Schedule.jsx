@@ -266,7 +266,12 @@ export default function Schedule({ScheduleUI}) {
                 <div class={props.arrangement}> 
                     <div class='Container-ScheduleUi-main'>
                         <ScheduleButton class='item-button-main'/>
-                        <sup class='item-daytime'>{props.morning} </sup>
+                        {(props.morning==='12am')
+                        ? <sup id='12pm-area' class='item-daytime'>{props.morning} </sup>
+                        : (props.morning==='5pm')
+                            ? <sup id='5pm-area' class='item-daytime'>{props.morning} </sup>
+                            : <sup class='item-daytime'>{props.morning} </sup>}
+                        
                         <textarea class='item-ScheduleText' type='text' value={scheduleEntry} onChange={handleEntryChange}></textarea>
                     </div>
 

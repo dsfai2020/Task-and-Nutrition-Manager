@@ -201,7 +201,7 @@
         };
         
         return (
-            <div>
+            <div id='story-area'>
                 
                 {/* <StoryUiComponent someState={someState} name='testing props'/>
                 {/* setting prop args don't require commas or semicolons */}

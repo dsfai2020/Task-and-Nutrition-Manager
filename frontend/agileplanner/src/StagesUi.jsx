@@ -145,7 +145,7 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
     const [textDisplay, setTextDisplay] =  useState()
 
     return (
-        <div class='phase-container'>
+        <div id='phase-area' class='phase-container'>
         <div class='GridTemp'>
             {/* When I click a button in the StageUi I want it to alter the display here within PhaseInfo - Using wrapper */}            
             <div class='item-c'>

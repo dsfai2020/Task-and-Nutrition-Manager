@@ -47,7 +47,7 @@ export default function Countdown (props) {
         }, [timerStatus]);
 
         return (
-            <div class='Timer-container'>
+            <div id='timer-area' class='Timer-container'>
                 <p>Time in Progress ⏳: </p>
                 <p>Hours: {hours}</p>
                 <p>Minutes: {minutes}</p>
