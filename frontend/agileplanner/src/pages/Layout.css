@@ -33,6 +33,22 @@
     justify-content: space-between;
 }
 
+.navbar-shortcuts{
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-shortcut-button{
+    border-radius: 10px;
+    border: solid;
+    border-color: #7fffd4;
+    background-color: #5e76a5;
+    opacity: 75%;
+    color: white;
+    margin: 2px;
+    filter: blur(0.5px);
+}
+
 .link{
     color: orange;
     font-weight: bold;
