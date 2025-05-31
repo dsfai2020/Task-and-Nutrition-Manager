@@ -38,6 +38,14 @@
     justify-content: center;
 }
 
+@media (max-width: 428px) {
+    .navbar-shortcuts{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
 .navbar-shortcut-button{
     border-radius: 10px;
     border: solid;
