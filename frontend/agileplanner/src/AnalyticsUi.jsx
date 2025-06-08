@@ -473,7 +473,7 @@ export function CyclingTaskList ({hrCommit}) {
                 {setCycleData(JSON.parse(storedTasks))};
             if (count % 2 ===1)  
                 {setCycleData(JSON.parse(storedEvents))} 
-        }, 5000); 
+        }, 10000); 
 
         return () => clearInterval(interval); 
     }, [count]);
