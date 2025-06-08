@@ -21,7 +21,9 @@ import StoryUi from './StoryUi.jsx';
 
 import Schedule from './Schedule.jsx';
 import CustomDND from './CustomDND.jsx';
-import AnalyticsUi from './AnalyticsUi.jsx';
+
+// import AnalyticsUi from './AnalyticsUi.jsx';
+import { TopLevelUi } from './AnalyticsUi.jsx';
 
 import Footer from './Footer.jsx';
 
@@ -42,7 +44,9 @@ root.render(
     <MyRoutes />
 
     <MiniCalendar />
-    <AnalyticsUi />
+
+    {/* <AnalyticsUi /> */}
+    <TopLevelUi />
     {/* <CustomDND /> */}
     <Schedule />
     <StoryUi />

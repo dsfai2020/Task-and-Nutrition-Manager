@@ -1,6 +1,7 @@
 import {useState, setState, useEffect} from 'react';
 import './StagesUi.css'
-
+import { render } from 'react-dom';
+import { CyclingTaskList } from './AnalyticsUi';
 
 export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
 
@@ -169,6 +170,8 @@ export function PhaseInfo ({sharedData, setSharedData, hrCommit}) {
 
             <div class='item-d'>
                 <p class='Test'>Up Next</p>
+                {/* Imported in from analyticsui */}
+                <CyclingTaskList />
             </div>
 
             <div class='item-e' >
@@ -204,3 +207,4 @@ export function StageWrapper ({hrCommit}) {
         <PhaseInfo sharedData = {sharedData} setSharedData = {setSharedData} hrCommit={hrCommit}/>
     )
 }
+
