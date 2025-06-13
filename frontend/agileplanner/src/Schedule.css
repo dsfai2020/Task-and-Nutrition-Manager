@@ -95,6 +95,7 @@
     border: solid black;
     margin-bottom: 5px;
     display: grid;
+    height: 6vh;
     justify-content: space-between;
     /* width: 100%; */
     /* Changed from 10/15/75 */
@@ -150,7 +151,7 @@
         padding: 2px;
         /* background-color: rgba(249, 180, 140, 0.674); */
         /* margin: 2px; */
-        height: 80px;
+        height: 5vh;
         border-radius: 20px 20px 20px 20px;
         border: solid grey; 
         }
@@ -172,7 +173,8 @@
     /* margin-left: 10px; */
     /* margin-top: 10px;
     margin-bottom: 10px; */
-    margin: 10px;
+    /* margin: 10px; */
+    height: 5vh;
     }
 }
 
