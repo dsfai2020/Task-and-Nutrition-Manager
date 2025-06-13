@@ -262,9 +262,9 @@ task-container{
     position: relative;
     z-index: 1;
     overflow: hidden;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 20px 20px;
+    /* padding: 10px;
+    margin: 10px; */
+    /* border-radius: 20px 20px 20px 20px; */
     border: solid grey;
     
 }
@@ -278,9 +278,9 @@ task-container{
     color: red;
     height: 100%;
     overflow: hidden;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 20px 20px;
+    /* padding: 10px; */
+    /* margin: 10px; */
+    /* border-radius: 20px 20px 20px 20px; */
     border: solid grey;
 }
 
