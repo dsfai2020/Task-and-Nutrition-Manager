@@ -59,7 +59,7 @@ export function TopLevelUi() {
     return (
         <div class='AnalyticsUiContainer'>
 
-            <div class='AnalyticsUi-idea-cap'> 
+            <div class='timer-container'> 
                 <h1>Available Hours For Today: {hrCommit}</h1>
                     <select class='AnalyticsUi-Interval-item' value={hrCommit} onChange={HandleCommit}>
                         {/* <option value='1'>1</option> */}
@@ -71,12 +71,8 @@ export function TopLevelUi() {
                         <option>13</option>
                         <option>21</option>
                     </select>
-
-{/* ------------------------------------------------------------------------------ */}
-                <Countdown hrCommit={hrCommit}/>
-                
+                <Countdown hrCommit={hrCommit}/>    
             </div>   
-            <StageWrapper hrCommit={hrCommit} />
 
             <div class='AnalyticsUi-Exp'>
                 <h1>Experience Points</h1>
@@ -85,7 +81,18 @@ export function TopLevelUi() {
                 <ExpComponent />
             </div>
 
-            <EventLists tabView='' />
+            <div class='task-container'>
+                <EventLists tabView='' />
+            </div>
+
+            <div class='phase-container'>
+            <StageWrapper hrCommit={hrCommit} />
+            </div>
+
+            <div class='blank'>
+            </div>
+            <div class='blank-2'>
+            </div>
         </div>         
 
 

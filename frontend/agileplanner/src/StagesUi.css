@@ -44,6 +44,9 @@
     border-radius: 10px;
     border-color: grey;
     background-color: rgba(249, 180, 140, 0.674);
+    /* width: 25vw; */
+    /* This sets the size of the columns */
+    grid-template-columns: 20% 45% 35%;
     grid-template-areas: 
         "a a a" 
         "e c d"

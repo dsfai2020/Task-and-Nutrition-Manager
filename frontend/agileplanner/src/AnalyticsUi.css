@@ -12,16 +12,47 @@ border: solid grey; */
     flex-direction: column;
 }
 
-.AnalyticsUiContainer{
-    display: flex;
-    /* border: solid; */
-    flex-direction: column;
-    position: relative;
-    z-index: 5;
-    background-color: rgba(167, 197, 239, 0.892);
+@media(max-width: 428px) {
+    .AnalyticsUiContainer{
+        display: flex;
+        /* border: solid; */
+        flex-direction: column;
+        position: relative;
+        z-index: 5;
+        background-color: rgba(167, 197, 239, 0.892);
+        }
+    }
+
+.blank{
+    grid-area: blank;
 }
 
-.AnalyticsUi-idea-cap{
+.blank-2{
+    grid-area: blank2;
+}
+
+@media(min-width: 1400px) {
+    .AnalyticsUiContainer{
+        display: grid;
+        /* border: solid; */
+        /* flex-direction: row-reverse; */
+        grid-template-columns: 25% 50% 25%;
+        grid-template-areas:
+        'blank2 tasks blank'
+        'timer phase exp'
+        'timer phase exp'
+        ;
+        position: relative;
+        z-index: 5;
+        background-color: rgba(167, 197, 239, 0.892);
+        }
+    }
+
+.phase-container{
+    grid-area: phase;
+}
+
+.timer-container{
     display: flex;
     /* width: 100%; */
     flex-direction: column;
@@ -32,6 +63,29 @@ border: solid grey; */
     border: solid grey;
     justify-content: center;
     align-items: center;
+}
+
+@media(min-width: 1400px){
+    .timer-container{
+        display: flex;
+        /* width: 100%; */
+        flex-direction: column;
+        padding: 10px;
+        background-color: rgba(161, 230, 195, 0.866);
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey;
+        justify-content: center;
+        align-items: center;
+        /* height: 40vh; */
+        grid-area: timer;
+        }
+}
+
+@media(min-width: 1400px){
+task-container{
+    grid-area: tasks;
+    }
 }
 
 .AnalyticsUi-button-container{
@@ -137,15 +191,17 @@ border: solid grey; */
     color: rgba(4, 40, 90, 0.674);
 }
 
-.Event-container, .Event-item{
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 20px 20px;
-    /* border: solid grey; */
-    
+@media(min-width: 1400px){
+    .Event-container{
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        grid-area: tasks;
+        /* border: solid grey; */
+        }
 }
 
 .Event-item{
@@ -170,15 +226,32 @@ border: solid grey; */
     align-items: center;
 }
 
-.AnalyticsUi-Exp{
-    /* width: 100%; */
-    display: flex;
-    flex-direction: column;
-    background-color: #59faa1;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px 20px 20px 20px;
-    border: solid grey;
+@media(min-width: 1400px) {
+    .AnalyticsUi-Exp{
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        background-color: #59faa1;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey;
+        height: 40vh;
+        grid-area: exp;
+        }
+}
+
+@media(max-width: 428px) {
+    .AnalyticsUi-Exp{
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        background-color: #59faa1;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey;
+        }
 }
 
 .Exp-Bar-Container{

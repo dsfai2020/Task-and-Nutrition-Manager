@@ -57,7 +57,7 @@
     height: 20px;
     width: 20px;
     align-self: flex-start;
-    background-color: #00a62a;
+    background-color: #07f342;
     }
 
 
@@ -67,7 +67,7 @@
     height: 20px;
     width: 20px;
     align-self: flex-end;
-    background-color: yellow;
+    background-color: rgb(182, 182, 5);
 }
 
 .scheduleButtonOff{

@@ -44,9 +44,11 @@ root.render(
     <MyRoutes />
 
     <MiniCalendar />
-
+    
     {/* <AnalyticsUi /> */}
+    {/* Tasks, phase and Exp all contained in TopLevelUi (housed in the AnalyticsUi) - It contains StagesUi and AnalyticsUi in one.*/}
     <TopLevelUi />
+
     {/* <CustomDND /> */}
     <Schedule />
     <StoryUi />
