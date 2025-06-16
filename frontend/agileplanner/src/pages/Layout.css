@@ -2,25 +2,59 @@
     position: sticky;
     top: 0;
     z-index: 99;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    justify-content: center;
 }
 
 
-.layout{
-    display: flex;
+@media (max-width: 1700px){
+    .layout-grid{
+    display: grid;
+    /* justify-content: space-between; */
+    padding: 5px;
+    /* justify-content: center; */
+    color: aquamarine;
+    background-color: #5e76a5;
+    border: solid aquamarine;
+    border-radius: 10px;
+    font-size: 15px;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 
+    'nav-list exp-area'
+    'navbar-shortcuts navbar-shortcuts';
+    }
+}
+
+@media (max-width: 1400px){
+.layout-grid{
+    display: grid;
     justify-content: space-between;
-    /* grid-template-rows: 100px 100px; */
     padding: 5px;
     justify-content: center;
     color: aquamarine;
     background-color: #5e76a5;
     border: solid aquamarine;
-    /* margin: 2px; */
     border-radius: 10px;
     font-size: 15px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    'nav-list exp-area'
+    'navbar-shortcuts navbar-shortcuts';
+    }
 };
 
+.nav-list{
+    grid-area: nav-list;
+}
 
-.layout-item {
+.exp-area{
+    grid-area: exp-area;
+}
+
+
+.layout-item .nav-list{
     border: solid rgb(129, 217, 29);
     display: flex;
     justify-content: flex-start;
@@ -37,6 +71,7 @@
 .navbar-shortcuts{
     display: flex;
     justify-content: center;
+    grid-area: navbar-shortcuts
 }
 
 @media (max-width: 428px) {
@@ -64,7 +99,7 @@
 }
 
 .home{
-    color: white;
+    color: orange;
     font-weight: bold;
     font-size: 20px;
 }

@@ -1,0 +1,63 @@
+
+@media(min-width: 1400px) {
+    .Exp{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #038859;
+        padding: 10px;
+        /* margin: 10px; */
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey;
+        /* height: 40vh; */
+        grid-area: exp;
+        }
+}
+
+.exp-text-area{
+    width: 100%;
+}
+
+@media(max-width: 428px) {
+    .Exp{
+        /* width: 100%; */
+        display: flex;
+        flex-direction: column;
+        background-color: #06acac;
+        padding: 10px;
+        /* margin: 10px; */
+        border-radius: 20px 20px 20px 20px;
+        border: solid grey;
+        grid-area: exp;
+        }
+}
+
+.Exp-Bar-Container{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(238, 170, 13, 0.674);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;    
+    /* padding: 10px;
+    margin: 10px; */
+    /* border-radius: 20px 20px 20px 20px; */
+    border: solid grey;
+}
+
+.Exp-Fill{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    position: absolute;
+    z-index: 3;
+    color: red;
+    height: 100%;
+    overflow: hidden;
+    /* padding: 10px; */
+    /* margin: 10px; */
+    /* border-radius: 20px 20px 20px 20px; */
+    border: solid grey;
+}
+

@@ -10,34 +10,6 @@ import { json } from 'react-router-dom';
     
 export function TopLevelUi() {
 
-    const [exp, setExp] = useState(45);
-
-    const [level, setLevel] = useState(1);
-
-    const handleExp = (e) => {
-        setExp(e.target.value)
-        if (exp>=100) {
-            setExp(0)
-            setLevel(level + 1)
-        }
-    };
-
-    function ExpComponent(){
-        return(
-            <div>
-                <div class='Exp-Bar-Container'>
-                    <h1 class='Exp-Fill' style={{width: `${exp}%`, backgroundColor: 'blue'}}></h1>
-                    <h1 style={{zIndex: '99', height: '1vh', fontSize: '15px', alignSelf: 'center'}}>{exp} XP</h1>
-                </div>
-
-                <div>
-                    <h1>Level: {level}</h1>
-                </div>
-            </div>
-        )
-    };
-
-
 //------------------------------------ HOUR COMMIT ------------------------------------
     const [hrCommit, setHrCommit] = useState(['SAMPLE']);
 
@@ -86,12 +58,7 @@ export function TopLevelUi() {
                 <Countdown hrCommit={hrCommit}/>    
             </div>   
 
-            <div class='AnalyticsUi-Exp'>
-                <h1>Experience Points</h1>
-                <textarea placeholder='coming soon' onChange={handleExp} value={exp}></textarea>
-                <p>Level: Coming Soon</p>
-                <ExpComponent />
-            </div>
+            {/* <ExpComponent /> */}
 
             <div class='task-container'>
                 <EventLists tabView='' />
@@ -508,7 +475,5 @@ export function CyclingTaskList ({hrCommit}) {
     )
 
 }
-
-
 
 
