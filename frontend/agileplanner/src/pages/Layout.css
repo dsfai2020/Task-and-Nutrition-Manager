@@ -40,32 +40,51 @@
     font-size: 15px;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
-    'nav-list exp-area'
+    '. exp-area'
     'navbar-shortcuts navbar-shortcuts';
     }
 };
 
 .nav-list{
     grid-area: nav-list;
+    display: flex;
+    flex-direction: row;
+    color: #5e76a5;
+    background-color: red;
 }
+
+
+.link{
+    color: orange;
+    font-weight: bold;
+}
+
+.home{
+    color: orange;
+    font-weight: bold;
+    font-size: 20px;
+} 
 
 .exp-area{
     grid-area: exp-area;
 }
 
+.empty-space{
+    grid-area: empty1;
+}
 
-.layout-item .nav-list{
-    border: solid rgb(129, 217, 29);
+.layout-item {
+    border: solid rgb(193, 216, 237);
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: center;
     text-align: center;
     font-weight: normal;
-    background-color: rgb(21, 194, 213);
-    flex-direction: row;
-    font-size: 25px;
+    background-color: rgb(3, 46, 63);
+    flex-direction: column;
+    font-size: 15px;
     padding: 7px;
     justify-content: space-between;
+    width: 10vw;
 }
 
 .navbar-shortcuts{
@@ -93,15 +112,6 @@
     filter: blur(0.5px);
 }
 
-.link{
-    color: orange;
-    font-weight: bold;
-}
 
-.home{
-    color: orange;
-    font-weight: bold;
-    font-size: 20px;
-}
 
 /* Kit -- #5e76a5 orange yellow(rgb(225, 216, 46); white  */

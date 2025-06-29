@@ -22,11 +22,9 @@ export function ExpComponent(){
                 <h3>Level: {level}</h3>
             </div>
 
-            <h5>EXP</h5>
-
             <div class='Exp-Bar-Container'>
                 <h1 class='Exp-Fill' style={{width: `${exp}%`, backgroundColor: 'blue'}}></h1>
-                <h1 style={{zIndex: '99', height: '1vh', fontSize: '15px', alignSelf: 'center'}}>{exp} XP</h1>
+                <h1 style={{zIndex: '99', height: '1vh', fontSize: '15px', alignSelf: 'center'}}>{exp} EXP</h1>
             </div>
 
             <div>
