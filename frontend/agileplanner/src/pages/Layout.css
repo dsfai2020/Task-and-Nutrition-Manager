@@ -38,10 +38,10 @@
     border: solid aquamarine;
     border-radius: 10px;
     font-size: 15px;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
     grid-template-areas: 
-    '. exp-area'
-    'navbar-shortcuts navbar-shortcuts';
+    'navbar-shortcuts exp-area'
+    /* 'navbar-shortcuts navbar-shortcuts'; */
     }
 };
 
@@ -89,15 +89,16 @@
 
 .navbar-shortcuts{
     display: flex;
-    justify-content: center;
-    grid-area: navbar-shortcuts
+    grid-area: navbar-shortcuts;
 }
 
 @media (max-width: 428px) {
     .navbar-shortcuts{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
+        flex-direction: row;
+        /* height: 1vh; */
     }
 }
 
@@ -110,6 +111,7 @@
     color: white;
     margin: 2px;
     filter: blur(0.5px);
+    font-size: 13px;
 }
 
 
