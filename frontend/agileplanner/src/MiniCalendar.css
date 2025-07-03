@@ -46,6 +46,7 @@ If you want to make changes to it, look there first. */
         height: 10vw;
         font-size: 12px;
         color: Green;
+        font-family: FrederickatheGreat-Regular;
         }
 }
 
@@ -55,6 +56,7 @@ If you want to make changes to it, look there first. */
         height: 10vw;
         font-size: 12px;
         color: white;
+        font-family: FrederickatheGreat-Regular;
         }
     }
 
@@ -121,10 +123,12 @@ If you want to make changes to it, look there first. */
     height: 10vw;
     width: 10vw;
     border: solid black;
-    align-items: flex-start;
+    align-self: center;
     justify-content: center;
     padding: 2px;
+    font-size: 12px;
     margin: 2px;
+    font-family: FrederickatheGreat-Regular;
     }
 }
 
@@ -155,5 +159,7 @@ If you want to make changes to it, look there first. */
     justify-content: center;
     padding: 2px;
     margin: 2px;
+    font-size: 12px;
+    font-family: FrederickatheGreat-Regular;
     }
 };

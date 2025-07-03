@@ -16,6 +16,19 @@ export function ExpComponent(){
         }
     };
 
+    useEffect(()=>{
+        try {const a = localStorage.getItem('userExp');
+        const b = JSON.parse(a)}
+
+        catch (error) {
+            console.log(error)
+        }
+
+        finally {
+
+        }
+    },[])
+
     return(
         <div class='Exp'>
             <div>
