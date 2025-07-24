@@ -36,9 +36,10 @@ import './ThemeTesting.css'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-    <div class="item-header">
+    <head class="item-header">
+        <meta name="theme-color" content="#FF0000" />
         <Header />
-    </div>
+    </head>
     {/* <Navbar /> */}
     {/* <GoogleCalendarButton /> */}
     <MyRoutes />
