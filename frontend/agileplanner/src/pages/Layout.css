@@ -11,19 +11,16 @@
 
 @media (max-width: 1700px){
     .layout-grid{
-    display: grid;
-    /* justify-content: space-between; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 5px;
-    /* justify-content: center; */
     color: aquamarine;
     background-color: #5e76a5;
     border: solid aquamarine;
     border-radius: 10px;
     font-size: 15px;
-    grid-template-columns: 80% 20%;
-    grid-template-areas: 
-    'nav-list exp-area'
-    'navbar-shortcuts navbar-shortcuts';
     }
 }
 
@@ -114,6 +111,12 @@
     font-size: 13px;
 }
 
+#story-area, #phase-area, #task-area, #timer-area{
+    scroll-margin-top: 100px;
+}
 
+#twelve-pm-area, #five-pm-area{
+    scroll-margin-top: 120px;
+}
 
 /* Kit -- #5e76a5 orange yellow(rgb(225, 216, 46); white  */

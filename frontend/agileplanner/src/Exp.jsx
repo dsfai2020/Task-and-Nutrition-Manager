@@ -32,7 +32,7 @@ export function ExpComponent(){
     return(
         <div class='Exp'>
             <div>
-                <h3>Level: {level}</h3>
+                <h6>Level: {level}</h6>
             </div>
 
             <div class='Exp-Bar-Container'>

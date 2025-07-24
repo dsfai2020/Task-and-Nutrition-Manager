@@ -3,7 +3,7 @@
     .Exp{
         width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         background-color: #038859;
         padding: 10px;
         /* margin: 10px; */

@@ -40,11 +40,11 @@ const Layout = () => {
           <div class='navbar-shortcuts'>
             <button class='navbar-shortcut-button' onClick={() => document.getElementById('phase-area').scrollIntoView({ behavior: 'smooth'})}>Phase Area</button>
             <button class='navbar-shortcut-button' onClick={() => document.getElementById('task-area').scrollIntoView({ behavior: 'smooth'})}>Task Area</button>
-            <button class='navbar-shortcut-button' onClick={() => document.getElementById('story-area').scrollIntoView({ behavior: 'smooth'})}>Story Area</button>
             {/* <button class='navbar-shortcut-button' onClick={() => document.getElementById('fitness-area').scrollIntoView({ behavior: 'smooth'})}>Fitness Area</button> */}
             <button class='navbar-shortcut-button' onClick={() => document.getElementById('timer-area').scrollIntoView({ behavior: 'smooth', scrollMarginTop: 90})}>Timer Area</button>
-            <button class='navbar-shortcut-button' onClick={() => document.getElementById('12pm-area').scrollIntoView({ behavior: 'smooth'})}>12pm Area</button>
-            <button class='navbar-shortcut-button' onClick={() => document.getElementById('5pm-area').scrollIntoView({ behavior: 'smooth'})}>5pm Area</button>
+            <button class='navbar-shortcut-button' onClick={() => document.getElementById('twelve-pm-area').scrollIntoView({ behavior: 'smooth'})}>12pm Area</button>
+            <button class='navbar-shortcut-button' onClick={() => document.getElementById('five-pm-area').scrollIntoView({ behavior: 'smooth'})}>5pm Area</button>
+            <button class='navbar-shortcut-button' onClick={() => document.getElementById('story-area').scrollIntoView({ behavior: 'smooth'})}>Story Area</button>
           </div>
   
       </div>
