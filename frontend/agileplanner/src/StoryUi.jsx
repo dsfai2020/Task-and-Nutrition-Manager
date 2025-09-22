@@ -222,7 +222,6 @@
                 <div class='add-story-button-container'>
                     <AddAnother name='dynamic'/>
                     {/* {someList.map((item)=>{return <StoryUiComponent StoryUiCss={'storyUi-Container-alternate'} name={counter} index={counter} estimate={null} value={null} size={null} description=''/>})} */}
-                    <AddAnother name='dynamic'/>
                 </div>
             </div>
         )
